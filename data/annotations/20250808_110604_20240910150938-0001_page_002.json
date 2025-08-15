@@ -1,0 +1,121 @@
+{
+  "file_name": "20250808_110604_20240910150938-0001_page_002.png",
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "item_00001",
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512221368",
+          "bbox": [
+            2163,
+            100,
+            220,
+            42
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00002",
+      "labels": [
+        {
+          "label": "Shipping line",
+          "text": "D4700001",
+          "bbox": [
+            158,
+            1311,
+            169,
+            50
+          ]
+        },
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU K5-1 AOKI 731-48229",
+          "bbox": [
+            323,
+            1308,
+            578,
+            43
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00003",
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            139,
+            1700,
+            108,
+            42
+          ]
+        },
+        {
+          "label": "Part number",
+          "text": "A1612JD-09",
+          "bbox": [
+            447,
+            1700,
+            256,
+            42
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00004",
+      "labels": [
+        {
+          "label": "Delivery date",
+          "text": "11-05-2024",
+          "bbox": [
+            823,
+            1800,
+            217,
+            42
+          ]
+        },
+        {
+          "label": "Quantity",
+          "text": "200.000 ST",
+          "bbox": [
+            1244,
+            1800,
+            170,
+            42
+          ]
+        },
+        {
+          "label": "Unit price",
+          "text": "3.9700",
+          "bbox": [
+            1723,
+            1800,
+            115,
+            42
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00005",
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "794.00",
+          "bbox": [
+            2171,
+            2110,
+            83,
+            58
+          ]
+        }
+      ]
+    }
+  ]
+}

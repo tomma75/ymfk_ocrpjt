@@ -1,0 +1,200 @@
+{
+  "filename": "20250808_110604_20240909165721-0001.pdf",
+  "filepath": "20250808_110604_20240909165721-0001.pdf",
+  "pageNumber": 1,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "item_00001",
+      "y_position": 58,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512221547",
+          "bbox": [
+            2176,
+            58,
+            220,
+            45
+          ]
+        }
+      ],
+      "item_number": "4512221547"
+    },
+    {
+      "group_id": "item_00002",
+      "y_position": 1084,
+      "labels": [
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            2052,
+            1084,
+            304,
+            124
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00003",
+      "y_position": 1304,
+      "labels": [
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU K5-1 AOKI 731-48229",
+          "bbox": [
+            1612,
+            1304,
+            800,
+            130
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00004",
+      "y_position": 1657,
+      "labels": [
+        {
+          "label": "Part number",
+          "text": "F9138YA",
+          "bbox": [
+            258,
+            1657,
+            172,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00005",
+      "y_position": 1774,
+      "labels": [
+        {
+          "label": "Shipping date",
+          "text": "10-07-2024",
+          "bbox": [
+            582,
+            1774,
+            200,
+            55
+          ]
+        },
+        {
+          "label": "Quantity",
+          "text": "30.000 ST",
+          "bbox": [
+            1011,
+            1775,
+            219,
+            60
+          ]
+        },
+        {
+          "label": "Unit price",
+          "text": "46.7500",
+          "bbox": [
+            1674,
+            1781,
+            150,
+            60
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00006",
+      "y_position": 2090,
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "Total 1,402.50",
+          "bbox": [
+            1274,
+            2090,
+            1100,
+            50
+          ]
+        }
+      ]
+    }
+  ],
+  "total_groups": 6,
+  "bboxes": [
+    {
+      "x": 2176,
+      "y": 58,
+      "width": 220,
+      "height": 45,
+      "label": "Order number",
+      "text": "4512221547",
+      "group_id": "item_00001"
+    },
+    {
+      "x": 1612,
+      "y": 1304,
+      "width": 800,
+      "height": 130,
+      "label": "Case mark",
+      "text": "YMG KOFU K5-1 AOKI 731-48229",
+      "group_id": "item_00003"
+    },
+    {
+      "x": 2052,
+      "y": 1084,
+      "width": 304,
+      "height": 124,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "item_00002"
+    },
+    {
+      "x": 258,
+      "y": 1657,
+      "width": 172,
+      "height": 52,
+      "label": "Part number",
+      "text": "F9138YA",
+      "group_id": "item_00004"
+    },
+    {
+      "x": 582,
+      "y": 1774,
+      "width": 200,
+      "height": 55,
+      "label": "Shipping date",
+      "text": "10-07-2024",
+      "group_id": "item_00005"
+    },
+    {
+      "x": 1011,
+      "y": 1775,
+      "width": 219,
+      "height": 60,
+      "label": "Quantity",
+      "text": "30.000 ST",
+      "group_id": "item_00005"
+    },
+    {
+      "x": 1674,
+      "y": 1781,
+      "width": 150,
+      "height": 60,
+      "label": "Unit price",
+      "text": "46.7500",
+      "group_id": "item_00005"
+    },
+    {
+      "x": 1274,
+      "y": 2090,
+      "width": 1100,
+      "height": 50,
+      "label": "Net amount (total)",
+      "text": "Total 1,402.50",
+      "group_id": "item_00006"
+    }
+  ]
+}

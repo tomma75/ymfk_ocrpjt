@@ -1,0 +1,181 @@
+{
+  "filename": "20250808_110604_20240909165721-0001.pdf",
+  "filepath": "20250808_110604_20240909165721-0001.pdf",
+  "pageNumber": 2,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "item_00001",
+      "y_position": 75,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512220372",
+          "bbox": [
+            2183,
+            75,
+            220,
+            45
+          ]
+        }
+      ],
+      "item_number": "4512220372"
+    },
+    {
+      "group_id": "item_00002",
+      "y_position": 1127,
+      "labels": [
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            2064,
+            1127,
+            280,
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00003",
+      "y_position": 1343,
+      "labels": [
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU K5-1 AOKI 731-48229",
+          "bbox": [
+            1631,
+            1343,
+            800,
+            130
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00004",
+      "y_position": 1648,
+      "labels": [
+        {
+          "label": "Part number",
+          "text": "L4062CA",
+          "bbox": [
+            257,
+            1648,
+            169,
+            47
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00005",
+      "y_position": 1764,
+      "labels": [
+        {
+          "label": "Shipping date",
+          "text": "11-01-2024",
+          "bbox": [
+            582,
+            1764,
+            200,
+            55
+          ]
+        },
+        {
+          "label": "Quantity",
+          "text": "96.000 ST",
+          "bbox": [
+            1033,
+            1777,
+            180,
+            60
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00006",
+      "y_position": 2092.2890625,
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "Total 393.60",
+          "bbox": [
+            1290.796875,
+            2092.2890625,
+            1072,
+            82
+          ]
+        }
+      ]
+    }
+  ],
+  "total_groups": 6,
+  "bboxes": [
+    {
+      "x": 2183,
+      "y": 75,
+      "width": 220,
+      "height": 45,
+      "label": "Order number",
+      "text": "4512220372",
+      "group_id": "item_00001"
+    },
+    {
+      "x": 1631,
+      "y": 1343,
+      "width": 800,
+      "height": 130,
+      "label": "Case mark",
+      "text": "YMG KOFU K5-1 AOKI 731-48229",
+      "group_id": "item_00003"
+    },
+    {
+      "x": 2064,
+      "y": 1127,
+      "width": 280,
+      "height": 120,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "item_00002"
+    },
+    {
+      "x": 257,
+      "y": 1648,
+      "width": 169,
+      "height": 47,
+      "label": "Part number",
+      "text": "L4062CA",
+      "group_id": "item_00004"
+    },
+    {
+      "x": 582,
+      "y": 1764,
+      "width": 200,
+      "height": 55,
+      "label": "Shipping date",
+      "text": "11-01-2024",
+      "group_id": "item_00005"
+    },
+    {
+      "x": 1033,
+      "y": 1777,
+      "width": 180,
+      "height": 60,
+      "label": "Quantity",
+      "text": "96.000 ST",
+      "group_id": "item_00005"
+    },
+    {
+      "x": 1290.796875,
+      "y": 2092.2890625,
+      "width": 1072,
+      "height": 82,
+      "label": "Net amount (total)",
+      "text": "Total 393.60",
+      "group_id": "item_00006"
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "filename": "20250808_105512_20240909164318-0001.pdf",
+  "filepath": "20250808_105512_20240909164318-0001.pdf",
+  "pageNumber": 1,
+  "class": "purchase_order",
+  "bboxes": [
+    {
+      "x": 2141,
+      "y": 85,
+      "width": 208,
+      "height": 42,
+      "label": "Order number",
+      "text": "4512220889"
+    },
+    {
+      "x": 285,
+      "y": 1292,
+      "width": 600,
+      "height": 49,
+      "label": "Case mark",
+      "text": "ISHIKAWA EXT:731-48177LOC:K70-4"
+    },
+    {
+      "x": 108,
+      "y": 1290,
+      "width": 173,
+      "height": 49,
+      "label": "Shipping line",
+      "text": "C5800002"
+    },
+    {
+      "x": 75,
+      "y": 1696,
+      "width": 330,
+      "height": 49,
+      "label": "Part number",
+      "text": "A2240JT"
+    },
+    {
+      "x": 559,
+      "y": 1803,
+      "width": 196,
+      "height": 52,
+      "label": "Shipping date",
+      "text": "10-21-2024"
+    },
+    {
+      "x": 1016,
+      "y": 1802,
+      "width": 178,
+      "height": 58,
+      "label": "Quantity",
+      "text": "1.000 ST"
+    },
+    {
+      "x": 1639,
+      "y": 1805,
+      "width": 163,
+      "height": 56,
+      "label": "Unit price",
+      "text": "144.1000"
+    },
+    {
+      "x": 1291,
+      "y": 2115.21875,
+      "width": 1090,
+      "height": 46,
+      "label": "Net amount (total)",
+      "text": "Total 144.10"
+    }
+  ],
+  "items": [
+    {
+      "group_id": "header_00001",
+      "type": "header",
+      "y_position": 85,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512220889",
+          "bbox": [
+            2141,
+            85,
+            208,
+            42
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "header_00002",
+      "type": "header",
+      "y_position": 1290,
+      "labels": [
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            108,
+            1290,
+            173,
+            49
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "header_00003",
+      "type": "header",
+      "y_position": 1292,
+      "labels": [
+        {
+          "label": "Case mark",
+          "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
+          "bbox": [
+            285,
+            1292,
+            600,
+            49
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00004",
+      "type": "item",
+      "y_position": 1696,
+      "labels": [
+        {
+          "label": "Part number",
+          "text": "A2240JT",
+          "bbox": [
+            75,
+            1696,
+            330,
+            49
+          ]
+        },
+        {
+          "label": "Shipping date",
+          "text": "10-21-2024",
+          "bbox": [
+            559,
+            1803,
+            196,
+            52
+          ]
+        },
+        {
+          "label": "Quantity",
+          "text": "1.000 ST",
+          "bbox": [
+            1016,
+            1802,
+            178,
+            58
+          ]
+        },
+        {
+          "label": "Unit price",
+          "text": "144.1000",
+          "bbox": [
+            1639,
+            1805,
+            163,
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "summary_00004",
+      "type": "summary",
+      "y_position": 2115.21875,
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "Total 144.10",
+          "bbox": [
+            1291,
+            2115.21875,
+            1090,
+            46
+          ]
+        }
+      ]
+    }
+  ],
+  "total_groups": 5,
+  "group_summary": {
+    "total_items": 1,
+    "total_headers": 3,
+    "total_summaries": 1,
+    "item_numbers": [
+      "unknown"
+    ]
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "filename": "20250808_110605_20240919164237-0001.pdf",
+  "filepath": "20250808_110605_20240919164237-0001.pdf",
+  "pageNumber": 1,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "item_00001",
+      "y_position": 71,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512244899",
+          "bbox": [
+            2170,
+            71,
+            208,
+            42
+          ]
+        }
+      ],
+      "item_number": "4512244899"
+    },
+    {
+      "group_id": "item_00002",
+      "y_position": 1034,
+      "labels": [
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            1996,
+            1034,
+            274,
+            116
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00003",
+      "y_position": 1342,
+      "labels": [
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU K5-1 40KI 731-48229",
+          "bbox": [
+            1645,
+            1342,
+            731,
+            144
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00004",
+      "y_position": 1690,
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            98,
+            1690,
+            110,
+            52
+          ]
+        }
+      ],
+      "item_number": "00010"
+    },
+    {
+      "group_id": "item_00005",
+      "y_position": 1729,
+      "labels": [
+        {
+          "label": "Part number",
+          "text": "A6075VD-11",
+          "bbox": [
+            446,
+            1729,
+            227,
+            43
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00006",
+      "y_position": 1804,
+      "labels": [
+        {
+          "label": "Shipping date",
+          "text": "10-11-2024",
+          "bbox": [
+            588,
+            1804,
+            196,
+            52
+          ]
+        },
+        {
+          "label": "Quantity",
+          "text": "46.000 ST",
+          "bbox": [
+            1030,
+            1804,
+            195,
+            58
+          ]
+        },
+        {
+          "label": "Unit price",
+          "text": "0.0800",
+          "bbox": [
+            1692,
+            1810,
+            115,
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00007",
+      "y_position": 2108,
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "Total 3.68",
+          "bbox": [
+            1285,
+            2108,
+            1090,
+            46
+          ]
+        }
+      ]
+    }
+  ],
+  "total_groups": 7,
+  "bboxes": [
+    {
+      "x": 2170,
+      "y": 71,
+      "width": 208,
+      "height": 42,
+      "label": "Order number",
+      "text": "4512244899",
+      "group_id": "item_00001"
+    },
+    {
+      "x": 1645,
+      "y": 1342,
+      "width": 731,
+      "height": 144,
+      "label": "Case mark",
+      "text": "YMG KOFU K5-1 40KI 731-48229",
+      "group_id": "item_00003"
+    },
+    {
+      "x": 1996,
+      "y": 1034,
+      "width": 274,
+      "height": 116,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "item_00002"
+    },
+    {
+      "x": 98,
+      "y": 1690,
+      "width": 110,
+      "height": 52,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "item_00004"
+    },
+    {
+      "x": 446,
+      "y": 1729,
+      "width": 227,
+      "height": 43,
+      "label": "Part number",
+      "text": "A6075VD-11",
+      "group_id": "item_00005"
+    },
+    {
+      "x": 588,
+      "y": 1804,
+      "width": 196,
+      "height": 52,
+      "label": "Shipping date",
+      "text": "10-11-2024",
+      "group_id": "item_00006"
+    },
+    {
+      "x": 1030,
+      "y": 1804,
+      "width": 195,
+      "height": 58,
+      "label": "Quantity",
+      "text": "46.000 ST",
+      "group_id": "item_00006"
+    },
+    {
+      "x": 1692,
+      "y": 1810,
+      "width": 115,
+      "height": 56,
+      "label": "Unit price",
+      "text": "0.0800",
+      "group_id": "item_00006"
+    },
+    {
+      "x": 1285,
+      "y": 2108,
+      "width": 1090,
+      "height": 46,
+      "label": "Net amount (total)",
+      "text": "Total 3.68",
+      "group_id": "item_00007"
+    }
+  ]
+}

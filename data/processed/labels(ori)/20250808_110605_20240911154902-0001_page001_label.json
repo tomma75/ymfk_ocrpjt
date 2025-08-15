@@ -1,0 +1,220 @@
+{
+  "filename": "20250808_110605_20240911154902-0001.pdf",
+  "filepath": "20250808_110605_20240911154902-0001.pdf",
+  "pageNumber": 1,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "item_00001",
+      "y_position": 85,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512228061",
+          "bbox": [
+            2169,
+            85,
+            208,
+            42
+          ]
+        }
+      ],
+      "item_number": "4512228061"
+    },
+    {
+      "group_id": "item_00002",
+      "y_position": 1189,
+      "labels": [
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+          "bbox": [
+            171,
+            1189,
+            798,
+            130
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00003",
+      "y_position": 1321,
+      "labels": [
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            600,
+            1321,
+            274,
+            116
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00004",
+      "y_position": 1700,
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            109,
+            1700,
+            110,
+            52
+          ]
+        },
+        {
+          "label": "Part number",
+          "text": "A1612JD-09",
+          "bbox": [
+            263,
+            1703,
+            256,
+            45
+          ]
+        }
+      ],
+      "item_number": "00010"
+    },
+    {
+      "group_id": "item_00005",
+      "y_position": 1803,
+      "labels": [
+        {
+          "label": "Shipping date",
+          "text": "10-11-2024",
+          "bbox": [
+            589,
+            1812,
+            196,
+            52
+          ]
+        },
+        {
+          "label": "Quantity",
+          "text": "8.000 ST",
+          "bbox": [
+            1053,
+            1803,
+            178,
+            58
+          ]
+        },
+        {
+          "label": "Unit price",
+          "text": "3.9700",
+          "bbox": [
+            1687,
+            1810,
+            142,
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00006",
+      "y_position": 2119,
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "Total 31.76",
+          "bbox": [
+            1276,
+            2119,
+            1090,
+            46
+          ]
+        }
+      ]
+    }
+  ],
+  "total_groups": 6,
+  "bboxes": [
+    {
+      "x": 2169,
+      "y": 85,
+      "width": 208,
+      "height": 42,
+      "label": "Order number",
+      "text": "4512228061",
+      "group_id": "item_00001"
+    },
+    {
+      "x": 171,
+      "y": 1189,
+      "width": 798,
+      "height": 130,
+      "label": "Case mark",
+      "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+      "group_id": "item_00002"
+    },
+    {
+      "x": 600,
+      "y": 1321,
+      "width": 274,
+      "height": 116,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "item_00003"
+    },
+    {
+      "x": 109,
+      "y": 1700,
+      "width": 110,
+      "height": 52,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "item_00004"
+    },
+    {
+      "x": 263,
+      "y": 1703,
+      "width": 256,
+      "height": 45,
+      "label": "Part number",
+      "text": "A1612JD-09",
+      "group_id": "item_00004"
+    },
+    {
+      "x": 589,
+      "y": 1812,
+      "width": 196,
+      "height": 52,
+      "label": "Shipping date",
+      "text": "10-11-2024",
+      "group_id": "item_00005"
+    },
+    {
+      "x": 1053,
+      "y": 1803,
+      "width": 178,
+      "height": 58,
+      "label": "Quantity",
+      "text": "8.000 ST",
+      "group_id": "item_00005"
+    },
+    {
+      "x": 1687,
+      "y": 1810,
+      "width": 142,
+      "height": 56,
+      "label": "Unit price",
+      "text": "3.9700",
+      "group_id": "item_00005"
+    },
+    {
+      "x": 1276,
+      "y": 2119,
+      "width": 1090,
+      "height": 46,
+      "label": "Net amount (total)",
+      "text": "Total 31.76",
+      "group_id": "item_00006"
+    }
+  ]
+}

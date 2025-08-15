@@ -1,0 +1,220 @@
+{
+  "filename": "20250808_110605_20240917155901-0001.pdf",
+  "filepath": "20250808_110605_20240917155901-0001.pdf",
+  "pageNumber": 1,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "item_00001",
+      "y_position": 70,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512233984",
+          "bbox": [
+            2168,
+            70,
+            208,
+            42
+          ]
+        }
+      ],
+      "item_number": "4512233984"
+    },
+    {
+      "group_id": "item_00002",
+      "y_position": 1064,
+      "labels": [
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            2075,
+            1064,
+            274,
+            116
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00003",
+      "y_position": 1306,
+      "labels": [
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU K5-1 40KI 731-48229",
+          "bbox": [
+            1662,
+            1306,
+            731,
+            144
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00004",
+      "y_position": 1682,
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            105,
+            1682,
+            110,
+            52
+          ]
+        },
+        {
+          "label": "Part number",
+          "text": "A9005ZB",
+          "bbox": [
+            247,
+            1692,
+            256,
+            45
+          ]
+        }
+      ],
+      "item_number": "00010"
+    },
+    {
+      "group_id": "item_00005",
+      "y_position": 1788,
+      "labels": [
+        {
+          "label": "Shipping date",
+          "text": "10-01-2024",
+          "bbox": [
+            592,
+            1788,
+            196,
+            52
+          ]
+        },
+        {
+          "label": "Quantity",
+          "text": "100.000 ST",
+          "bbox": [
+            1004,
+            1798,
+            235,
+            58
+          ]
+        },
+        {
+          "label": "Unit price",
+          "text": "0.5000",
+          "bbox": [
+            1695,
+            1801,
+            115,
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00006",
+      "y_position": 2105,
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "Total 50.00",
+          "bbox": [
+            1284,
+            2105,
+            1090,
+            46
+          ]
+        }
+      ]
+    }
+  ],
+  "total_groups": 6,
+  "bboxes": [
+    {
+      "x": 2168,
+      "y": 70,
+      "width": 208,
+      "height": 42,
+      "label": "Order number",
+      "text": "4512233984",
+      "group_id": "item_00001"
+    },
+    {
+      "x": 1662,
+      "y": 1306,
+      "width": 731,
+      "height": 144,
+      "label": "Case mark",
+      "text": "YMG KOFU K5-1 40KI 731-48229",
+      "group_id": "item_00003"
+    },
+    {
+      "x": 2075,
+      "y": 1064,
+      "width": 274,
+      "height": 116,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "item_00002"
+    },
+    {
+      "x": 105,
+      "y": 1682,
+      "width": 110,
+      "height": 52,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "item_00004"
+    },
+    {
+      "x": 247,
+      "y": 1692,
+      "width": 256,
+      "height": 45,
+      "label": "Part number",
+      "text": "A9005ZB",
+      "group_id": "item_00004"
+    },
+    {
+      "x": 592,
+      "y": 1788,
+      "width": 196,
+      "height": 52,
+      "label": "Shipping date",
+      "text": "10-01-2024",
+      "group_id": "item_00005"
+    },
+    {
+      "x": 1004,
+      "y": 1798,
+      "width": 235,
+      "height": 58,
+      "label": "Quantity",
+      "text": "100.000 ST",
+      "group_id": "item_00005"
+    },
+    {
+      "x": 1695,
+      "y": 1801,
+      "width": 115,
+      "height": 56,
+      "label": "Unit price",
+      "text": "0.5000",
+      "group_id": "item_00005"
+    },
+    {
+      "x": 1284,
+      "y": 2105,
+      "width": 1090,
+      "height": 46,
+      "label": "Net amount (total)",
+      "text": "Total 50.00",
+      "group_id": "item_00006"
+    }
+  ]
+}

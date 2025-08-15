@@ -1,0 +1,245 @@
+{
+  "filename": "20250808_110605_20240913162425-0001.pdf",
+  "filepath": "20250808_110605_20240913162425-0001.pdf",
+  "pageNumber": 1,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "item_00001",
+      "y_position": 77,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512234268",
+          "bbox": [
+            2169,
+            77,
+            208,
+            42
+          ]
+        }
+      ],
+      "item_number": "4512234268"
+    },
+    {
+      "group_id": "item_00002",
+      "y_position": 1189,
+      "labels": [
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+          "bbox": [
+            139,
+            1189,
+            798,
+            130
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00003",
+      "y_position": 1209,
+      "labels": [
+        {
+          "label": "Production instruction receipt section",
+          "text": "SPEC/MAKER/USE BY",
+          "bbox": [
+            1382,
+            1209,
+            771,
+            228
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00004",
+      "y_position": 1299,
+      "labels": [
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            768,
+            1299,
+            274,
+            116
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00005",
+      "y_position": 1693,
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            109,
+            1700,
+            110,
+            52
+          ]
+        },
+        {
+          "label": "Part number",
+          "text": "A1126EB",
+          "bbox": [
+            249,
+            1693,
+            256,
+            45
+          ]
+        }
+      ],
+      "item_number": "00010"
+    },
+    {
+      "group_id": "item_00006",
+      "y_position": 1798,
+      "labels": [
+        {
+          "label": "Shipping date",
+          "text": "10-08-2024",
+          "bbox": [
+            586,
+            1802,
+            196,
+            52
+          ]
+        },
+        {
+          "label": "Quantity",
+          "text": "6.000 ST",
+          "bbox": [
+            1053,
+            1803,
+            178,
+            58
+          ]
+        },
+        {
+          "label": "Unit price",
+          "text": "12.3000",
+          "bbox": [
+            1675,
+            1798,
+            142,
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00007",
+      "y_position": 2105,
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "Total 73.80",
+          "bbox": [
+            1284,
+            2105,
+            1090,
+            46
+          ]
+        }
+      ]
+    }
+  ],
+  "total_groups": 7,
+  "bboxes": [
+    {
+      "x": 2169,
+      "y": 77,
+      "width": 208,
+      "height": 42,
+      "label": "Order number",
+      "text": "4512234268",
+      "group_id": "item_00001"
+    },
+    {
+      "x": 139,
+      "y": 1189,
+      "width": 798,
+      "height": 130,
+      "label": "Case mark",
+      "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+      "group_id": "item_00002"
+    },
+    {
+      "x": 1382,
+      "y": 1209,
+      "width": 771,
+      "height": 228,
+      "label": "Production instruction receipt section",
+      "text": "SPEC/MAKER/USE BY",
+      "group_id": "item_00003"
+    },
+    {
+      "x": 768,
+      "y": 1299,
+      "width": 274,
+      "height": 116,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "item_00004"
+    },
+    {
+      "x": 109,
+      "y": 1700,
+      "width": 110,
+      "height": 52,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "item_00005"
+    },
+    {
+      "x": 249,
+      "y": 1693,
+      "width": 256,
+      "height": 45,
+      "label": "Part number",
+      "text": "A1126EB",
+      "group_id": "item_00005"
+    },
+    {
+      "x": 586,
+      "y": 1802,
+      "width": 196,
+      "height": 52,
+      "label": "Shipping date",
+      "text": "10-08-2024",
+      "group_id": "item_00006"
+    },
+    {
+      "x": 1053,
+      "y": 1803,
+      "width": 178,
+      "height": 58,
+      "label": "Quantity",
+      "text": "6.000 ST",
+      "group_id": "item_00006"
+    },
+    {
+      "x": 1675,
+      "y": 1798,
+      "width": 142,
+      "height": 56,
+      "label": "Unit price",
+      "text": "12.3000",
+      "group_id": "item_00006"
+    },
+    {
+      "x": 1284,
+      "y": 2105,
+      "width": 1090,
+      "height": 46,
+      "label": "Net amount (total)",
+      "text": "Total 73.80",
+      "group_id": "item_00007"
+    }
+  ]
+}

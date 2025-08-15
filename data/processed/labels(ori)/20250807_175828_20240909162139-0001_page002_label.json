@@ -1,0 +1,198 @@
+{
+  "filename": "20250807_175828_20240909162139-0001.pdf",
+  "filepath": "20250807_175828_20240909162139-0001.pdf",
+  "pageNumber": 2,
+  "class": "purchase_order",
+  "bboxes": [
+    {
+      "x": 2166.796875,
+      "y": 82.2890625,
+      "width": 219,
+      "height": 40,
+      "label": "Order number",
+      "text": "4512221367"
+    },
+    {
+      "x": 136,
+      "y": 1209,
+      "width": 711,
+      "height": 95,
+      "label": "Case mark",
+      "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176"
+    },
+    {
+      "x": 672.796875,
+      "y": 1343.2890625,
+      "width": 285,
+      "height": 113,
+      "label": "Shipping line",
+      "text": "C5800002"
+    },
+    {
+      "x": 109,
+      "y": 1694.2890625,
+      "width": 365,
+      "height": 56,
+      "label": "Part number",
+      "text": "A1612JD-09"
+    },
+    {
+      "x": 589.796875,
+      "y": 1813.2890625,
+      "width": 189,
+      "height": 51,
+      "label": "Shipping date",
+      "text": "10-22-2024"
+    },
+    {
+      "x": 1041.796875,
+      "y": 1804.2890625,
+      "width": 189,
+      "height": 52,
+      "label": "Quantity",
+      "text": "8.000 ST"
+    },
+    {
+      "x": 1692.796875,
+      "y": 1805.2890625,
+      "width": 135,
+      "height": 56,
+      "label": "Unit price",
+      "text": "3.9700"
+    },
+    {
+      "x": 1306,
+      "y": 2115,
+      "width": 1067,
+      "height": 43,
+      "label": "Net amount (total)",
+      "text": "Total 31.76"
+    }
+  ],
+  "items": [
+    {
+      "group_id": "header_00001",
+      "type": "header",
+      "y_position": 82.2890625,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512221367",
+          "bbox": [
+            2166.796875,
+            82.2890625,
+            219,
+            40
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "header_00002",
+      "type": "header",
+      "y_position": 1209,
+      "labels": [
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+          "bbox": [
+            136,
+            1209,
+            711,
+            95
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "header_00003",
+      "type": "header",
+      "y_position": 1343.2890625,
+      "labels": [
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            672.796875,
+            1343.2890625,
+            285,
+            113
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00004",
+      "type": "item",
+      "y_position": 1694.2890625,
+      "labels": [
+        {
+          "label": "Part number",
+          "text": "A1612JD-09",
+          "bbox": [
+            109,
+            1694.2890625,
+            365,
+            56
+          ]
+        },
+        {
+          "label": "Shipping date",
+          "text": "10-22-2024",
+          "bbox": [
+            589.796875,
+            1813.2890625,
+            189,
+            51
+          ]
+        },
+        {
+          "label": "Quantity",
+          "text": "8.000 ST",
+          "bbox": [
+            1041.796875,
+            1804.2890625,
+            189,
+            52
+          ]
+        },
+        {
+          "label": "Unit price",
+          "text": "3.9700",
+          "bbox": [
+            1692.796875,
+            1805.2890625,
+            135,
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "summary_00004",
+      "type": "summary",
+      "y_position": 2115,
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "Total 31.76",
+          "bbox": [
+            1306,
+            2115,
+            1067,
+            43
+          ]
+        }
+      ]
+    }
+  ],
+  "total_groups": 5,
+  "group_summary": {
+    "total_items": 1,
+    "total_headers": 3,
+    "total_summaries": 1,
+    "item_numbers": [
+      "unknown"
+    ]
+  }
+}

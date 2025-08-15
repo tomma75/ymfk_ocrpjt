@@ -1,0 +1,198 @@
+{
+  "filename": "20250807_175828_20240909162139-0001.pdf",
+  "filepath": "20250807_175828_20240909162139-0001.pdf",
+  "pageNumber": 1,
+  "class": "purchase_order",
+  "bboxes": [
+    {
+      "x": 2163,
+      "y": 79,
+      "width": 208,
+      "height": 42,
+      "label": "Order number",
+      "text": "4512221368"
+    },
+    {
+      "x": 138,
+      "y": 1190,
+      "width": 798,
+      "height": 130,
+      "label": "Case mark",
+      "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176"
+    },
+    {
+      "x": 741,
+      "y": 1335,
+      "width": 274,
+      "height": 116,
+      "label": "Shipping line",
+      "text": "C5800002"
+    },
+    {
+      "x": 106,
+      "y": 1691,
+      "width": 386,
+      "height": 55,
+      "label": "Part number",
+      "text": "A1612JD-09"
+    },
+    {
+      "x": 593,
+      "y": 1809.21875,
+      "width": 196,
+      "height": 52,
+      "label": "Shipping date",
+      "text": "10-22-2024"
+    },
+    {
+      "x": 1049,
+      "y": 1807.21875,
+      "width": 178,
+      "height": 58,
+      "label": "Quantity",
+      "text": "8.000 ST"
+    },
+    {
+      "x": 1689,
+      "y": 1805.21875,
+      "width": 142,
+      "height": 56,
+      "label": "Unit price",
+      "text": "1.7300"
+    },
+    {
+      "x": 1291,
+      "y": 2115.21875,
+      "width": 1090,
+      "height": 46,
+      "label": "Net amount (total)",
+      "text": "Total 13.84"
+    }
+  ],
+  "items": [
+    {
+      "group_id": "header_00001",
+      "type": "header",
+      "y_position": 79,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512221368",
+          "bbox": [
+            2163,
+            79,
+            208,
+            42
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "header_00002",
+      "type": "header",
+      "y_position": 1190,
+      "labels": [
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+          "bbox": [
+            138,
+            1190,
+            798,
+            130
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "header_00003",
+      "type": "header",
+      "y_position": 1335,
+      "labels": [
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            741,
+            1335,
+            274,
+            116
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00004",
+      "type": "item",
+      "y_position": 1691,
+      "labels": [
+        {
+          "label": "Part number",
+          "text": "A1612JD-09",
+          "bbox": [
+            106,
+            1691,
+            386,
+            55
+          ]
+        },
+        {
+          "label": "Shipping date",
+          "text": "10-22-2024",
+          "bbox": [
+            593,
+            1809.21875,
+            196,
+            52
+          ]
+        },
+        {
+          "label": "Quantity",
+          "text": "8.000 ST",
+          "bbox": [
+            1049,
+            1807.21875,
+            178,
+            58
+          ]
+        },
+        {
+          "label": "Unit price",
+          "text": "1.7300",
+          "bbox": [
+            1689,
+            1805.21875,
+            142,
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "summary_00004",
+      "type": "summary",
+      "y_position": 2115.21875,
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "Total 13.84",
+          "bbox": [
+            1291,
+            2115.21875,
+            1090,
+            46
+          ]
+        }
+      ]
+    }
+  ],
+  "total_groups": 5,
+  "group_summary": {
+    "total_items": 1,
+    "total_headers": 3,
+    "total_summaries": 1,
+    "item_numbers": [
+      "unknown"
+    ]
+  }
+}

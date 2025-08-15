@@ -1,0 +1,141 @@
+{
+  "file_name": "20250811_174454_20250623151947_page_001.png",
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "item_00001",
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512943653",
+          "bbox": [
+            651,
+            35,
+            143,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00002",
+      "labels": [
+        {
+          "label": "Case mark",
+          "text": "YMG AKIRUNO-SHI",
+          "bbox": [
+            560,
+            354,
+            209,
+            20
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00003",
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            37,
+            643,
+            54,
+            20
+          ]
+        },
+        {
+          "label": "Part number",
+          "text": "K9221PF",
+          "bbox": [
+            93,
+            643,
+            85,
+            20
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00004",
+      "labels": [
+        {
+          "label": "Part description",
+          "text": "BODY",
+          "bbox": [
+            93,
+            658,
+            50,
+            20
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00005",
+      "labels": [
+        {
+          "label": "Delivery date",
+          "text": "07-09-2025",
+          "bbox": [
+            215,
+            682,
+            114,
+            20
+          ]
+        },
+        {
+          "label": "Quantity",
+          "text": "100.000 ST",
+          "bbox": [
+            373,
+            682,
+            87,
+            20
+          ]
+        },
+        {
+          "label": "Unit price",
+          "text": "0.3400",
+          "bbox": [
+            628,
+            682,
+            72,
+            20
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00006",
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "34.00",
+          "bbox": [
+            798,
+            682,
+            52,
+            20
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00007",
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "34.00",
+          "bbox": [
+            815,
+            793,
+            52,
+            20
+          ]
+        }
+      ]
+    }
+  ]
+}

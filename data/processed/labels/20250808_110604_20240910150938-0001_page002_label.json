@@ -1,0 +1,170 @@
+{
+  "filename": "20250808_110604_20240910150938-0001.pdf",
+  "filepath": "20250808_110604_20240910150938-0001.pdf",
+  "pageNumber": 2,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "item_00001",
+      "y_position": 92,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512224402",
+          "bbox": [
+            2154,
+            92,
+            225,
+            48
+          ]
+        }
+      ],
+      "item_number": "4512224402"
+    },
+    {
+      "group_id": "item_00002",
+      "y_position": 1497,
+      "labels": [
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            124,
+            1507,
+            174,
+            48
+          ]
+        },
+        {
+          "label": "Case mark",
+          "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
+          "bbox": [
+            298,
+            1497,
+            592,
+            47
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00003",
+      "y_position": 1873,
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            103,
+            1873,
+            117,
+            57
+          ]
+        },
+        {
+          "label": "Part number",
+          "text": "B8211DT",
+          "bbox": [
+            261,
+            1877,
+            150,
+            35
+          ]
+        }
+      ],
+      "item_number": "00010"
+    },
+    {
+      "group_id": "item_00004",
+      "y_position": 1952,
+      "labels": [
+        {
+          "label": "Delivery date",
+          "text": "10-22-2024",
+          "bbox": [
+            1285,
+            1954,
+            183,
+            38
+          ]
+        },
+        {
+          "label": "Quantity",
+          "text": "1.000 ST",
+          "bbox": [
+            1712,
+            1952,
+            234,
+            46
+          ]
+        }
+      ]
+    }
+  ],
+  "total_groups": 4,
+  "bboxes": [
+    {
+      "x": 2154,
+      "y": 92,
+      "width": 225,
+      "height": 48,
+      "label": "Order number",
+      "text": "4512224402",
+      "group_id": "item_00001"
+    },
+    {
+      "x": 298,
+      "y": 1497,
+      "width": 592,
+      "height": 47,
+      "label": "Case mark",
+      "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
+      "group_id": "item_00002"
+    },
+    {
+      "x": 124,
+      "y": 1507,
+      "width": 174,
+      "height": 48,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "item_00002"
+    },
+    {
+      "x": 103,
+      "y": 1873,
+      "width": 117,
+      "height": 57,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "item_00003"
+    },
+    {
+      "x": 261,
+      "y": 1877,
+      "width": 150,
+      "height": 35,
+      "label": "Part number",
+      "text": "B8211DT",
+      "group_id": "item_00003"
+    },
+    {
+      "x": 1285,
+      "y": 1954,
+      "width": 183,
+      "height": 38,
+      "label": "Delivery date",
+      "text": "10-22-2024",
+      "group_id": "item_00004"
+    },
+    {
+      "x": 1712,
+      "y": 1952,
+      "width": 234,
+      "height": 46,
+      "label": "Quantity",
+      "text": "1.000 ST",
+      "group_id": "item_00004"
+    }
+  ]
+}

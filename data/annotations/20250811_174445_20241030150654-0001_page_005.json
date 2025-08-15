@@ -1,0 +1,121 @@
+{
+  "file_name": "20250811_174445_20241030150654-0001_page_005.png",
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "item_00001",
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512221369",
+          "bbox": [
+            2163,
+            85,
+            220,
+            42
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00002",
+      "labels": [
+        {
+          "label": "Case mark",
+          "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
+          "bbox": [
+            693,
+            1308,
+            731,
+            58
+          ]
+        },
+        {
+          "label": "Shipping line",
+          "text": "D4700001",
+          "bbox": [
+            158,
+            1311,
+            169,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00003",
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00040",
+          "bbox": [
+            139,
+            1700,
+            108,
+            42
+          ]
+        },
+        {
+          "label": "Part number",
+          "text": "F6678KL-06",
+          "bbox": [
+            447,
+            1700,
+            256,
+            42
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00004",
+      "labels": [
+        {
+          "label": "Delivery date",
+          "text": "12-01-2024",
+          "bbox": [
+            823,
+            1800,
+            217,
+            42
+          ]
+        },
+        {
+          "label": "Quantity",
+          "text": "2.000 ST",
+          "bbox": [
+            1244,
+            1800,
+            170,
+            42
+          ]
+        },
+        {
+          "label": "Unit price",
+          "text": "0.5000",
+          "bbox": [
+            1723,
+            1800,
+            115,
+            42
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00005",
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "1.00",
+          "bbox": [
+            2171,
+            2110,
+            83,
+            58
+          ]
+        }
+      ]
+    }
+  ]
+}

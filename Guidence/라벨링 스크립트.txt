@@ -1,0 +1,389 @@
+  🚨 절대 규칙 - 반드시 지켜야 할 사항
+
+  1. 좌표 시스템 이해
+
+  이미지 크기: 2481 x 3510 pixels (고정)
+  좌표 원점: 왼쪽 상단 (0,0)
+  bbox 형식: [x, y, width, height] - 실제 픽셀 좌표
+
+  표준 Y 좌표 참조값:
+  - Order number: Y=70~105 (평균 100)
+  - Case mark/Shipping line: Y=1300~1500
+  - Item number: Y=1680~1730
+  - Part number: Y=1690~1730
+  - Shipping date: Y=1790~1820
+  - Quantity: Y=1795~1820
+  - Unit price: Y=1795~1820
+  - Total: Y=2100~2135
+
+  2. 치명적 실수 방지 체크리스트
+
+  CRITICAL_MISTAKES = {
+      "실수1": "이미지를 보지 않고 패턴만 따르기",
+      "방지책": "각 페이지 이미지를 반드시 개별 확인",
+
+      "실수2": "Case mark와 Shipping line 위치 가정",
+      "방지책": "실제 위치 확인 - 왼쪽/중앙/오른쪽 모두 가능",
+
+      "실수3": "텍스트를 잘못 읽기",
+      "방지책": "SHISAKU-1_ 같은 불필요한 접두사 추가 금지",
+
+      "실수4": "숫자 오타",
+      "방지책": "48.000 vs 46.000 - 정확한 숫자 확인",
+
+      "실수5": "불필요한 라벨 추가",
+      "방지책": "Special instruction, Material code 등 없으면 추가 금지"
+  }
+
+  📍 Case Mark와 Shipping Line 구분 (최중요! - 수정됨)
+
+  올바른 구분 규칙:
+
+  Shipping line = 8자리 영숫자 패턴 (대문자+숫자 조합)
+    - 패턴: [A-Z][0-9]{7} 또는 유사한 형태
+    - 예: C5800002, D4700001, A1234567
+
+  Case mark = 주소/위치/이름 정보를 나타내는 텍스트
+    - 특징: 지명, 건물명, 코드, 위치 정보 등
+    - 형태: 보통 여러 단어 조합이나 주소 형식
+
+  예시 1:
+  "C5800002 ISHIKAWA EXT:731-48177LOC:K70-4"
+  → Shipping line: "C5800002" (8자리 코드)
+  → Case mark: "ISHIKAWA EXT:731-48177LOC:K70-4" (위치/주소 정보)
+
+  예시 2:
+  "YMG KOFU-SHI K5"
+  → Case mark: "YMG KOFU-SHI K5" (지명/위치 정보)
+
+  예시 3:
+  "YMG KOFU P/C K8-2 KOSUGE 731-48176"
+  → Case mark: 전체 (주소/위치 정보)
+
+  예시 4:
+  "D4700003"
+  → Shipping line: "D4700003" (8자리 코드)
+
+  Shipping Line 패턴 인식:
+
+  def is_shipping_line(text):
+      """Shipping line 패턴 확인"""
+      import re
+
+      # 8자리 영숫자 패턴 (대문자로 시작, 숫자 7자리)
+      pattern1 = r'^[A-Z]\d{7}$'
+
+      # 변형 패턴 (영문자+숫자 조합 8자리)
+      pattern2 = r'^[A-Z0-9]{8}$'
+
+      return bool(re.match(pattern1, text) or
+                  (re.match(pattern2, text) and
+                   any(c.isdigit() for c in text)))
+
+  # 예시
+  is_shipping_line("C5800002")  # True
+  is_shipping_line("ISHIKAWA")  # False
+  is_shipping_line("YMG")       # False
+
+  Case Mark 패턴 인식:
+
+  def is_case_mark(text):
+      """Case mark 특징 확인"""
+      case_mark_keywords = [
+          # 지명/도시
+          "KOFU", "ISHIKAWA", "KOSUGE", "TOKYO",
+          # 건물/위치 코드
+          "EXT:", "LOC:", "K5", "K8-2", "P/C",
+          # 주소 패턴
+          "731-", "YMG"
+      ]
+
+      # 여러 단어로 구성되거나 위치 정보 포함
+      has_location_info = any(keyword in text for keyword in case_mark_keywords)
+      is_multi_word = len(text.split()) > 1 or "-" in text or "/" in text
+
+      return has_location_info or is_multi_word
+
+  위치 변형 패턴:
+
+  // 패턴 1: 같은 줄에 있는 경우 (같은 group_id)
+  {
+    "group_id": "item_00002",
+    "labels": [
+      {"label": "Shipping line", "text": "C5800002", "bbox": [158, 1311, 169, 50]},
+      {"label": "Case mark", "text": "ISHIKAWA EXT:731-48177LOC:K70-4", "bbox": [323,
+  1308, 578, 43]}
+    ]
+  }
+
+  // 패턴 2: 다른 위치에 있는 경우 (다른 group_id)
+  {
+    "group_id": "item_00002",
+    "labels": [{"label": "Shipping line", "text": "D4700001", "bbox": [2075, 1064, 274,       
+  116]}]
+  },
+  {
+    "group_id": "item_00003",
+    "labels": [{"label": "Case mark", "text": "YMG KOFU K5-1 40KI 731-48229", "bbox":
+  [1639, 1325, 731, 144]}]
+  }
+
+  📊 실제 좌표 매핑 테이블
+
+  Order Number 위치 패턴
+
+  | 페이지 유형         | Y 좌표    | X 좌표      | 참고        |
+  |----------------|---------|-----------|-----------|
+  | Purchase Order | 70-105  | 2163-2183 | 오른쪽 상단 고정 |
+  | Delivery Sheet | 100-110 | 2170-2190 | 오른쪽 상단 고정 |
+
+  Case Mark 위치 변형 (가장 주의!)
+
+  | 위치      | X 좌표 범위   | Y 좌표 범위   | 실제 사례    |
+  |---------|-----------|-----------|----------|
+  | 왼쪽      | 120-140   | 1189-1200 | 기본 패턴    |
+  | 중앙      | 1630-1670 | 1190-1350 | 변형 패턴    |
+  | 오른쪽     | 2060-2080 | 1330-1570 | 특수 패턴    |
+  | 왼쪽 텍스트로 | 320-350   | 1300-1510 | 주소 정보 패턴 |
+
+  Shipping Line 위치 변형
+
+  | 위치     | X 좌표 범위   | Y 좌표 범위   | 실제 사례     |
+  |--------|-----------|-----------|-----------|
+  | 왼쪽     | 150-170   | 1300-1320 | 8자리 코드 단독 |
+  | 중앙     | 690-790   | 1240-1330 | 기본 패턴     |
+  | 오른쪽 상단 | 1990-2080 | 1030-1080 | 변형 패턴     |
+
+  🔍 텍스트별 bbox 크기 정밀 조정
+
+  Part Number 텍스트 길이별 width
+
+  part_number_widths = {
+      "7자 이하": 256,      # "A1126EB"
+      "10자": 256,          # "F9138YA"
+      "11자": 234,          # "A6128HD-01" (SHISAKU 제외!)
+      "20자": 440,          # "SHISAKU-1_A6075XD-11"
+      "21자": 442,          # "SHISAKU-1_A6128HD-01"
+      "기본": 256           # 불확실한 경우
+  }
+
+  Quantity 숫자별 width
+
+  quantity_widths = {
+      "1.000 ST": 170,
+      "2.000 ST": 170,
+      "5.000 ST": 178,
+      "6.000 ST": 178,
+      "11.000 ST": 192,
+      "30.000 ST": 198-223,  # 위치에 따라 변동
+      "46.000 ST": 195,
+      "48.000 ST": 195,
+      "100.000 ST": 235
+  }
+
+  Unit Price 값별 width
+
+  unit_price_widths = {
+      "0.0700": 115,
+      "0.0800": 115,
+      "0.5000": 115,
+      "12.3000": 142,
+      "46.7500": 142,
+      "96.7000": 142,
+      "141.9000": 182,
+      "259.0600": 146
+  }
+
+  🏗️ 그룹 구조 규칙
+
+  기본 그룹 템플릿
+
+  {
+    "items": [
+      {"group_id": "item_00001", "labels": ["Order number"]},
+      {"group_id": "item_00002", "labels": ["Case mark", "Shipping line"]},  // 같은
+  줄이면 같은 그룹
+      {"group_id": "item_00003", "labels": ["Item number", "Part number"]},
+      {"group_id": "item_00004", "labels": ["Shipping date", "Quantity", "Unit price"]},      
+      {"group_id": "item_00005", "labels": ["Net amount (total)"]}
+    ]
+  }
+
+  그룹 분리 조건
+
+  def should_separate_group(label1_y, label2_y):
+      """Y 좌표 차이가 20px 이상이면 별도 그룹"""
+      return abs(label1_y - label2_y) > 20
+
+  # 예: Unit price가 별도 줄에 있는 경우
+  if should_separate_group(quantity_y, unit_price_y):
+      # Quantity와 Unit price를 다른 그룹으로 분리
+
+  ⚠️ 자주 틀리는 부분과 해결책
+
+  1. Part Number 텍스트 오류
+
+  # ❌ 잘못된 예
+  "SHISAKU-1_A6075XD-11"  # 실제: "A6075VD-11" (SHISAKU-1_ 불필요, X→V)
+  "SHISAKU-1_A6128HD-01"  # 실제: "A6128HD-01" (SHISAKU-1_ 불필요)
+
+  # ✅ 올바른 예
+  "A6075VD-11"
+  "A6128HD-01"
+
+  2. Case Mark 위치 착각
+
+  # ❌ 잘못된 예
+  assumed_casemark_x = 139  # 습관적으로 왼쪽 가정
+  assumed_casemark_y = 1189
+
+  # ✅ 올바른 예
+  # 실제 이미지 확인 후
+  actual_casemark_x = 1663  # 중앙일 수도
+  actual_casemark_x = 2072  # 오른쪽일 수도
+  actual_casemark_x = 323   # 주소 정보 텍스트일 수도
+
+  3. Shipping Line 구분 오류
+
+  # ❌ 잘못된 예
+  "C5800002 ISHIKAWA EXT:731-48177LOC:K70-4"를 하나의 Case mark로 처리
+
+  # ✅ 올바른 예
+  shipping_line = "C5800002"  # 8자리 코드만
+  case_mark = "ISHIKAWA EXT:731-48177LOC:K70-4"  # 나머지 주소 정보
+
+  4. 문서 타입 혼동
+
+  # ❌ 잘못된 예
+  "class": "delivery_sheet"  # Delivery Sheet 페이지도
+
+  # ✅ 올바른 예
+  "class": "purchase_order"  # 모든 페이지 통일
+
+  5. 불필요한 라벨 추가
+
+  # ❌ 잘못된 예
+  unnecessary_labels = [
+      "Special instruction",
+      "Part description",
+      "Material code",
+      "Production instruction receipt section"  # 실제로 있을 때만
+  ]
+
+  # ✅ 올바른 예
+  essential_labels_only = [
+      "Order number",
+      "Case mark",
+      "Shipping line",
+      "Item number",
+      "Part number",
+      "Shipping date",  # 또는 "Delivery date"
+      "Quantity",
+      "Unit price",     # Delivery Sheet에는 없을 수 있음
+      "Net amount (total)"  # Delivery Sheet에는 없을 수 있음
+  ]
+
+  🔧 실전 적용 워크플로우
+
+  Step 1: 이미지 분석
+
+  def analyze_image(image_path):
+      """각 페이지 개별 분석"""
+      checklist = {
+          "1. Order number 위치": "오른쪽 상단 확인 (Y=100 근처)",
+          "2. 8자리 코드 찾기": "Shipping line 위치 확인 (영문+숫자)",
+          "3. Case mark 텍스트": "주소/위치 정보 실제 위치",
+          "4. 특수 요소": "손글씨, 스탬프, 특별 지시사항",
+          "5. Part number": "정확한 텍스트 (SHISAKU 제거)",
+          "6. 숫자 정확도": "Quantity, Price 정확한 값",
+          "7. 페이지 타입": "Purchase Order vs Delivery Sheet"
+      }
+      return checklist
+
+  Step 2: 텍스트 분류
+
+  def classify_text(text):
+      """텍스트를 보고 라벨 타입 결정"""
+
+      # 8자리 영숫자 패턴 확인
+      if len(text) == 8 and text[0].isalpha() and text[1:].isdigit():
+          return "Shipping line"
+
+      # 주소/위치 정보 패턴 확인
+      location_indicators = ["YMG", "KOFU", "EXT:", "LOC:", "K5", "K8-2", "-", "/"]
+      if any(indicator in text for indicator in location_indicators):
+          return "Case mark"
+
+      # 날짜 패턴
+      if re.match(r'\d{2}-\d{2}-\d{4}', text):
+          return "Date"
+
+      # 수량 패턴
+      if "ST" in text and "." in text:
+          return "Quantity"
+
+      return "Unknown"
+
+  Step 3: 좌표 측정
+
+  def measure_coordinates(element):
+      """실제 픽셀 좌표 측정"""
+      # 이미지 크기: 2481 x 3510
+
+      # Y 좌표 기준선
+      y_references = {
+          "order": 100,
+          "case_shipping": 1300,
+          "item": 1700,
+          "date_qty": 1800,
+          "total": 2100
+      }
+
+      # 실제 측정값과 비교하여 조정
+      actual_y = measure_actual_y_from_image()
+
+      # 5-10px 정밀도 유지
+      return {
+          "x": actual_x,
+          "y": actual_y,
+          "width": measure_text_width(element.text),
+          "height": standard_height  # 보통 42-58
+      }
+
+  Step 4: 검증
+
+  def validate_json(json_data):
+      """생성된 JSON 검증"""
+      validations = [
+          "Order number Y가 70-105 범위인가?",
+          "8자리 코드가 Shipping line으로 분류되었는가?",
+          "주소/위치 정보가 Case mark로 분류되었는가?",
+          "Part number에 불필요한 접두사가 없는가?",
+          "그룹 구조가 Y 좌표 순서대로인가?",
+          "모든 필수 라벨이 있는가?",
+          "불필요한 라벨이 없는가?"
+      ]
+
+      for validation in validations:
+          check_validation(validation)
+
+  📝 최종 체크리스트
+
+  FINAL_CHECKLIST = {
+      "✓ 이미지 확인": "각 페이지 실제로 봤는가?",
+      "✓ 8자리 코드": "Shipping line으로 올바르게 분리했는가?",
+      "✓ 주소/위치 정보": "Case mark로 올바르게 분류했는가?",
+      "✓ 좌표 정밀도": "5-10px 단위까지 정확한가?",
+      "✓ 텍스트 정확도": "오타나 불필요한 추가 없는가?",
+      "✓ 그룹 구조": "Y 좌표 기준 올바른가?",
+      "✓ 문서 타입": "purchase_order로 통일했는가?",
+      "✓ 템플릿 탈피": "패턴 의존 없이 실제 측정했는가?"
+  }
+
+  🎯 핵심 교훈
+
+  1. 절대 이미지를 보지 않고 작업하지 말 것
+  2. 8자리 영숫자 패턴이 Shipping line
+  3. 주소/위치 정보가 Case mark
+  4. 각 페이지는 독립적으로 측정
+  5. 패턴은 참고용, 실제 측정이 진실

@@ -1,0 +1,18 @@
+{
+  "total_samples": 239,
+  "label_distribution": {
+    "Order number": 28,
+    "Case mark": 28,
+    "Shipping line": 28,
+    "Part number": 28,
+    "Shipping date": 25,
+    "Quantity": 28,
+    "Unit price": 23,
+    "Net amount (total)": 24,
+    "Production instruction receipt section": 3,
+    "Item number": 21,
+    "Delivery date": 3
+  },
+  "last_training_time": "2025-08-14T17:24:21.474915",
+  "model_version": "0.1.0"
+}

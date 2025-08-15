@@ -1,0 +1,156 @@
+{
+  "file_name": "20250811_174453_20250620164731-0001_page_001.png",
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "item_00001",
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512938561",
+          "bbox": [
+            651,
+            33,
+            143,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00002",
+      "labels": [
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            766,
+            387,
+            173,
+            38
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00003",
+      "labels": [
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU K5-1 AOKI 731-48229",
+          "bbox": [
+            658,
+            527,
+            537,
+            38
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00004",
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            51,
+            638,
+            59,
+            22
+          ]
+        },
+        {
+          "label": "Part number",
+          "text": "W9117RE-A",
+          "bbox": [
+            111,
+            638,
+            119,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00005",
+      "labels": [
+        {
+          "label": "Part description",
+          "text": "REGULATER ASSY",
+          "bbox": [
+            111,
+            652,
+            223,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00006",
+      "labels": [
+        {
+          "label": "Delivery date",
+          "text": "07-18-2025",
+          "bbox": [
+            232,
+            679,
+            115,
+            22
+          ]
+        },
+        {
+          "label": "Quantity",
+          "text": "3.000 ST",
+          "bbox": [
+            399,
+            679,
+            77,
+            22
+          ]
+        },
+        {
+          "label": "Unit price",
+          "text": "381.1800",
+          "bbox": [
+            628,
+            679,
+            96,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00007",
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "1,143.54",
+          "bbox": [
+            797,
+            679,
+            88,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00008",
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "1,143.54",
+          "bbox": [
+            815,
+            792,
+            88,
+            22
+          ]
+        }
+      ]
+    }
+  ]
+}

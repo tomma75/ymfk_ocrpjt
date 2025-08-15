@@ -1,0 +1,87 @@
+# 전체 파이프라인 실행
+python main.py --mode full
+
+# 개별 모드 실행
+python main.py --mode collection
+python main.py --mode labeling
+python main.py --mode augmentation
+python main.py --mode validation
+
+# 웹 인터페이스 실행
+python main.py --mode web
+
+ 1. 디버거 PIN 입력 방법:
+    - 웹 애플리케이션에서 오류가        
+  발생했을 때, 브라우저에 디버그        
+  화면이 나타납니다
+    - 디버그 화면에서 "Console"
+  버튼을 클릭하면 PIN 입력창이
+  나타납니다
+    - PIN (874-181-574)을 입력하면      
+  Python 인터랙티브 콘솔에 접근할       
+  수 있습니다
+    - 이는 개발 모드에서만
+  사용되며, 프로덕션에서는
+  비활성화해야 합니다
+  2. 웹 서버 실행 명령어:
+
+● Read(YMFK_OCR\README.md)
+  ⎿  Error: File does not exist.        
+
+● 웹 서버 실행 명령어는:
+
+  # 기본 명령어 (YMFK_OCR 폴더에서      
+  실행)
+  python main.py --mode web
+
+  # 또는 직접 web_interface.py 실행     
+  python web_interface.py
+
+  추가 옵션:
+  - 포트 변경: 기본 포트는
+  5000이며, web_interface.py에서        
+  수정 가능
+  - 디버그 모드 비활성화:
+  web_interface.py에서
+  app.run(debug=False)로 설정
+  - 외부 접속 허용:
+  app.run(host='0.0.0.0') 설정
+
+
+  1. 작업 흐름
+
+  1. 첫 번째 PDF 라벨링
+    - PDF 업로드 → 수동으로 라벨링 → 저장
+    - 라벨이 저장되면 백그라운드에서 모델
+   자동 업데이트
+  2. 두 번째 PDF부터
+    - PDF 업로드 → "자동 라벨 제안" 버튼
+  클릭
+    - 학습된 모델이 자동으로 라벨 제안
+  (초록색 점선 박스)
+    - 제안된 라벨 수정/승인 → 저장 → 모델
+   재학습
+
+  2. 주요 기능
+
+  - 자동 라벨 제안: 이전 라벨링 데이터로
+  학습한 모델이 자동으로 bbox와 라벨 제안
+  - 신뢰도 표시: 각 제안에 대한 확률 표시
+  - 점진적 학습: 새로운 라벨 저장 시
+  자동으로 모델 업데이트
+  - 모델 통계: 학습 상태, 샘플 수, 라벨
+  분포 확인 가능
+
+  3. UI 개선사항
+
+  - 제안된 bbox는 초록색 점선으로 표시
+  - 신뢰도 뱃지로 예측 확률 표시
+  - "모델 학습", "모델 통계" 버튼 추가
+
+  4. 사용 방법
+
+  1. 첫 PDF 파일을 라벨링하고 저장
+  2. "모델 학습" 버튼으로 초기 학습 실행
+  3. 다음 PDF에서 "자동 라벨 제안" 클릭
+  4. 제안된 라벨 확인 및 수정
+  5. 저장하면 자동으로 모델 개선

@@ -1,0 +1,121 @@
+{
+  "file_name": "20250811_174439_20241007164131-0001_page_003.png",
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "item_00001",
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512221368",
+          "bbox": [
+            2163,
+            85,
+            220,
+            42
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00002",
+      "labels": [
+        {
+          "label": "Case mark",
+          "text": "TOKYO WAREHOUSE LOC:A-23",
+          "bbox": [
+            693,
+            1308,
+            731,
+            58
+          ]
+        },
+        {
+          "label": "Shipping line",
+          "text": "B9876543",
+          "bbox": [
+            158,
+            1311,
+            169,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00003",
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            139,
+            1700,
+            108,
+            42
+          ]
+        },
+        {
+          "label": "Part number",
+          "text": "F9138YA",
+          "bbox": [
+            447,
+            1700,
+            256,
+            42
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00004",
+      "labels": [
+        {
+          "label": "Delivery date",
+          "text": "10-30-2024",
+          "bbox": [
+            823,
+            1800,
+            217,
+            42
+          ]
+        },
+        {
+          "label": "Quantity",
+          "text": "30.000 ST",
+          "bbox": [
+            1244,
+            1800,
+            170,
+            42
+          ]
+        },
+        {
+          "label": "Unit price",
+          "text": "46.7500",
+          "bbox": [
+            1723,
+            1800,
+            115,
+            42
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00005",
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "1402.50",
+          "bbox": [
+            2171,
+            2110,
+            83,
+            58
+          ]
+        }
+      ]
+    }
+  ]
+}

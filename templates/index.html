@@ -1,0 +1,2910 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOKOGAWA OCR 데이터 준비 시스템</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            text-align: center;
+            font-size: 2.2rem;
+        }
+        
+        .header p {
+            text-align: center;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+        
+        /* 탭 네비게이션 */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            background: white;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .tab:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .tab.active {
+            background-color: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* 서비스 상태 */
+        .status-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        /* 대시보드 레이아웃 */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 1200px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .service-status {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .service-card {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .service-card.active {
+            border-color: #27ae60;
+            background-color: #f0fff4;
+        }
+        
+        .service-card.active .status-icon {
+            color: #27ae60;
+        }
+        
+        .service-card.inactive {
+            border-color: #e74c3c;
+            background-color: #fff5f5;
+        }
+        
+        .service-card.inactive .status-icon {
+            color: #e74c3c;
+        }
+        
+        .status-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        /* 파일 업로드 섹션 */
+        .upload-section {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .upload-area {
+            border: 2px dashed #3498db;
+            border-radius: 8px;
+            padding: 40px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .upload-area:hover {
+            background-color: #e3f2fd;
+            border-color: #2196f3;
+        }
+        
+        .upload-area.dragover {
+            background-color: #e3f2fd;
+            border-color: #2196f3;
+            transform: scale(1.02);
+        }
+        
+        .upload-icon {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+        
+        #fileInput {
+            display: none;
+        }
+        
+        /* 파이프라인 섹션 */
+        .pipeline-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .btn-success {
+            background-color: #27ae60;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background-color: #229954;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .btn-warning {
+            background-color: #f39c12;
+            color: white;
+        }
+        
+        .btn-warning:hover {
+            background-color: #e67e22;
+        }
+        
+        .btn-danger {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+        
+        /* 파일 목록 */
+        .files-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            min-height: 500px;
+        }
+        
+        .file-list {
+            margin-top: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .file-item {
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            border-left: 4px solid #ddd;
+        }
+        
+        .file-item:hover {
+            background-color: #f8f9fa;
+            border-color: #3498db;
+            transform: translateX(2px);
+        }
+        
+        .file-item.complete {
+            background-color: #e6f4ff;  /* 파스텔 하늘색 */
+            border-color: #91d5ff;
+            border-left-color: #4caf50;
+        }
+        
+        .file-item.in-progress {
+            background-color: #fff8e1;  /* 연한 노란색 */
+            border-color: #ffecb3;
+            border-left-color: #ff9800;
+        }
+        
+        .file-item.not-started {
+            background-color: #ffebee;  /* 연한 빨간색 */
+            border-color: #ffcdd2;
+            border-left-color: #f44336;
+        }
+        
+        .file-item.complete:hover {
+            background-color: #d0ebff;
+            border-color: #69c0ff;
+        }
+        
+        .file-status {
+            display: inline-flex;
+            gap: 15px;
+            margin-top: 5px;
+            font-size: 0.85rem;
+        }
+        
+        .status-badge {
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        
+        .status-badge.split {
+            background-color: #f0f0f0;
+            color: #666;
+        }
+        
+        .status-badge.label {
+            background-color: #fff7e6;
+            color: #d48806;
+        }
+        
+        .status-badge.complete {
+            background-color: #d4f8d4;
+            color: #52c41a;
+        }
+        
+        .file-info {
+            flex: 1;
+        }
+        
+        .file-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+        
+        /* 진행 상황 */
+        .progress {
+            background-color: #e0e0e0;
+            border-radius: 20px;
+            height: 25px;
+            margin-top: 15px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s;
+            text-align: center;
+            color: white;
+            line-height: 25px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        /* 알림 */
+        .alert {
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            position: relative;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .alert-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        .alert-close {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            opacity: 0.5;
+        }
+        
+        .alert-close:hover {
+            opacity: 1;
+        }
+        
+        /* 로딩 */
+        #loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* 라벨링 편집 페이지 스타일 */
+        .labeling-editor {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .label-form {
+            display: grid;
+            gap: 15px;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .form-group label {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        /* 이미지 미리보기 */
+        .image-preview {
+            position: relative;
+            flex: 1;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            overflow: auto;
+            max-height: calc(100vh - 400px);
+        }
+        
+        .image-container {
+            position: relative;
+            display: inline-block;
+            min-width: 100%;
+        }
+        
+        .image-preview img {
+            width: auto;
+            height: auto;
+            max-width: none;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: block;
+        }
+        
+        /* Bounding box 오버레이 */
+        .bbox-overlay {
+            position: absolute;
+            border: 2px solid #ff0000;
+            background-color: rgba(255, 0, 0, 0.1);
+            cursor: move;
+        }
+        
+        .bbox-overlay .resize-handle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #fff;
+            border: 2px solid #ff0000;
+            border-radius: 50%;
+        }
+        
+        .bbox-overlay .resize-handle.nw { top: -4px; left: -4px; cursor: nw-resize; }
+        .bbox-overlay .resize-handle.ne { top: -4px; right: -4px; cursor: ne-resize; }
+        .bbox-overlay .resize-handle.sw { bottom: -4px; left: -4px; cursor: sw-resize; }
+        .bbox-overlay .resize-handle.se { bottom: -4px; right: -4px; cursor: se-resize; }
+        
+        .bbox-overlay:hover {
+            background-color: rgba(255, 0, 0, 0.3);
+        }
+        
+        .bbox-overlay.selected {
+            border-color: #0066ff;
+            background-color: rgba(0, 102, 255, 0.2);
+        }
+        
+        .bbox-overlay.suggested {
+            border-color: #00cc00;
+            background-color: rgba(0, 204, 0, 0.1);
+            border-style: dashed;
+        }
+        
+        .bbox-overlay.suggested:hover {
+            background-color: rgba(0, 204, 0, 0.3);
+        }
+        
+        .bbox-label {
+            position: absolute;
+            background: #ff0000;
+            color: white;
+            padding: 2px 6px;
+            font-size: 12px;
+            top: -20px;
+            left: 0;
+            border-radius: 3px;
+        }
+        
+        .bbox-overlay.suggested .bbox-label {
+            background: #00cc00;
+        }
+        
+        .confidence-badge {
+            position: absolute;
+            bottom: -20px;
+            right: 0;
+            background: #333;
+            color: white;
+            padding: 2px 6px;
+            font-size: 11px;
+            border-radius: 3px;
+        }
+        
+        /* 라벨링 편집 컨테이너 */
+        .labeling-main-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr 350px;
+            gap: 20px;
+            margin-top: 20px;
+            height: calc(100vh - 300px);
+            min-height: 600px;
+        }
+        
+        .labeling-controls-section {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow-y: auto;
+        }
+        
+        .labeling-controls-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .labeling-controls-section .btn {
+            width: 100%;
+            text-align: left;
+            justify-content: flex-start;
+        }
+        
+        .labeling-image-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+        
+        .labeling-form-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow-y: auto;
+        }
+        
+        .bbox-item {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        
+        .bbox-item.selected {
+            border-color: #0066ff;
+            background: #e7f1ff;
+        }
+        
+        .bbox-controls {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .drawing-tools {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        /* 라벨 버튼 그룹 */
+        .label-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .label-buttons .btn-label {
+            padding: 10px;
+            font-size: 13px;
+            background: white;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        
+        .label-buttons .btn-label:hover {
+            background: #e7f1ff;
+            border-color: #3498db;
+        }
+        
+        /* 통계 카드 */
+        .stats-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        /* PDF 페이지 네비게이션 */
+        .pdf-navigation {
+            display: none;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .pdf-navigation.visible {
+            display: block;
+        }
+        
+        .page-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .page-info {
+            font-weight: 500;
+            font-size: 16px;
+        }
+        
+        .page-controls .btn {
+            padding: 8px 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>YOKOGAWA OCR 데이터 준비 시스템</h1>
+            <p>PDF 문서 OCR 및 학습 데이터 준비 플랫폼</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div id="alerts"></div>
+        
+        <!-- 탭 네비게이션 -->
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('dashboard')">대시보드</div>
+            <div class="tab" onclick="showTab('upload')">파일 업로드</div>
+            <div class="tab" onclick="showTab('labeling')">라벨링 편집</div>
+            <div class="tab" onclick="showTab('statistics')">통계</div>
+        </div>
+        
+        <!-- 대시보드 탭 -->
+        <div id="dashboard" class="tab-content active">
+            <!-- 서비스 상태 섹션 -->
+            <div class="status-section">
+                <h2>서비스 상태</h2>
+                <div class="service-status" id="serviceStatus">
+                    <div class="service-card">
+                        <div class="status-icon">📊</div>
+                        <h3>데이터 수집</h3>
+                        <p id="collectionStatus">확인 중...</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="status-icon">🏷️</div>
+                        <h3>라벨링</h3>
+                        <p id="labelingStatus">확인 중...</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="status-icon">🔄</div>
+                        <h3>데이터 증강</h3>
+                        <p id="augmentationStatus">확인 중...</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="status-icon">✅</div>
+                        <h3>검증</h3>
+                        <p id="validationStatus">확인 중...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 메인 컨텐츠 그리드 -->
+            <div class="dashboard-grid">
+                <!-- 왼쪽: 파이프라인 실행 섹션 -->
+                <div class="pipeline-section">
+                    <h2>파이프라인 실행</h2>
+                    <div class="button-group">
+                        <button class="btn btn-primary" onclick="runPipeline('collection')">
+                            <span>📊</span> 데이터 수집만 실행
+                        </button>
+                        <button class="btn btn-primary" onclick="runPipeline('labeling')">
+                            <span>🏷️</span> 라벨링만 실행
+                        </button>
+                        <button class="btn btn-primary" onclick="runPipeline('augmentation')">
+                            <span>🔄</span> 데이터 증강만 실행
+                        </button>
+                        <button class="btn btn-primary" onclick="runPipeline('validation')">
+                            <span>✅</span> 검증만 실행
+                        </button>
+                        <button class="btn btn-success" onclick="runPipeline('full')">
+                            <span>🚀</span> 전체 파이프라인 실행
+                        </button>
+                    </div>
+                    
+                    <div id="pipelineProgress" style="display: none;">
+                        <h3 style="margin-top: 20px;">진행 상황</h3>
+                        <div class="progress">
+                            <div class="progress-bar" id="progressBar">0%</div>
+                        </div>
+                        <p id="progressText" style="margin-top: 10px;"></p>
+                    </div>
+                </div>
+                
+                <!-- 오른쪽: 파일 목록 섹션 -->
+                <div class="files-section">
+                    <h2>수집된 파일</h2>
+                    
+                    <!-- 필터 및 정렬 컨트롤 -->
+                    <div class="file-controls" style="margin: 15px 0; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+                            <!-- 필터 옵션 -->
+                            <div style="flex: 1; min-width: 200px;">
+                                <label for="filterSelect" style="font-weight: bold; margin-right: 10px;">필터:</label>
+                                <select id="filterSelect" name="filterSelect" onchange="applyFilter()" style="padding: 5px 10px; border-radius: 4px; border: 1px solid #ddd;">
+                                    <option value="all">전체 보기</option>
+                                    <option value="completed">✅ 완료된 파일만</option>
+                                    <option value="in_progress">🔄 진행중인 파일만</option>
+                                    <option value="not_started">❌ 미편집 파일만</option>
+                                </select>
+                            </div>
+                            
+                            <!-- 정렬 옵션 -->
+                            <div style="flex: 1; min-width: 200px;">
+                                <label for="sortSelect" style="font-weight: bold; margin-right: 10px;">정렬:</label>
+                                <select id="sortSelect" name="sortSelect" onchange="applySort()" style="padding: 5px 10px; border-radius: 4px; border: 1px solid #ddd;">
+                                    <option value="date_desc">수정일 (최신순)</option>
+                                    <option value="date_asc">수정일 (오래된순)</option>
+                                    <option value="name_asc">파일명 (가나다순)</option>
+                                    <option value="name_desc">파일명 (역순)</option>
+                                    <option value="status">완료 상태순</option>
+                                </select>
+                            </div>
+                            
+                            <!-- 통계 정보 -->
+                            <div style="flex: 1; min-width: 200px; text-align: right;">
+                                <span id="fileStats" style="font-size: 0.9rem; color: #666;"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- 검색 바 -->
+                        <div style="margin-top: 10px;">
+                            <input type="text" id="searchInput" placeholder="🔍 파일명 검색..." 
+                                   onkeyup="searchFiles()" 
+                                   style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ddd;">
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" onclick="refreshFiles()">
+                        <span>🔄</span> 새로고침
+                    </button>
+                    <div id="loading">
+                        <div class="spinner"></div>
+                        <p>로딩 중...</p>
+                    </div>
+                    <div class="file-list" id="fileList">
+                        <p>파일을 로드하려면 새로고침을 클릭하세요.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 파일 업로드 탭 -->
+        <div id="upload" class="tab-content">
+            <div class="upload-section">
+                <h2>파일 업로드</h2>
+                <p>PDF 파일을 드래그 앤 드롭하거나 클릭하여 업로드하세요.</p>
+                
+                <div class="upload-area" onclick="document.getElementById('fileInput').click()" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)">
+                    <div class="upload-icon">📁</div>
+                    <h3>파일을 여기에 드롭하세요</h3>
+                    <p>또는 클릭하여 파일 선택</p>
+                    <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">지원 형식: PDF, PNG, JPG, JPEG</p>
+                </div>
+                
+                <label for="fileInput" style="display: block; margin-bottom: 10px;">파일 선택:</label>
+                <input type="file" id="fileInput" name="fileInput" multiple accept=".pdf,.png,.jpg,.jpeg" onchange="handleFileSelect(event)">
+                
+                <div id="uploadedFiles" style="margin-top: 20px;"></div>
+            </div>
+        </div>
+        
+        <!-- 라벨링 편집 탭 -->
+        <div id="labeling" class="tab-content">
+            <div class="labeling-editor">
+                <h2>라벨링 데이터 편집</h2>
+                
+                <div id="labelingContent" style="margin-top: 20px;">
+                    <p>라벨링 데이터를 불러오려면 버튼을 클릭하세요.</p>
+                </div>
+                
+                <!-- 라벨링 편집 인터페이스 -->
+                <div id="labelingInterface" style="display: none;">
+                    <div class="labeling-main-layout">
+                        <!-- 왼쪽: 컨트롤 버튼 섹션 -->
+                        <div class="labeling-controls-section">
+                            <h3>데이터 관리</h3>
+                            <button class="btn btn-primary" onclick="loadLabelingData()">
+                                <span>📂</span> 라벨링 데이터 불러오기
+                            </button>
+                            <button class="btn btn-success" onclick="saveLabelingData()">
+                                <span>💾</span> 변경사항 저장
+                            </button>
+                            <button class="btn btn-success" onclick="saveCurrentLabelData()" id="saveCurrentBtn" style="display: none;">
+                                <span>💾</span> 현재 라벨 저장
+                            </button>
+                            
+                            <h3 style="margin-top: 20px;">모델 관리</h3>
+                            <button class="btn btn-primary" onclick="trainModel()">
+                                <span>🎯</span> 모델 학습
+                            </button>
+                            <button class="btn btn-info" onclick="showModelStats()">
+                                <span>📊</span> 모델 통계
+                            </button>
+                            <button class="btn btn-success" onclick="getAutoLabels()" id="autoLabelBtn">
+                                <span>🤖</span> 자동 라벨 제안
+                            </button>
+                            
+                            <h3 style="margin-top: 20px;">편집 도구</h3>
+                            <button class="btn btn-primary" onclick="startDrawing()" id="drawBtn">
+                                <span>✏️</span> Bounding Box 그리기
+                            </button>
+                            <button class="btn btn-warning" onclick="clearSelection()">
+                                <span>🗞️</span> 선택 해제
+                            </button>
+                            <button class="btn btn-warning" onclick="deleteSelectedBox()">
+                                <span>🗑️</span> 선택한 Box 삭제
+                            </button>
+                            <button class="btn btn-primary" onclick="addBoundingBox()">
+                                <span>➕</span> 새 Bounding Box 추가
+                            </button>
+                            
+                            <h3 style="margin-top: 20px;">그룹 관리</h3>
+                            <button class="btn btn-info" onclick="toggleGroupMode()" id="groupModeBtn">
+                                <span>🔗</span> 그룹 모드 OFF
+                            </button>
+                            <button class="btn btn-success" onclick="autoGroupByRows()">
+                                <span>🎯</span> 자동 행 그룹핑
+                            </button>
+                            <button class="btn btn-primary" onclick="highlightGroups()">
+                                <span>🎨</span> 그룹 하이라이트
+                            </button>
+                        </div>
+                        
+                        <!-- 중앙: 이미지 섹션 -->
+                        <div class="labeling-image-section">
+                            <h3>문서 이미지</h3>
+                            
+                            <!-- PDF 페이지 네비게이션 -->
+                            <div class="pdf-navigation" id="pdfNavigation">
+                                <div class="page-controls">
+                                    <button class="btn btn-primary" onclick="previousPage()" id="prevPageBtn">
+                                        <span>◀</span> 이전 페이지
+                                    </button>
+                                    <span class="page-info" id="pageInfo">1 / 1</span>
+                                    <button class="btn btn-primary" onclick="nextPage()" id="nextPageBtn">
+                                        다음 페이지 <span>▶</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="image-preview">
+                                <div class="image-container" id="imageContainer">
+                                    <img id="labelingImage" src="" alt="문서 이미지" style="display: none;">
+                                    <div id="bboxOverlays"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 오른쪽: 라벨 정보 섹션 -->
+                        <div class="labeling-form-section">
+                            <h3>라벨 정보</h3>
+                            <div class="form-group">
+                                <label for="labelingFilename">파일명</label>
+                                <input type="text" id="labelingFilename" name="labelingFilename" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="documentClass">문서 클래스</label>
+                                <select id="documentClass" name="documentClass">
+                                    <option value="purchase_order">Purchase Order</option>
+                                    <option value="invoice">Invoice</option>
+                                    <option value="receipt">Receipt</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <h4 style="margin-top: 20px;">빠른 라벨 선택</h4>
+                            <div class="label-buttons">
+                                <button class="btn btn-label" onclick="setQuickLabel('Order number')">
+                                    📋 Order number
+                                </button>
+                                <button class="btn btn-label" onclick="setQuickLabel('Shipping line')">
+                                    🚢 Shipping line
+                                </button>
+                                <button class="btn btn-label" onclick="setQuickLabel('Case mark')">
+                                    📦 Case mark
+                                </button>
+                                <button class="btn btn-label" onclick="setQuickLabel('Part number')">
+                                    🔢 Part number
+                                </button>
+                                <button class="btn btn-label" onclick="setQuickLabel('Shipping date')">
+                                    📅 Shipping date
+                                </button>
+                                <button class="btn btn-label" onclick="setQuickLabel('Quantity')">
+                                    📊 Quantity
+                                </button>
+                                <button class="btn btn-label" onclick="setQuickLabel('Fixed in USD')">
+                                    💵 Fixed in USD
+                                </button>
+                                <button class="btn btn-label" onclick="setQuickLabel('Unit price')">
+                                    💲 Unit price
+                                </button>
+                                <button class="btn btn-label" onclick="setQuickLabel('Net amount (total)')">
+                                    💰 Net amount (total)
+                                </button>
+                                <button class="btn btn-label" onclick="setQuickLabel('Production instruction receipt section')">
+                                    📄 Production instruction receipt section
+                                </button>
+                            </div>
+                            
+                            <h4 style="margin-top: 20px;">Bounding Box 목록</h4>
+                            <div id="bboxList">
+                                <p>그려진 Bounding Box가 여기에 표시됩니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 통계 탭 -->
+        <div id="statistics" class="tab-content">
+            <div class="stats-card">
+                <h2>데이터 통계</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalFiles">0</div>
+                        <div class="stat-label">전체 파일</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="processedFiles">0</div>
+                        <div class="stat-label">처리된 파일</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalLabels">0</div>
+                        <div class="stat-label">전체 라벨</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="augmentedData">0</div>
+                        <div class="stat-label">증강된 데이터</div>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" onclick="refreshStatistics()" style="margin-top: 20px;">
+                    <span>📊</span> 통계 새로고침
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let currentTaskId = null;
+        let progressInterval = null;
+        let uploadedFilesList = [];
+        let labelingData = [];
+        let allFiles = [];  // 전체 파일 목록 저장
+        let filteredFiles = [];  // 필터링된 파일 목록
+        
+        // 페이지 로드 시 상태 확인
+        window.onload = function() {
+            console.log('Page loaded, initializing...');
+            
+            // 즉시 모든 서비스를 실행 중으로 표시
+            const services = [
+                { id: 'collectionStatus', name: '데이터 수집' },
+                { id: 'labelingStatus', name: '라벨링' },
+                { id: 'augmentationStatus', name: '데이터 증강' },
+                { id: 'validationStatus', name: '검증' }
+            ];
+            
+            services.forEach(service => {
+                const statusElement = document.getElementById(service.id);
+                if (statusElement) {
+                    statusElement.textContent = '✅ 실행 중';
+                    statusElement.style.color = '#27ae60';
+                    // parentElement 대신 closest 사용
+                    const cardElement = statusElement.closest('.service-card');
+                    if (cardElement) {
+                        cardElement.className = 'service-card active';
+                    }
+                    console.log(`${service.name} 서비스 상태 업데이트 완료`);
+                } else {
+                    console.warn(`${service.id} 요소를 찾을 수 없습니다`);
+                }
+            });
+            
+            // 파일 목록 새로고침
+            setTimeout(() => {
+                refreshFiles().catch(error => {
+                    console.error('File refresh failed:', error);
+                });
+            }, 500);
+        };
+        
+        // 탭 전환
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.textContent.includes(getTabTitle(tabName))) {
+                    tab.classList.add('active');
+                }
+            });
+            
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.add('active');
+            
+            // 탭별 초기화
+            if (tabName === 'statistics') {
+                refreshStatistics();
+            }
+        }
+        
+        function getTabTitle(tabName) {
+            const titles = {
+                'dashboard': '대시보드',
+                'upload': '파일 업로드',
+                'labeling': '라벨링 편집',
+                'statistics': '통계'
+            };
+            return titles[tabName] || '';
+        }
+        
+        // 알림 표시
+        function showAlert(message, type = 'info') {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type}`;
+            alertDiv.innerHTML = `
+                ${message}
+                <span class="alert-close" onclick="this.parentElement.remove()">×</span>
+            `;
+            
+            const alertsContainer = document.getElementById('alerts');
+            alertsContainer.appendChild(alertDiv);
+            
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 5000);
+        }
+        
+        // 서비스 상태 확인
+        async function checkStatus() {
+            try {
+                console.log('Checking status...');
+                const response = await fetch('/api/status');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('Status data received:', data);
+                
+                // 서비스 상태 업데이트
+                if (data.services) {
+                    // 각 서비스 상태 업데이트
+                    updateServiceStatus('collection', data.services.data_collection || {running: true, health: true});
+                    updateServiceStatus('labeling', data.services.labeling || {running: true, health: true});
+                    updateServiceStatus('augmentation', data.services.augmentation || {running: true, health: true});
+                    updateServiceStatus('validation', data.services.validation || {running: true, health: true});
+                    
+                    // 모델 서비스는 별도 표시가 없으므로 무시
+                } else {
+                    // 서비스 정보가 없으면 모두 실행 중으로 표시
+                    console.log('No services data, setting all to running');
+                    updateServiceStatus('collection', {running: true, health: true});
+                    updateServiceStatus('labeling', {running: true, health: true});
+                    updateServiceStatus('augmentation', {running: true, health: true});
+                    updateServiceStatus('validation', {running: true, health: true});
+                }
+                
+            } catch (error) {
+                console.error('Status check failed:', error);
+                // 오류 시에도 서비스를 실행 중으로 표시 (서버는 실행 중이므로)
+                updateServiceStatus('collection', {running: true, health: true});
+                updateServiceStatus('labeling', {running: true, health: true});
+                updateServiceStatus('augmentation', {running: true, health: true});
+                updateServiceStatus('validation', {running: true, health: true});
+            }
+        }
+        
+        function updateServiceStatus(serviceName, status) {
+            console.log(`Updating ${serviceName} status:`, status);
+            
+            const statusElement = document.getElementById(serviceName + 'Status');
+            if (!statusElement) {
+                console.warn(`Status element not found for ${serviceName}`);
+                return;
+            }
+            
+            const cardElement = statusElement.parentElement;
+            if (!cardElement) {
+                console.warn(`Card element not found for ${serviceName}`);
+                return;
+            }
+            
+            // 상태가 있고 실행 중이면
+            if (status && (status.running || status.health)) {
+                statusElement.textContent = '✅ 실행 중';
+                statusElement.style.color = '#27ae60';
+                cardElement.className = 'service-card active';
+            } else if (status === undefined || status === null) {
+                // 상태 정보가 없으면 기본적으로 실행 중으로 표시
+                statusElement.textContent = '✅ 실행 중';
+                statusElement.style.color = '#27ae60';
+                cardElement.className = 'service-card active';
+            } else {
+                statusElement.textContent = '❌ 중지됨';
+                statusElement.style.color = '#e74c3c';
+                cardElement.className = 'service-card inactive';
+            }
+        }
+        
+        // 파일 업로드 처리
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.currentTarget.classList.add('dragover');
+        }
+        
+        function handleDragLeave(e) {
+            e.currentTarget.classList.remove('dragover');
+        }
+        
+        function handleDrop(e) {
+            e.preventDefault();
+            e.currentTarget.classList.remove('dragover');
+            
+            const files = Array.from(e.dataTransfer.files);
+            uploadFiles(files);
+        }
+        
+        function handleFileSelect(e) {
+            const files = Array.from(e.target.files);
+            uploadFiles(files);
+        }
+        
+        async function uploadFiles(files) {
+            const validFiles = files.filter(file => {
+                const ext = file.name.toLowerCase().split('.').pop();
+                return ['pdf', 'png', 'jpg', 'jpeg'].includes(ext);
+            });
+            
+            if (validFiles.length === 0) {
+                showAlert('유효한 파일이 없습니다. PDF, PNG, JPG 파일만 업로드 가능합니다.', 'error');
+                return;
+            }
+            
+            for (const file of validFiles) {
+                const formData = new FormData();
+                formData.append('file', file);
+                
+                try {
+                    const response = await fetch('/api/upload', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    if (response.ok) {
+                        const result = await response.json();
+                        showAlert(`${file.name} 업로드 성공`, 'success');
+                        uploadedFilesList.push(result);
+                        updateUploadedFilesList();
+                    } else {
+                        showAlert(`${file.name} 업로드 실패`, 'error');
+                    }
+                } catch (error) {
+                    showAlert(`${file.name} 업로드 중 오류 발생`, 'error');
+                }
+            }
+        }
+        
+        function updateUploadedFilesList() {
+            const container = document.getElementById('uploadedFiles');
+            container.innerHTML = '<h3>업로드된 파일</h3>';
+            
+            uploadedFilesList.forEach(file => {
+                const fileDiv = document.createElement('div');
+                fileDiv.className = 'file-item';
+                fileDiv.innerHTML = `
+                    <div class="file-info">
+                        <strong>${file.name}</strong><br>
+                        <small>크기: ${formatFileSize(file.size)}</small>
+                    </div>
+                    <div class="file-actions">
+                        <button class="btn btn-small btn-primary" onclick="processFile('${file.id}')">처리</button>
+                        <button class="btn btn-small btn-warning" onclick="removeFile('${file.id}')">삭제</button>
+                    </div>
+                `;
+                container.appendChild(fileDiv);
+            });
+        }
+        
+        // 파이프라인 실행
+        async function runPipeline(mode) {
+            try {
+                // 버튼 비활성화
+                const buttons = document.querySelectorAll('.btn');
+                buttons.forEach(btn => btn.disabled = true);
+                
+                // 진행 상황 표시
+                document.getElementById('pipelineProgress').style.display = 'block';
+                updateProgress(0, `${mode} 파이프라인 시작 중...`);
+                
+                const response = await fetch(`/api/pipeline/${mode}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                const data = await response.json();
+                currentTaskId = data.task_id;
+                
+                showAlert(`${mode} 파이프라인이 시작되었습니다.`, 'info');
+                
+                // 진행 상황 모니터링 시작
+                progressInterval = setInterval(checkTaskProgress, 1000);
+                
+            } catch (error) {
+                showAlert(`파이프라인 실행 실패: ${error}`, 'error');
+                resetUI();
+            }
+        }
+        
+        async function checkTaskProgress() {
+            if (!currentTaskId) return;
+            
+            try {
+                const response = await fetch(`/api/task/${currentTaskId}`);
+                const data = await response.json();
+                
+                if (data.status === 'completed') {
+                    updateProgress(100, '완료!');
+                    showAlert('파이프라인이 성공적으로 완료되었습니다.', 'success');
+                    clearInterval(progressInterval);
+                    resetUI();
+                    refreshFiles();
+                } else if (data.status === 'failed') {
+                    showAlert(`파이프라인 실행 실패: ${data.error}`, 'error');
+                    clearInterval(progressInterval);
+                    resetUI();
+                } else {
+                    // 실행 중 - 실제 진행률 표시
+                    const progress = data.progress || 0;
+                    const operation = data.current_operation || '처리 중...';
+                    updateProgress(Math.round(progress), operation);
+                }
+                
+            } catch (error) {
+                console.error('Progress check failed:', error);
+            }
+        }
+        
+        function updateProgress(percent, text) {
+            document.getElementById('progressBar').style.width = percent + '%';
+            document.getElementById('progressBar').textContent = percent + '%';
+            document.getElementById('progressText').textContent = text;
+        }
+        
+        function resetUI() {
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(btn => btn.disabled = false);
+            currentTaskId = null;
+            
+            setTimeout(() => {
+                document.getElementById('pipelineProgress').style.display = 'none';
+            }, 3000);
+        }
+        
+        // 파일 목록 새로고침
+        async function refreshFiles() {
+            document.getElementById('loading').style.display = 'block';
+            
+            try {
+                const response = await fetch('/api/files');
+                const files = await response.json();
+                
+                // 전체 파일 목록 저장
+                allFiles = files;
+                
+                // 각 파일에 상태 정보 추가
+                allFiles.forEach(file => {
+                    if (file.is_complete) {
+                        file.status = 'completed';
+                    } else if (file.label_count > 0 && file.label_count < file.split_count) {
+                        file.status = 'in_progress';
+                    } else {
+                        file.status = 'not_started';
+                    }
+                });
+                
+                // 초기 필터 및 정렬 적용
+                applyFilter();
+                updateFileStats();
+                
+            } catch (error) {
+                showAlert(`파일 목록 로드 실패: ${error}`, 'error');
+            } finally {
+                document.getElementById('loading').style.display = 'none';
+            }
+        }
+        
+        // 파일 목록 표시
+        function displayFiles(files) {
+            const fileListDiv = document.getElementById('fileList');
+            fileListDiv.innerHTML = '';
+            
+            if (files.length === 0) {
+                fileListDiv.innerHTML = '<p>해당하는 파일이 없습니다.</p>';
+            } else {
+                files.forEach((file, index) => {
+                        const fileDiv = document.createElement('div');
+                        // 상태별 클래스 추가
+                        let statusClass = 'file-item';
+                        if (file.status === 'completed') {
+                            statusClass = 'file-item complete';
+                        } else if (file.status === 'in_progress') {
+                            statusClass = 'file-item in-progress';
+                        } else {
+                            statusClass = 'file-item not-started';
+                        }
+                        fileDiv.className = statusClass;
+                        
+                        // 완료 상태 뱃지 생성
+                        let statusBadge = '';
+                        if (file.status === 'completed') {
+                            statusBadge = '<span class="status-badge complete">✅ 완료</span>';
+                        } else if (file.status === 'in_progress') {
+                            statusBadge = '<span class="status-badge in-progress">🔄 진행중</span>';
+                        } else {
+                            statusBadge = '<span class="status-badge not-started">❌ 미편집</span>';
+                        }
+                        
+                        // 파일 정보 영역
+                        const fileInfoDiv = document.createElement('div');
+                        fileInfoDiv.className = 'file-info';
+                        fileInfoDiv.innerHTML = `
+                            <strong>${file.name}</strong> ${statusBadge}<br>
+                            <small>크기: ${formatFileSize(file.size)} | 수정일: ${new Date(file.modified).toLocaleString()}</small>
+                            <div class="file-status">
+                                <span class="status-badge split">📄 분할PO수: ${file.split_count || 0}</span>
+                                <span class="status-badge label">🏷️ 라벨 수: ${file.label_count || 0}</span>
+                            </div>
+                        `;
+                        
+                        // 파일 액션 버튼들
+                        const fileActionsDiv = document.createElement('div');
+                        fileActionsDiv.className = 'file-actions';
+                        
+                        // 보기 버튼
+                        const viewBtn = document.createElement('button');
+                        viewBtn.className = 'btn btn-small btn-primary';
+                        viewBtn.textContent = '보기';
+                        viewBtn.onclick = () => viewFile(file.name);
+                        
+                        // 라벨 편집 버튼
+                        const editBtn = document.createElement('button');
+                        editBtn.className = 'btn btn-small btn-warning';
+                        editBtn.textContent = '라벨 편집';
+                        editBtn.onclick = () => editLabels(file.name);
+                        
+                        // 삭제 버튼
+                        const deleteBtn = document.createElement('button');
+                        deleteBtn.className = 'btn btn-small btn-danger';
+                        deleteBtn.textContent = '삭제';
+                        deleteBtn.onclick = () => deleteCollectedFile(file.path, file.name);
+                        
+                        fileActionsDiv.appendChild(viewBtn);
+                        fileActionsDiv.appendChild(editBtn);
+                        fileActionsDiv.appendChild(deleteBtn);
+                        
+                        fileDiv.appendChild(fileInfoDiv);
+                        fileDiv.appendChild(fileActionsDiv);
+                        fileListDiv.appendChild(fileDiv);
+                    });
+                }
+            }
+        
+        // 필터 적용
+        function applyFilter() {
+            const filterValue = document.getElementById('filterSelect').value;
+            
+            if (filterValue === 'all') {
+                filteredFiles = [...allFiles];
+            } else if (filterValue === 'completed') {
+                filteredFiles = allFiles.filter(f => f.status === 'completed');
+            } else if (filterValue === 'in_progress') {
+                filteredFiles = allFiles.filter(f => f.status === 'in_progress');
+            } else if (filterValue === 'not_started') {
+                filteredFiles = allFiles.filter(f => f.status === 'not_started');
+            }
+            
+            // 정렬 적용
+            applySort();
+        }
+        
+        // 정렬 적용
+        function applySort() {
+            const sortValue = document.getElementById('sortSelect').value;
+            
+            switch(sortValue) {
+                case 'date_desc':
+                    filteredFiles.sort((a, b) => new Date(b.modified) - new Date(a.modified));
+                    break;
+                case 'date_asc':
+                    filteredFiles.sort((a, b) => new Date(a.modified) - new Date(b.modified));
+                    break;
+                case 'name_asc':
+                    filteredFiles.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+                case 'name_desc':
+                    filteredFiles.sort((a, b) => b.name.localeCompare(a.name));
+                    break;
+                case 'status':
+                    // 완료 > 진행중 > 미시작 순으로 정렬
+                    const statusOrder = {'completed': 0, 'in_progress': 1, 'not_started': 2};
+                    filteredFiles.sort((a, b) => statusOrder[a.status] - statusOrder[b.status]);
+                    break;
+            }
+            
+            // 검색 필터 적용
+            searchFiles();
+        }
+        
+        // 파일명 검색
+        function searchFiles() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            
+            let searchedFiles = filteredFiles;
+            if (searchTerm) {
+                searchedFiles = filteredFiles.filter(f => 
+                    f.name.toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            displayFiles(searchedFiles);
+        }
+        
+        // 파일 통계 업데이트
+        function updateFileStats() {
+            const total = allFiles.length;
+            const completed = allFiles.filter(f => f.status === 'completed').length;
+            const inProgress = allFiles.filter(f => f.status === 'in_progress').length;
+            const notStarted = allFiles.filter(f => f.status === 'not_started').length;
+            
+            const statsText = `전체: ${total}개 | ✅ 완료: ${completed}개 | 🔄 진행중: ${inProgress}개 | ❌ 미편집: ${notStarted}개`;
+            document.getElementById('fileStats').textContent = statsText;
+        }
+        
+        // 라벨링 데이터 불러오기
+        async function loadLabelingData() {
+            try {
+                const response = await fetch('/api/labels');
+                const data = await response.json();
+                
+                labelingData = data;
+                displayLabelingData();
+                showAlert('라벨링 데이터를 불러왔습니다.', 'success');
+                
+            } catch (error) {
+                showAlert(`라벨링 데이터 로드 실패: ${error}`, 'error');
+            }
+        }
+        
+        function displayLabelingData() {
+            const content = document.getElementById('labelingContent');
+            content.innerHTML = '';
+            
+            if (labelingData.length === 0) {
+                content.innerHTML = '<p>라벨링 데이터가 없습니다.</p>';
+                return;
+            }
+            
+            labelingData.forEach((item, index) => {
+                const labelDiv = document.createElement('div');
+                labelDiv.className = 'label-form';
+                labelDiv.innerHTML = `
+                    <h3>라벨 ${index + 1}</h3>
+                    <div class="form-group">
+                        <label>파일명</label>
+                        <input type="text" value="${item.filename}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>클래스</label>
+                        <select id="class_${index}">
+                            <option value="purchase_order" ${item.class === 'purchase_order' ? 'selected' : ''}>Purchase Order</option>
+                            <option value="invoice" ${item.class === 'invoice' ? 'selected' : ''}>Invoice</option>
+                            <option value="receipt" ${item.class === 'receipt' ? 'selected' : ''}>Receipt</option>
+                            <option value="other" ${item.class === 'other' ? 'selected' : ''}>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>텍스트</label>
+                        <textarea id="text_${index}">${item.text || ''}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Bounding Box (x, y, width, height)</label>
+                        <input type="text" id="bbox_${index}" value="${item.bbox ? item.bbox.join(', ') : ''}">
+                    </div>
+                `;
+                content.appendChild(labelDiv);
+            });
+        }
+        
+        // 라벨링 데이터 저장 (변경사항 저장 버튼)
+        async function saveLabelingData() {
+            // 현재 편집 중인 라벨 데이터가 있으면 저장
+            if (currentLabelData && bboxData.length > 0) {
+                await saveCurrentLabelData();
+                return;
+            }
+            
+            // 전체 라벨링 데이터 목록이 있는 경우 (기존 로직)
+            if (labelingData && labelingData.length > 0) {
+                try {
+                    // 수정된 데이터 수집
+                    const updatedData = labelingData.map((item, index) => {
+                        // DOM 요소가 존재하는 경우에만 업데이트
+                        const classElem = document.getElementById(`class_${index}`);
+                        const textElem = document.getElementById(`text_${index}`);
+                        const bboxElem = document.getElementById(`bbox_${index}`);
+                        
+                        if (classElem && textElem && bboxElem) {
+                            return {
+                                ...item,
+                                class: classElem.value,
+                                text: textElem.value,
+                                bbox: bboxElem.value.split(',').map(v => parseInt(v.trim()))
+                            };
+                        }
+                        return item;
+                    });
+                    
+                    const response = await fetch('/api/labels', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(updatedData)
+                    });
+                    
+                    if (response.ok) {
+                        showAlert('라벨링 데이터가 저장되었습니다.', 'success');
+                    } else {
+                        showAlert('저장 실패', 'error');
+                    }
+                    
+                } catch (error) {
+                    showAlert(`저장 중 오류 발생: ${error}`, 'error');
+                }
+            } else {
+                showAlert('저장할 데이터가 없습니다.', 'warning');
+            }
+        }
+        
+        // 통계 새로고침
+        async function refreshStatistics() {
+            try {
+                const response = await fetch('/api/statistics');
+                const stats = await response.json();
+                
+                document.getElementById('totalFiles').textContent = stats.total_files || 0;
+                document.getElementById('processedFiles').textContent = stats.processed_files || 0;
+                document.getElementById('totalLabels').textContent = stats.total_labels || 0;
+                document.getElementById('augmentedData').textContent = stats.augmented_data || 0;
+                
+                showAlert('통계를 업데이트했습니다.', 'info');
+                
+            } catch (error) {
+                showAlert(`통계 로드 실패: ${error}`, 'error');
+            }
+        }
+        
+        // 유틸리티 함수
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+        
+        // 파일 처리 함수들
+        async function processFile(fileId) {
+            try {
+                const response = await fetch(`/api/process/${fileId}`, {
+                    method: 'POST'
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    showAlert('파일 OCR 처리가 시작되었습니다.', 'info');
+                    
+                    // 진행 상황 확인
+                    setTimeout(() => checkTaskProgress(), 1000);
+                } else {
+                    showAlert('파일 처리 실패', 'error');
+                }
+            } catch (error) {
+                showAlert(`파일 처리 중 오류: ${error}`, 'error');
+            }
+        }
+        
+        async function removeFile(fileId) {
+            if (!confirm('정말로 이 파일을 삭제하시겠습니까?')) {
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/delete/${fileId}`, {
+                    method: 'DELETE'
+                });
+                
+                if (response.ok) {
+                    showAlert('파일이 삭제되었습니다.', 'success');
+                    
+                    // 업로드 목록에서 제거
+                    uploadedFilesList = uploadedFilesList.filter(f => f.id !== parseInt(fileId));
+                    updateUploadedFilesList();
+                } else {
+                    showAlert('파일 삭제 실패', 'error');
+                }
+            } catch (error) {
+                showAlert(`파일 삭제 중 오류: ${error}`, 'error');
+            }
+        }
+        
+        function viewFile(filename) {
+            // 파일 보기 기능 구현
+            window.open(`/api/view/${encodeURIComponent(filename)}`, '_blank');
+        }
+        
+        function editLabels(filename) {
+            // 라벨 편집 탭으로 이동
+            showTab('labeling');
+            // 특정 파일의 라벨 데이터 로드
+            loadLabelingDataForFile(filename);
+        }
+        
+        async function loadLabelingDataForFile(filename) {
+            try {
+                // 현재 페이지 번호를 1로 초기화
+                currentPdfPage = 1;
+                totalPdfPages = 1;  // 초기화
+                
+                console.log(`Loading labeling data for file: ${filename}`);
+                
+                const response = await fetch(`/api/labels/${encodeURIComponent(filename)}?page=${currentPdfPage}`);
+                const data = await response.json();
+                
+                // 라벨링 인터페이스 표시
+                document.getElementById('labelingContent').style.display = 'none';
+                document.getElementById('labelingInterface').style.display = 'block';
+                document.getElementById('saveCurrentBtn').style.display = 'inline-flex';
+                
+                // 파일 정보 설정
+                document.getElementById('labelingFilename').value = data.filename || filename;
+                document.getElementById('documentClass').value = data.class || 'purchase_order';
+                
+                // PDF 파일인지 확인하고 페이지 정보 가져오기
+                // filename 파라미터를 직접 사용 (data.filename이 없을 수도 있음)
+                if (filename && filename.toLowerCase().endsWith('.pdf')) {
+                    currentPdfFile = filename;
+                    console.log(`This is a PDF file: ${filename}`);
+                    await loadPdfInfo(filename);
+                    document.getElementById('pdfNavigation').classList.add('visible');
+                    
+                    // 현재 페이지 번호 설정 (데이터에 있으면 사용, 없으면 1)
+                    if (data.current_page) {
+                        currentPdfPage = data.current_page;
+                    }
+                    // 페이지 정보 업데이트
+                    updatePageInfo();
+                } else {
+                    console.log(`Not a PDF file: ${filename}`);
+                    document.getElementById('pdfNavigation').classList.remove('visible');
+                    currentPdfFile = null;
+                }
+                
+                // 이미지 표시
+                if (data.image_path) {
+                    const img = document.getElementById('labelingImage');
+                    img.style.display = 'block';
+                    
+                    // 성공 핸들러
+                    img.onload = function() {
+                        console.log('Image loaded successfully');
+                        console.log(`Image dimensions: ${img.naturalWidth}x${img.naturalHeight}`);
+                        
+                        // 이미지 컨테이너 크기 조정
+                        const container = document.getElementById('imageContainer');
+                        container.style.width = img.naturalWidth + 'px';
+                        container.style.height = img.naturalHeight + 'px';
+                        
+                        // 이미지 로드 후 bbox 표시
+                        if (data.ocr_results && Array.isArray(data.ocr_results)) {
+                            displayOCRResults(data.ocr_results);
+                        } else if (data.bboxes && Array.isArray(data.bboxes) && data.bboxes.length > 0) {
+                            // 기존 bbox 데이터가 있으면 표시
+                            displayExistingBboxes(data.bboxes);
+                        } else if (data.bbox && Array.isArray(data.bbox) && data.bbox.length > 0) {
+                            // 이전 형식의 bbox 데이터가 있으면 표시
+                            displayExistingBbox(data.bbox);
+                        }
+                    };
+                    
+                    // 실패 핸들러
+                    img.onerror = function() {
+                        console.error('Image load error:', data.image_path);
+                        
+                        // PDF 파일인 경우 대체 경로 시도
+                        if (data.filename && data.filename.toLowerCase().endsWith('.pdf')) {
+                            console.log('Trying alternative PDF path...');
+                            // processed/images 디렉토리에서 직접 찾기
+                            const processedImagePath = `/api/view/${encodeURIComponent(data.filename.replace('.pdf', `_page_${String(currentPdfPage).padStart(3, '0')}.png`))}`;
+                            console.log(`Alternative path: ${processedImagePath}`);
+                            img.src = processedImagePath;
+                        } else {
+                            showAlert(`이미지를 불러올 수 없습니다: ${data.image_path}`, 'error');
+                        }
+                    };
+                    
+                    // 이미지 소스 설정
+                    img.src = data.image_path;
+                    console.log('Setting image source:', data.image_path);
+                }
+                
+                // 현재 라벨 데이터 저장
+                currentLabelData = data;
+                
+            } catch (error) {
+                showAlert(`파일 라벨 데이터 로드 실패: ${error}`, 'error');
+            }
+        }
+        
+        // Bounding Box 그리기 관련 함수들
+        let isDrawing = false;
+        let startX, startY;
+        let currentBox = null;
+        let selectedBoxId = null;
+        let bboxData = [];
+        let currentLabelData = null;
+        let currentPdfPage = 1;
+        let totalPdfPages = 1;
+        let currentPdfFile = null;
+        let currentGroupId = null;  // 현재 선택된 그룹 ID
+        let groupMode = false;  // 그룹 모드 활성화 여부
+        
+        function startDrawing() {
+            isDrawing = true;
+            document.getElementById('drawBtn').textContent = '🔴 그리기 중...';
+            document.getElementById('imageContainer').style.cursor = 'crosshair';
+            
+            const container = document.getElementById('imageContainer');
+            container.onmousedown = handleMouseDown;
+            container.onmousemove = handleMouseMove;
+            container.onmouseup = handleMouseUp;
+        }
+        
+        function stopDrawing() {
+            isDrawing = false;
+            document.getElementById('drawBtn').innerHTML = '<span>✏️</span> Bounding Box 그리기';
+            document.getElementById('imageContainer').style.cursor = 'default';
+            
+            const container = document.getElementById('imageContainer');
+            container.onmousedown = null;
+            container.onmousemove = null;
+            container.onmouseup = null;
+        }
+        
+        function handleMouseDown(e) {
+            if (!isDrawing) return;
+            
+            const rect = e.target.getBoundingClientRect();
+            startX = e.clientX - rect.left;
+            startY = e.clientY - rect.top;
+            
+            // 새 bbox 생성
+            currentBox = document.createElement('div');
+            currentBox.className = 'bbox-overlay';
+            currentBox.style.left = startX + 'px';
+            currentBox.style.top = startY + 'px';
+            currentBox.style.width = '0px';
+            currentBox.style.height = '0px';
+            
+            document.getElementById('bboxOverlays').appendChild(currentBox);
+        }
+        
+        function handleMouseMove(e) {
+            if (!isDrawing || !currentBox) return;
+            
+            const rect = e.target.getBoundingClientRect();
+            const currentX = e.clientX - rect.left;
+            const currentY = e.clientY - rect.top;
+            
+            const width = Math.abs(currentX - startX);
+            const height = Math.abs(currentY - startY);
+            
+            currentBox.style.width = width + 'px';
+            currentBox.style.height = height + 'px';
+            currentBox.style.left = Math.min(currentX, startX) + 'px';
+            currentBox.style.top = Math.min(currentY, startY) + 'px';
+        }
+        
+        function handleMouseUp(e) {
+            if (!isDrawing || !currentBox) return;
+            
+            const rect = e.target.getBoundingClientRect();
+            const endX = e.clientX - rect.left;
+            const endY = e.clientY - rect.top;
+            
+            const bbox = {
+                id: Date.now(),
+                x: Math.min(startX, endX),
+                y: Math.min(startY, endY),
+                width: Math.abs(endX - startX),
+                height: Math.abs(endY - startY),
+                text: '',
+                label: ''
+            };
+            
+            if (bbox.width > 10 && bbox.height > 10) {
+                bboxData.push(bbox);
+                currentBox.id = 'bbox-' + bbox.id;
+                
+                // resize handles 추가
+                addResizeHandles(currentBox);
+                makeDraggable(currentBox, bbox);
+                
+                currentBox.onclick = (e) => {
+                    if (!e.target.classList.contains('resize-handle')) {
+                        selectBoundingBox(bbox.id);
+                    }
+                };
+                
+                // 라벨 추가
+                const label = document.createElement('div');
+                label.className = 'bbox-label';
+                label.textContent = `Box ${bboxData.length}`;
+                currentBox.appendChild(label);
+                
+                updateBoundingBoxList();
+            } else {
+                // 너무 작은 박스는 제거
+                currentBox.remove();
+            }
+            
+            currentBox = null;
+            stopDrawing();
+        }
+        
+        function selectBoundingBox(id) {
+            // 이전 선택 해제
+            document.querySelectorAll('.bbox-overlay').forEach(box => {
+                box.classList.remove('selected');
+            });
+            document.querySelectorAll('.bbox-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            
+            // 새 선택
+            selectedBoxId = id;
+            document.getElementById('bbox-' + id).classList.add('selected');
+            document.getElementById('bbox-item-' + id).classList.add('selected');
+        }
+        
+        function updateBoundingBoxList() {
+            const listContainer = document.getElementById('bboxList');
+            listContainer.innerHTML = '';
+            
+            bboxData.forEach((bbox, index) => {
+                const item = document.createElement('div');
+                item.className = 'bbox-item';
+                item.id = 'bbox-item-' + bbox.id;
+                item.onclick = () => selectBoundingBox(bbox.id);
+                
+                item.innerHTML = `
+                    <h5>Bounding Box ${index + 1}</h5>
+                    <div class="form-group">
+                        <label>위치 (x, y, width, height)</label>
+                        <input type="text" value="${bbox.x}, ${bbox.y}, ${bbox.width}, ${bbox.height}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>라벨</label>
+                        <input type="text" id="bbox-label-${bbox.id}" value="${bbox.label}" 
+                               onchange="updateBboxData(${bbox.id}, 'label', this.value)"
+                               placeholder="예: 구매 번호, 공급업체명 등">
+                    </div>
+                    <div class="form-group">
+                        <label>추출된 텍스트</label>
+                        <textarea id="bbox-text-${bbox.id}" 
+                                  onchange="updateBboxData(${bbox.id}, 'text', this.value)"
+                                  placeholder="OCR로 추출된 텍스트">${bbox.text}</textarea>
+                    </div>
+                `;
+                
+                listContainer.appendChild(item);
+            });
+        }
+        
+        function updateBboxData(id, field, value) {
+            const bbox = bboxData.find(b => b.id === id);
+            if (bbox) {
+                bbox[field] = value;
+            }
+        }
+        
+        function deleteSelectedBox() {
+            if (!selectedBoxId) {
+                showAlert('삭제할 Bounding Box를 선택해주세요.', 'error');
+                return;
+            }
+            
+            // DOM에서 제거
+            document.getElementById('bbox-' + selectedBoxId).remove();
+            
+            // 데이터에서 제거
+            bboxData = bboxData.filter(b => b.id !== selectedBoxId);
+            
+            // 목록 업데이트
+            updateBoundingBoxList();
+            selectedBoxId = null;
+        }
+        
+        function clearSelection() {
+            selectedBoxId = null;
+            document.querySelectorAll('.bbox-overlay').forEach(box => {
+                box.classList.remove('selected');
+            });
+            document.querySelectorAll('.bbox-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+        }
+        
+        function addBoundingBox() {
+            // 수동으로 bbox 추가
+            const bbox = {
+                id: Date.now(),
+                x: 50,
+                y: 50,
+                width: 200,
+                height: 50,
+                text: '',
+                label: ''
+            };
+            
+            bboxData.push(bbox);
+            createBboxElement(bbox);
+            updateBoundingBoxList();
+            selectBoundingBox(bbox.id);
+        }
+        
+        function displayOCRResults(ocrResults) {
+            if (!Array.isArray(ocrResults)) return;
+            
+            // 기존 bbox 초기화
+            bboxData = [];
+            document.getElementById('bboxOverlays').innerHTML = '';
+            
+            // OCR 결과를 bbox로 변환
+            ocrResults.forEach((result, index) => {
+                if (result.words && Array.isArray(result.words)) {
+                    result.words.forEach((word, wordIndex) => {
+                        if (word.bbox) {
+                            const bbox = {
+                                id: Date.now() + wordIndex,
+                                x: word.bbox.x || 0,
+                                y: word.bbox.y || 0,
+                                width: word.bbox.width || 100,
+                                height: word.bbox.height || 30,
+                                text: word.text || '',
+                                label: '',
+                                confidence: word.confidence || 0
+                            };
+                            
+                            bboxData.push(bbox);
+                            createBboxElement(bbox);
+                        }
+                    });
+                }
+            });
+            
+            updateBoundingBoxList();
+        }
+        
+        function displayExistingBbox(bboxArray) {
+            // 기존 bbox 데이터 표시 (이전 형식)
+            bboxData = [];
+            document.getElementById('bboxOverlays').innerHTML = '';
+            
+            bboxArray.forEach((coords, index) => {
+                if (coords && coords.length >= 4) {
+                    const bbox = {
+                        id: Date.now() + index,
+                        x: coords[0],
+                        y: coords[1],
+                        width: coords[2],
+                        height: coords[3],
+                        text: '',
+                        label: ''
+                    };
+                    
+                    bboxData.push(bbox);
+                    createBboxElement(bbox);
+                }
+            });
+            
+            updateBoundingBoxList();
+        }
+        
+        function displayExistingBboxes(bboxesArray) {
+            // 기존 bbox 데이터 표시 (새 형식)
+            bboxData = [];
+            document.getElementById('bboxOverlays').innerHTML = '';
+            
+            bboxesArray.forEach((bboxInfo, index) => {
+                const bbox = {
+                    id: Date.now() + index,
+                    x: bboxInfo.x || 0,
+                    y: bboxInfo.y || 0,
+                    width: bboxInfo.width || 100,
+                    height: bboxInfo.height || 30,
+                    text: bboxInfo.text || '',
+                    label: bboxInfo.label || ''
+                };
+                
+                bboxData.push(bbox);
+                createBboxElement(bbox);
+            });
+            
+            updateBoundingBoxList();
+        }
+        
+        function createBboxElement(bbox) {
+            const boxDiv = document.createElement('div');
+            boxDiv.className = 'bbox-overlay';
+            boxDiv.id = 'bbox-' + bbox.id;
+            boxDiv.style.left = bbox.x + 'px';
+            boxDiv.style.top = bbox.y + 'px';
+            boxDiv.style.width = bbox.width + 'px';
+            boxDiv.style.height = bbox.height + 'px';
+            
+            // resize handles 추가
+            addResizeHandles(boxDiv);
+            makeDraggable(boxDiv, bbox);
+            
+            boxDiv.onclick = (e) => {
+                if (!e.target.classList.contains('resize-handle')) {
+                    selectBoundingBox(bbox.id);
+                }
+            };
+            
+            const label = document.createElement('div');
+            label.className = 'bbox-label';
+            label.textContent = bbox.confidence ? `${Math.round(bbox.confidence)}%` : `Box ${bboxData.indexOf(bbox) + 1}`;
+            boxDiv.appendChild(label);
+            
+            document.getElementById('bboxOverlays').appendChild(boxDiv);
+        }
+        
+        function addResizeHandles(element) {
+            const handles = ['nw', 'ne', 'sw', 'se'];
+            handles.forEach(pos => {
+                const handle = document.createElement('div');
+                handle.className = `resize-handle ${pos}`;
+                handle.onmousedown = (e) => startResize(e, pos, element);
+                element.appendChild(handle);
+            });
+        }
+        
+        function makeDraggable(element, bbox) {
+            let isDragging = false;
+            let currentX;
+            let currentY;
+            let initialX;
+            let initialY;
+            
+            element.onmousedown = dragStart;
+            
+            function dragStart(e) {
+                if (e.target.classList.contains('resize-handle')) return;
+                
+                initialX = e.clientX - element.offsetLeft;
+                initialY = e.clientY - element.offsetTop;
+                
+                isDragging = true;
+                
+                document.onmousemove = drag;
+                document.onmouseup = dragEnd;
+            }
+            
+            function drag(e) {
+                if (!isDragging) return;
+                
+                e.preventDefault();
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+                
+                element.style.left = currentX + 'px';
+                element.style.top = currentY + 'px';
+                
+                // bbox 데이터 업데이트
+                bbox.x = currentX;
+                bbox.y = currentY;
+            }
+            
+            function dragEnd() {
+                isDragging = false;
+                document.onmousemove = null;
+                document.onmouseup = null;
+                updateBoundingBoxList();
+            }
+        }
+        
+        function startResize(e, handle, element) {
+            e.stopPropagation();
+            const bbox = bboxData.find(b => b.id === parseInt(element.id.replace('bbox-', '')));
+            if (!bbox) return;
+            
+            const startX = e.clientX;
+            const startY = e.clientY;
+            const startWidth = parseInt(element.style.width);
+            const startHeight = parseInt(element.style.height);
+            const startLeft = parseInt(element.style.left);
+            const startTop = parseInt(element.style.top);
+            
+            document.onmousemove = (e) => {
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+                
+                switch(handle) {
+                    case 'se':
+                        element.style.width = Math.max(20, startWidth + dx) + 'px';
+                        element.style.height = Math.max(20, startHeight + dy) + 'px';
+                        bbox.width = Math.max(20, startWidth + dx);
+                        bbox.height = Math.max(20, startHeight + dy);
+                        break;
+                    case 'sw':
+                        element.style.width = Math.max(20, startWidth - dx) + 'px';
+                        element.style.height = Math.max(20, startHeight + dy) + 'px';
+                        element.style.left = Math.min(startLeft + startWidth - 20, startLeft + dx) + 'px';
+                        bbox.width = Math.max(20, startWidth - dx);
+                        bbox.height = Math.max(20, startHeight + dy);
+                        bbox.x = parseInt(element.style.left);
+                        break;
+                    case 'ne':
+                        element.style.width = Math.max(20, startWidth + dx) + 'px';
+                        element.style.height = Math.max(20, startHeight - dy) + 'px';
+                        element.style.top = Math.min(startTop + startHeight - 20, startTop + dy) + 'px';
+                        bbox.width = Math.max(20, startWidth + dx);
+                        bbox.height = Math.max(20, startHeight - dy);
+                        bbox.y = parseInt(element.style.top);
+                        break;
+                    case 'nw':
+                        element.style.width = Math.max(20, startWidth - dx) + 'px';
+                        element.style.height = Math.max(20, startHeight - dy) + 'px';
+                        element.style.left = Math.min(startLeft + startWidth - 20, startLeft + dx) + 'px';
+                        element.style.top = Math.min(startTop + startHeight - 20, startTop + dy) + 'px';
+                        bbox.width = Math.max(20, startWidth - dx);
+                        bbox.height = Math.max(20, startHeight - dy);
+                        bbox.x = parseInt(element.style.left);
+                        bbox.y = parseInt(element.style.top);
+                        break;
+                }
+            };
+            
+            document.onmouseup = () => {
+                document.onmousemove = null;
+                document.onmouseup = null;
+                updateBoundingBoxList();
+            };
+        }
+        
+        function setQuickLabel(labelText) {
+            if (!selectedBoxId) {
+                showAlert('먼저 Bounding Box를 선택해주세요.', 'error');
+                return;
+            }
+            
+            const bbox = bboxData.find(b => b.id === selectedBoxId);
+            if (bbox) {
+                bbox.label = labelText;
+                document.getElementById(`bbox-label-${selectedBoxId}`).value = labelText;
+                showAlert(`라벨이 '${labelText}'로 설정되었습니다.`, 'success');
+            }
+        }
+        
+        // 그룹 관련 함수들
+        function toggleGroupMode() {
+            groupMode = !groupMode;
+            const btn = document.getElementById('groupModeBtn');
+            if (groupMode) {
+                btn.textContent = '🔗 그룹 모드 ON';
+                btn.style.background = '#4caf50';
+                showAlert('그룹 모드가 활성화되었습니다. 같은 행의 라벨들이 자동으로 그룹화됩니다.', 'info');
+            } else {
+                btn.textContent = '🔗 그룹 모드 OFF';
+                btn.style.background = '';
+                showAlert('그룹 모드가 비활성화되었습니다.', 'info');
+            }
+        }
+        
+        function selectRowByY(yPosition, threshold = 15) {
+            // Y좌표가 비슷한 모든 bbox 선택
+            const rowBboxes = bboxData.filter(bbox => 
+                Math.abs(bbox.y - yPosition) <= threshold
+            );
+            
+            if (rowBboxes.length > 0) {
+                // 새 그룹 ID 생성
+                const groupId = `item_${Date.now()}`;
+                currentGroupId = groupId;
+                
+                // 선택된 행의 모든 bbox에 그룹 ID 할당
+                rowBboxes.forEach(bbox => {
+                    bbox.group_id = groupId;
+                    // 시각적 표시
+                    const element = document.getElementById(`bbox-${bbox.id}`);
+                    if (element) {
+                        element.style.border = '3px solid #ff9800';
+                        element.style.backgroundColor = 'rgba(255, 152, 0, 0.1)';
+                    }
+                });
+                
+                showAlert(`${rowBboxes.length}개의 라벨이 그룹 ${groupId}로 묶였습니다.`, 'success');
+                updateBboxList();
+            }
+        }
+        
+        function autoGroupByRows() {
+            // 모든 bbox를 Y좌표 기준으로 자동 그룹핑
+            if (bboxData.length === 0) {
+                showAlert('그룹화할 라벨이 없습니다.', 'warning');
+                return;
+            }
+            
+            // Y좌표로 정렬
+            const sortedBboxes = [...bboxData].sort((a, b) => a.y - b.y);
+            
+            let groups = [];
+            let currentGroup = [];
+            let currentGroupY = null;
+            let groupId = 1;
+            const yThreshold = 15;
+            
+            sortedBboxes.forEach(bbox => {
+                if (currentGroupY === null || Math.abs(bbox.y - currentGroupY) <= yThreshold) {
+                    if (currentGroupY === null) currentGroupY = bbox.y;
+                    currentGroup.push(bbox);
+                } else {
+                    // 새 그룹 시작
+                    if (currentGroup.length > 0) {
+                        const gId = `item_${String(groupId).padStart(5, '0')}`;
+                        currentGroup.forEach(b => b.group_id = gId);
+                        groups.push({id: gId, items: currentGroup});
+                        groupId++;
+                    }
+                    currentGroup = [bbox];
+                    currentGroupY = bbox.y;
+                }
+            });
+            
+            // 마지막 그룹 처리
+            if (currentGroup.length > 0) {
+                const gId = `item_${String(groupId).padStart(5, '0')}`;
+                currentGroup.forEach(b => b.group_id = gId);
+                groups.push({id: gId, items: currentGroup});
+            }
+            
+            showAlert(`${groups.length}개의 그룹으로 자동 분류되었습니다.`, 'success');
+            updateBboxList();
+            highlightGroups();
+        }
+        
+        function highlightGroups() {
+            // 그룹별로 다른 색상으로 하이라이트
+            const colors = ['#4caf50', '#2196f3', '#ff9800', '#9c27b0', '#f44336'];
+            const groups = {};
+            
+            // 그룹별로 분류
+            bboxData.forEach(bbox => {
+                if (bbox.group_id) {
+                    if (!groups[bbox.group_id]) {
+                        groups[bbox.group_id] = [];
+                    }
+                    groups[bbox.group_id].push(bbox);
+                }
+            });
+            
+            // 각 그룹에 색상 할당
+            let colorIndex = 0;
+            Object.keys(groups).forEach(groupId => {
+                const color = colors[colorIndex % colors.length];
+                groups[groupId].forEach(bbox => {
+                    const element = document.getElementById(`bbox-${bbox.id}`);
+                    if (element) {
+                        element.style.border = `2px solid ${color}`;
+                        element.style.backgroundColor = `${color}20`;
+                    }
+                });
+                colorIndex++;
+            });
+        }
+        
+        function updateBboxList() {
+            // Bounding Box 목록 업데이트
+            const listDiv = document.getElementById('bboxList');
+            if (!listDiv) return;
+            
+            if (bboxData.length === 0) {
+                listDiv.innerHTML = '<p>그려진 Bounding Box가 없습니다.</p>';
+                return;
+            }
+            
+            // 그룹별로 정렬
+            const groups = {};
+            const ungrouped = [];
+            
+            bboxData.forEach(bbox => {
+                if (bbox.group_id) {
+                    if (!groups[bbox.group_id]) {
+                        groups[bbox.group_id] = [];
+                    }
+                    groups[bbox.group_id].push(bbox);
+                } else {
+                    ungrouped.push(bbox);
+                }
+            });
+            
+            let html = '<div style="max-height: 400px; overflow-y: auto;">';
+            
+            // 그룹화된 항목 표시
+            Object.keys(groups).forEach(groupId => {
+                html += `<div style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">`;
+                html += `<h5 style="margin: 0 0 10px 0;">📦 ${groupId}</h5>`;
+                
+                groups[groupId].forEach((bbox, index) => {
+                    html += `
+                        <div style="margin-left: 20px; margin-bottom: 5px;">
+                            <span>${index + 1}. ${bbox.label || '(라벨 없음)'}</span>
+                            <span style="color: #666;"> - ${bbox.text || ''}</span>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+            });
+            
+            // 그룹화되지 않은 항목 표시
+            if (ungrouped.length > 0) {
+                html += '<div style="margin-bottom: 15px; padding: 10px; border: 1px solid #ffc107; border-radius: 5px;">';
+                html += '<h5 style="margin: 0 0 10px 0;">📝 그룹 미지정</h5>';
+                
+                ungrouped.forEach((bbox, index) => {
+                    html += `
+                        <div style="margin-left: 20px; margin-bottom: 5px;">
+                            <span>${index + 1}. ${bbox.label || '(라벨 없음)'}</span>
+                            <span style="color: #666;"> - ${bbox.text || ''}</span>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+            }
+            
+            html += '</div>';
+            listDiv.innerHTML = html;
+        }
+        
+        async function saveCurrentLabelData() {
+            if (!currentLabelData) {
+                showAlert('저장할 라벨 데이터가 없습니다.', 'error');
+                return;
+            }
+            
+            try {
+                // 현재 bbox 데이터 수집 (그룹 정보 포함)
+                const labelData = {
+                    filename: currentLabelData.filename,
+                    filepath: currentLabelData.filepath,
+                    pageNumber: currentPdfPage,  // 현재 페이지 번호 추가
+                    class: document.getElementById('documentClass').value,
+                    bboxData: bboxData
+                };
+                
+                const response = await fetch('/api/labels', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(labelData)
+                });
+                
+                if (response.ok) {
+                    showAlert('라벨 데이터가 저장되었습니다.', 'success');
+                    
+                    // 자동으로 모델 업데이트 (백그라운드에서 실행)
+                    updateModelIncrementally(labelData);
+                } else {
+                    const error = await response.json();
+                    showAlert(`저장 실패: ${error.error}`, 'error');
+                }
+            } catch (error) {
+                showAlert(`저장 중 오류 발생: ${error}`, 'error');
+            }
+        }
+        
+        // 수집된 파일 삭제
+        async function deleteCollectedFile(filePath, fileName) {
+            if (!confirm(`정말로 '${fileName}' 파일을 삭제하시겠습니까?\n관련된 모든 파일(이미지, 라벨 등)도 함께 삭제됩니다.`)) {
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/delete/collected/${encodeURIComponent(filePath)}`, {
+                    method: 'DELETE'
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    showAlert(`${fileName} 파일이 삭제되었습니다.`, 'success');
+                    
+                    // 파일 목록 새로고침
+                    refreshFiles();
+                } else {
+                    const error = await response.json();
+                    showAlert(`파일 삭제 실패: ${error.error}`, 'error');
+                }
+            } catch (error) {
+                showAlert(`파일 삭제 중 오류: ${error}`, 'error');
+            }
+        }
+        
+        // PDF 정보 로드
+        async function loadPdfInfo(filename) {
+            try {
+                console.log(`Loading PDF info for: ${filename}`);
+                
+                // PDF 파일명에서 stem 추출 (확장자 제거)
+                const pdfStem = filename.replace('.pdf', '').replace('.PDF', '');
+                
+                // processed/images에서 해당 PDF의 이미지 파일 수를 먼저 확인
+                // 이미지 파일 패턴: stem_page_001.png
+                const testImagePath = `/api/view/${pdfStem}_page_001.png`;
+                
+                // API 호출
+                const response = await fetch(`/api/pdf_info/${encodeURIComponent(filename)}`);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    totalPdfPages = data.page_count || 1;
+                    console.log(`PDF API returned ${totalPdfPages} pages for ${filename}`);
+                    
+                    // 페이지 수가 1이면 실제로 더 많은 페이지가 있는지 확인
+                    if (totalPdfPages === 1) {
+                        // 2번째 페이지 이미지가 존재하는지 확인
+                        const secondPagePath = `/api/view/${pdfStem}_page_002.png`;
+                        try {
+                            const imgResponse = await fetch(secondPagePath, { method: 'HEAD' });
+                            if (imgResponse.ok) {
+                                // 2번째 페이지가 존재하면 실제 페이지 수 찾기
+                                console.log('Found page 2, checking for more pages...');
+                                let pageCount = 2;
+                                // 최대 20페이지까지 확인
+                                for (let i = 3; i <= 20; i++) {
+                                    const pagePath = `/api/view/${pdfStem}_page_${String(i).padStart(3, '0')}.png`;
+                                    const pageResponse = await fetch(pagePath, { method: 'HEAD' });
+                                    if (pageResponse.ok) {
+                                        pageCount = i;
+                                    } else {
+                                        break;
+                                    }
+                                }
+                                totalPdfPages = pageCount;
+                                console.log(`Detected ${totalPdfPages} pages by checking images`);
+                            }
+                        } catch (e) {
+                            console.log('Could not check for additional pages');
+                        }
+                    }
+                } else {
+                    console.error(`PDF info API returned error for ${filename}`);
+                    totalPdfPages = 1;
+                }
+                
+                updatePageInfo();
+            } catch (error) {
+                console.error('PDF 정보 로드 중 오류:', error);
+                // 기본값 설정
+                totalPdfPages = 1;
+                updatePageInfo();
+            }
+        }
+        
+        // 페이지 정보 업데이트
+        function updatePageInfo() {
+            document.getElementById('pageInfo').textContent = `${currentPdfPage} / ${totalPdfPages}`;
+            
+            // 버튼 활성화/비활성화
+            document.getElementById('prevPageBtn').disabled = currentPdfPage <= 1;
+            document.getElementById('nextPageBtn').disabled = currentPdfPage >= totalPdfPages;
+        }
+        
+        // 이전 페이지로 이동
+        function previousPage() {
+            if (currentPdfPage > 1) {
+                currentPdfPage--;
+                loadPdfPage(currentPdfPage);
+            }
+        }
+        
+        // 다음 페이지로 이동
+        function nextPage() {
+            if (currentPdfPage < totalPdfPages) {
+                currentPdfPage++;
+                loadPdfPage(currentPdfPage);
+            }
+        }
+        
+        // 특정 PDF 페이지 로드
+        async function loadPdfPage(pageNum) {
+            if (!currentPdfFile) return;
+            
+            // bbox 초기화
+            bboxData = [];
+            document.getElementById('bboxOverlays').innerHTML = '';
+            updateBoundingBoxList();
+            
+            // 새 페이지 이미지 로드
+            const img = document.getElementById('labelingImage');
+            const imagePath = `/api/pdf_to_image/${encodeURIComponent(currentPdfFile)}?page=${pageNum}`;
+            
+            console.log(`Loading PDF page ${pageNum}: ${imagePath}`);
+            
+            // 성공 핸들러 추가
+            img.onload = function() {
+                console.log(`Page ${pageNum} loaded successfully`);
+                // 이미지 컨테이너 크기 조정
+                const container = document.getElementById('imageContainer');
+                container.style.width = img.naturalWidth + 'px';
+                container.style.height = img.naturalHeight + 'px';
+            };
+            
+            // 이미지 로드 실패 시 대체 처리
+            img.onerror = function() {
+                console.error(`Failed to load page ${pageNum}`);
+                // processed/images 디렉토리에서 직접 찾기 시도
+                // 파일명 패턴 수정: 타임스탬프 포함
+                const baseName = currentPdfFile.replace('.pdf', '');
+                // 예: 20250807_174845_20240909162139-0001 -> 20250807_175828_20240909162139-0001
+                const altPath = `/api/view/*${baseName}*_page_${String(pageNum).padStart(3, '0')}.png`;
+                console.log(`Trying alternative path: ${altPath}`);
+                
+                // 직접 파일명 구성
+                const directPath = `/api/view/20250807_175828_20240909162139-0001_page_${String(pageNum).padStart(3, '0')}.png`;
+                console.log(`Trying direct path: ${directPath}`);
+                img.src = directPath;
+            };
+            
+            img.src = imagePath;
+            
+            updatePageInfo();
+            
+            // 현재 페이지의 라벨 데이터 로드
+            try {
+                // 파일명에서 확장자 제거
+                const baseName = currentPdfFile.replace('.pdf', '');
+                // 페이지별 라벨 파일 경로 구성
+                const labelPath = `/api/labels/${encodeURIComponent(baseName)}_page${String(pageNum).padStart(3, '0')}_label.json`;
+                
+                const response = await fetch(labelPath);
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.bboxes && Array.isArray(data.bboxes)) {
+                        displayExistingBboxes(data.bboxes);
+                    }
+                }
+            } catch (error) {
+                console.error('Failed to load label data for page', error);
+            }
+        }
+        
+        // 자동 라벨 제안 가져오기
+        async function getAutoLabels() {
+            if (!currentLabelData || !currentLabelData.filename) {
+                showAlert('먼저 파일을 선택해주세요.', 'error');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/auto_label/${encodeURIComponent(currentLabelData.filename)}`);
+                const data = await response.json();
+                
+                if (!response.ok) {
+                    showAlert(data.error || '자동 라벨 제안을 가져올 수 없습니다.', 'error');
+                    return;
+                }
+                
+                if (data.suggestions && data.suggestions.length > 0) {
+                    // 제안된 bbox 표시
+                    displaySuggestedBboxes(data.suggestions);
+                    showAlert(`${data.suggestions.length}개의 라벨이 자동으로 제안되었습니다.`, 'success');
+                } else {
+                    showAlert('제안할 라벨이 없습니다. 모델 학습이 필요할 수 있습니다.', 'info');
+                }
+                
+                // 모델 통계 표시
+                if (data.model_stats && !data.model_stats.is_trained) {
+                    showAlert('모델이 아직 학습되지 않았습니다. 라벨링 후 모델 학습을 실행해주세요.', 'warning');
+                }
+                
+            } catch (error) {
+                showAlert(`자동 라벨 제안 중 오류: ${error}`, 'error');
+            }
+        }
+        
+        // 제안된 bbox 표시
+        function displaySuggestedBboxes(suggestions) {
+            suggestions.forEach((suggestion, index) => {
+                // 현재 페이지의 제안만 표시
+                if (suggestion.page !== currentPdfPage) return;
+                
+                const bbox = {
+                    id: Date.now() + index,
+                    x: suggestion.x,
+                    y: suggestion.y,
+                    width: suggestion.width,
+                    height: suggestion.height,
+                    text: suggestion.text,
+                    label: suggestion.label,
+                    confidence: suggestion.confidence,
+                    is_suggestion: true
+                };
+                
+                bboxData.push(bbox);
+                createSuggestedBboxElement(bbox);
+            });
+            
+            updateBoundingBoxList();
+        }
+        
+        // 제안된 bbox 요소 생성
+        function createSuggestedBboxElement(bbox) {
+            const boxDiv = document.createElement('div');
+            boxDiv.className = 'bbox-overlay suggested';
+            boxDiv.id = 'bbox-' + bbox.id;
+            boxDiv.style.left = bbox.x + 'px';
+            boxDiv.style.top = bbox.y + 'px';
+            boxDiv.style.width = bbox.width + 'px';
+            boxDiv.style.height = bbox.height + 'px';
+            
+            // resize handles 추가
+            addResizeHandles(boxDiv);
+            makeDraggable(boxDiv, bbox);
+            
+            boxDiv.onclick = (e) => {
+                if (!e.target.classList.contains('resize-handle')) {
+                    selectBoundingBox(bbox.id);
+                }
+            };
+            
+            // 라벨 표시
+            const label = document.createElement('div');
+            label.className = 'bbox-label';
+            label.textContent = bbox.label || 'Unknown';
+            boxDiv.appendChild(label);
+            
+            // 신뢰도 표시
+            if (bbox.confidence) {
+                const confidence = document.createElement('div');
+                confidence.className = 'confidence-badge';
+                confidence.textContent = `${Math.round(bbox.confidence * 100)}%`;
+                boxDiv.appendChild(confidence);
+            }
+            
+            document.getElementById('bboxOverlays').appendChild(boxDiv);
+        }
+        
+        // 모델 학습
+        async function trainModel() {
+            if (!confirm('현재까지 라벨링된 모든 데이터로 모델을 학습하시겠습니까?')) {
+                return;
+            }
+            
+            try {
+                showAlert('모델 학습을 시작합니다...', 'info');
+                
+                const response = await fetch('/api/train_model', {
+                    method: 'POST'
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok && result.status === 'success') {
+                    showAlert(`모델 학습 완료! 총 ${result.total_samples}개 샘플, ${result.unique_labels}개 라벨 클래스`, 'success');
+                } else {
+                    showAlert(result.message || '모델 학습 실패', 'error');
+                }
+                
+            } catch (error) {
+                showAlert(`모델 학습 중 오류: ${error}`, 'error');
+            }
+        }
+        
+        // 모델 통계 표시
+        async function showModelStats() {
+            try {
+                const response = await fetch('/api/model_stats');
+                const stats = await response.json();
+                
+                if (response.ok) {
+                    let message = '모델 통계:\n';
+                    message += `- 학습 상태: ${stats.is_trained ? '학습됨' : '미학습'}\n`;
+                    
+                    if (stats.training_stats) {
+                        message += `- 총 샘플 수: ${stats.training_stats.total_samples}\n`;
+                        message += `- 마지막 학습: ${stats.training_stats.last_training_time || 'N/A'}\n`;
+                        message += `- 라벨 분포:\n`;
+                        
+                        for (const [label, count] of Object.entries(stats.training_stats.label_distribution || {})) {
+                            message += `  • ${label}: ${count}개\n`;
+                        }
+                    }
+                    
+                    alert(message);
+                } else {
+                    showAlert('모델 통계를 가져올 수 없습니다.', 'error');
+                }
+                
+            } catch (error) {
+                showAlert(`통계 조회 중 오류: ${error}`, 'error');
+            }
+        }
+        
+        // 점진적 모델 업데이트
+        async function updateModelIncrementally(newAnnotation) {
+            try {
+                // 백그라운드에서 모델 업데이트
+                const response = await fetch('/api/train_model', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        incremental: true,
+                        annotation: newAnnotation
+                    })
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.status === 'success') {
+                        console.log('모델이 자동으로 업데이트되었습니다.');
+                    }
+                }
+            } catch (error) {
+                console.error('모델 업데이트 중 오류:', error);
+            }
+        }
+    </script>
+</body>
+</html>

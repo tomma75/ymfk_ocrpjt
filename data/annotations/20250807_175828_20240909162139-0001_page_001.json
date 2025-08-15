@@ -1,0 +1,81 @@
+{
+  "file_name": "20250807_175828_20240909162139-0001_page_001.png",
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "item_00001",
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512221369",
+          "bbox": [2163, 85, 220, 42]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00002",
+      "labels": [
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+          "bbox": [693, 1242, 731, 58]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00003",
+      "labels": [
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [886, 1332, 274, 116]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00004",
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [139, 1708, 108, 42]
+        },
+        {
+          "label": "Part number",
+          "text": "A1511JD-09",
+          "bbox": [447, 1708, 256, 42]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00005",
+      "labels": [
+        {
+          "label": "Delivery date",
+          "text": "10-22-2024",
+          "bbox": [823, 1806, 217, 42]
+        },
+        {
+          "label": "Quantity",
+          "text": "8.000 ST",
+          "bbox": [1244, 1806, 170, 42]
+        },
+        {
+          "label": "Unit price",
+          "text": "1.7300",
+          "bbox": [1723, 1806, 115, 42]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00006",
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "13.84",
+          "bbox": [2171, 2008, 83, 58]
+        }
+      ]
+    }
+  ]
+}

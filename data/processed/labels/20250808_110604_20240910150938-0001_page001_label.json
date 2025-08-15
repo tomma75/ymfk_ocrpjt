@@ -1,0 +1,214 @@
+{
+  "filename": "20250808_110604_20240910150938-0001.pdf",
+  "filepath": "20250808_110604_20240910150938-0001.pdf",
+  "pageNumber": 1,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "item_00001",
+      "y_position": 94,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512224402",
+          "bbox": [
+            2142,
+            94,
+            225,
+            48
+          ]
+        }
+      ],
+      "item_number": "4512224402"
+    },
+    {
+      "group_id": "item_00002",
+      "y_position": 1305,
+      "labels": [
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            132,
+            1305,
+            168,
+            51
+          ]
+        },
+        {
+          "label": "Case mark",
+          "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
+          "bbox": [
+            300,
+            1306,
+            605,
+            42
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00003",
+      "y_position": 1714,
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            102,
+            1714,
+            112,
+            49
+          ]
+        },
+        {
+          "label": "Part number",
+          "text": "B8211DT",
+          "bbox": [
+            249,
+            1717,
+            167,
+            38
+          ]
+        }
+      ],
+      "item_number": "00010"
+    },
+    {
+      "group_id": "item_00004",
+      "y_position": 1829,
+      "labels": [
+        {
+          "label": "Shipping date",
+          "text": "10-22-2024",
+          "bbox": [
+            591,
+            1832,
+            180,
+            30
+          ]
+        },
+        {
+          "label": "Quantity",
+          "text": "1.000 ST",
+          "bbox": [
+            1047,
+            1829,
+            158,
+            38
+          ]
+        },
+        {
+          "label": "Unit price",
+          "text": "2.5000",
+          "bbox": [
+            1689,
+            1834,
+            120,
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00005",
+      "y_position": 2133,
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "Total 2.50",
+          "bbox": [
+            1288,
+            2133,
+            1086,
+            52
+          ]
+        }
+      ]
+    }
+  ],
+  "total_groups": 5,
+  "bboxes": [
+    {
+      "x": 2142,
+      "y": 94,
+      "width": 225,
+      "height": 48,
+      "label": "Order number",
+      "text": "4512224402",
+      "group_id": "item_00001"
+    },
+    {
+      "x": 300,
+      "y": 1306,
+      "width": 605,
+      "height": 42,
+      "label": "Case mark",
+      "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
+      "group_id": "item_00002"
+    },
+    {
+      "x": 132,
+      "y": 1305,
+      "width": 168,
+      "height": 51,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "item_00002"
+    },
+    {
+      "x": 102,
+      "y": 1714,
+      "width": 112,
+      "height": 49,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "item_00003"
+    },
+    {
+      "x": 249,
+      "y": 1717,
+      "width": 167,
+      "height": 38,
+      "label": "Part number",
+      "text": "B8211DT",
+      "group_id": "item_00003"
+    },
+    {
+      "x": 591,
+      "y": 1832,
+      "width": 180,
+      "height": 30,
+      "label": "Shipping date",
+      "text": "10-22-2024",
+      "group_id": "item_00004"
+    },
+    {
+      "x": 1047,
+      "y": 1829,
+      "width": 158,
+      "height": 38,
+      "label": "Quantity",
+      "text": "1.000 ST",
+      "group_id": "item_00004"
+    },
+    {
+      "x": 1689,
+      "y": 1834,
+      "width": 120,
+      "height": 30,
+      "label": "Unit price",
+      "text": "2.5000",
+      "group_id": "item_00004"
+    },
+    {
+      "x": 1288,
+      "y": 2133,
+      "width": 1086,
+      "height": 52,
+      "label": "Net amount (total)",
+      "text": "Total 2.50",
+      "group_id": "item_00005"
+    }
+  ]
+}

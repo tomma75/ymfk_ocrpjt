@@ -1,0 +1,156 @@
+{
+  "file_name": "20250811_174453_20250620164731-0001_page_003.png",
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "item_00001",
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512939855",
+          "bbox": [
+            651,
+            33,
+            143,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00002",
+      "labels": [
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            766,
+            387,
+            173,
+            38
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00003",
+      "labels": [
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU K5-1 AOKI 731-48229",
+          "bbox": [
+            658,
+            546,
+            537,
+            38
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00004",
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            51,
+            638,
+            59,
+            22
+          ]
+        },
+        {
+          "label": "Part number",
+          "text": "L4005MD",
+          "bbox": [
+            111,
+            638,
+            89,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00005",
+      "labels": [
+        {
+          "label": "Part description",
+          "text": "COVER",
+          "bbox": [
+            111,
+            652,
+            78,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00006",
+      "labels": [
+        {
+          "label": "Delivery date",
+          "text": "08-13-2025",
+          "bbox": [
+            232,
+            679,
+            115,
+            22
+          ]
+        },
+        {
+          "label": "Quantity",
+          "text": "50.000 ST",
+          "bbox": [
+            384,
+            679,
+            92,
+            22
+          ]
+        },
+        {
+          "label": "Unit price",
+          "text": "1.9700",
+          "bbox": [
+            636,
+            679,
+            72,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00007",
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "98.50",
+          "bbox": [
+            822,
+            679,
+            64,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00008",
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "98.50",
+          "bbox": [
+            840,
+            792,
+            64,
+            22
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "filename": "20250808_110605_20240913162425-0001.pdf",
+  "filepath": "20250808_110605_20240913162425-0001.pdf",
+  "pageNumber": 5,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "item_00001",
+      "y_position": 70,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512234272",
+          "bbox": [
+            2170,
+            70,
+            208,
+            42
+          ]
+        }
+      ],
+      "item_number": "4512234272"
+    },
+    {
+      "group_id": "item_00002",
+      "y_position": 1189,
+      "labels": [
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+          "bbox": [
+            123,
+            1189,
+            798,
+            130
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00003",
+      "y_position": 1326,
+      "labels": [
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            702,
+            1326,
+            274,
+            116
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00004",
+      "y_position": 1686,
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            112,
+            1692,
+            110,
+            52
+          ]
+        },
+        {
+          "label": "Part number",
+          "text": "C0140ZS",
+          "bbox": [
+            266,
+            1686,
+            256,
+            45
+          ]
+        }
+      ],
+      "item_number": "00010"
+    },
+    {
+      "group_id": "item_00005",
+      "y_position": 1795,
+      "labels": [
+        {
+          "label": "Shipping date",
+          "text": "10-17-2024",
+          "bbox": [
+            589,
+            1803,
+            196,
+            52
+          ]
+        },
+        {
+          "label": "Quantity",
+          "text": "5.000 ST",
+          "bbox": [
+            1048,
+            1796,
+            178,
+            58
+          ]
+        },
+        {
+          "label": "Unit price",
+          "text": "259.0600",
+          "bbox": [
+            1662,
+            1795,
+            146,
+            56
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00006",
+      "y_position": 2101,
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "Total 1,295.30",
+          "bbox": [
+            1276,
+            2101,
+            1090,
+            46
+          ]
+        }
+      ]
+    }
+  ],
+  "total_groups": 6,
+  "bboxes": [
+    {
+      "x": 2170,
+      "y": 70,
+      "width": 208,
+      "height": 42,
+      "label": "Order number",
+      "text": "4512234272",
+      "group_id": "item_00001"
+    },
+    {
+      "x": 123,
+      "y": 1189,
+      "width": 798,
+      "height": 130,
+      "label": "Case mark",
+      "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+      "group_id": "item_00002"
+    },
+    {
+      "x": 702,
+      "y": 1326,
+      "width": 274,
+      "height": 116,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "item_00003"
+    },
+    {
+      "x": 112,
+      "y": 1692,
+      "width": 110,
+      "height": 52,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "item_00004"
+    },
+    {
+      "x": 266,
+      "y": 1686,
+      "width": 256,
+      "height": 45,
+      "label": "Part number",
+      "text": "C0140ZS",
+      "group_id": "item_00004"
+    },
+    {
+      "x": 589,
+      "y": 1803,
+      "width": 196,
+      "height": 52,
+      "label": "Shipping date",
+      "text": "10-17-2024",
+      "group_id": "item_00005"
+    },
+    {
+      "x": 1048,
+      "y": 1796,
+      "width": 178,
+      "height": 58,
+      "label": "Quantity",
+      "text": "5.000 ST",
+      "group_id": "item_00005"
+    },
+    {
+      "x": 1662,
+      "y": 1795,
+      "width": 146,
+      "height": 56,
+      "label": "Unit price",
+      "text": "259.0600",
+      "group_id": "item_00005"
+    },
+    {
+      "x": 1276,
+      "y": 2101,
+      "width": 1090,
+      "height": 46,
+      "label": "Net amount (total)",
+      "text": "Total 1,295.30",
+      "group_id": "item_00006"
+    }
+  ]
+}
