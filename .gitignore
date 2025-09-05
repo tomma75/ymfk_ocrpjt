@@ -1,5 +1,6 @@
 data/*
 !data/**/
+!data/**/.gitkee
 
 venv/
 venv_new/
