@@ -1,0 +1,125 @@
+{
+  "summary": {
+    "total_files_processed": 51,
+    "total_corrections_found": 18,
+    "total_samples_trained": 18,
+    "successfully_processed": 18,
+    "failed": 0
+  },
+  "corrections_by_label": {
+    "Shipping line": 4,
+    "Case mark": 4,
+    "Part number": 1
+  },
+  "common_ocr_errors": {
+    "char_substitution_€_to_C": 1,
+    "missing_chars": 2,
+    "extra_chars": 2,
+    "char_substitution_W_to_M": 2,
+    "char_substitution_(_to_C": 1,
+    "char_substitution_9_to_5": 1
+  },
+  "improvements": {
+    "Shipping line": [
+      {
+        "from": "€5800002",
+        "to": "C5800002",
+        "confidence": 0.15
+      },
+      {
+        "from": "5800002",
+        "to": "C5800002",
+        "confidence": 0
+      },
+      {
+        "from": "(5800002",
+        "to": "C5800002",
+        "confidence": 0.52
+      },
+      {
+        "from": "C9800002",
+        "to": "C5800002",
+        "confidence": 0.29
+      },
+      {
+        "from": "C9800002",
+        "to": "C5800002",
+        "confidence": 0.29
+      },
+      {
+        "from": "(5800002",
+        "to": "C5800002",
+        "confidence": 0.52
+      },
+      {
+        "from": "5800002",
+        "to": "C5800002",
+        "confidence": 0
+      },
+      {
+        "from": "€5800002",
+        "to": "C5800002",
+        "confidence": 0.15
+      }
+    ],
+    "Case mark": [
+      {
+        "from": "YU KOFU P/C KB-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.71
+      },
+      {
+        "from": "YWG KOFU K5-1 AOKI 731-49229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.634
+      },
+      {
+        "from": "YilG KOFU P/C KB-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.625
+      },
+      {
+        "from": "YWG KOFU K5-1 AOKI 731-49229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.634
+      },
+      {
+        "from": "YWG KOFU K5-1 AOKI 731-49229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.634
+      },
+      {
+        "from": "YilG KOFU P/C KB-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.625
+      },
+      {
+        "from": "YWG KOFU K5-1 AOKI 731-49229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.634
+      },
+      {
+        "from": "YU KOFU P/C KB-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.71
+      }
+    ],
+    "Part number": [
+      {
+        "from": "A1612JD-09 |",
+        "to": "A1612JD-09",
+        "confidence": 0.61
+      },
+      {
+        "from": "A1612JD-09 |",
+        "to": "A1612JD-09",
+        "confidence": 0.61
+      }
+    ]
+  },
+  "training_time": {
+    "start": "2025-08-16T22:52:48.248738",
+    "end": "2025-08-16T22:52:48.265202"
+  },
+  "current_accuracy": {}
+}

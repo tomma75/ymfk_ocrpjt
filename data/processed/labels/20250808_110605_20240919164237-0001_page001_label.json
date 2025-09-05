@@ -5,222 +5,244 @@
   "class": "purchase_order",
   "items": [
     {
-      "group_id": "item_00001",
-      "y_position": 71,
+      "group_id": "-",
+      "y_position": 70.6875,
       "labels": [
         {
           "label": "Order number",
           "text": "4512244899",
           "bbox": [
-            2170,
-            71,
-            208,
-            42
-          ]
-        }
-      ],
-      "item_number": "4512244899"
-    },
-    {
-      "group_id": "item_00002",
-      "y_position": 1034,
-      "labels": [
+            2164,
+            70.6875,
+            220,
+            52
+          ],
+          "ocr_original": "4512244899",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
+        },
         {
-          "label": "Shipping line",
+          "label": "Part number",
           "text": "C5800002",
           "bbox": [
-            1996,
-            1034,
-            274,
-            116
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "item_00003",
-      "y_position": 1342,
-      "labels": [
+            1974,
+            1000.6875,
+            312,
+            184
+          ],
+          "ocr_original": "09800002",
+          "ocr_confidence": 0.24,
+          "was_corrected": true
+        },
         {
           "label": "Case mark",
-          "text": "YMG KOFU K5-1 40KI 731-48229",
+          "text": "YMG KOFU K5-1 AOKI 731-48229",
           "bbox": [
-            1645,
-            1342,
-            731,
-            144
-          ]
+            1600,
+            1330.6875,
+            780,
+            150
+          ],
+          "ocr_original": "YG KOFU K5-1 401 731-49229",
+          "ocr_confidence": 0.382,
+          "was_corrected": true
+        },
+        {
+          "label": "Net amount (total)",
+          "text": "Total 3.68",
+          "bbox": [
+            1300,
+            2114.6875,
+            1096,
+            60
+          ],
+          "ocr_original": "Total 3.68",
+          "ocr_confidence": 0.955,
+          "was_corrected": false
         }
       ]
     },
     {
-      "group_id": "item_00004",
-      "y_position": 1690,
+      "group_id": "ITEM_00010",
+      "y_position": 1690.6875,
       "labels": [
         {
           "label": "Item number",
           "text": "00010",
           "bbox": [
             98,
-            1690,
-            110,
-            52
-          ]
-        }
-      ],
-      "item_number": "00010"
-    },
-    {
-      "group_id": "item_00005",
-      "y_position": 1729,
-      "labels": [
+            1690.6875,
+            132,
+            54
+          ],
+          "ocr_original": "00010",
+          "ocr_confidence": 0.7,
+          "was_corrected": false
+        },
         {
           "label": "Part number",
-          "text": "A6075VD-11",
+          "text": "A6O75VD-11",
           "bbox": [
-            446,
-            1729,
-            227,
-            43
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "item_00006",
-      "y_position": 1804,
-      "labels": [
+            460,
+            1728.6875,
+            220,
+            54
+          ],
+          "ocr_original": "AGO75VD-11",
+          "ocr_confidence": 0.12,
+          "was_corrected": true
+        },
         {
-          "label": "Shipping date",
+          "label": "Delivery date",
           "text": "10-11-2024",
           "bbox": [
-            588,
-            1804,
-            196,
-            52
-          ]
+            586,
+            1800.6875,
+            194,
+            66
+          ],
+          "ocr_original": "10-11-2024",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
         },
         {
           "label": "Quantity",
           "text": "46.000 ST",
           "bbox": [
-            1030,
-            1804,
-            195,
-            58
-          ]
+            1006,
+            1798.6875,
+            224,
+            56
+          ],
+          "ocr_original": "46.000 ST",
+          "ocr_confidence": 0.94,
+          "was_corrected": false
         },
         {
           "label": "Unit price",
           "text": "0.0800",
           "bbox": [
-            1692,
-            1810,
-            115,
-            56
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "item_00007",
-      "y_position": 2108,
-      "labels": [
-        {
-          "label": "Net amount (total)",
-          "text": "Total 3.68",
-          "bbox": [
-            1285,
-            2108,
-            1090,
-            46
-          ]
+            1674,
+            1802.6875,
+            166,
+            68
+          ],
+          "ocr_original": "0.0800",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
         }
       ]
     }
   ],
-  "total_groups": 7,
+  "total_groups": 2,
   "bboxes": [
     {
-      "x": 2170,
-      "y": 71,
-      "width": 208,
-      "height": 42,
+      "x": 2164,
+      "y": 70.6875,
+      "width": 220,
+      "height": 52,
       "label": "Order number",
       "text": "4512244899",
-      "group_id": "item_00001"
+      "group_id": "-",
+      "ocr_original": "4512244899",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
     },
     {
-      "x": 1645,
-      "y": 1342,
-      "width": 731,
-      "height": 144,
-      "label": "Case mark",
-      "text": "YMG KOFU K5-1 40KI 731-48229",
-      "group_id": "item_00003"
-    },
-    {
-      "x": 1996,
-      "y": 1034,
-      "width": 274,
-      "height": 116,
-      "label": "Shipping line",
+      "x": 1974,
+      "y": 1000.6875,
+      "width": 312,
+      "height": 184,
+      "label": "Part number",
       "text": "C5800002",
-      "group_id": "item_00002"
+      "group_id": "-",
+      "ocr_original": "09800002",
+      "ocr_confidence": 0.24,
+      "was_corrected": true
+    },
+    {
+      "x": 1600,
+      "y": 1330.6875,
+      "width": 780,
+      "height": 150,
+      "label": "Case mark",
+      "text": "YMG KOFU K5-1 AOKI 731-48229",
+      "group_id": "-",
+      "ocr_original": "YG KOFU K5-1 401 731-49229",
+      "ocr_confidence": 0.382,
+      "was_corrected": true
     },
     {
       "x": 98,
-      "y": 1690,
-      "width": 110,
-      "height": 52,
+      "y": 1690.6875,
+      "width": 132,
+      "height": 54,
       "label": "Item number",
       "text": "00010",
-      "group_id": "item_00004"
+      "group_id": "ITEM_00010",
+      "ocr_original": "00010",
+      "ocr_confidence": 0.7,
+      "was_corrected": false
     },
     {
-      "x": 446,
-      "y": 1729,
-      "width": 227,
-      "height": 43,
+      "x": 460,
+      "y": 1728.6875,
+      "width": 220,
+      "height": 54,
       "label": "Part number",
-      "text": "A6075VD-11",
-      "group_id": "item_00005"
+      "text": "A6O75VD-11",
+      "group_id": "ITEM_00010",
+      "ocr_original": "AGO75VD-11",
+      "ocr_confidence": 0.12,
+      "was_corrected": true
     },
     {
-      "x": 588,
-      "y": 1804,
-      "width": 196,
-      "height": 52,
-      "label": "Shipping date",
+      "x": 586,
+      "y": 1800.6875,
+      "width": 194,
+      "height": 66,
+      "label": "Delivery date",
       "text": "10-11-2024",
-      "group_id": "item_00006"
+      "group_id": "ITEM_00010",
+      "ocr_original": "10-11-2024",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
     },
     {
-      "x": 1030,
-      "y": 1804,
-      "width": 195,
-      "height": 58,
+      "x": 1006,
+      "y": 1798.6875,
+      "width": 224,
+      "height": 56,
       "label": "Quantity",
       "text": "46.000 ST",
-      "group_id": "item_00006"
+      "group_id": "ITEM_00010",
+      "ocr_original": "46.000 ST",
+      "ocr_confidence": 0.94,
+      "was_corrected": false
     },
     {
-      "x": 1692,
-      "y": 1810,
-      "width": 115,
-      "height": 56,
+      "x": 1674,
+      "y": 1802.6875,
+      "width": 166,
+      "height": 68,
       "label": "Unit price",
       "text": "0.0800",
-      "group_id": "item_00006"
+      "group_id": "ITEM_00010",
+      "ocr_original": "0.0800",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
     },
     {
-      "x": 1285,
-      "y": 2108,
-      "width": 1090,
-      "height": 46,
+      "x": 1300,
+      "y": 2114.6875,
+      "width": 1096,
+      "height": 60,
       "label": "Net amount (total)",
       "text": "Total 3.68",
-      "group_id": "item_00007"
+      "group_id": "-",
+      "ocr_original": "Total 3.68",
+      "ocr_confidence": 0.955,
+      "was_corrected": false
     }
   ]
 }

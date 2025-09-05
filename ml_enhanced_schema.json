@@ -1,0 +1,117 @@
+{
+  "schema_version": "2.0",
+  "document_metadata": {
+    "filename": "string",
+    "filepath": "string",
+    "pageNumber": "integer",
+    "class": "string",
+    "document_id": "string",
+    "timestamp": "datetime",
+    "validation_status": "enum[pending, validated, rejected]",
+    "difficulty_score": "float[0-1]",
+    "domain_similarity_score": {
+      "invoice": "float",
+      "receipt": "float",
+      "shipping_label": "float"
+    }
+  },
+  "items": [
+    {
+      "group_id": "string",
+      "y_position": "integer",
+      "label_hierarchy": {
+        "level": "integer",
+        "parent_id": "string",
+        "children_ids": ["string"]
+      },
+      "labels": [
+        {
+          "label": "string",
+          "text": "string",
+          "bbox": ["x", "y", "width", "height"],
+          "ocr_original": "string",
+          "ocr_confidence": "float",
+          "was_corrected": "boolean",
+          "error_type": "enum[blur, rotation, occlusion, noise, format, null]",
+          "correction_method": "enum[manual, rule_based, ml_inferred, null]",
+          "inferred": "boolean",
+          "uncertainty_score": "float[0-1]",
+          "review_priority": "integer",
+          "optimal_resolution": "integer",
+          "spatial_context": {
+            "nearest_labels": [
+              {
+                "label": "string",
+                "distance": "float",
+                "direction": "enum[top, bottom, left, right, top-left, top-right, bottom-left, bottom-right]",
+                "alignment": "enum[aligned, offset]"
+              }
+            ],
+            "relative_position": {
+              "normalized_x": "float[0-1]",
+              "normalized_y": "float[0-1]"
+            }
+          },
+          "context_features": {
+            "surrounding_text": ["string"],
+            "font_size_estimate": "integer",
+            "text_orientation": "float[0-360]",
+            "background_complexity": "float[0-1]"
+          },
+          "business_rules": {
+            "format_regex": "string",
+            "valid_range": {
+              "min": "any",
+              "max": "any"
+            },
+            "dependencies": [
+              {
+                "dependent_label": "string",
+                "rule_type": "enum[required, conditional, calculated]",
+                "condition": "string"
+              }
+            ]
+          },
+          "temporal_sequence": {
+            "sequence_id": "string",
+            "position": "integer",
+            "expected_pattern": "string"
+          },
+          "augmentation_eligible": "boolean",
+          "augmentation_methods": ["rotation", "scale", "noise", "blur"]
+        }
+      ]
+    }
+  ],
+  "total_groups": "integer",
+  "bboxes": "array",
+  "model_performance_history": [
+    {
+      "model_version": "string",
+      "timestamp": "datetime",
+      "metrics": {
+        "accuracy": "float",
+        "precision": "float",
+        "recall": "float",
+        "f1_score": "float",
+        "confidence_calibration": "float"
+      },
+      "label_specific_performance": {
+        "label_name": {
+          "accuracy": "float",
+          "common_errors": ["string"],
+          "improvement_suggestions": ["string"]
+        }
+      }
+    }
+  ],
+  "error_pattern_db": [
+    {
+      "pattern_id": "string",
+      "frequency": "integer",
+      "error_signature": "string",
+      "resolution": "string",
+      "auto_fixable": "boolean"
+    }
+  ]
+}

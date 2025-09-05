@@ -1,0 +1,13 @@
+data/*
+!data/**/
+
+venv/
+venv_new/
+
+testdata_PDF/
+
+__pycache__/
+.claude/
+logs/
+tesseract_windows/
+

@@ -47,9 +47,9 @@ def group_labels_by_row(bboxes: List[Dict], y_threshold: int = 50) -> List[Dict]
             # 같은 행의 라벨 추가
             current_group.append(bbox)
         elif current_group:
-            # 그룹에 속하지만 Y좌표가 약간 다른 경우 (Shipping date, Quantity 등)
+            # 그룹에 속하지만 Y좌표가 약간 다른 경우 (Delivery date, Quantity 등)
             # label이 관련 필드인지 확인
-            related_labels = ['shipping date', 'quantity', 'unit price', 'fixed in usd']
+            related_labels = ['delivery date', 'quantity', 'unit price', 'fixed in usd']
             if any(label in bbox.get('label', '').lower() for label in related_labels):
                 current_group.append(bbox)
         elif not current_group:

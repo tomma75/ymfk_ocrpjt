@@ -28,7 +28,7 @@ class AccurateLabelGenerator:
             'order_number': (70, 110),      # 평균 100
             'case_shipping': (1200, 1600),  # 변동 범위 넓음
             'item_part': (1680, 1730),      # Item number, Part number
-            'date_qty_price': (1790, 1820), # Shipping date, Quantity, Unit price
+            'date_qty_price': (1790, 1820), # Delivery date, Quantity, Unit price
             'total': (2100, 2135)           # Net amount (total)
         }
         

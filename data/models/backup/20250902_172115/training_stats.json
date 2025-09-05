@@ -1,0 +1,32 @@
+{
+  "accuracy": 0.0,
+  "training_samples": 0,
+  "label_count": 0,
+  "label_distribution": {
+    "Order number": 89,
+    "Case mark": 90,
+    "Shipping line": 90,
+    "Part number": 90,
+    "Delivery date": 90,
+    "Quantity": 90,
+    "Unit price": 74,
+    "Net amount (total)": 74,
+    "Item number": 90,
+    "Production instruction receipt section": 3,
+    "Document number": 1,
+    "Net amount": 1
+  },
+  "last_trained": null,
+  "total_samples": 782,
+  "last_training_time": "2025-09-02T17:11:23.977089",
+  "layout_patterns": [
+    "pattern_A",
+    "pattern_B",
+    "pattern_C"
+  ],
+  "document_types": [
+    "",
+    "delivery_sheet",
+    "purchase_order"
+  ]
+}

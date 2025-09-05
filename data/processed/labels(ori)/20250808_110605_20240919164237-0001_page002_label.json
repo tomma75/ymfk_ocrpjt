@@ -5,7 +5,7 @@
   "class": "purchase_order",
   "items": [
     {
-      "group_id": "item_00001",
+      "group_id": "-",
       "y_position": 69,
       "labels": [
         {
@@ -16,15 +16,24 @@
             69,
             208,
             42
-          ]
-        }
-      ],
-      "item_number": "4512245040"
-    },
-    {
-      "group_id": "item_00002",
-      "y_position": 1078,
-      "labels": [
+          ],
+          "ocr_original": "4512245040",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
+        },
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU K5-1 AOKI 731-48229",
+          "bbox": [
+            1639,
+            1325,
+            731,
+            144
+          ],
+          "ocr_original": "YG KOFU K5-1 AOKI 731-48229",
+          "ocr_confidence": 0.7020000000000001,
+          "was_corrected": true
+        },
         {
           "label": "Shipping line",
           "text": "C5800002",
@@ -33,28 +42,28 @@
             1078,
             274,
             116
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "item_00003",
-      "y_position": 1325,
-      "labels": [
+          ],
+          "ocr_original": "C8002",
+          "ocr_confidence": 0,
+          "was_corrected": true
+        },
         {
-          "label": "Case mark",
-          "text": "YMG KOFU K5-1 40KI 731-48229",
+          "label": "Net amount (total)",
+          "text": "Total 0.77",
           "bbox": [
-            1639,
-            1325,
-            731,
-            144
-          ]
+            1285,
+            2106,
+            1090,
+            46
+          ],
+          "ocr_original": "Total",
+          "ocr_confidence": 0.96,
+          "was_corrected": true
         }
       ]
     },
     {
-      "group_id": "item_00004",
+      "group_id": "ITEM_00010",
       "y_position": 1700,
       "labels": [
         {
@@ -65,15 +74,11 @@
             1700,
             110,
             52
-          ]
-        }
-      ],
-      "item_number": "00010"
-    },
-    {
-      "group_id": "item_00005",
-      "y_position": 1725,
-      "labels": [
+          ],
+          "ocr_original": "",
+          "ocr_confidence": 0,
+          "was_corrected": false
+        },
         {
           "label": "Part number",
           "text": "A6128HD-01",
@@ -82,23 +87,23 @@
             1725,
             234,
             57
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "item_00006",
-      "y_position": 1797,
-      "labels": [
+          ],
+          "ocr_original": "A6128HD-01",
+          "ocr_confidence": 0.73,
+          "was_corrected": false
+        },
         {
-          "label": "Shipping date",
+          "label": "Delivery date",
           "text": "10-11-2024",
           "bbox": [
             588,
             1801,
             196,
             52
-          ]
+          ],
+          "ocr_original": "10-11-2024",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
         },
         {
           "label": "Quantity",
@@ -108,7 +113,10 @@
             1797,
             192,
             58
-          ]
+          ],
+          "ocr_original": "11.000 ST",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
         },
         {
           "label": "Unit price",
@@ -118,28 +126,15 @@
             1809,
             115,
             56
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "item_00007",
-      "y_position": 2106,
-      "labels": [
-        {
-          "label": "Net amount (total)",
-          "text": "Total 0.77",
-          "bbox": [
-            1285,
-            2106,
-            1090,
-            46
-          ]
+          ],
+          "ocr_original": "0.0700",
+          "ocr_confidence": 0.93,
+          "was_corrected": false
         }
       ]
     }
   ],
-  "total_groups": 7,
+  "total_groups": 2,
   "bboxes": [
     {
       "x": 2170,
@@ -148,7 +143,10 @@
       "height": 42,
       "label": "Order number",
       "text": "4512245040",
-      "group_id": "item_00001"
+      "group_id": "-",
+      "ocr_original": "4512245040",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
     },
     {
       "x": 1639,
@@ -156,8 +154,11 @@
       "width": 731,
       "height": 144,
       "label": "Case mark",
-      "text": "YMG KOFU K5-1 40KI 731-48229",
-      "group_id": "item_00003"
+      "text": "YMG KOFU K5-1 AOKI 731-48229",
+      "group_id": "-",
+      "ocr_original": "YG KOFU K5-1 AOKI 731-48229",
+      "ocr_confidence": 0.7020000000000001,
+      "was_corrected": true
     },
     {
       "x": 2039,
@@ -166,7 +167,10 @@
       "height": 116,
       "label": "Shipping line",
       "text": "C5800002",
-      "group_id": "item_00002"
+      "group_id": "-",
+      "ocr_original": "C8002",
+      "ocr_confidence": 0,
+      "was_corrected": true
     },
     {
       "x": 107,
@@ -175,7 +179,10 @@
       "height": 52,
       "label": "Item number",
       "text": "00010",
-      "group_id": "item_00004"
+      "group_id": "ITEM_00010",
+      "ocr_original": "",
+      "ocr_confidence": 0,
+      "was_corrected": false
     },
     {
       "x": 452,
@@ -184,16 +191,22 @@
       "height": 57,
       "label": "Part number",
       "text": "A6128HD-01",
-      "group_id": "item_00005"
+      "group_id": "ITEM_00010",
+      "ocr_original": "A6128HD-01",
+      "ocr_confidence": 0.73,
+      "was_corrected": false
     },
     {
       "x": 588,
       "y": 1801,
       "width": 196,
       "height": 52,
-      "label": "Shipping date",
+      "label": "Delivery date",
       "text": "10-11-2024",
-      "group_id": "item_00006"
+      "group_id": "ITEM_00010",
+      "ocr_original": "10-11-2024",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
     },
     {
       "x": 1028,
@@ -202,7 +215,10 @@
       "height": 58,
       "label": "Quantity",
       "text": "11.000 ST",
-      "group_id": "item_00006"
+      "group_id": "ITEM_00010",
+      "ocr_original": "11.000 ST",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
     },
     {
       "x": 1691,
@@ -211,7 +227,10 @@
       "height": 56,
       "label": "Unit price",
       "text": "0.0700",
-      "group_id": "item_00006"
+      "group_id": "ITEM_00010",
+      "ocr_original": "0.0700",
+      "ocr_confidence": 0.93,
+      "was_corrected": false
     },
     {
       "x": 1285,
@@ -220,7 +239,10 @@
       "height": 46,
       "label": "Net amount (total)",
       "text": "Total 0.77",
-      "group_id": "item_00007"
+      "group_id": "-",
+      "ocr_original": "Total",
+      "ocr_confidence": 0.96,
+      "was_corrected": true
     }
   ]
 }

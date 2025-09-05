@@ -1,0 +1,60 @@
+/* 라벨 추천 팝업 스타일 */
+.label-suggestions-popup {
+    position: absolute;
+    background: white;
+    border: 2px solid #4CAF50;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    max-width: 300px;
+    z-index: 10000;
+}
+
+.suggestions-header {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 5px;
+}
+
+.suggestion-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    margin: 4px 0;
+    background: #f5f5f5;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.suggestion-item:hover {
+    background: #e3f2fd;
+    transform: translateX(5px);
+}
+
+.suggestion-item .label-name {
+    font-weight: 500;
+    color: #1976d2;
+}
+
+.suggestion-item .confidence {
+    font-size: 0.9em;
+    color: #666;
+    background: #fff;
+    padding: 2px 6px;
+    border-radius: 12px;
+}
+
+/* 높은 신뢰도 강조 */
+.suggestion-item:first-child {
+    background: #e8f5e9;
+    border: 1px solid #4CAF50;
+}
+
+.suggestion-item:first-child .confidence {
+    color: #2e7d32;
+    font-weight: bold;
+}

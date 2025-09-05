@@ -1,0 +1,248 @@
+{
+  "filename": "20250808_110609_20241011174204-0001.pdf",
+  "filepath": "20250808_110609_20241011174204-0001.pdf",
+  "pageNumber": 2,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "-",
+      "y_position": 44,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512299995",
+          "bbox": [
+            1950,
+            44,
+            210,
+            52
+          ],
+          "ocr_original": "4512299995",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        },
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            2044,
+            590,
+            280,
+            134
+          ],
+          "ocr_original": "C5800002",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
+        },
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU K5-1 AOKI 731-48229",
+          "bbox": [
+            1494,
+            702,
+            770,
+            96
+          ],
+          "ocr_original": "YMG KOFU K5-1 AOKI 731-48229",
+          "ocr_confidence": 0.92,
+          "was_corrected": false
+        },
+        {
+          "label": "Net amount (total)",
+          "text": "Total 22.00",
+          "bbox": [
+            1704,
+            1066,
+            280,
+            52
+          ],
+          "ocr_original": "Total 22.00",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        }
+      ]
+    },
+    {
+      "group_id": "ITEM_00010",
+      "y_position": 854,
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            54,
+            854,
+            110,
+            42
+          ],
+          "ocr_original": "00010",
+          "ocr_confidence": 0.94,
+          "was_corrected": false
+        },
+        {
+          "label": "Part number",
+          "text": "E9713ER",
+          "bbox": [
+            134,
+            854,
+            166,
+            48
+          ],
+          "ocr_original": "E9713ER TERMINAL ASSY(ILOT-400))",
+          "ocr_confidence": 0.93,
+          "was_corrected": true
+        },
+        {
+          "label": "Delivery date",
+          "text": "11-13-2024",
+          "bbox": [
+            296,
+            910,
+            206,
+            52
+          ],
+          "ocr_original": "11-13-2024",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        },
+        {
+          "label": "Quantity",
+          "text": "10.000 ST",
+          "bbox": [
+            516,
+            910,
+            186,
+            60
+          ],
+          "ocr_original": "10.000 ST",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
+        },
+        {
+          "label": "Unit price",
+          "text": "2.2000",
+          "bbox": [
+            890,
+            910,
+            164,
+            70
+          ],
+          "ocr_original": "2.2000",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        }
+      ]
+    }
+  ],
+  "total_groups": 2,
+  "bboxes": [
+    {
+      "x": 1950,
+      "y": 44,
+      "width": 210,
+      "height": 52,
+      "label": "Order number",
+      "text": "4512299995",
+      "group_id": "-",
+      "ocr_original": "4512299995",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 2044,
+      "y": 590,
+      "width": 280,
+      "height": 134,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "-",
+      "ocr_original": "C5800002",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
+    },
+    {
+      "x": 1494,
+      "y": 702,
+      "width": 770,
+      "height": 96,
+      "label": "Case mark",
+      "text": "YMG KOFU K5-1 AOKI 731-48229",
+      "group_id": "-",
+      "ocr_original": "YMG KOFU K5-1 AOKI 731-48229",
+      "ocr_confidence": 0.92,
+      "was_corrected": false
+    },
+    {
+      "x": 54,
+      "y": 854,
+      "width": 110,
+      "height": 42,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "ITEM_00010",
+      "ocr_original": "00010",
+      "ocr_confidence": 0.94,
+      "was_corrected": false
+    },
+    {
+      "x": 134,
+      "y": 854,
+      "width": 166,
+      "height": 48,
+      "label": "Part number",
+      "text": "E9713ER",
+      "group_id": "ITEM_00010",
+      "ocr_original": "E9713ER TERMINAL ASSY(ILOT-400))",
+      "ocr_confidence": 0.93,
+      "was_corrected": true
+    },
+    {
+      "x": 296,
+      "y": 910,
+      "width": 206,
+      "height": 52,
+      "label": "Delivery date",
+      "text": "11-13-2024",
+      "group_id": "ITEM_00010",
+      "ocr_original": "11-13-2024",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 516,
+      "y": 910,
+      "width": 186,
+      "height": 60,
+      "label": "Quantity",
+      "text": "10.000 ST",
+      "group_id": "ITEM_00010",
+      "ocr_original": "10.000 ST",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
+    },
+    {
+      "x": 890,
+      "y": 910,
+      "width": 164,
+      "height": 70,
+      "label": "Unit price",
+      "text": "2.2000",
+      "group_id": "ITEM_00010",
+      "ocr_original": "2.2000",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1704,
+      "y": 1066,
+      "width": 280,
+      "height": 52,
+      "label": "Net amount (total)",
+      "text": "Total 22.00",
+      "group_id": "-",
+      "ocr_original": "Total 22.00",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    }
+  ]
+}

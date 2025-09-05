@@ -5,7 +5,7 @@
   "class": "purchase_order",
   "items": [
     {
-      "group_id": "item_00001",
+      "group_id": "-",
       "y_position": 94,
       "labels": [
         {
@@ -16,24 +16,10 @@
             94,
             225,
             48
-          ]
-        }
-      ],
-      "item_number": "4512224402"
-    },
-    {
-      "group_id": "item_00002",
-      "y_position": 1305,
-      "labels": [
-        {
-          "label": "Shipping line",
-          "text": "C5800002",
-          "bbox": [
-            132,
-            1305,
-            168,
-            51
-          ]
+          ],
+          "ocr_original": "4512224402.",
+          "ocr_confidence": 0.85,
+          "was_corrected": true
         },
         {
           "label": "Case mark",
@@ -43,12 +29,41 @@
             1306,
             605,
             42
-          ]
+          ],
+          "ocr_original": "ISHIKAWA EXT:731-48177LOC:K70-4",
+          "ocr_confidence": 0.905,
+          "was_corrected": false
+        },
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            132,
+            1305,
+            168,
+            51
+          ],
+          "ocr_original": "C5800002",
+          "ocr_confidence": 0.91,
+          "was_corrected": false
+        },
+        {
+          "label": "Net amount (total)",
+          "text": "Total 2.50",
+          "bbox": [
+            1288,
+            2133,
+            1086,
+            52
+          ],
+          "ocr_original": "Total fmol 2.50",
+          "ocr_confidence": 0.72,
+          "was_corrected": true
         }
       ]
     },
     {
-      "group_id": "item_00003",
+      "group_id": "ITEM_00010",
       "y_position": 1714,
       "labels": [
         {
@@ -59,7 +74,10 @@
             1714,
             112,
             49
-          ]
+          ],
+          "ocr_original": "00010",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
         },
         {
           "label": "Part number",
@@ -69,24 +87,23 @@
             1717,
             167,
             38
-          ]
-        }
-      ],
-      "item_number": "00010"
-    },
-    {
-      "group_id": "item_00004",
-      "y_position": 1829,
-      "labels": [
+          ],
+          "ocr_original": "B8211DT",
+          "ocr_confidence": 0.91,
+          "was_corrected": false
+        },
         {
-          "label": "Shipping date",
+          "label": "Delivery date",
           "text": "10-22-2024",
           "bbox": [
             591,
             1832,
             180,
             30
-          ]
+          ],
+          "ocr_original": "",
+          "ocr_confidence": 0,
+          "was_corrected": false
         },
         {
           "label": "Quantity",
@@ -96,7 +113,10 @@
             1829,
             158,
             38
-          ]
+          ],
+          "ocr_original": "1.000 ST",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
         },
         {
           "label": "Unit price",
@@ -106,28 +126,15 @@
             1834,
             120,
             30
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "item_00005",
-      "y_position": 2133,
-      "labels": [
-        {
-          "label": "Net amount (total)",
-          "text": "Total 2.50",
-          "bbox": [
-            1288,
-            2133,
-            1086,
-            52
-          ]
+          ],
+          "ocr_original": "",
+          "ocr_confidence": 0,
+          "was_corrected": false
         }
       ]
     }
   ],
-  "total_groups": 5,
+  "total_groups": 2,
   "bboxes": [
     {
       "x": 2142,
@@ -136,7 +143,10 @@
       "height": 48,
       "label": "Order number",
       "text": "4512224402",
-      "group_id": "item_00001"
+      "group_id": "-",
+      "ocr_original": "4512224402.",
+      "ocr_confidence": 0.85,
+      "was_corrected": true
     },
     {
       "x": 300,
@@ -145,7 +155,10 @@
       "height": 42,
       "label": "Case mark",
       "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
-      "group_id": "item_00002"
+      "group_id": "-",
+      "ocr_original": "ISHIKAWA EXT:731-48177LOC:K70-4",
+      "ocr_confidence": 0.905,
+      "was_corrected": false
     },
     {
       "x": 132,
@@ -154,7 +167,10 @@
       "height": 51,
       "label": "Shipping line",
       "text": "C5800002",
-      "group_id": "item_00002"
+      "group_id": "-",
+      "ocr_original": "C5800002",
+      "ocr_confidence": 0.91,
+      "was_corrected": false
     },
     {
       "x": 102,
@@ -163,7 +179,10 @@
       "height": 49,
       "label": "Item number",
       "text": "00010",
-      "group_id": "item_00003"
+      "group_id": "ITEM_00010",
+      "ocr_original": "00010",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
     },
     {
       "x": 249,
@@ -172,16 +191,22 @@
       "height": 38,
       "label": "Part number",
       "text": "B8211DT",
-      "group_id": "item_00003"
+      "group_id": "ITEM_00010",
+      "ocr_original": "B8211DT",
+      "ocr_confidence": 0.91,
+      "was_corrected": false
     },
     {
       "x": 591,
       "y": 1832,
       "width": 180,
       "height": 30,
-      "label": "Shipping date",
+      "label": "Delivery date",
       "text": "10-22-2024",
-      "group_id": "item_00004"
+      "group_id": "ITEM_00010",
+      "ocr_original": "",
+      "ocr_confidence": 0,
+      "was_corrected": false
     },
     {
       "x": 1047,
@@ -190,7 +215,10 @@
       "height": 38,
       "label": "Quantity",
       "text": "1.000 ST",
-      "group_id": "item_00004"
+      "group_id": "ITEM_00010",
+      "ocr_original": "1.000 ST",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
     },
     {
       "x": 1689,
@@ -199,7 +227,10 @@
       "height": 30,
       "label": "Unit price",
       "text": "2.5000",
-      "group_id": "item_00004"
+      "group_id": "ITEM_00010",
+      "ocr_original": "",
+      "ocr_confidence": 0,
+      "was_corrected": false
     },
     {
       "x": 1288,
@@ -208,7 +239,10 @@
       "height": 52,
       "label": "Net amount (total)",
       "text": "Total 2.50",
-      "group_id": "item_00005"
+      "group_id": "-",
+      "ocr_original": "Total fmol 2.50",
+      "ocr_confidence": 0.72,
+      "was_corrected": true
     }
   ]
 }

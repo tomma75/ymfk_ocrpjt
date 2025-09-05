@@ -1,0 +1,248 @@
+{
+  "filename": "20250811_174451_20241129171650-0001.pdf",
+  "filepath": "20250811_174451_20241129171650-0001.pdf",
+  "pageNumber": 1,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "-",
+      "y_position": 71,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512418981",
+          "bbox": [
+            2175,
+            71,
+            208,
+            42
+          ],
+          "ocr_original": "4512418981",
+          "ocr_confidence": 0.91,
+          "was_corrected": false
+        },
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            1988,
+            1069,
+            250,
+            101
+          ],
+          "ocr_original": "5800002",
+          "ocr_confidence": 0,
+          "was_corrected": true
+        },
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU K5-1 AOKI 731-48229",
+          "bbox": [
+            1650,
+            1272,
+            682,
+            112
+          ],
+          "ocr_original": "YWG KOFU K5-1 AOKI 731-49229",
+          "ocr_confidence": 0.634,
+          "was_corrected": true
+        },
+        {
+          "label": "Net amount (total)",
+          "text": "Total 20.00",
+          "bbox": [
+            1310,
+            2103,
+            1079,
+            50
+          ],
+          "ocr_original": "Total 20.00",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        }
+      ]
+    },
+    {
+      "group_id": "ITEM_00010",
+      "y_position": 1688,
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            126,
+            1688,
+            110,
+            52
+          ],
+          "ocr_original": "00010",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        },
+        {
+          "label": "Part number",
+          "text": "K9221PB",
+          "bbox": [
+            273,
+            1686,
+            234,
+            45
+          ],
+          "ocr_original": "K9221PB",
+          "ocr_confidence": 0.92,
+          "was_corrected": false
+        },
+        {
+          "label": "Delivery date",
+          "text": "12-20-2024",
+          "bbox": [
+            595,
+            1792,
+            196,
+            52
+          ],
+          "ocr_original": "12-20-2024",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        },
+        {
+          "label": "Quantity",
+          "text": "200.000 ST",
+          "bbox": [
+            1029,
+            1793,
+            212,
+            56
+          ],
+          "ocr_original": "200.000 ST",
+          "ocr_confidence": 0.93,
+          "was_corrected": false
+        },
+        {
+          "label": "Unit price",
+          "text": "0.1000",
+          "bbox": [
+            1694,
+            1795,
+            142,
+            56
+          ],
+          "ocr_original": "0.1000",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        }
+      ]
+    }
+  ],
+  "total_groups": 2,
+  "bboxes": [
+    {
+      "x": 2175,
+      "y": 71,
+      "width": 208,
+      "height": 42,
+      "label": "Order number",
+      "text": "4512418981",
+      "group_id": "-",
+      "ocr_original": "4512418981",
+      "ocr_confidence": 0.91,
+      "was_corrected": false
+    },
+    {
+      "x": 1988,
+      "y": 1069,
+      "width": 250,
+      "height": 101,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "-",
+      "ocr_original": "5800002",
+      "ocr_confidence": 0,
+      "was_corrected": true
+    },
+    {
+      "x": 1650,
+      "y": 1272,
+      "width": 682,
+      "height": 112,
+      "label": "Case mark",
+      "text": "YMG KOFU K5-1 AOKI 731-48229",
+      "group_id": "-",
+      "ocr_original": "YWG KOFU K5-1 AOKI 731-49229",
+      "ocr_confidence": 0.634,
+      "was_corrected": true
+    },
+    {
+      "x": 126,
+      "y": 1688,
+      "width": 110,
+      "height": 52,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "ITEM_00010",
+      "ocr_original": "00010",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 273,
+      "y": 1686,
+      "width": 234,
+      "height": 45,
+      "label": "Part number",
+      "text": "K9221PB",
+      "group_id": "ITEM_00010",
+      "ocr_original": "K9221PB",
+      "ocr_confidence": 0.92,
+      "was_corrected": false
+    },
+    {
+      "x": 595,
+      "y": 1792,
+      "width": 196,
+      "height": 52,
+      "label": "Delivery date",
+      "text": "12-20-2024",
+      "group_id": "ITEM_00010",
+      "ocr_original": "12-20-2024",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1029,
+      "y": 1793,
+      "width": 212,
+      "height": 56,
+      "label": "Quantity",
+      "text": "200.000 ST",
+      "group_id": "ITEM_00010",
+      "ocr_original": "200.000 ST",
+      "ocr_confidence": 0.93,
+      "was_corrected": false
+    },
+    {
+      "x": 1694,
+      "y": 1795,
+      "width": 142,
+      "height": 56,
+      "label": "Unit price",
+      "text": "0.1000",
+      "group_id": "ITEM_00010",
+      "ocr_original": "0.1000",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1310,
+      "y": 2103,
+      "width": 1079,
+      "height": 50,
+      "label": "Net amount (total)",
+      "text": "Total 20.00",
+      "group_id": "-",
+      "ocr_original": "Total 20.00",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    }
+  ]
+}

@@ -1,0 +1,239 @@
+{% extends "base.html" %}
+
+{% block title %}OCR 학습 상태{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>OCR 학습 상태</h2>
+    
+    <div class="row mt-4">
+        <!-- 전체 통계 -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>전체 학습 통계</h4>
+                </div>
+                <div class="card-body">
+                    <div id="overall-stats">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 라벨별 정확도 -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>라벨별 정확도</h4>
+                </div>
+                <div class="card-body">
+                    <canvas id="accuracy-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <!-- OCR 오류 패턴 -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>일반적인 OCR 오류 패턴</h4>
+                </div>
+                <div class="card-body">
+                    <div id="error-patterns">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 최근 학습 이력 -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>최근 학습 이력</h4>
+                </div>
+                <div class="card-body">
+                    <div id="learning-history">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 학습 실행 버튼 -->
+    <div class="row mt-4">
+        <div class="col-12 text-center">
+            <button class="btn btn-primary btn-lg" onclick="runOCRLearning()">
+                <i class="fas fa-brain"></i> OCR 일괄 학습 실행
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+let accuracyChart = null;
+
+// 페이지 로드 시 상태 조회
+document.addEventListener('DOMContentLoaded', function() {
+    loadOCRStatus();
+});
+
+async function loadOCRStatus() {
+    try {
+        const response = await fetch('/api/ocr_learning_status');
+        const data = await response.json();
+        
+        if (response.ok) {
+            displayOverallStats(data);
+            displayAccuracyChart(data.accuracy_by_label || {});
+            displayErrorPatterns(data.common_errors || {});
+            displayLearningHistory(data.recent_corrections || []);
+        }
+    } catch (error) {
+        console.error('Error loading OCR status:', error);
+    }
+}
+
+function displayOverallStats(data) {
+    const statsDiv = document.getElementById('overall-stats');
+    statsDiv.innerHTML = `
+        <div class="row">
+            <div class="col-6">
+                <p><strong>전체 정확도:</strong> ${(data.overall_accuracy * 100).toFixed(1)}%</p>
+                <p><strong>총 보정 수:</strong> ${data.total_corrections}</p>
+            </div>
+            <div class="col-6">
+                <p><strong>학습 완료:</strong> ${data.learning_complete ? '예' : '아니오'}</p>
+                <p><strong>활성 라벨:</strong> ${Object.keys(data.accuracy_by_label || {}).length}개</p>
+            </div>
+        </div>
+    `;
+}
+
+function displayAccuracyChart(accuracyData) {
+    const ctx = document.getElementById('accuracy-chart').getContext('2d');
+    
+    const labels = Object.keys(accuracyData);
+    const values = Object.values(accuracyData).map(v => v * 100);
+    
+    if (accuracyChart) {
+        accuracyChart.destroy();
+    }
+    
+    accuracyChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: '정확도 (%)',
+                data: values,
+                backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100
+                }
+            }
+        }
+    });
+}
+
+function displayErrorPatterns(errors) {
+    const errorDiv = document.getElementById('error-patterns');
+    
+    if (Object.keys(errors).length === 0) {
+        errorDiv.innerHTML = '<p class="text-muted">아직 수집된 오류 패턴이 없습니다.</p>';
+        return;
+    }
+    
+    let html = '<table class="table table-sm">';
+    html += '<thead><tr><th>오류 유형</th><th>발생 횟수</th></tr></thead><tbody>';
+    
+    for (const [error, count] of Object.entries(errors)) {
+        html += `<tr><td>${error}</td><td>${count}</td></tr>`;
+    }
+    
+    html += '</tbody></table>';
+    errorDiv.innerHTML = html;
+}
+
+function displayLearningHistory(history) {
+    const historyDiv = document.getElementById('learning-history');
+    
+    if (history.length === 0) {
+        historyDiv.innerHTML = '<p class="text-muted">최근 학습 이력이 없습니다.</p>';
+        return;
+    }
+    
+    let html = '<div class="list-group">';
+    
+    history.slice(0, 10).forEach(item => {
+        html += `
+            <div class="list-group-item">
+                <div class="d-flex justify-content-between">
+                    <strong>${item.label}</strong>
+                    <small>${new Date(item.timestamp).toLocaleString()}</small>
+                </div>
+                <p class="mb-1">
+                    <span class="text-danger">${item.original}</span> → 
+                    <span class="text-success">${item.corrected}</span>
+                </p>
+            </div>
+        `;
+    });
+    
+    html += '</div>';
+    historyDiv.innerHTML = html;
+}
+
+async function runOCRLearning() {
+    if (!confirm('OCR 일괄 학습을 시작하시겠습니까?\n\n모든 라벨 파일의 OCR 보정 데이터를 분석하여 학습합니다.')) {
+        return;
+    }
+    
+    const btn = event.target;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner-border spinner-border-sm mr-2"></span>학습 중...';
+    
+    try {
+        const response = await fetch('/api/train_model', {
+            method: 'POST'
+        });
+        
+        const result = await response.json();
+        
+        if (response.ok) {
+            showAlert('OCR 학습이 완료되었습니다!', 'success');
+            
+            // 상태 새로고침
+            setTimeout(() => {
+                loadOCRStatus();
+            }, 1000);
+        } else {
+            showAlert('OCR 학습 중 오류가 발생했습니다.', 'error');
+        }
+    } catch (error) {
+        showAlert('OCR 학습 요청 중 오류가 발생했습니다.', 'error');
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-brain"></i> OCR 일괄 학습 실행';
+    }
+}
+</script>
+{% endblock %}

@@ -3,196 +3,246 @@
   "filepath": "20250807_175828_20240909162139-0001.pdf",
   "pageNumber": 1,
   "class": "purchase_order",
-  "bboxes": [
-    {
-      "x": 2163,
-      "y": 79,
-      "width": 208,
-      "height": 42,
-      "label": "Order number",
-      "text": "4512221368"
-    },
-    {
-      "x": 138,
-      "y": 1190,
-      "width": 798,
-      "height": 130,
-      "label": "Case mark",
-      "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176"
-    },
-    {
-      "x": 741,
-      "y": 1335,
-      "width": 274,
-      "height": 116,
-      "label": "Shipping line",
-      "text": "C5800002"
-    },
-    {
-      "x": 106,
-      "y": 1691,
-      "width": 386,
-      "height": 55,
-      "label": "Part number",
-      "text": "A1612JD-09"
-    },
-    {
-      "x": 593,
-      "y": 1809.21875,
-      "width": 196,
-      "height": 52,
-      "label": "Shipping date",
-      "text": "10-22-2024"
-    },
-    {
-      "x": 1049,
-      "y": 1807.21875,
-      "width": 178,
-      "height": 58,
-      "label": "Quantity",
-      "text": "8.000 ST"
-    },
-    {
-      "x": 1689,
-      "y": 1805.21875,
-      "width": 142,
-      "height": 56,
-      "label": "Unit price",
-      "text": "1.7300"
-    },
-    {
-      "x": 1291,
-      "y": 2115.21875,
-      "width": 1090,
-      "height": 46,
-      "label": "Net amount (total)",
-      "text": "Total 13.84"
-    }
-  ],
   "items": [
     {
-      "group_id": "header_00001",
-      "type": "header",
-      "y_position": 79,
+      "group_id": "-",
+      "y_position": 77,
       "labels": [
         {
           "label": "Order number",
           "text": "4512221368",
           "bbox": [
-            2163,
-            79,
-            208,
-            42
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "header_00002",
-      "type": "header",
-      "y_position": 1190,
-      "labels": [
+            2174,
+            77,
+            196,
+            50
+          ],
+          "ocr_original": "4512221368",
+          "ocr_confidence": 0.61,
+          "was_corrected": false
+        },
         {
           "label": "Case mark",
           "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
           "bbox": [
-            138,
-            1190,
-            798,
-            130
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "header_00003",
-      "type": "header",
-      "y_position": 1335,
-      "labels": [
-        {
-          "label": "Shipping line",
-          "text": "C5800002",
-          "bbox": [
-            741,
-            1335,
-            274,
-            116
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "item_00004",
-      "type": "item",
-      "y_position": 1691,
-      "labels": [
-        {
-          "label": "Part number",
-          "text": "A1612JD-09",
-          "bbox": [
-            106,
-            1691,
-            386,
-            55
-          ]
+            164,
+            1206.6875,
+            730,
+            114
+          ],
+          "ocr_original": "\\ KOFU P/C KB-2 KOSUGE 7131-48176",
+          "ocr_confidence": 0.614,
+          "was_corrected": true
         },
         {
-          "label": "Shipping date",
+          "label": "Part number",
+          "text": "C5800002",
+          "bbox": [
+            744,
+            1330.6875,
+            286,
+            116
+          ],
+          "ocr_original": "(5800002",
+          "ocr_confidence": 0.38,
+          "was_corrected": true
+        },
+        {
+          "label": "Net amount (total)",
+          "text": "Total 13.84",
+          "bbox": [
+            1310,
+            2120.6875,
+            1066,
+            50
+          ],
+          "ocr_original": "Total 13.84",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        }
+      ]
+    },
+    {
+      "group_id": "ITEM_00010",
+      "y_position": 1694.6875,
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            104,
+            1694.6875,
+            136,
+            62
+          ],
+          "ocr_original": "00070",
+          "ocr_confidence": 0.81,
+          "was_corrected": true
+        },
+        {
+          "label": "Part number",
+          "text": "A1613JD-09",
+          "bbox": [
+            268,
+            1702.6875,
+            202,
+            46
+          ],
+          "ocr_original": "A1613JD-09",
+          "ocr_confidence": 0.85,
+          "was_corrected": false
+        },
+        {
+          "label": "Delivery date",
           "text": "10-22-2024",
           "bbox": [
-            593,
-            1809.21875,
-            196,
-            52
-          ]
+            594,
+            1806.6875,
+            186,
+            56
+          ],
+          "ocr_original": "10-22-2024",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
         },
         {
           "label": "Quantity",
           "text": "8.000 ST",
           "bbox": [
-            1049,
-            1807.21875,
-            178,
-            58
-          ]
+            1040,
+            1808.6875,
+            204,
+            52
+          ],
+          "ocr_original": "8.000 ST",
+          "ocr_confidence": 0.945,
+          "was_corrected": false
         },
         {
           "label": "Unit price",
           "text": "1.7300",
           "bbox": [
-            1689,
-            1805.21875,
-            142,
-            56
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "summary_00004",
-      "type": "summary",
-      "y_position": 2115.21875,
-      "labels": [
-        {
-          "label": "Net amount (total)",
-          "text": "Total 13.84",
-          "bbox": [
-            1291,
-            2115.21875,
-            1090,
-            46
-          ]
+            1694,
+            1806.6875,
+            138,
+            68
+          ],
+          "ocr_original": "1.7300",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
         }
       ]
     }
   ],
-  "total_groups": 5,
-  "group_summary": {
-    "total_items": 1,
-    "total_headers": 3,
-    "total_summaries": 1,
-    "item_numbers": [
-      "unknown"
-    ]
-  }
+  "total_groups": 2,
+  "bboxes": [
+    {
+      "x": 2174,
+      "y": 77,
+      "width": 196,
+      "height": 50,
+      "label": "Order number",
+      "text": "4512221368",
+      "group_id": "-",
+      "ocr_original": "4512221368",
+      "ocr_confidence": 0.61,
+      "was_corrected": false
+    },
+    {
+      "x": 164,
+      "y": 1206.6875,
+      "width": 730,
+      "height": 114,
+      "label": "Case mark",
+      "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+      "group_id": "-",
+      "ocr_original": "\\ KOFU P/C KB-2 KOSUGE 7131-48176",
+      "ocr_confidence": 0.614,
+      "was_corrected": true
+    },
+    {
+      "x": 104,
+      "y": 1694.6875,
+      "width": 136,
+      "height": 62,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "ITEM_00010",
+      "ocr_original": "00070",
+      "ocr_confidence": 0.81,
+      "was_corrected": true
+    },
+    {
+      "x": 744,
+      "y": 1330.6875,
+      "width": 286,
+      "height": 116,
+      "label": "Part number",
+      "text": "C5800002",
+      "group_id": "-",
+      "ocr_original": "(5800002",
+      "ocr_confidence": 0.38,
+      "was_corrected": true
+    },
+    {
+      "x": 268,
+      "y": 1702.6875,
+      "width": 202,
+      "height": 46,
+      "label": "Part number",
+      "text": "A1613JD-09",
+      "group_id": "ITEM_00010",
+      "ocr_original": "A1613JD-09",
+      "ocr_confidence": 0.85,
+      "was_corrected": false
+    },
+    {
+      "x": 594,
+      "y": 1806.6875,
+      "width": 186,
+      "height": 56,
+      "label": "Delivery date",
+      "text": "10-22-2024",
+      "group_id": "ITEM_00010",
+      "ocr_original": "10-22-2024",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1040,
+      "y": 1808.6875,
+      "width": 204,
+      "height": 52,
+      "label": "Quantity",
+      "text": "8.000 ST",
+      "group_id": "ITEM_00010",
+      "ocr_original": "8.000 ST",
+      "ocr_confidence": 0.945,
+      "was_corrected": false
+    },
+    {
+      "x": 1694,
+      "y": 1806.6875,
+      "width": 138,
+      "height": 68,
+      "label": "Unit price",
+      "text": "1.7300",
+      "group_id": "ITEM_00010",
+      "ocr_original": "1.7300",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1310,
+      "y": 2120.6875,
+      "width": 1066,
+      "height": 50,
+      "label": "Net amount (total)",
+      "text": "Total 13.84",
+      "group_id": "-",
+      "ocr_original": "Total 13.84",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    }
+  ]
 }

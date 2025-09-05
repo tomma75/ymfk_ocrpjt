@@ -1,0 +1,30 @@
+{
+  "auto_ocr": {
+    "enabled": true,
+    "trigger_on_bbox_draw": true,
+    "confidence_threshold": 0.8,
+    "languages": [
+      "eng",
+      "kor"
+    ]
+  },
+  "auto_labeling": {
+    "enabled": true,
+    "suggest_labels": true,
+    "top_k_suggestions": 3,
+    "use_hybrid_model": true,
+    "confidence_threshold": 0.7
+  },
+  "label_types": [
+    "Order number",
+    "Part number",
+    "Delivery date",
+    "Quantity",
+    "Unit price",
+    "Net amount",
+    "Net amount (total)",
+    "Shipping line",
+    "Case mark",
+    "Item number"
+  ]
+}

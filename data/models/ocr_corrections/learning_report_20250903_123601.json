@@ -1,0 +1,31 @@
+{
+  "summary": {
+    "total_files_processed": 7,
+    "total_corrections_found": 38,
+    "total_samples_trained": 38,
+    "successfully_processed": 0,
+    "failed": 38
+  },
+  "corrections_by_label": {
+    "Case mark": 5,
+    "Item number": 1,
+    "Part number": 5,
+    "Shipping line": 3,
+    "Order number": 1,
+    "Net amount (total)": 4
+  },
+  "common_ocr_errors": {
+    "missing_chars": 6,
+    "char_substitution_7_to_1": 1,
+    "char_substitution_(_to_C": 4,
+    "extra_chars": 6,
+    "char_substitution_0_to_C": 1,
+    "char_substitution_O_to_9": 1
+  },
+  "improvements": {},
+  "training_time": {
+    "start": "2025-09-03T12:36:02.916776",
+    "end": "2025-09-03T12:36:01.571217"
+  },
+  "current_accuracy": {}
+}

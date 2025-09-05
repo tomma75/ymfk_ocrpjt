@@ -29,7 +29,7 @@ class PurchaseOrderLabelCreator:
             "shipping_line": (1300, 1500),
             "item_number": (1680, 1730),
             "part_number": (1690, 1730),
-            "shipping_date": (1790, 1820),
+            "delivery_date": (1790, 1820),
             "quantity": (1795, 1820),
             "unit_price": (1795, 1820),
             "total": (2100, 2135)
@@ -124,9 +124,9 @@ class PurchaseOrderLabelCreator:
                 "text": text
             }
         
-        # Date patterns (Shipping date or Delivery date)
+        # Date patterns (Delivery date)
         if re.match(r'\d{1,2}-\d{1,2}-\d{4}', text):
-            label = "Delivery date" if y > 1750 else "Shipping date"
+            label = "Delivery date"
             return {
                 "x": x, "y": y, "width": width, "height": height,
                 "label": label,

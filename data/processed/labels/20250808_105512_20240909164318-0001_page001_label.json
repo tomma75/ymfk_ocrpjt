@@ -3,196 +3,246 @@
   "filepath": "20250808_105512_20240909164318-0001.pdf",
   "pageNumber": 1,
   "class": "purchase_order",
-  "bboxes": [
-    {
-      "x": 2141,
-      "y": 85,
-      "width": 208,
-      "height": 42,
-      "label": "Order number",
-      "text": "4512220889"
-    },
-    {
-      "x": 285,
-      "y": 1292,
-      "width": 600,
-      "height": 49,
-      "label": "Case mark",
-      "text": "ISHIKAWA EXT:731-48177LOC:K70-4"
-    },
-    {
-      "x": 108,
-      "y": 1290,
-      "width": 173,
-      "height": 49,
-      "label": "Shipping line",
-      "text": "C5800002"
-    },
-    {
-      "x": 75,
-      "y": 1696,
-      "width": 330,
-      "height": 49,
-      "label": "Part number",
-      "text": "A2240JT"
-    },
-    {
-      "x": 559,
-      "y": 1803,
-      "width": 196,
-      "height": 52,
-      "label": "Shipping date",
-      "text": "10-21-2024"
-    },
-    {
-      "x": 1016,
-      "y": 1802,
-      "width": 178,
-      "height": 58,
-      "label": "Quantity",
-      "text": "1.000 ST"
-    },
-    {
-      "x": 1639,
-      "y": 1805,
-      "width": 163,
-      "height": 56,
-      "label": "Unit price",
-      "text": "144.1000"
-    },
-    {
-      "x": 1291,
-      "y": 2115.21875,
-      "width": 1090,
-      "height": 46,
-      "label": "Net amount (total)",
-      "text": "Total 144.10"
-    }
-  ],
   "items": [
     {
-      "group_id": "header_00001",
-      "type": "header",
-      "y_position": 85,
+      "group_id": "-",
+      "y_position": 80.6875,
       "labels": [
         {
           "label": "Order number",
           "text": "4512220889",
           "bbox": [
-            2141,
-            85,
-            208,
-            42
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "header_00002",
-      "type": "header",
-      "y_position": 1290,
-      "labels": [
-        {
-          "label": "Shipping line",
-          "text": "C5800002",
-          "bbox": [
-            108,
-            1290,
-            173,
-            49
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "header_00003",
-      "type": "header",
-      "y_position": 1292,
-      "labels": [
+            2138,
+            80.6875,
+            202,
+            48
+          ],
+          "ocr_original": "4512220889.",
+          "ocr_confidence": 0.86,
+          "was_corrected": true
+        },
         {
           "label": "Case mark",
           "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
           "bbox": [
-            285,
+            284,
+            1296.6875,
+            592,
+            44
+          ],
+          "ocr_original": "ISHIKAWA EXT:731-48177LOC:K70-4",
+          "ocr_confidence": 0.855,
+          "was_corrected": false
+        },
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            120,
+            1294.6875,
+            164,
+            54
+          ],
+          "ocr_original": "C5800002",
+          "ocr_confidence": 0.52,
+          "was_corrected": false
+        },
+        {
+          "label": "Net amount (total)",
+          "text": "Total 144.10",
+          "bbox": [
             1292,
-            600,
-            49
-          ]
+            2114.6875,
+            1062,
+            50
+          ],
+          "ocr_original": "Total\n\n-- Feo\n\n144.10",
+          "ocr_confidence": 0.625,
+          "was_corrected": true
         }
       ]
     },
     {
-      "group_id": "item_00004",
-      "type": "item",
-      "y_position": 1696,
+      "group_id": "ITEM_00010",
+      "y_position": 1704.6875,
       "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            84,
+            1704.6875,
+            114,
+            48
+          ],
+          "ocr_original": "00010",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        },
         {
           "label": "Part number",
           "text": "A2240JT",
           "bbox": [
-            75,
-            1696,
-            330,
-            49
-          ]
+            244,
+            1704.6875,
+            146,
+            44
+          ],
+          "ocr_original": "A2240J5T",
+          "ocr_confidence": 0.25,
+          "was_corrected": true
         },
         {
-          "label": "Shipping date",
+          "label": "Delivery date",
           "text": "10-21-2024",
           "bbox": [
-            559,
-            1803,
-            196,
-            52
-          ]
+            574,
+            1804.6875,
+            182,
+            50
+          ],
+          "ocr_original": "10-21-2024",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
         },
         {
           "label": "Quantity",
           "text": "1.000 ST",
           "bbox": [
-            1016,
-            1802,
-            178,
-            58
-          ]
+            1020,
+            1808.6875,
+            186,
+            50
+          ],
+          "ocr_original": "1.000 ST",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
         },
         {
           "label": "Unit price",
           "text": "144.1000",
           "bbox": [
-            1639,
-            1805,
-            163,
+            1640,
+            1808.6875,
+            166,
             56
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "summary_00004",
-      "type": "summary",
-      "y_position": 2115.21875,
-      "labels": [
-        {
-          "label": "Net amount (total)",
-          "text": "Total 144.10",
-          "bbox": [
-            1291,
-            2115.21875,
-            1090,
-            46
-          ]
+          ],
+          "ocr_original": "144.1000",
+          "ocr_confidence": 0.92,
+          "was_corrected": false
         }
       ]
     }
   ],
-  "total_groups": 5,
-  "group_summary": {
-    "total_items": 1,
-    "total_headers": 3,
-    "total_summaries": 1,
-    "item_numbers": [
-      "unknown"
-    ]
-  }
+  "total_groups": 2,
+  "bboxes": [
+    {
+      "x": 2138,
+      "y": 80.6875,
+      "width": 202,
+      "height": 48,
+      "label": "Order number",
+      "text": "4512220889",
+      "group_id": "-",
+      "ocr_original": "4512220889.",
+      "ocr_confidence": 0.86,
+      "was_corrected": true
+    },
+    {
+      "x": 284,
+      "y": 1296.6875,
+      "width": 592,
+      "height": 44,
+      "label": "Case mark",
+      "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
+      "group_id": "-",
+      "ocr_original": "ISHIKAWA EXT:731-48177LOC:K70-4",
+      "ocr_confidence": 0.855,
+      "was_corrected": false
+    },
+    {
+      "x": 120,
+      "y": 1294.6875,
+      "width": 164,
+      "height": 54,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "-",
+      "ocr_original": "C5800002",
+      "ocr_confidence": 0.52,
+      "was_corrected": false
+    },
+    {
+      "x": 84,
+      "y": 1704.6875,
+      "width": 114,
+      "height": 48,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "ITEM_00010",
+      "ocr_original": "00010",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 244,
+      "y": 1704.6875,
+      "width": 146,
+      "height": 44,
+      "label": "Part number",
+      "text": "A2240JT",
+      "group_id": "ITEM_00010",
+      "ocr_original": "A2240J5T",
+      "ocr_confidence": 0.25,
+      "was_corrected": true
+    },
+    {
+      "x": 574,
+      "y": 1804.6875,
+      "width": 182,
+      "height": 50,
+      "label": "Delivery date",
+      "text": "10-21-2024",
+      "group_id": "ITEM_00010",
+      "ocr_original": "10-21-2024",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
+    },
+    {
+      "x": 1020,
+      "y": 1808.6875,
+      "width": 186,
+      "height": 50,
+      "label": "Quantity",
+      "text": "1.000 ST",
+      "group_id": "ITEM_00010",
+      "ocr_original": "1.000 ST",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
+    },
+    {
+      "x": 1640,
+      "y": 1808.6875,
+      "width": 166,
+      "height": 56,
+      "label": "Unit price",
+      "text": "144.1000",
+      "group_id": "ITEM_00010",
+      "ocr_original": "144.1000",
+      "ocr_confidence": 0.92,
+      "was_corrected": false
+    },
+    {
+      "x": 1292,
+      "y": 2114.6875,
+      "width": 1062,
+      "height": 50,
+      "label": "Net amount (total)",
+      "text": "Total 144.10",
+      "group_id": "-",
+      "ocr_original": "Total\n\n-- Feo\n\n144.10",
+      "ocr_confidence": 0.625,
+      "was_corrected": true
+    }
+  ]
 }

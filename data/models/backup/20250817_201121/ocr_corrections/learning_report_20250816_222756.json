@@ -1,0 +1,45 @@
+{
+  "summary": {
+    "total_files_processed": 51,
+    "total_corrections_found": 4,
+    "total_samples_trained": 4,
+    "successfully_processed": 4,
+    "failed": 0
+  },
+  "corrections_by_label": {
+    "Shipping line": 2
+  },
+  "common_ocr_errors": {
+    "missing_chars": 1,
+    "char_substitution_9_to_5": 1
+  },
+  "improvements": {
+    "Shipping line": [
+      {
+        "from": "5800002",
+        "to": "C5800002",
+        "confidence": 0
+      },
+      {
+        "from": "C9800002",
+        "to": "C5800002",
+        "confidence": 0.29
+      },
+      {
+        "from": "C9800002",
+        "to": "C5800002",
+        "confidence": 0.29
+      },
+      {
+        "from": "5800002",
+        "to": "C5800002",
+        "confidence": 0
+      }
+    ]
+  },
+  "training_time": {
+    "start": "2025-08-16T22:27:56.783692",
+    "end": "2025-08-16T22:27:56.787419"
+  },
+  "current_accuracy": {}
+}

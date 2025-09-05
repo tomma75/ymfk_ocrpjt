@@ -1,18 +1,29 @@
 {
-  "total_samples": 239,
+  "accuracy": 0.0,
+  "training_samples": 0,
+  "label_count": 0,
   "label_distribution": {
-    "Order number": 28,
-    "Case mark": 28,
-    "Shipping line": 28,
-    "Part number": 28,
-    "Shipping date": 25,
-    "Quantity": 28,
-    "Unit price": 23,
-    "Net amount (total)": 24,
-    "Production instruction receipt section": 3,
-    "Item number": 21,
-    "Delivery date": 3
+    "Order number": 26,
+    "Case mark": 26,
+    "Item number": 25,
+    "Part number": 37,
+    "Delivery date": 26,
+    "Quantity": 26,
+    "Unit price": 24,
+    "Net amount (total)": 25,
+    "Shipping line": 15,
+    "WUKERAN": 3
   },
-  "last_training_time": "2025-08-14T17:24:21.474915",
-  "model_version": "0.1.0"
+  "last_trained": null,
+  "total_samples": 233,
+  "last_training_time": "2025-09-05T11:45:21.826151",
+  "layout_patterns": [
+    "pattern_C",
+    "pattern_A",
+    "unknown",
+    "pattern_B"
+  ],
+  "document_types": [
+    "purchase_order"
+  ]
 }

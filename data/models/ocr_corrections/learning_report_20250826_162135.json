@@ -1,0 +1,61 @@
+{
+  "summary": {
+    "total_files_processed": 56,
+    "total_corrections_found": 270,
+    "total_samples_trained": 270,
+    "successfully_processed": 0,
+    "failed": 270
+  },
+  "corrections_by_label": {
+    "Case mark": 34,
+    "Part number": 16,
+    "Shipping line": 32,
+    "Order number": 14,
+    "Net amount (total)": 20,
+    "Unit price": 4,
+    "Production instruction receipt section": 2,
+    "Item number": 4,
+    "Shipping date": 1,
+    "Quantity": 6,
+    "Delivery date": 2
+  },
+  "common_ocr_errors": {
+    "extra_chars": 43,
+    "char_substitution_G_to_M": 3,
+    "char_substitution_(_to_C": 9,
+    "missing_chars": 35,
+    "char_substitution_€_to_C": 2,
+    "char_substitution_§_to_5": 1,
+    "char_substitution_O_to_9": 2,
+    "char_substitution_7_to_1": 3,
+    "char_substitution_,_to_.": 1,
+    "char_substitution_9_to_5": 2,
+    "char_substitution_4_to_1": 6,
+    "char_substitution_7_to_2": 1,
+    "char_substitution_U_to_M": 2,
+    "char_substitution_!_to_l": 1,
+    "char_substitution_H_to_M": 1,
+    "char_substitution_0_to_C": 2,
+    "char_substitution_2_to_Z": 1,
+    "char_substitution_1_to_0": 1,
+    "char_substitution_c_to_C": 5,
+    "char_substitution_<_to_4": 1,
+    "char_substitution_E_to_F": 1,
+    "char_substitution_4_to_5": 2,
+    "char_substitution_6_to_5": 1,
+    "char_substitution_5_to_3": 1,
+    "char_substitution_4_to_3": 1,
+    "char_substitution_7_to_4": 1,
+    "char_substitution_5_to_4": 1,
+    "char_substitution_E_to_D": 1,
+    "char_substitution_3_to_4": 1,
+    "char_substitution_4_to_8": 1,
+    "char_substitution_W_to_M": 2
+  },
+  "improvements": {},
+  "training_time": {
+    "start": "2025-08-26T16:21:33.566714",
+    "end": "2025-08-26T16:21:35.700577"
+  },
+  "current_accuracy": {}
+}

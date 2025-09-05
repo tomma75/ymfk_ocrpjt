@@ -1,0 +1,48 @@
+{
+  "summary": {
+    "total_files_processed": 51,
+    "total_corrections_found": 4,
+    "total_samples_trained": 4,
+    "successfully_processed": 4,
+    "failed": 0
+  },
+  "corrections_by_label": {
+    "Shipping line": 1,
+    "Case mark": 1
+  },
+  "common_ocr_errors": {
+    "char_substitution_9_to_5": 1,
+    "char_substitution_9_to_8": 1
+  },
+  "improvements": {
+    "Shipping line": [
+      {
+        "from": "C9800002",
+        "to": "C5800002",
+        "confidence": 0.29
+      },
+      {
+        "from": "C9800002",
+        "to": "C5800002",
+        "confidence": 0.29
+      }
+    ],
+    "Case mark": [
+      {
+        "from": "YWG KOFU K5-1 AOKI 731-49229",
+        "to": "YWG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.634
+      },
+      {
+        "from": "YWG KOFU K5-1 AOKI 731-49229",
+        "to": "YWG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.634
+      }
+    ]
+  },
+  "training_time": {
+    "start": "2025-08-16T11:53:29.655885",
+    "end": "2025-08-16T11:53:29.660101"
+  },
+  "current_accuracy": {}
+}

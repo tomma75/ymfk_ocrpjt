@@ -1,0 +1,147 @@
+/* 모델 학습 진행 상황 모달 스타일 */
+.training-progress-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20000;
+}
+
+.training-progress-modal .modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.training-progress-modal .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    min-width: 400px;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -45%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.training-progress-modal h3 {
+    margin: 0 0 20px 0;
+    color: #1976d2;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.progress-container {
+    margin: 20px 0;
+}
+
+.progress-bar {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    background: #f0f0f0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #4CAF50, #45a049);
+    border-radius: 15px;
+    transition: width 0.5s ease-out;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.progress-text {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.progress-message {
+    text-align: center;
+    margin: 20px 0 10px 0;
+    color: #666;
+    font-size: 1.1em;
+    min-height: 24px;
+}
+
+.progress-details {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+    font-size: 0.9em;
+    color: #888;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.progress-details:empty {
+    display: none;
+}
+
+/* 학습 단계별 색상 변화 */
+.progress-fill.stage-data {
+    background: linear-gradient(90deg, #2196F3, #1976d2);
+}
+
+.progress-fill.stage-training {
+    background: linear-gradient(90deg, #FF9800, #F57C00);
+}
+
+.progress-fill.stage-validation {
+    background: linear-gradient(90deg, #9C27B0, #7B1FA2);
+}
+
+.progress-fill.stage-complete {
+    background: linear-gradient(90deg, #4CAF50, #45a049);
+}

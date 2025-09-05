@@ -88,7 +88,7 @@ class PreciseLabelGenerator:
         # Order number: Y=70~105 (평균 100)
         # Case mark/Shipping line: Y=1300~1500
         # Item number/Part number: Y=1680~1730
-        # Shipping date/Quantity/Unit price: Y=1790~1820
+        # Delivery date/Quantity/Unit price: Y=1790~1820
         # Total: Y=2100~2135
         
         items = []

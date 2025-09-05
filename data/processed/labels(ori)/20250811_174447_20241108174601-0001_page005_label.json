@@ -1,0 +1,248 @@
+{
+  "filename": "20250811_174447_20241108174601-0001.pdf",
+  "filepath": "20250811_174447_20241108174601-0001.pdf",
+  "pageNumber": 5,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "-",
+      "y_position": 64.6875,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512365064",
+          "bbox": [
+            2182,
+            64.6875,
+            210,
+            52
+          ],
+          "ocr_original": "4512365065",
+          "ocr_confidence": 0.96,
+          "was_corrected": true
+        },
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            1954,
+            1062.6875,
+            258,
+            132
+          ],
+          "ocr_original": "(5800002",
+          "ocr_confidence": 0.72,
+          "was_corrected": true
+        },
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU K5-1 AOKI 731-48229",
+          "bbox": [
+            1538,
+            1269,
+            684,
+            122
+          ],
+          "ocr_original": "YG KOFU K5-? AOKI 731-48229",
+          "ocr_confidence": 0.5825,
+          "was_corrected": true
+        },
+        {
+          "label": "Net amount (total)",
+          "text": "Total 554.52",
+          "bbox": [
+            1330,
+            2110.6875,
+            1058,
+            48
+          ],
+          "ocr_original": "Total 402.51",
+          "ocr_confidence": 0.955,
+          "was_corrected": true
+        }
+      ]
+    },
+    {
+      "group_id": "ITEM_00010",
+      "y_position": 1696.6875,
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            126,
+            1696.6875,
+            110,
+            42
+          ],
+          "ocr_original": "",
+          "ocr_confidence": 0,
+          "was_corrected": false
+        },
+        {
+          "label": "Part number",
+          "text": "W9117RD-C",
+          "bbox": [
+            282,
+            1690.6875,
+            204,
+            46
+          ],
+          "ocr_original": "W9117RE-C",
+          "ocr_confidence": 0.59,
+          "was_corrected": true
+        },
+        {
+          "label": "Delivery date",
+          "text": "12-13-2024",
+          "bbox": [
+            606,
+            1796.6875,
+            206,
+            52
+          ],
+          "ocr_original": "12-13-2024",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        },
+        {
+          "label": "Quantity",
+          "text": "4.000 ST",
+          "bbox": [
+            1068,
+            1796.6875,
+            172,
+            60
+          ],
+          "ocr_original": "3.000 ST",
+          "ocr_confidence": 0.94,
+          "was_corrected": true
+        },
+        {
+          "label": "Unit price",
+          "text": "138.6300",
+          "bbox": [
+            1686,
+            1794.6875,
+            156,
+            70
+          ],
+          "ocr_original": "134.1700",
+          "ocr_confidence": 0.96,
+          "was_corrected": true
+        }
+      ]
+    }
+  ],
+  "total_groups": 2,
+  "bboxes": [
+    {
+      "x": 2182,
+      "y": 64.6875,
+      "width": 210,
+      "height": 52,
+      "label": "Order number",
+      "text": "4512365064",
+      "group_id": "-",
+      "ocr_original": "4512365065",
+      "ocr_confidence": 0.96,
+      "was_corrected": true
+    },
+    {
+      "x": 1954,
+      "y": 1062.6875,
+      "width": 258,
+      "height": 132,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "-",
+      "ocr_original": "(5800002",
+      "ocr_confidence": 0.72,
+      "was_corrected": true
+    },
+    {
+      "x": 1538,
+      "y": 1269,
+      "width": 684,
+      "height": 122,
+      "label": "Case mark",
+      "text": "YMG KOFU K5-1 AOKI 731-48229",
+      "group_id": "-",
+      "ocr_original": "YG KOFU K5-? AOKI 731-48229",
+      "ocr_confidence": 0.5825,
+      "was_corrected": true
+    },
+    {
+      "x": 126,
+      "y": 1696.6875,
+      "width": 110,
+      "height": 42,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "ITEM_00010",
+      "ocr_original": "",
+      "ocr_confidence": 0,
+      "was_corrected": false
+    },
+    {
+      "x": 282,
+      "y": 1690.6875,
+      "width": 204,
+      "height": 46,
+      "label": "Part number",
+      "text": "W9117RD-C",
+      "group_id": "ITEM_00010",
+      "ocr_original": "W9117RE-C",
+      "ocr_confidence": 0.59,
+      "was_corrected": true
+    },
+    {
+      "x": 606,
+      "y": 1796.6875,
+      "width": 206,
+      "height": 52,
+      "label": "Delivery date",
+      "text": "12-13-2024",
+      "group_id": "ITEM_00010",
+      "ocr_original": "12-13-2024",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1068,
+      "y": 1796.6875,
+      "width": 172,
+      "height": 60,
+      "label": "Quantity",
+      "text": "4.000 ST",
+      "group_id": "ITEM_00010",
+      "ocr_original": "3.000 ST",
+      "ocr_confidence": 0.94,
+      "was_corrected": true
+    },
+    {
+      "x": 1686,
+      "y": 1794.6875,
+      "width": 156,
+      "height": 70,
+      "label": "Unit price",
+      "text": "138.6300",
+      "group_id": "ITEM_00010",
+      "ocr_original": "134.1700",
+      "ocr_confidence": 0.96,
+      "was_corrected": true
+    },
+    {
+      "x": 1330,
+      "y": 2110.6875,
+      "width": 1058,
+      "height": 48,
+      "label": "Net amount (total)",
+      "text": "Total 554.52",
+      "group_id": "-",
+      "ocr_original": "Total 402.51",
+      "ocr_confidence": 0.955,
+      "was_corrected": true
+    }
+  ]
+}

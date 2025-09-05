@@ -5,216 +5,244 @@
   "class": "purchase_order",
   "items": [
     {
-      "group_id": "item_00001",
-      "y_position": 70,
+      "group_id": "-",
+      "y_position": 72.6875,
       "labels": [
         {
           "label": "Order number",
           "text": "4512234272",
           "bbox": [
             2170,
-            70,
-            208,
-            42
-          ]
-        }
-      ],
-      "item_number": "4512234272"
-    },
-    {
-      "group_id": "item_00002",
-      "y_position": 1189,
-      "labels": [
+            72.6875,
+            226,
+            48
+          ],
+          "ocr_original": "4512234272",
+          "ocr_confidence": 0.89,
+          "was_corrected": false
+        },
         {
           "label": "Case mark",
           "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
           "bbox": [
-            123,
-            1189,
-            798,
-            130
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "item_00003",
-      "y_position": 1326,
-      "labels": [
+            152,
+            1194.6875,
+            742,
+            96
+          ],
+          "ocr_original": "YHG KOFU P/C K8-2 KOSUGE 731~48176",
+          "ocr_confidence": 0.7333333333333333,
+          "was_corrected": true
+        },
         {
-          "label": "Shipping line",
+          "label": "Part number",
           "text": "C5800002",
           "bbox": [
-            702,
-            1326,
-            274,
+            670,
+            1300.6875,
+            326,
             116
-          ]
+          ],
+          "ocr_original": "(5800002",
+          "ocr_confidence": 0.43,
+          "was_corrected": true
+        },
+        {
+          "label": "Net amount (total)",
+          "text": "Total 1,295.30",
+          "bbox": [
+            1310,
+            2106.6875,
+            1084,
+            60
+          ],
+          "ocr_original": "Total 1,295.30",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
         }
       ]
     },
     {
-      "group_id": "item_00004",
-      "y_position": 1686,
+      "group_id": "ITEM_00010",
+      "y_position": 1688.6875,
       "labels": [
         {
           "label": "Item number",
           "text": "00010",
           "bbox": [
-            112,
-            1692,
-            110,
-            52
-          ]
+            102,
+            1688.6875,
+            130,
+            70
+          ],
+          "ocr_original": "00010",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
         },
         {
           "label": "Part number",
           "text": "C0140ZS",
           "bbox": [
-            266,
-            1686,
-            256,
-            45
-          ]
-        }
-      ],
-      "item_number": "00010"
-    },
-    {
-      "group_id": "item_00005",
-      "y_position": 1795,
-      "labels": [
+            260,
+            1688.6875,
+            172,
+            46
+          ],
+          "ocr_original": "C0140ZS",
+          "ocr_confidence": 0.59,
+          "was_corrected": false
+        },
         {
-          "label": "Shipping date",
+          "label": "Delivery date",
           "text": "10-17-2024",
           "bbox": [
-            589,
-            1803,
-            196,
-            52
-          ]
+            580,
+            1798.6875,
+            206,
+            54
+          ],
+          "ocr_original": "10-17-2024",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
         },
         {
           "label": "Quantity",
           "text": "5.000 ST",
           "bbox": [
-            1048,
-            1796,
-            178,
-            58
-          ]
+            1046,
+            1790.6875,
+            202,
+            66
+          ],
+          "ocr_original": "5.000 ST",
+          "ocr_confidence": 0.93,
+          "was_corrected": false
         },
         {
           "label": "Unit price",
           "text": "259.0600",
           "bbox": [
-            1662,
-            1795,
-            146,
-            56
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "item_00006",
-      "y_position": 2101,
-      "labels": [
-        {
-          "label": "Net amount (total)",
-          "text": "Total 1,295.30",
-          "bbox": [
-            1276,
-            2101,
-            1090,
-            46
-          ]
+            1650,
+            1780.6875,
+            188,
+            76
+          ],
+          "ocr_original": "259.0600",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
         }
       ]
     }
   ],
-  "total_groups": 6,
+  "total_groups": 2,
   "bboxes": [
     {
       "x": 2170,
-      "y": 70,
-      "width": 208,
-      "height": 42,
+      "y": 72.6875,
+      "width": 226,
+      "height": 48,
       "label": "Order number",
       "text": "4512234272",
-      "group_id": "item_00001"
+      "group_id": "-",
+      "ocr_original": "4512234272",
+      "ocr_confidence": 0.89,
+      "was_corrected": false
     },
     {
-      "x": 123,
-      "y": 1189,
-      "width": 798,
-      "height": 130,
+      "x": 152,
+      "y": 1194.6875,
+      "width": 742,
+      "height": 96,
       "label": "Case mark",
       "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
-      "group_id": "item_00002"
+      "group_id": "-",
+      "ocr_original": "YHG KOFU P/C K8-2 KOSUGE 731~48176",
+      "ocr_confidence": 0.7333333333333333,
+      "was_corrected": true
     },
     {
-      "x": 702,
-      "y": 1326,
-      "width": 274,
+      "x": 670,
+      "y": 1300.6875,
+      "width": 326,
       "height": 116,
-      "label": "Shipping line",
+      "label": "Part number",
       "text": "C5800002",
-      "group_id": "item_00003"
+      "group_id": "-",
+      "ocr_original": "(5800002",
+      "ocr_confidence": 0.43,
+      "was_corrected": true
     },
     {
-      "x": 112,
-      "y": 1692,
-      "width": 110,
-      "height": 52,
+      "x": 102,
+      "y": 1688.6875,
+      "width": 130,
+      "height": 70,
       "label": "Item number",
       "text": "00010",
-      "group_id": "item_00004"
+      "group_id": "ITEM_00010",
+      "ocr_original": "00010",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
     },
     {
-      "x": 266,
-      "y": 1686,
-      "width": 256,
-      "height": 45,
+      "x": 260,
+      "y": 1688.6875,
+      "width": 172,
+      "height": 46,
       "label": "Part number",
       "text": "C0140ZS",
-      "group_id": "item_00004"
+      "group_id": "ITEM_00010",
+      "ocr_original": "C0140ZS",
+      "ocr_confidence": 0.59,
+      "was_corrected": false
     },
     {
-      "x": 589,
-      "y": 1803,
-      "width": 196,
-      "height": 52,
-      "label": "Shipping date",
+      "x": 580,
+      "y": 1798.6875,
+      "width": 206,
+      "height": 54,
+      "label": "Delivery date",
       "text": "10-17-2024",
-      "group_id": "item_00005"
+      "group_id": "ITEM_00010",
+      "ocr_original": "10-17-2024",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
     },
     {
-      "x": 1048,
-      "y": 1796,
-      "width": 178,
-      "height": 58,
+      "x": 1046,
+      "y": 1790.6875,
+      "width": 202,
+      "height": 66,
       "label": "Quantity",
       "text": "5.000 ST",
-      "group_id": "item_00005"
+      "group_id": "ITEM_00010",
+      "ocr_original": "5.000 ST",
+      "ocr_confidence": 0.93,
+      "was_corrected": false
     },
     {
-      "x": 1662,
-      "y": 1795,
-      "width": 146,
-      "height": 56,
+      "x": 1650,
+      "y": 1780.6875,
+      "width": 188,
+      "height": 76,
       "label": "Unit price",
       "text": "259.0600",
-      "group_id": "item_00005"
+      "group_id": "ITEM_00010",
+      "ocr_original": "259.0600",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
     },
     {
-      "x": 1276,
-      "y": 2101,
-      "width": 1090,
-      "height": 46,
+      "x": 1310,
+      "y": 2106.6875,
+      "width": 1084,
+      "height": 60,
       "label": "Net amount (total)",
       "text": "Total 1,295.30",
-      "group_id": "item_00006"
+      "group_id": "-",
+      "ocr_original": "Total 1,295.30",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
     }
   ]
 }

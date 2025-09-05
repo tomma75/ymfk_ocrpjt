@@ -1,0 +1,130 @@
+# YOKOGAWA 문서 라벨링 가이드라인
+
+## 1. 문서 유형 분류
+### Purchase Order (구매 주문서)
+- class: "purchase_order"
+- 특징: 가격 정보(Unit price, Net amount) 포함
+- 주요 필드: Order number, Shipping line, Case mark, Item details, Total amount
+
+### Delivery Sheet (납품서)
+- class: "" (빈 문자열)
+- 특징: 가격 정보 없음
+- 주요 필드: Order number, Shipping line, Case mark, Item details (가격 제외)
+
+## 2. 레이아웃 패턴 식별
+
+### 패턴 A: 왼쪽 배치형
+- Shipping line: 왼쪽 하단 (x: 약 141)
+- Case mark: Shipping line 바로 오른쪽
+- 예시: 20250808_110606_20241001164201-0001.pdf
+
+### 패턴 B: 오른쪽 배치형
+- Shipping line: 오른쪽 중앙 (x: 약 1985)
+- Case mark: Shipping line 아래쪽
+- 예시: 20250811_174451_20241129171650-0001.pdf
+
+### 패턴 C: 중앙 배치형
+- Shipping line: 중앙 왼쪽 (x: 약 670-886)
+- Case mark: 왼쪽 하단
+- 예시: 20250811_174444_20241025112809-0001.pdf
+
+## 3. 좌표 측정 가이드
+
+### Order number
+- 위치: 항상 오른쪽 상단
+- x: 2144-2180 (문서마다 미세 차이)
+- y: 59-113 (문서마다 미세 차이)
+- width: 약 208
+- height: 약 42
+
+### Shipping line
+- 높이 주의: 100-131 사이 (문서마다 다름)
+- 폰트 크기와 줄 간격에 따라 height 변동
+
+### Item 정보
+- Item number: x 좌표 85-126 사이
+- Part number: Item number 오른쪽
+- 날짜 필드: y 좌표가 다른 필드보다 약 100 정도 아래
+- Quantity와 Unit price: 날짜와 같은 y 레벨
+
+### Net amount (total)
+- 위치: 항상 하단 오른쪽
+- x: 약 1310
+- y: 2095-2136 (문서마다 차이)
+
+## 4. 그룹 관리
+
+### group_id 규칙
+- 단독 항목: "-"
+- ITEM 그룹: "ITEM_00010", "ITEM_00020" 등
+- 한 그룹 내 모든 항목은 동일한 group_id 공유
+
+### y_position
+- 그룹의 최상단 y 좌표값
+- 일반적으로 Item number의 y 좌표
+
+## 5. 정확도 향상 팁
+
+### 좌표 미세 조정
+1. Order number의 y 좌표는 50-120 범위
+2. 각 문서마다 5-20 픽셀 차이 발생
+3. 동일 시리즈 문서도 페이지마다 레이아웃 차이 가능
+
+### 텍스트 확인
+1. Order number: 10자리 숫자 (예: 4512271546)
+2. Shipping line: 항상 "C5800002"
+3. Part number: 영숫자 조합 (예: B9319GC, K9221PB)
+4. 날짜 형식: MM-DD-YYYY
+
+### 필드별 특징
+1. Delivery date vs Shipping date
+   - Purchase Order: "Delivery date" 또는 "Shipping date"
+   - Delivery Sheet: "Delivery date"만 사용
+
+2. 가격 필드
+   - Purchase Order: Unit price, Net amount 포함
+   - Delivery Sheet: 가격 정보 제외
+
+## 6. 일반적인 실수 방지
+
+### 좌표 관련
+- 이전 페이지 패턴을 그대로 적용하지 말 것
+- 각 페이지의 실제 레이아웃 확인 필수
+- 특히 Shipping line 위치는 페이지마다 다를 수 있음
+
+### 텍스트 관련
+- 불필요한 텍스트 추가 금지
+- 실제 문서에 없는 내용 생성 금지
+- Case mark는 정확한 텍스트 복사
+
+### JSON 구조
+- items 배열과 bboxes 배열 동기화
+- group_id 일관성 유지
+- 좌표값은 정수로 표현
+
+## 7. 검증 체크리스트
+
+□ class 필드가 문서 유형과 일치하는가?
+□ 모든 필수 필드가 포함되었는가?
+□ 좌표가 이미지 경계 내에 있는가?
+□ group_id가 일관되게 적용되었는가?
+□ items와 bboxes 배열이 동기화되었는가?
+□ 텍스트가 정확하게 추출되었는가?
+□ 불필요한 데이터가 포함되지 않았는가?
+
+## 8. 문서별 특이사항
+
+### 20250808 시리즈
+- 표준 레이아웃
+- Shipping line 왼쪽 배치
+- 일관된 좌표 패턴
+
+### 20250811_174451 시리즈
+- Shipping line 오른쪽 배치
+- Case mark 위치 변동
+- 페이지별 미세 좌표 차이
+
+### 20250811_174444 시리즈
+- Shipping line 중앙 배치
+- 페이지마다 x 좌표 변동 (670→886)
+- Case mark 왼쪽 고정

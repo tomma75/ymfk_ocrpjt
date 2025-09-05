@@ -1,0 +1,29 @@
+{
+  "accuracy": 0.0,
+  "training_samples": 0,
+  "label_count": 0,
+  "label_distribution": {
+    "Order number": 52,
+    "Shipping line": 52,
+    "Case mark": 52,
+    "Item number": 52,
+    "Part number": 52,
+    "Delivery date": 26,
+    "Quantity": 52,
+    "Unit price": 40,
+    "Net amount (total)": 40,
+    "Shipping date": 26,
+    "Production instruction receipt section": 3
+  },
+  "last_trained": null,
+  "total_samples": 447,
+  "last_training_time": "2025-08-17T20:46:49.056177",
+  "layout_patterns": [
+    "pattern_B",
+    "pattern_A",
+    "pattern_C"
+  ],
+  "document_types": [
+    "purchase_order"
+  ]
+}

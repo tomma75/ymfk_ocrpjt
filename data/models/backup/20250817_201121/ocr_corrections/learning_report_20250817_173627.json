@@ -1,0 +1,1106 @@
+{
+  "summary": {
+    "total_files_processed": 51,
+    "total_corrections_found": 206,
+    "total_samples_trained": 206,
+    "successfully_processed": 206,
+    "failed": 0
+  },
+  "corrections_by_label": {
+    "Shipping line": 24,
+    "Part number": 14,
+    "Net amount (total)": 15,
+    "Case mark": 25,
+    "Shipping date": 1,
+    "Item number": 4,
+    "Order number": 12,
+    "Unit price": 2,
+    "Production instruction receipt section": 2,
+    "Quantity": 2,
+    "Delivery date": 2
+  },
+  "common_ocr_errors": {
+    "char_substitution_c_to_C": 5,
+    "char_substitution_E_to_F": 1,
+    "extra_chars": 38,
+    "char_substitution_H_to_M": 1,
+    "char_substitution_0_to_C": 2,
+    "char_substitution_€_to_C": 2,
+    "missing_chars": 21,
+    "char_substitution_U_to_M": 2,
+    "char_substitution_O_to_9": 2,
+    "char_substitution_4_to_1": 6,
+    "char_substitution_!_to_l": 1,
+    "char_substitution_(_to_C": 7,
+    "char_substitution_§_to_5": 1,
+    "char_substitution_4_to_5": 1,
+    "char_substitution_W_to_M": 2,
+    "char_substitution_9_to_5": 2,
+    "char_substitution_7_to_2": 1,
+    "char_substitution_G_to_M": 3,
+    "char_substitution_7_to_1": 1,
+    "char_substitution_<_to_4": 1,
+    "char_substitution_2_to_Z": 1,
+    "char_substitution_1_to_0": 1,
+    "char_substitution_,_to_.": 1
+  },
+  "improvements": {
+    "Shipping line": [
+      {
+        "from": "c5800002",
+        "to": "C5800002",
+        "confidence": 0.25
+      },
+      {
+        "from": "€5800002",
+        "to": "C5800002",
+        "confidence": 0.15
+      },
+      {
+        "from": "(5800002",
+        "to": "C5800002",
+        "confidence": 0.5
+      },
+      {
+        "from": "C§800002",
+        "to": "C5800002",
+        "confidence": 0.82
+      },
+      {
+        "from": "(5800002",
+        "to": "C5800002",
+        "confidence": 0
+      },
+      {
+        "from": "c5800002",
+        "to": "C5800002",
+        "confidence": 0.64
+      },
+      {
+        "from": "c5800002",
+        "to": "C5800002",
+        "confidence": 0.49
+      },
+      {
+        "from": "5800002",
+        "to": "C5800002",
+        "confidence": 0
+      },
+      {
+        "from": "(5800002",
+        "to": "C5800002",
+        "confidence": 0.52
+      },
+      {
+        "from": "c5g00002",
+        "to": "C5800002",
+        "confidence": 0.08
+      },
+      {
+        "from": "5800002",
+        "to": "C5800002",
+        "confidence": 0
+      },
+      {
+        "from": "(5800002",
+        "to": "C5800002",
+        "confidence": 0.71
+      },
+      {
+        "from": "C9800002",
+        "to": "C5800002",
+        "confidence": 0.29
+      },
+      {
+        "from": "C8002",
+        "to": "C5800002",
+        "confidence": 0
+      },
+      {
+        "from": "€5800002",
+        "to": "C5800002",
+        "confidence": 0.06
+      },
+      {
+        "from": "c5800002",
+        "to": "C5800002",
+        "confidence": 0.57
+      },
+      {
+        "from": "5800002",
+        "to": "C5800002",
+        "confidence": 0.25
+      },
+      {
+        "from": "(3800002",
+        "to": "C5800002",
+        "confidence": 0.29
+      },
+      {
+        "from": "(9800002",
+        "to": "C5800002",
+        "confidence": 0.56
+      },
+      {
+        "from": "5800002",
+        "to": "C5800002",
+        "confidence": 0.29
+      },
+      {
+        "from": "00800002",
+        "to": "C5800002",
+        "confidence": 0.16
+      },
+      {
+        "from": "EF\n\nC5800002",
+        "to": "C5800002",
+        "confidence": 0.4
+      },
+      {
+        "from": "~ 5800002 |",
+        "to": "C5800002",
+        "confidence": 0.8266666666666667
+      },
+      {
+        "from": "(5800002",
+        "to": "C5800002",
+        "confidence": 0.04
+      },
+      {
+        "from": "(5800002",
+        "to": "C5800002",
+        "confidence": 0.5
+      },
+      {
+        "from": "c5800002",
+        "to": "C5800002",
+        "confidence": 0.64
+      },
+      {
+        "from": "C9800002",
+        "to": "C5800002",
+        "confidence": 0.29
+      },
+      {
+        "from": "c5800002",
+        "to": "C5800002",
+        "confidence": 0.57
+      },
+      {
+        "from": "5800002",
+        "to": "C5800002",
+        "confidence": 0
+      },
+      {
+        "from": "(5800002",
+        "to": "C5800002",
+        "confidence": 0.52
+      },
+      {
+        "from": "~ 5800002 |",
+        "to": "C5800002",
+        "confidence": 0.8266666666666667
+      },
+      {
+        "from": "5800002",
+        "to": "C5800002",
+        "confidence": 0.25
+      },
+      {
+        "from": "5800002",
+        "to": "C5800002",
+        "confidence": 0
+      },
+      {
+        "from": "C8002",
+        "to": "C5800002",
+        "confidence": 0
+      },
+      {
+        "from": "(5800002",
+        "to": "C5800002",
+        "confidence": 0.71
+      },
+      {
+        "from": "c5800002",
+        "to": "C5800002",
+        "confidence": 0.49
+      },
+      {
+        "from": "c5800002",
+        "to": "C5800002",
+        "confidence": 0.25
+      },
+      {
+        "from": "(3800002",
+        "to": "C5800002",
+        "confidence": 0.29
+      },
+      {
+        "from": "00800002",
+        "to": "C5800002",
+        "confidence": 0.16
+      },
+      {
+        "from": "(9800002",
+        "to": "C5800002",
+        "confidence": 0.56
+      },
+      {
+        "from": "5800002",
+        "to": "C5800002",
+        "confidence": 0.29
+      },
+      {
+        "from": "(5800002",
+        "to": "C5800002",
+        "confidence": 0
+      },
+      {
+        "from": "(5800002",
+        "to": "C5800002",
+        "confidence": 0.04
+      },
+      {
+        "from": "€5800002",
+        "to": "C5800002",
+        "confidence": 0.06
+      },
+      {
+        "from": "C§800002",
+        "to": "C5800002",
+        "confidence": 0.82
+      },
+      {
+        "from": "€5800002",
+        "to": "C5800002",
+        "confidence": 0.15
+      },
+      {
+        "from": "c5g00002",
+        "to": "C5800002",
+        "confidence": 0.08
+      },
+      {
+        "from": "EF\n\nC5800002",
+        "to": "C5800002",
+        "confidence": 0.4
+      }
+    ],
+    "Part number": [
+      {
+        "from": "A1328WE",
+        "to": "A1328WF",
+        "confidence": 0.57
+      },
+      {
+        "from": "0014025",
+        "to": "C0140ZS",
+        "confidence": 0
+      },
+      {
+        "from": "A1612JD-09 |",
+        "to": "A1612JD-09",
+        "confidence": 0.61
+      },
+      {
+        "from": "FOI38YA",
+        "to": "F9138YA",
+        "confidence": 0.28
+      },
+      {
+        "from": "00010 | A2240JT",
+        "to": "A2240JT",
+        "confidence": 0.9133333333333333
+      },
+      {
+        "from": "A1328WF —",
+        "to": "A1328WF",
+        "confidence": 0.81
+      },
+      {
+        "from": "B9319GD ©",
+        "to": "B9319GD",
+        "confidence": 0.32
+      },
+      {
+        "from": "00010 | A1612JD-09",
+        "to": "A1612JD-09",
+        "confidence": 0.5533333333333333
+      },
+      {
+        "from": "00010 | A1126EB",
+        "to": "A1126EB",
+        "confidence": 0.92
+      },
+      {
+        "from": "00010 | A2240J/T",
+        "to": "A2240JT",
+        "confidence": 0.64
+      },
+      {
+        "from": "FOI38YA",
+        "to": "F9138YA",
+        "confidence": 0
+      },
+      {
+        "from": "BS319SLN",
+        "to": "B9319LN",
+        "confidence": 0.04
+      },
+      {
+        "from": "A90552B",
+        "to": "A9055ZB",
+        "confidence": 0.54
+      },
+      {
+        "from": "00070 A1613JD-09",
+        "to": "A1613JD-09",
+        "confidence": 0.74
+      },
+      {
+        "from": "A1328WF —",
+        "to": "A1328WF",
+        "confidence": 0.81
+      },
+      {
+        "from": "0014025",
+        "to": "C0140ZS",
+        "confidence": 0
+      },
+      {
+        "from": "FOI38YA",
+        "to": "F9138YA",
+        "confidence": 0.28
+      },
+      {
+        "from": "00010 | A1126EB",
+        "to": "A1126EB",
+        "confidence": 0.92
+      },
+      {
+        "from": "00010 | A1612JD-09",
+        "to": "A1612JD-09",
+        "confidence": 0.5533333333333333
+      },
+      {
+        "from": "A1328WE",
+        "to": "A1328WF",
+        "confidence": 0.57
+      },
+      {
+        "from": "00070 A1613JD-09",
+        "to": "A1613JD-09",
+        "confidence": 0.74
+      },
+      {
+        "from": "A90552B",
+        "to": "A9055ZB",
+        "confidence": 0.54
+      },
+      {
+        "from": "FOI38YA",
+        "to": "F9138YA",
+        "confidence": 0
+      },
+      {
+        "from": "BS319SLN",
+        "to": "B9319LN",
+        "confidence": 0.04
+      },
+      {
+        "from": "00010 | A2240J/T",
+        "to": "A2240JT",
+        "confidence": 0.64
+      },
+      {
+        "from": "00010 | A2240JT",
+        "to": "A2240JT",
+        "confidence": 0.9133333333333333
+      },
+      {
+        "from": "A1612JD-09 |",
+        "to": "A1612JD-09",
+        "confidence": 0.61
+      },
+      {
+        "from": "B9319GD ©",
+        "to": "B9319GD",
+        "confidence": 0.32
+      }
+    ],
+    "Net amount (total)": [
+      {
+        "from": "oe TEAK ICL,\nTotal | emma \\ 1.30",
+        "to": "Total 1.30",
+        "confidence": 0.53375
+      },
+      {
+        "from": "Total SERUE 283.80",
+        "to": "Total 283.80",
+        "confidence": 0.735
+      },
+      {
+        "from": "Total RE 581.00",
+        "to": "Total 581.00",
+        "confidence": 0.79
+      },
+      {
+        "from": "Tota! 1,402.50",
+        "to": "Total 1,402.50",
+        "confidence": 0.85
+      },
+      {
+        "from": "Total [BBREQY 96.70",
+        "to": "Total 96.70",
+        "confidence": 0.96
+      },
+      {
+        "from": "Total\n\n——o~—\n\n368",
+        "to": "Total 3.68",
+        "confidence": 0.88
+      },
+      {
+        "from": "Total Mi 96.70",
+        "to": "Total 96.70",
+        "confidence": 0.8466666666666667
+      },
+      {
+        "from": "Total",
+        "to": "Total 0.77",
+        "confidence": 0.96
+      },
+      {
+        "from": "Total MG 9.10",
+        "to": "Total 9.10",
+        "confidence": 0.8666666666666667
+      },
+      {
+        "from": "Total fmol 2.50",
+        "to": "Total 2.50",
+        "confidence": 0.72
+      },
+      {
+        "from": "Total\n\n393, 60",
+        "to": "Total 393,60",
+        "confidence": 0.93
+      },
+      {
+        "from": "Total PORE 21.00",
+        "to": "Total 21.00",
+        "confidence": 0.8
+      },
+      {
+        "from": "Total PIE RIEL 15.20",
+        "to": "Total 15.20",
+        "confidence": 0.4925
+      },
+      {
+        "from": "Total EEE 10.40",
+        "to": "Total 10.40",
+        "confidence": 0.8133333333333332
+      },
+      {
+        "from": "Total 31,76",
+        "to": "Total 31.76",
+        "confidence": 0.94
+      },
+      {
+        "from": "Total EEE 10.40",
+        "to": "Total 10.40",
+        "confidence": 0.8133333333333332
+      },
+      {
+        "from": "Total [BBREQY 96.70",
+        "to": "Total 96.70",
+        "confidence": 0.96
+      },
+      {
+        "from": "Total Mi 96.70",
+        "to": "Total 96.70",
+        "confidence": 0.8466666666666667
+      },
+      {
+        "from": "Total MG 9.10",
+        "to": "Total 9.10",
+        "confidence": 0.8666666666666667
+      },
+      {
+        "from": "Tota! 1,402.50",
+        "to": "Total 1,402.50",
+        "confidence": 0.85
+      },
+      {
+        "from": "Total",
+        "to": "Total 0.77",
+        "confidence": 0.96
+      },
+      {
+        "from": "oe TEAK ICL,\nTotal | emma \\ 1.30",
+        "to": "Total 1.30",
+        "confidence": 0.53375
+      },
+      {
+        "from": "Total\n\n393, 60",
+        "to": "Total 393,60",
+        "confidence": 0.93
+      },
+      {
+        "from": "Total RE 581.00",
+        "to": "Total 581.00",
+        "confidence": 0.79
+      },
+      {
+        "from": "Total SERUE 283.80",
+        "to": "Total 283.80",
+        "confidence": 0.735
+      },
+      {
+        "from": "Total PORE 21.00",
+        "to": "Total 21.00",
+        "confidence": 0.8
+      },
+      {
+        "from": "Total\n\n——o~—\n\n368",
+        "to": "Total 3.68",
+        "confidence": 0.88
+      },
+      {
+        "from": "Total 31,76",
+        "to": "Total 31.76",
+        "confidence": 0.94
+      },
+      {
+        "from": "Total fmol 2.50",
+        "to": "Total 2.50",
+        "confidence": 0.72
+      },
+      {
+        "from": "Total PIE RIEL 15.20",
+        "to": "Total 15.20",
+        "confidence": 0.4925
+      }
+    ],
+    "Case mark": [
+      {
+        "from": "YHG KOFU P/C K8-2 KOSUGE 731~48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.7333333333333333
+      },
+      {
+        "from": "YU KOFU P/C KB-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.71
+      },
+      {
+        "from": "YUG KOFU P/C KB-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.7116666666666667
+      },
+      {
+        "from": "WG KOFU P/C KB-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.79
+      },
+      {
+        "from": "YUG KOFU P/C KB-2 KOSUGE 731-4176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.7083333333333333
+      },
+      {
+        "from": "YG KOFU K5-1 AOK! 731-49229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.318
+      },
+      {
+        "from": "YWG KOFU K5-1 AOKI 731-49229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.634
+      },
+      {
+        "from": "YWG KOFU P/C K8-2 KOSUGE 7131-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.76
+      },
+      {
+        "from": "YG KOFU P/G K8-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.6533333333333333
+      },
+      {
+        "from": "YilG KOFU P/C KB-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.625
+      },
+      {
+        "from": "YG KOFU P/C KB-2 KOSUGE 7231-48176\n\nat",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176\n\nat",
+        "confidence": 0.5
+      },
+      {
+        "from": "YG KOFU P/C K8-2 KOSUGE 7341-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.5666666666666667
+      },
+      {
+        "from": "YG KOFU P/C KB-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.6366666666666666
+      },
+      {
+        "from": "YG KOFU P/G K8-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.7066666666666667
+      },
+      {
+        "from": "YWG KOFU K5-1 AOKI 731-49229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.634
+      },
+      {
+        "from": "YG KOFU K5-1 AOKI 731-48229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.7020000000000001
+      },
+      {
+        "from": "YMG KOFU P/C KB-2 KOSUGE 731-4176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.64
+      },
+      {
+        "from": "YU KOFU P/C KB-2 KOSUGE 731-481 70\nrronnnns",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176\nrronnnns",
+        "confidence": 0.5471428571428572
+      },
+      {
+        "from": "VG KOFU K5-1 eK] 731-4929",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.5766666666666667
+      },
+      {
+        "from": "YG KOFU K5-4 AOKI 7312-49229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.4425
+      },
+      {
+        "from": "ISHIKAWA EXT:731-48177LOC:K70-<",
+        "to": "ISHIKAWA EXT:731-48177LOC:K70-4",
+        "confidence": 0.73
+      },
+      {
+        "from": "HG KOFU K5-1 40K; 733-4g096",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.155
+      },
+      {
+        "from": "ISHIKAWA EXT:731-48177LOC:K70-",
+        "to": "ISHIKAWA EXT:731-48177LOC:K70-4",
+        "confidence": 0.675
+      },
+      {
+        "from": "YuG KOFU P/C KB-2 KOSUGE 7131-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.604
+      },
+      {
+        "from": "Wits KOFU P/C KB-2 KOSUGE 731-49176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.5333333333333333
+      },
+      {
+        "from": "YUG KOFU P/C KB-2 KOSUGE 731-4176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.7083333333333333
+      },
+      {
+        "from": "YHG KOFU P/C K8-2 KOSUGE 731~48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.7333333333333333
+      },
+      {
+        "from": "YWG KOFU K5-1 AOKI 731-49229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.634
+      },
+      {
+        "from": "YWG KOFU P/C K8-2 KOSUGE 7131-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.76
+      },
+      {
+        "from": "YG KOFU P/G K8-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.6533333333333333
+      },
+      {
+        "from": "YilG KOFU P/C KB-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.625
+      },
+      {
+        "from": "YWG KOFU K5-1 AOKI 731-49229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.634
+      },
+      {
+        "from": "YUG KOFU P/C KB-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.7116666666666667
+      },
+      {
+        "from": "YG KOFU P/G K8-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.7066666666666667
+      },
+      {
+        "from": "YG KOFU K5-1 AOKI 731-48229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.7020000000000001
+      },
+      {
+        "from": "YG KOFU P/C K8-2 KOSUGE 7341-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.5666666666666667
+      },
+      {
+        "from": "YuG KOFU P/C KB-2 KOSUGE 7131-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.604
+      },
+      {
+        "from": "YG KOFU P/C KB-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.6366666666666666
+      },
+      {
+        "from": "YMG KOFU P/C KB-2 KOSUGE 731-4176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.64
+      },
+      {
+        "from": "VG KOFU K5-1 eK] 731-4929",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.5766666666666667
+      },
+      {
+        "from": "WG KOFU P/C KB-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.79
+      },
+      {
+        "from": "HG KOFU K5-1 40K; 733-4g096",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.155
+      },
+      {
+        "from": "YU KOFU P/C KB-2 KOSUGE 731-481 70\nrronnnns",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176\nrronnnns",
+        "confidence": 0.5471428571428572
+      },
+      {
+        "from": "YG KOFU K5-4 AOKI 7312-49229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.4425
+      },
+      {
+        "from": "ISHIKAWA EXT:731-48177LOC:K70-<",
+        "to": "ISHIKAWA EXT:731-48177LOC:K70-4",
+        "confidence": 0.73
+      },
+      {
+        "from": "YG KOFU K5-1 AOK! 731-49229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.318
+      },
+      {
+        "from": "Wits KOFU P/C KB-2 KOSUGE 731-49176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.5333333333333333
+      },
+      {
+        "from": "YU KOFU P/C KB-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.71
+      },
+      {
+        "from": "ISHIKAWA EXT:731-48177LOC:K70-",
+        "to": "ISHIKAWA EXT:731-48177LOC:K70-4",
+        "confidence": 0.675
+      },
+      {
+        "from": "YG KOFU P/C KB-2 KOSUGE 7231-48176\n\nat",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176\n\nat",
+        "confidence": 0.5
+      }
+    ],
+    "Shipping date": [
+      {
+        "from": "41-13-2024",
+        "to": "11-13-2024",
+        "confidence": 0.86
+      },
+      {
+        "from": "41-13-2024",
+        "to": "11-13-2024",
+        "confidence": 0.86
+      }
+    ],
+    "Item number": [
+      {
+        "from": "0010",
+        "to": "00010",
+        "confidence": 0.76
+      },
+      {
+        "from": "00070",
+        "to": "00010",
+        "confidence": 0.8
+      },
+      {
+        "from": "0010",
+        "to": "00010",
+        "confidence": 0.8
+      },
+      {
+        "from": "10010",
+        "to": "00010",
+        "confidence": 0.62
+      },
+      {
+        "from": "0010",
+        "to": "00010",
+        "confidence": 0.76
+      },
+      {
+        "from": "10010",
+        "to": "00010",
+        "confidence": 0.62
+      },
+      {
+        "from": "00070",
+        "to": "00010",
+        "confidence": 0.8
+      },
+      {
+        "from": "0010",
+        "to": "00010",
+        "confidence": 0.8
+      }
+    ],
+    "Order number": [
+      {
+        "from": "4512220889 |",
+        "to": "4512220889",
+        "confidence": 0.86
+      },
+      {
+        "from": "4512271545 -",
+        "to": "4512271545",
+        "confidence": 0.84
+      },
+      {
+        "from": "4912205579",
+        "to": "5412253878",
+        "confidence": 0.57
+      },
+      {
+        "from": "4912220005",
+        "to": "4512228063",
+        "confidence": 0.47
+      },
+      {
+        "from": "4512278064",
+        "to": "4512228064",
+        "confidence": 0.75
+      },
+      {
+        "from": "4512253678\"",
+        "to": "4512253678",
+        "confidence": 0.31
+      },
+      {
+        "from": "45122942973",
+        "to": "4512234273",
+        "confidence": 0.54
+      },
+      {
+        "from": "4512220889..",
+        "to": "4512220889",
+        "confidence": 0.5
+      },
+      {
+        "from": "4512253870-",
+        "to": "4512253870",
+        "confidence": 0.3
+      },
+      {
+        "from": "4512224402.",
+        "to": "4512224402",
+        "confidence": 0.85
+      },
+      {
+        "from": "4512253874_",
+        "to": "4512253874",
+        "confidence": 0.89
+      },
+      {
+        "from": "4512253679 -",
+        "to": "4512253679",
+        "confidence": 0.87
+      },
+      {
+        "from": "4912205579",
+        "to": "5412253878",
+        "confidence": 0.57
+      },
+      {
+        "from": "4512253679 -",
+        "to": "4512253679",
+        "confidence": 0.87
+      },
+      {
+        "from": "4912220005",
+        "to": "4512228063",
+        "confidence": 0.47
+      },
+      {
+        "from": "4512278064",
+        "to": "4512228064",
+        "confidence": 0.75
+      },
+      {
+        "from": "4512271545 -",
+        "to": "4512271545",
+        "confidence": 0.84
+      },
+      {
+        "from": "4512253678\"",
+        "to": "4512253678",
+        "confidence": 0.31
+      },
+      {
+        "from": "4512253870-",
+        "to": "4512253870",
+        "confidence": 0.3
+      },
+      {
+        "from": "45122942973",
+        "to": "4512234273",
+        "confidence": 0.54
+      },
+      {
+        "from": "4512253874_",
+        "to": "4512253874",
+        "confidence": 0.89
+      },
+      {
+        "from": "4512220889..",
+        "to": "4512220889",
+        "confidence": 0.5
+      },
+      {
+        "from": "4512220889 |",
+        "to": "4512220889",
+        "confidence": 0.86
+      },
+      {
+        "from": "4512224402.",
+        "to": "4512224402",
+        "confidence": 0.85
+      }
+    ],
+    "Unit price": [
+      {
+        "from": "42.3000",
+        "to": "12.3000",
+        "confidence": 0.87
+      },
+      {
+        "from": "40.4000",
+        "to": "10.4000",
+        "confidence": 0.95
+      },
+      {
+        "from": "40.4000",
+        "to": "10.4000",
+        "confidence": 0.95
+      },
+      {
+        "from": "42.3000",
+        "to": "12.3000",
+        "confidence": 0.87
+      }
+    ],
+    "Production instruction receipt section": [
+      {
+        "from": "e\n| SPEC/MAKER/USE BY |",
+        "to": "SPEC/MAKER/USE BY",
+        "confidence": 0.618
+      },
+      {
+        "from": "SPEC/MAKER/USE BY |",
+        "to": "SPEC/MAKER/USE BY",
+        "confidence": 0.8966666666666667
+      },
+      {
+        "from": "e\n| SPEC/MAKER/USE BY |",
+        "to": "SPEC/MAKER/USE BY",
+        "confidence": 0.618
+      },
+      {
+        "from": "SPEC/MAKER/USE BY |",
+        "to": "SPEC/MAKER/USE BY",
+        "confidence": 0.8966666666666667
+      }
+    ],
+    "Quantity": [
+      {
+        "from": "4.000 ST",
+        "to": "1.000 ST",
+        "confidence": 0.93
+      },
+      {
+        "from": "1.000",
+        "to": "1.000 ST",
+        "confidence": 0.96
+      },
+      {
+        "from": "1.000",
+        "to": "1.000 ST",
+        "confidence": 0.96
+      },
+      {
+        "from": "4.000 ST",
+        "to": "1.000 ST",
+        "confidence": 0.93
+      }
+    ],
+    "Delivery date": [
+      {
+        "from": "41-01-2024",
+        "to": "11-01-2024",
+        "confidence": 0.94
+      },
+      {
+        "from": "41-01-2024",
+        "to": "11-01-2024",
+        "confidence": 0.96
+      },
+      {
+        "from": "41-01-2024",
+        "to": "11-01-2024",
+        "confidence": 0.96
+      },
+      {
+        "from": "41-01-2024",
+        "to": "11-01-2024",
+        "confidence": 0.94
+      }
+    ]
+  },
+  "training_time": {
+    "start": "2025-08-17T17:36:27.290777",
+    "end": "2025-08-17T17:36:27.803974"
+  },
+  "current_accuracy": {}
+}

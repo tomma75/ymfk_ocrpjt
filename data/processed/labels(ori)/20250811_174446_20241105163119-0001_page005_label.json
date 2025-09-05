@@ -1,0 +1,248 @@
+{
+  "filename": "20250811_174446_20241105163119-0001.pdf",
+  "filepath": "20250811_174446_20241105163119-0001.pdf",
+  "pageNumber": 5,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "-",
+      "y_position": 56,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512354816",
+          "bbox": [
+            2168,
+            56,
+            210,
+            52
+          ],
+          "ocr_original": "4512354816",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        },
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            1940,
+            1006,
+            280,
+            134
+          ],
+          "ocr_original": "C5800002",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
+        },
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU K5-1 AOKI 731-48229",
+          "bbox": [
+            1622,
+            1312,
+            744,
+            96
+          ],
+          "ocr_original": "YMG KOFU K5-1 AOKI 731-48229",
+          "ocr_confidence": 0.92,
+          "was_corrected": false
+        },
+        {
+          "label": "Net amount (total)",
+          "text": "Total 1,143.40",
+          "bbox": [
+            1304,
+            2096,
+            1076,
+            52
+          ],
+          "ocr_original": "Total 1,143.40",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        }
+      ]
+    },
+    {
+      "group_id": "ITEM_00010",
+      "y_position": 1678,
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            112,
+            1678,
+            110,
+            42
+          ],
+          "ocr_original": "00010",
+          "ocr_confidence": 0.94,
+          "was_corrected": false
+        },
+        {
+          "label": "Part number",
+          "text": "F9140DA-C",
+          "bbox": [
+            262,
+            1676,
+            240,
+            48
+          ],
+          "ocr_original": "F9140DA-C",
+          "ocr_confidence": 0.93,
+          "was_corrected": false
+        },
+        {
+          "label": "Delivery date",
+          "text": "12-20-2024",
+          "bbox": [
+            588,
+            1784,
+            206,
+            52
+          ],
+          "ocr_original": "12-20-2024",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        },
+        {
+          "label": "Quantity",
+          "text": "10.000 ST",
+          "bbox": [
+            1040,
+            1784,
+            186,
+            60
+          ],
+          "ocr_original": "10.000 ST",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
+        },
+        {
+          "label": "Unit price",
+          "text": "114.3400",
+          "bbox": [
+            1654,
+            1786,
+            196,
+            70
+          ],
+          "ocr_original": "114.3400",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        }
+      ]
+    }
+  ],
+  "total_groups": 2,
+  "bboxes": [
+    {
+      "x": 2168,
+      "y": 56,
+      "width": 210,
+      "height": 52,
+      "label": "Order number",
+      "text": "4512354816",
+      "group_id": "-",
+      "ocr_original": "4512354816",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1940,
+      "y": 1006,
+      "width": 280,
+      "height": 134,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "-",
+      "ocr_original": "C5800002",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
+    },
+    {
+      "x": 1622,
+      "y": 1312,
+      "width": 744,
+      "height": 96,
+      "label": "Case mark",
+      "text": "YMG KOFU K5-1 AOKI 731-48229",
+      "group_id": "-",
+      "ocr_original": "YMG KOFU K5-1 AOKI 731-48229",
+      "ocr_confidence": 0.92,
+      "was_corrected": false
+    },
+    {
+      "x": 112,
+      "y": 1678,
+      "width": 110,
+      "height": 42,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "ITEM_00010",
+      "ocr_original": "00010",
+      "ocr_confidence": 0.94,
+      "was_corrected": false
+    },
+    {
+      "x": 262,
+      "y": 1676,
+      "width": 240,
+      "height": 48,
+      "label": "Part number",
+      "text": "F9140DA-C",
+      "group_id": "ITEM_00010",
+      "ocr_original": "F9140DA-C",
+      "ocr_confidence": 0.93,
+      "was_corrected": false
+    },
+    {
+      "x": 588,
+      "y": 1784,
+      "width": 206,
+      "height": 52,
+      "label": "Delivery date",
+      "text": "12-20-2024",
+      "group_id": "ITEM_00010",
+      "ocr_original": "12-20-2024",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1040,
+      "y": 1784,
+      "width": 186,
+      "height": 60,
+      "label": "Quantity",
+      "text": "10.000 ST",
+      "group_id": "ITEM_00010",
+      "ocr_original": "10.000 ST",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
+    },
+    {
+      "x": 1654,
+      "y": 1786,
+      "width": 196,
+      "height": 70,
+      "label": "Unit price",
+      "text": "114.3400",
+      "group_id": "ITEM_00010",
+      "ocr_original": "114.3400",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1304,
+      "y": 2096,
+      "width": 1076,
+      "height": 52,
+      "label": "Net amount (total)",
+      "text": "Total 1,143.40",
+      "group_id": "-",
+      "ocr_original": "Total 1,143.40",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    }
+  ]
+}

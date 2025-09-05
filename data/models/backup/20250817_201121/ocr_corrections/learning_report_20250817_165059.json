@@ -1,0 +1,220 @@
+{
+  "summary": {
+    "total_files_processed": 51,
+    "total_corrections_found": 36,
+    "total_samples_trained": 36,
+    "successfully_processed": 36,
+    "failed": 0
+  },
+  "corrections_by_label": {
+    "Shipping line": 7,
+    "Case mark": 7,
+    "Part number": 2,
+    "Net amount (total)": 2
+  },
+  "common_ocr_errors": {
+    "char_substitution_€_to_C": 1,
+    "missing_chars": 7,
+    "extra_chars": 3,
+    "char_substitution_(_to_C": 2,
+    "char_substitution_W_to_M": 2,
+    "char_substitution_9_to_5": 1,
+    "char_substitution_0_to_C": 1,
+    "char_substitution_2_to_Z": 1
+  },
+  "improvements": {
+    "Shipping line": [
+      {
+        "from": "€5800002",
+        "to": "C5800002",
+        "confidence": 0.15
+      },
+      {
+        "from": "(5800002",
+        "to": "C5800002",
+        "confidence": 0
+      },
+      {
+        "from": "5800002",
+        "to": "C5800002",
+        "confidence": 0
+      },
+      {
+        "from": "(5800002",
+        "to": "C5800002",
+        "confidence": 0.52
+      },
+      {
+        "from": "C9800002",
+        "to": "C5800002",
+        "confidence": 0.29
+      },
+      {
+        "from": "C8002",
+        "to": "C5800002",
+        "confidence": 0
+      },
+      {
+        "from": "00800002",
+        "to": "C5800002",
+        "confidence": 0.16
+      },
+      {
+        "from": "C9800002",
+        "to": "C5800002",
+        "confidence": 0.29
+      },
+      {
+        "from": "(5800002",
+        "to": "C5800002",
+        "confidence": 0.52
+      },
+      {
+        "from": "5800002",
+        "to": "C5800002",
+        "confidence": 0
+      },
+      {
+        "from": "C8002",
+        "to": "C5800002",
+        "confidence": 0
+      },
+      {
+        "from": "00800002",
+        "to": "C5800002",
+        "confidence": 0.16
+      },
+      {
+        "from": "(5800002",
+        "to": "C5800002",
+        "confidence": 0
+      },
+      {
+        "from": "€5800002",
+        "to": "C5800002",
+        "confidence": 0.15
+      }
+    ],
+    "Case mark": [
+      {
+        "from": "YU KOFU P/C KB-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.71
+      },
+      {
+        "from": "YG KOFU K5-1 AOK! 731-49229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.318
+      },
+      {
+        "from": "YWG KOFU K5-1 AOKI 731-49229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.634
+      },
+      {
+        "from": "YilG KOFU P/C KB-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.625
+      },
+      {
+        "from": "YWG KOFU K5-1 AOKI 731-49229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.634
+      },
+      {
+        "from": "YG KOFU K5-1 AOKI 731-48229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.7020000000000001
+      },
+      {
+        "from": "HG KOFU K5-1 40K; 733-4g096",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.155
+      },
+      {
+        "from": "YWG KOFU K5-1 AOKI 731-49229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.634
+      },
+      {
+        "from": "YilG KOFU P/C KB-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.625
+      },
+      {
+        "from": "YWG KOFU K5-1 AOKI 731-49229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.634
+      },
+      {
+        "from": "YG KOFU K5-1 AOKI 731-48229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.7020000000000001
+      },
+      {
+        "from": "HG KOFU K5-1 40K; 733-4g096",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.155
+      },
+      {
+        "from": "YG KOFU K5-1 AOK! 731-49229",
+        "to": "YMG KOFU K5-1 AOKI 731-48229",
+        "confidence": 0.318
+      },
+      {
+        "from": "YU KOFU P/C KB-2 KOSUGE 731-48176",
+        "to": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+        "confidence": 0.71
+      }
+    ],
+    "Part number": [
+      {
+        "from": "A1612JD-09 |",
+        "to": "A1612JD-09",
+        "confidence": 0.61
+      },
+      {
+        "from": "A90552B",
+        "to": "A9055ZB",
+        "confidence": 0.54
+      },
+      {
+        "from": "A90552B",
+        "to": "A9055ZB",
+        "confidence": 0.54
+      },
+      {
+        "from": "A1612JD-09 |",
+        "to": "A1612JD-09",
+        "confidence": 0.61
+      }
+    ],
+    "Net amount (total)": [
+      {
+        "from": "Total\n\n——o~—\n\n368",
+        "to": "Total 3.68",
+        "confidence": 0.88
+      },
+      {
+        "from": "Total",
+        "to": "Total 0.77",
+        "confidence": 0.96
+      },
+      {
+        "from": "Total",
+        "to": "Total 0.77",
+        "confidence": 0.96
+      },
+      {
+        "from": "Total\n\n——o~—\n\n368",
+        "to": "Total 3.68",
+        "confidence": 0.88
+      }
+    ]
+  },
+  "training_time": {
+    "start": "2025-08-17T16:50:59.729439",
+    "end": "2025-08-17T16:50:59.764165"
+  },
+  "current_accuracy": {}
+}

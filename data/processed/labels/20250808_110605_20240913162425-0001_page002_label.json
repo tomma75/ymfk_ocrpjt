@@ -5,216 +5,244 @@
   "class": "purchase_order",
   "items": [
     {
-      "group_id": "item_00001",
-      "y_position": 78,
+      "group_id": "-",
+      "y_position": 72.6875,
       "labels": [
         {
           "label": "Order number",
           "text": "4512234269",
           "bbox": [
-            2169,
-            78,
-            208,
-            42
-          ]
-        }
-      ],
-      "item_number": "4512234269"
-    },
-    {
-      "group_id": "item_00002",
-      "y_position": 1189,
-      "labels": [
+            2162,
+            72.6875,
+            224,
+            50
+          ],
+          "ocr_original": "4512234269",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        },
         {
           "label": "Case mark",
           "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
           "bbox": [
-            121,
-            1189,
-            798,
-            130
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "item_00003",
-      "y_position": 1306,
-      "labels": [
+            110,
+            1188.6875,
+            740,
+            112
+          ],
+          "ocr_original": "YUG KOFU P/C KB-2 KOSUGE 731-4176",
+          "ocr_confidence": 0.7083333333333333,
+          "was_corrected": true
+        },
         {
           "label": "Shipping line",
           "text": "C5800002",
           "bbox": [
-            776,
-            1306,
-            274,
+            756,
+            1320.6875,
+            318,
             116
-          ]
+          ],
+          "ocr_original": "",
+          "ocr_confidence": 0,
+          "was_corrected": false
+        },
+        {
+          "label": "Net amount (total)",
+          "text": "Total 1,402.50",
+          "bbox": [
+            1306,
+            2110.6875,
+            1080,
+            54
+          ],
+          "ocr_original": "Total 1,402.50",
+          "ocr_confidence": 0.955,
+          "was_corrected": false
         }
       ]
     },
     {
-      "group_id": "item_00004",
-      "y_position": 1691,
+      "group_id": "ITEM_00010",
+      "y_position": 1698.6875,
       "labels": [
         {
           "label": "Item number",
           "text": "00010",
           "bbox": [
-            109,
-            1700,
-            110,
+            104,
+            1698.6875,
+            122,
             52
-          ]
+          ],
+          "ocr_original": "0010",
+          "ocr_confidence": 0.76,
+          "was_corrected": true
         },
         {
           "label": "Part number",
           "text": "F9138YA",
           "bbox": [
-            263,
-            1691,
-            256,
-            45
-          ]
-        }
-      ],
-      "item_number": "00010"
-    },
-    {
-      "group_id": "item_00005",
-      "y_position": 1803,
-      "labels": [
+            260,
+            1696.6875,
+            168,
+            42
+          ],
+          "ocr_original": "FO138YA",
+          "ocr_confidence": 0.59,
+          "was_corrected": true
+        },
         {
-          "label": "Shipping date",
+          "label": "Delivery date",
           "text": "10-22-2024",
           "bbox": [
-            589,
-            1812,
-            196,
-            52
-          ]
+            582,
+            1802.6875,
+            198,
+            60
+          ],
+          "ocr_original": "10-22-2024",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
         },
         {
           "label": "Quantity",
           "text": "30.000 ST",
           "bbox": [
-            1008,
-            1803,
-            223,
-            58
-          ]
+            1020,
+            1794.6875,
+            224,
+            66
+          ],
+          "ocr_original": "30.000 ST",
+          "ocr_confidence": 0.86,
+          "was_corrected": false
         },
         {
           "label": "Unit price",
           "text": "46.7500",
           "bbox": [
-            1687,
-            1810,
-            142,
-            56
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "item_00006",
-      "y_position": 2110,
-      "labels": [
-        {
-          "label": "Net amount (total)",
-          "text": "Total 1,402.50",
-          "bbox": [
-            1288,
-            2110,
-            1090,
-            46
-          ]
+            1672,
+            1792.6875,
+            158,
+            60
+          ],
+          "ocr_original": "46.7500",
+          "ocr_confidence": 0.89,
+          "was_corrected": false
         }
       ]
     }
   ],
-  "total_groups": 6,
+  "total_groups": 2,
   "bboxes": [
     {
-      "x": 2169,
-      "y": 78,
-      "width": 208,
-      "height": 42,
+      "x": 2162,
+      "y": 72.6875,
+      "width": 224,
+      "height": 50,
       "label": "Order number",
       "text": "4512234269",
-      "group_id": "item_00001"
+      "group_id": "-",
+      "ocr_original": "4512234269",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
     },
     {
-      "x": 121,
-      "y": 1189,
-      "width": 798,
-      "height": 130,
+      "x": 110,
+      "y": 1188.6875,
+      "width": 740,
+      "height": 112,
       "label": "Case mark",
       "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
-      "group_id": "item_00002"
+      "group_id": "-",
+      "ocr_original": "YUG KOFU P/C KB-2 KOSUGE 731-4176",
+      "ocr_confidence": 0.7083333333333333,
+      "was_corrected": true
     },
     {
-      "x": 776,
-      "y": 1306,
-      "width": 274,
+      "x": 756,
+      "y": 1320.6875,
+      "width": 318,
       "height": 116,
       "label": "Shipping line",
       "text": "C5800002",
-      "group_id": "item_00003"
+      "group_id": "-",
+      "ocr_original": "",
+      "ocr_confidence": 0,
+      "was_corrected": false
     },
     {
-      "x": 109,
-      "y": 1700,
-      "width": 110,
+      "x": 104,
+      "y": 1698.6875,
+      "width": 122,
       "height": 52,
       "label": "Item number",
       "text": "00010",
-      "group_id": "item_00004"
+      "group_id": "ITEM_00010",
+      "ocr_original": "0010",
+      "ocr_confidence": 0.76,
+      "was_corrected": true
     },
     {
-      "x": 263,
-      "y": 1691,
-      "width": 256,
-      "height": 45,
+      "x": 260,
+      "y": 1696.6875,
+      "width": 168,
+      "height": 42,
       "label": "Part number",
       "text": "F9138YA",
-      "group_id": "item_00004"
+      "group_id": "ITEM_00010",
+      "ocr_original": "FO138YA",
+      "ocr_confidence": 0.59,
+      "was_corrected": true
     },
     {
-      "x": 589,
-      "y": 1812,
-      "width": 196,
-      "height": 52,
-      "label": "Shipping date",
+      "x": 582,
+      "y": 1802.6875,
+      "width": 198,
+      "height": 60,
+      "label": "Delivery date",
       "text": "10-22-2024",
-      "group_id": "item_00005"
+      "group_id": "ITEM_00010",
+      "ocr_original": "10-22-2024",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
     },
     {
-      "x": 1008,
-      "y": 1803,
-      "width": 223,
-      "height": 58,
+      "x": 1020,
+      "y": 1794.6875,
+      "width": 224,
+      "height": 66,
       "label": "Quantity",
       "text": "30.000 ST",
-      "group_id": "item_00005"
+      "group_id": "ITEM_00010",
+      "ocr_original": "30.000 ST",
+      "ocr_confidence": 0.86,
+      "was_corrected": false
     },
     {
-      "x": 1687,
-      "y": 1810,
-      "width": 142,
-      "height": 56,
+      "x": 1672,
+      "y": 1792.6875,
+      "width": 158,
+      "height": 60,
       "label": "Unit price",
       "text": "46.7500",
-      "group_id": "item_00005"
+      "group_id": "ITEM_00010",
+      "ocr_original": "46.7500",
+      "ocr_confidence": 0.89,
+      "was_corrected": false
     },
     {
-      "x": 1288,
-      "y": 2110,
-      "width": 1090,
-      "height": 46,
+      "x": 1306,
+      "y": 2110.6875,
+      "width": 1080,
+      "height": 54,
       "label": "Net amount (total)",
       "text": "Total 1,402.50",
-      "group_id": "item_00006"
+      "group_id": "-",
+      "ocr_original": "Total 1,402.50",
+      "ocr_confidence": 0.955,
+      "was_corrected": false
     }
   ]
 }

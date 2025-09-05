@@ -1,0 +1,803 @@
+{% extends "base.html" %}
+
+{% block title %}파일 업로드 - YOKOGAWA OCR System{% endblock %}
+
+{% block extra_styles %}
+<style>
+    /* 파일 업로드 전용 스타일 */
+    .upload-section {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+
+    .upload-section h2 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .upload-section > p {
+        text-align: center;
+        color: #666;
+        margin-bottom: 30px;
+    }
+
+    .upload-area {
+        border: 2px dashed var(--primary-color);
+        border-radius: 12px;
+        padding: 60px 40px;
+        text-align: center;
+        background: #f8f9fa;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-bottom: 20px;
+    }
+
+    .upload-area:hover {
+        background: #e9ecef;
+        border-color: #005bb5;
+    }
+
+    .upload-area.drag-over {
+        background: #e3f2fd;
+        border-color: #005bb5;
+        transform: scale(1.02);
+    }
+
+    .upload-icon {
+        font-size: 64px;
+        margin-bottom: 20px;
+        opacity: 0.8;
+    }
+
+    .upload-area h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: var(--text-color);
+    }
+
+    .upload-area p {
+        color: #666;
+        font-size: 14px;
+    }
+
+    #fileInput {
+        display: none;
+    }
+
+    /* 업로드된 파일 목록 */
+    .uploaded-files-container {
+        background: var(--card-bg);
+        border-radius: 8px;
+        padding: 25px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        margin-top: 30px;
+    }
+
+    .uploaded-files-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .uploaded-file-item {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 6px;
+        margin-bottom: 10px;
+        transition: all 0.2s;
+    }
+
+    .uploaded-file-item:hover {
+        background: #e9ecef;
+        transform: translateX(5px);
+    }
+
+    .file-icon {
+        font-size: 32px;
+        margin-right: 15px;
+    }
+
+    .file-info {
+        flex: 1;
+    }
+
+    .file-name {
+        font-weight: 500;
+        color: var(--text-color);
+        margin-bottom: 5px;
+    }
+
+    .file-details {
+        font-size: 12px;
+        color: #666;
+    }
+
+    .file-actions {
+        display: flex;
+        gap: 10px;
+    }
+
+    .upload-progress {
+        margin-top: 10px;
+        height: 4px;
+        background: #e0e0e0;
+        border-radius: 2px;
+        overflow: hidden;
+    }
+
+    .upload-progress-bar {
+        height: 100%;
+        background: var(--primary-color);
+        transition: width 0.3s;
+    }
+
+    .upload-status {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+        margin-left: 10px;
+    }
+
+    .status-uploading {
+        background: #fff3e0;
+        color: #f57c00;
+    }
+
+    .status-success {
+        background: #e8f5e9;
+        color: #2e7d32;
+    }
+
+    .status-error {
+        background: #ffebee;
+        color: #c62828;
+    }
+
+    .upload-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .stat-card {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 6px;
+        text-align: center;
+    }
+
+    .stat-value {
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+
+    .stat-label {
+        font-size: 12px;
+        color: #666;
+        margin-top: 5px;
+    }
+    
+    /* PO 확신도 게이지 스타일 */
+    .po-confidence-gauge {
+        margin: 10px 0;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+    }
+    
+    .confidence-meter {
+        position: relative;
+        height: 30px;
+        background: #e0e0e0;
+        border-radius: 15px;
+        overflow: hidden;
+        margin: 10px 0;
+    }
+    
+    .confidence-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #ff4444 0%, #ffaa00 50%, #44ff44 100%);
+        border-radius: 15px;
+        transition: width 0.5s ease;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 10px;
+        color: white;
+        font-weight: bold;
+        font-size: 14px;
+    }
+    
+    .confidence-label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+    
+    .confidence-value {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+    }
+    
+    .po-indicator {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 500;
+        margin-left: 10px;
+    }
+    
+    .po-indicator.is-po {
+        background: #e8f5e9;
+        color: #2e7d32;
+    }
+    
+    .po-indicator.not-po {
+        background: #ffebee;
+        color: #c62828;
+    }
+    
+    .po-indicator.uncertain {
+        background: #fff3e0;
+        color: #f57c00;
+    }
+    
+    .confidence-reasons {
+        margin-top: 10px;
+        padding: 10px;
+        background: white;
+        border-radius: 6px;
+        font-size: 13px;
+    }
+    
+    .confidence-reasons h4 {
+        margin: 0 0 8px 0;
+        font-size: 14px;
+        color: #555;
+    }
+    
+    .reason-item {
+        padding: 3px 0;
+        color: #666;
+        display: flex;
+        align-items: center;
+    }
+    
+    .reason-item::before {
+        content: '✓';
+        margin-right: 8px;
+        color: #4caf50;
+    }
+    
+    .po-classification-toggle {
+        margin: 15px 0;
+        padding: 15px;
+        background: #f0f4f8;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 30px;
+    }
+    
+    .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    
+    .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+    }
+    
+    .toggle-slider:before {
+        position: absolute;
+        content: "";
+        height: 22px;
+        width: 22px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+    
+    input:checked + .toggle-slider {
+        background-color: #2196F3;
+    }
+    
+    input:checked + .toggle-slider:before {
+        transform: translateX(30px);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="upload-section">
+    <h2>파일 업로드</h2>
+    <p>PDF 파일을 드래그 앤 드롭하거나 클릭하여 업로드하세요.</p>
+    
+    <!-- 업로드 통계 -->
+    <div class="upload-stats">
+        <div class="stat-card">
+            <div class="stat-value" id="totalUploads">0</div>
+            <div class="stat-label">전체 업로드</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="successUploads">0</div>
+            <div class="stat-label">성공</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="failedUploads">0</div>
+            <div class="stat-label">실패</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="processingUploads">0</div>
+            <div class="stat-label">처리 중</div>
+        </div>
+    </div>
+    
+    <!-- 드래그 앤 드롭 영역 -->
+    <div class="upload-area" 
+         onclick="document.getElementById('fileInput').click()" 
+         ondrop="handleDrop(event)" 
+         ondragover="handleDragOver(event)" 
+         ondragleave="handleDragLeave(event)">
+        <div class="upload-icon">📁</div>
+        <h3>파일을 여기에 드롭하세요</h3>
+        <p>또는 클릭하여 파일 선택</p>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">
+            지원 형식: PDF, PNG, JPG, JPEG
+        </p>
+    </div>
+    
+    <input type="file" 
+           id="fileInput" 
+           name="fileInput" 
+           multiple 
+           accept=".pdf,.png,.jpg,.jpeg" 
+           onchange="handleFileSelect(event)">
+    
+    <!-- 업로드된 파일 목록 -->
+    <div id="uploadedFiles"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// 업로드 통계
+let uploadStats = {
+    total: 0,
+    success: 0,
+    failed: 0,
+    processing: 0
+};
+
+// 업로드 큐
+let uploadQueue = [];
+let isUploading = false;
+
+// 드래그 앤 드롭 이벤트 처리
+function handleDragOver(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.currentTarget.classList.add('drag-over');
+}
+
+function handleDragLeave(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.currentTarget.classList.remove('drag-over');
+}
+
+function handleDrop(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    e.currentTarget.classList.remove('drag-over');
+    
+    const files = Array.from(e.dataTransfer.files);
+    processFiles(files);
+}
+
+// 파일 선택 처리
+function handleFileSelect(e) {
+    const files = Array.from(e.target.files);
+    processFiles(files);
+}
+
+// 파일 처리
+function processFiles(files) {
+    const validFiles = files.filter(file => {
+        const validTypes = ['application/pdf', 'image/png', 'image/jpeg', 'image/jpg'];
+        return validTypes.includes(file.type);
+    });
+    
+    if (validFiles.length !== files.length) {
+        showAlert('일부 파일이 지원하지 않는 형식입니다.', 'error');
+    }
+    
+    validFiles.forEach(file => {
+        uploadQueue.push(file);
+        addFileToList(file);
+    });
+    
+    updateStats();
+    processUploadQueue();
+}
+
+// 업로드 큐 처리
+async function processUploadQueue() {
+    if (isUploading || uploadQueue.length === 0) return;
+    
+    isUploading = true;
+    const file = uploadQueue.shift();
+    
+    await uploadFile(file);
+    
+    isUploading = false;
+    processUploadQueue();
+}
+
+// 파일 업로드
+async function uploadFile(file) {
+    const fileId = Date.now() + '_' + file.name;
+    updateFileStatus(fileId, 'uploading');
+    updateStats();
+    
+    const formData = new FormData();
+    formData.append('file', file);
+    
+    try {
+        const response = await fetch('/api/upload', {
+            method: 'POST',
+            body: formData
+        });
+        
+        if (response.ok) {
+            const result = await response.json();
+            updateFileStatus(fileId, 'success');
+            uploadStats.success++;
+            showAlert(`${file.name} 업로드 완료`, 'success');
+            
+            // PO 분류 분석 시작
+            analyzePOConfidence(fileId, result.file_path || file.name);
+            
+            // 처리된 파일로 이동 옵션 제공
+            if (result.processed) {
+                addProcessOption(fileId, file.name);
+            }
+        } else {
+            throw new Error('Upload failed');
+        }
+    } catch (error) {
+        updateFileStatus(fileId, 'error');
+        uploadStats.failed++;
+        showAlert(`${file.name} 업로드 실패`, 'error');
+    } finally {
+        uploadStats.processing--;
+        updateStats();
+    }
+}
+
+// 파일 목록에 추가
+function addFileToList(file) {
+    const fileId = Date.now() + '_' + file.name;
+    const container = document.getElementById('uploadedFiles');
+    
+    if (!container.querySelector('.uploaded-files-container')) {
+        container.innerHTML = `
+            <div class="uploaded-files-container">
+                <div class="uploaded-files-header">
+                    <h3>업로드된 파일</h3>
+                    <button class="btn btn-secondary" onclick="clearUploadedFiles()">
+                        전체 삭제
+                    </button>
+                </div>
+                <div id="fileListContainer"></div>
+            </div>
+        `;
+    }
+    
+    const fileListContainer = document.getElementById('fileListContainer');
+    const fileSize = (file.size / 1024 / 1024).toFixed(2) + ' MB';
+    const fileType = file.type.includes('pdf') ? '📄' : '🖼️';
+    
+    const fileItem = document.createElement('div');
+    fileItem.className = 'uploaded-file-item';
+    fileItem.id = fileId;
+    fileItem.innerHTML = `
+        <div class="file-icon">${fileType}</div>
+        <div class="file-info">
+            <div class="file-name">${file.name}</div>
+            <div class="file-details">
+                크기: ${fileSize}
+                <span class="upload-status status-uploading">업로드 중...</span>
+            </div>
+            <div class="upload-progress">
+                <div class="upload-progress-bar" style="width: 0%"></div>
+            </div>
+            <!-- PO 확신도 게이지 -->
+            <div class="po-confidence-gauge" id="gauge-${fileId}" style="display: none;">
+                <div class="confidence-label">
+                    <span>PO 문서 확신도</span>
+                    <span class="confidence-value" id="confidence-${fileId}">분석 중...</span>
+                    <span class="po-indicator uncertain" id="indicator-${fileId}">확인 중</span>
+                </div>
+                <div class="confidence-meter">
+                    <div class="confidence-fill" id="meter-${fileId}" style="width: 0%">0%</div>
+                </div>
+                <div class="confidence-reasons" id="reasons-${fileId}" style="display: none;">
+                    <h4>분석 결과:</h4>
+                    <div id="reason-list-${fileId}"></div>
+                </div>
+                <!-- PO 분류 수동 설정 -->
+                <div class="po-classification-toggle">
+                    <label for="po-toggle-${fileId}" style="font-weight: 500;">이 문서는 PO입니다:</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="po-toggle-${fileId}" 
+                               onchange="updatePOClassification('${fileId}', this.checked)">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="file-actions" style="display: none;">
+            <button class="btn btn-primary" onclick="editFile('${file.name}')">
+                편집
+            </button>
+            <button class="btn btn-secondary" onclick="removeFile('${fileId}')">
+                삭제
+            </button>
+        </div>
+    `;
+    
+    fileListContainer.appendChild(fileItem);
+    uploadStats.total++;
+    uploadStats.processing++;
+}
+
+// 파일 상태 업데이트
+function updateFileStatus(fileId, status) {
+    const fileItem = document.getElementById(fileId);
+    if (!fileItem) return;
+    
+    const statusElement = fileItem.querySelector('.upload-status');
+    const progressBar = fileItem.querySelector('.upload-progress');
+    const actions = fileItem.querySelector('.file-actions');
+    
+    switch(status) {
+        case 'uploading':
+            statusElement.className = 'upload-status status-uploading';
+            statusElement.textContent = '업로드 중...';
+            break;
+        case 'success':
+            statusElement.className = 'upload-status status-success';
+            statusElement.textContent = '완료';
+            progressBar.style.display = 'none';
+            actions.style.display = 'flex';
+            break;
+        case 'error':
+            statusElement.className = 'upload-status status-error';
+            statusElement.textContent = '실패';
+            progressBar.style.display = 'none';
+            break;
+    }
+}
+
+// 처리 옵션 추가
+function addProcessOption(fileId, filename) {
+    const fileItem = document.getElementById(fileId);
+    if (!fileItem) return;
+    
+    const actions = fileItem.querySelector('.file-actions');
+    const processBtn = document.createElement('button');
+    processBtn.className = 'btn btn-success';
+    processBtn.textContent = '처리하기';
+    processBtn.onclick = () => processFile(filename);
+    
+    actions.insertBefore(processBtn, actions.firstChild);
+}
+
+// 파일 편집
+function editFile(filename) {
+    window.location.href = `/labeling?file=${encodeURIComponent(filename)}`;
+}
+
+// 파일 처리
+async function processFile(filename) {
+    try {
+        await apiRequest('/api/run_pipeline', {
+            method: 'POST',
+            body: JSON.stringify({ 
+                type: 'single',
+                filename: filename 
+            })
+        });
+        showAlert('파일 처리가 시작되었습니다.', 'success');
+    } catch (error) {
+        showAlert('파일 처리 실패', 'error');
+    }
+}
+
+// 파일 제거
+function removeFile(fileId) {
+    const fileItem = document.getElementById(fileId);
+    if (fileItem) {
+        fileItem.remove();
+        updateStats();
+    }
+}
+
+// 전체 파일 삭제
+function clearUploadedFiles() {
+    if (confirm('모든 업로드된 파일을 목록에서 제거하시겠습니까?')) {
+        document.getElementById('uploadedFiles').innerHTML = '';
+        uploadStats = { total: 0, success: 0, failed: 0, processing: 0 };
+        updateStats();
+    }
+}
+
+// 통계 업데이트
+function updateStats() {
+    document.getElementById('totalUploads').textContent = uploadStats.total;
+    document.getElementById('successUploads').textContent = uploadStats.success;
+    document.getElementById('failedUploads').textContent = uploadStats.failed;
+    document.getElementById('processingUploads').textContent = uploadStats.processing;
+}
+
+// PO 확신도 분석
+async function analyzePOConfidence(fileId, filePath) {
+    const gaugeElement = document.getElementById(`gauge-${fileId}`);
+    const confidenceElement = document.getElementById(`confidence-${fileId}`);
+    const meterElement = document.getElementById(`meter-${fileId}`);
+    const indicatorElement = document.getElementById(`indicator-${fileId}`);
+    const reasonsElement = document.getElementById(`reasons-${fileId}`);
+    const reasonListElement = document.getElementById(`reason-list-${fileId}`);
+    const toggleElement = document.getElementById(`po-toggle-${fileId}`);
+    
+    // 게이지 표시
+    gaugeElement.style.display = 'block';
+    
+    try {
+        // PO 분류 API 호출
+        const response = await fetch('/api/classify_po', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ file_path: filePath })
+        });
+        
+        if (response.ok) {
+            const result = await response.json();
+            
+            // 확신도 표시
+            const confidence = Math.round(result.confidence * 100);
+            confidenceElement.textContent = `${confidence}%`;
+            
+            // 게이지 미터 업데이트
+            meterElement.style.width = `${confidence}%`;
+            meterElement.textContent = `${confidence}%`;
+            
+            // 색상 설정 (확신도에 따라)
+            if (confidence >= 70) {
+                meterElement.style.background = 'linear-gradient(90deg, #4caf50, #8bc34a)';
+            } else if (confidence >= 40) {
+                meterElement.style.background = 'linear-gradient(90deg, #ff9800, #ffc107)';
+            } else {
+                meterElement.style.background = 'linear-gradient(90deg, #f44336, #ff5722)';
+            }
+            
+            // PO 여부 표시
+            if (result.is_po) {
+                indicatorElement.textContent = 'PO 문서';
+                indicatorElement.className = 'po-indicator is-po';
+                toggleElement.checked = true;
+            } else if (confidence < 40) {
+                indicatorElement.textContent = 'PO 아님';
+                indicatorElement.className = 'po-indicator not-po';
+                toggleElement.checked = false;
+            } else {
+                indicatorElement.textContent = '불확실';
+                indicatorElement.className = 'po-indicator uncertain';
+                toggleElement.checked = false;
+            }
+            
+            // 분석 이유 표시
+            if (result.reasons && result.reasons.length > 0) {
+                reasonsElement.style.display = 'block';
+                reasonListElement.innerHTML = result.reasons
+                    .map(reason => `<div class="reason-item">${reason}</div>`)
+                    .join('');
+            }
+            
+        } else {
+            throw new Error('Classification failed');
+        }
+    } catch (error) {
+        console.error('PO 분류 실패:', error);
+        confidenceElement.textContent = '분석 실패';
+        indicatorElement.textContent = '수동 설정';
+        indicatorElement.className = 'po-indicator uncertain';
+    }
+}
+
+// PO 분류 수동 업데이트
+async function updatePOClassification(fileId, isPO) {
+    const fileItem = document.getElementById(fileId);
+    const fileName = fileItem.querySelector('.file-name').textContent;
+    
+    try {
+        // 서버에 분류 정보 전송
+        const response = await fetch('/api/update_po_classification', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                file_name: fileName,
+                is_po: isPO,
+                user_feedback: {
+                    manual_override: true,
+                    timestamp: new Date().toISOString()
+                }
+            })
+        });
+        
+        if (response.ok) {
+            showAlert(`${fileName}을(를) ${isPO ? 'PO 문서' : 'Non-PO 문서'}로 분류했습니다.`, 'success');
+            
+            // UI 업데이트
+            const indicatorElement = document.getElementById(`indicator-${fileId}`);
+            if (isPO) {
+                indicatorElement.textContent = 'PO 문서 (수동)';
+                indicatorElement.className = 'po-indicator is-po';
+            } else {
+                indicatorElement.textContent = 'PO 아님 (수동)';
+                indicatorElement.className = 'po-indicator not-po';
+            }
+        } else {
+            throw new Error('Update failed');
+        }
+    } catch (error) {
+        console.error('PO 분류 업데이트 실패:', error);
+        showAlert('분류 정보 업데이트 실패', 'error');
+        // 체크박스 원상복구
+        document.getElementById(`po-toggle-${fileId}`).checked = !isPO;
+    }
+}
+
+// 페이지 로드 시 초기화
+document.addEventListener('DOMContentLoaded', () => {
+    updateStats();
+});
+</script>
+{% endblock %}

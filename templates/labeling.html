@@ -1,0 +1,1389 @@
+{% extends "base.html" %}
+
+{% block title %}라벨링 편집 - YOKOGAWA OCR System{% endblock %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="/static/css/label-suggestions.css">
+<link rel="stylesheet" href="/static/css/training-progress.css">
+<style>
+    /* 라벨링 편집 전용 스타일 */
+    .labeling-editor {
+        background: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .labeling-main-layout {
+        display: grid;
+        grid-template-columns: var(--left-panel-width, 250px) 1fr var(--right-panel-width, 350px);
+        gap: 20px;
+        margin-top: 20px;
+        height: calc(100vh - 280px);
+    }
+    
+    /* 반응형 레이아웃 */
+    @media (max-width: 1400px) {
+        .labeling-main-layout {
+            grid-template-columns: var(--left-panel-width, 200px) 1fr var(--right-panel-width, 300px);
+        }
+    }
+    
+    @media (max-width: 1200px) {
+        .labeling-main-layout {
+            grid-template-columns: 1fr;
+            height: auto;
+        }
+        
+        .labeling-controls-section,
+        .labeling-form-section {
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+
+    /* 왼쪽 컨트롤 섹션 */
+    .labeling-controls-section {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        overflow-y: auto;
+        max-height: calc(100vh - 300px);
+    }
+
+    .labeling-controls-section h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: var(--text-color);
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+    }
+
+    .labeling-controls-section button {
+        width: 100%;
+        margin-bottom: 8px;
+        justify-content: flex-start;
+    }
+
+    /* 중앙 이미지 섹션 */
+    .labeling-image-section {
+        background: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pdf-navigation {
+        margin-bottom: 15px;
+        padding: 10px;
+        background: #f8f9fa;
+        border-radius: 6px;
+    }
+
+    .page-controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .page-info {
+        font-weight: 500;
+        min-width: 80px;
+        text-align: center;
+    }
+
+    .image-preview {
+        position: relative;
+        flex: 1;
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        overflow: auto;
+    }
+
+    .image-container {
+        position: relative;
+        display: inline-block;
+        min-width: 100%;
+    }
+    
+    #bboxOverlays {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+    
+    #bboxOverlays .bbox-overlay {
+        pointer-events: all;
+    }
+
+    #labelingImage {
+        width: auto;
+        height: auto;
+        max-width: none;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        display: block;
+    }
+
+    /* Bounding box 오버레이 */
+    .bbox-overlay {
+        position: absolute;
+        border: 2px solid #ff0000;
+        background-color: rgba(255, 0, 0, 0.1);
+        cursor: move;
+        z-index: 100;
+    }
+
+    .bbox-overlay.selected {
+        border-color: #0066ff;
+        background-color: rgba(0, 102, 255, 0.2);
+        z-index: 101;
+    }
+
+    .bbox-overlay .resize-handle {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: #fff;
+        border: 2px solid #ff0000;
+        border-radius: 50%;
+    }
+
+    .bbox-overlay.selected .resize-handle {
+        border-color: #0066ff;
+    }
+
+    .bbox-overlay .resize-handle.nw { top: -4px; left: -4px; cursor: nw-resize; }
+    .bbox-overlay .resize-handle.ne { top: -4px; right: -4px; cursor: ne-resize; }
+    .bbox-overlay .resize-handle.sw { bottom: -4px; left: -4px; cursor: sw-resize; }
+    .bbox-overlay .resize-handle.se { bottom: -4px; right: -4px; cursor: se-resize; }
+
+    .bbox-label {
+        position: absolute;
+        top: -20px;
+        left: 0;
+        background: #ff0000;
+        color: white;
+        padding: 2px 6px;
+        font-size: 11px;
+        border-radius: 3px;
+        white-space: nowrap;
+    }
+
+    .bbox-overlay.selected .bbox-label {
+        background: #0066ff;
+    }
+
+    /* 그룹별 색상 */
+    .bbox-overlay.group-1 { border-color: #4CAF50; background-color: rgba(76, 175, 80, 0.1); }
+    .bbox-overlay.group-2 { border-color: #2196F3; background-color: rgba(33, 150, 243, 0.1); }
+    .bbox-overlay.group-3 { border-color: #FF9800; background-color: rgba(255, 152, 0, 0.1); }
+    .bbox-overlay.group-4 { border-color: #9C27B0; background-color: rgba(156, 39, 176, 0.1); }
+    .bbox-overlay.group-5 { border-color: #795548; background-color: rgba(121, 85, 72, 0.1); }
+
+    /* 오른쪽 라벨 정보 섹션 */
+    .labeling-form-section {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        overflow-y: auto;
+        max-height: calc(100vh - 300px);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+        color: var(--text-color);
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    /* 빠른 라벨 버튼 */
+    .label-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 10px;
+    }
+
+    .btn-label {
+        background: #e9ecef;
+        border: 1px solid #ddd;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+        transition: all 0.2s;
+        text-align: left;
+    }
+
+    .btn-label:hover {
+        background: #dee2e6;
+        transform: translateY(-1px);
+    }
+
+    /* Bounding Box 목록 */
+    #bboxList {
+        margin-top: 10px;
+        max-height: 600px;
+        min-height: 400px;
+        overflow-y: auto;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        padding: 10px;
+        background: #fafafa;
+    }
+
+    .bbox-item {
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 10px;
+        margin-bottom: 8px;
+        cursor: pointer;
+        transition: all 0.2s;
+        position: relative;
+    }
+
+    .bbox-item:hover {
+        background: #f8f9fa;
+        border-color: var(--primary-color);
+    }
+
+    .bbox-item.selected {
+        background: #e3f2fd;
+        border-color: #0066ff;
+    }
+
+    .bbox-item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    .bbox-item-title {
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    .bbox-item-actions {
+        display: flex;
+        gap: 5px;
+    }
+    
+    .bbox-item-actions button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+        border-radius: 3px;
+        transition: background 0.2s;
+    }
+    
+    .bbox-item-actions button:hover {
+        background: rgba(0,0,0,0.1);
+    }
+    
+    .bbox-item-actions .delete-btn {
+        color: #dc3545;
+    }
+    
+    .bbox-item-actions .group-btn {
+        color: #007bff;
+    }
+
+    .bbox-item-content {
+        font-size: 14px;
+        color: #666;
+    }
+    
+    /* Bounding box 목록의 input 필드 폰트 크기 */
+    .bbox-item input[type="text"],
+    .bbox-item textarea,
+    .bbox-item select {
+        font-size: 14px;
+        min-height: 28px;
+    }
+    
+    /* 라벨 정보란의 모든 텍스트 크기 증가 */
+    .labeling-form-section input,
+    .labeling-form-section select,
+    .labeling-form-section textarea {
+        font-size: 16px;
+    }
+    
+    .labeling-form-section label {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .bbox-item-row {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2px;
+    }
+
+    /* 그룹 관리 패널 */
+    #groupManagementPanel {
+        background: white;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-top: 15px;
+    }
+
+    #groupManagementPanel h4 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 6px 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 13px;
+    }
+
+    /* 툴바 스타일 */
+    .bbox-list-toolbar {
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+    
+    .bbox-list-toolbar .btn {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+    
+    /* 버튼 상태 */
+    .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    .btn-info {
+        background: #17a2b8;
+        color: white;
+    }
+
+    .btn-info:hover {
+        background: #138496;
+    }
+
+    .btn-warning {
+        background: #ffc107;
+        color: #212529;
+    }
+
+    .btn-warning:hover {
+        background: #e0a800;
+    }
+
+    /* 드로잉 모드 */
+    .drawing-mode .image-container {
+        cursor: crosshair;
+    }
+
+    .drawing-box {
+        position: absolute;
+        border: 2px dashed #ff0000;
+        background-color: rgba(255, 0, 0, 0.1);
+        pointer-events: none;
+    }
+
+    /* 반응형 디자인 */
+    @media (max-width: 1400px) {
+        .labeling-main-layout {
+            grid-template-columns: 200px 1fr 300px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .labeling-main-layout {
+            grid-template-columns: 1fr;
+            height: auto;
+        }
+
+        .labeling-controls-section,
+        .labeling-form-section {
+            max-height: 400px;
+        }
+    }
+    
+    /* 스피너 애니메이션 */
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    .spinner-border {
+        display: inline-block;
+        width: 3rem;
+        height: 3rem;
+        border: 0.25em solid #007bff;
+        border-right-color: transparent;
+        border-radius: 50%;
+        animation: spin 0.75s linear infinite;
+    }
+    
+    /* 스마트 라벨 추천 오버레이 스타일 */
+    .smart-label-overlay {
+        position: absolute;
+        background: rgba(33, 150, 243, 0.2);
+        border: 2px dashed #2196F3;
+        pointer-events: none;
+        z-index: 100;
+        transition: opacity 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .smart-label-suggestion {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #1976D2;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .smart-label-confidence {
+        display: inline-block;
+        margin-left: 5px;
+        padding: 2px 6px;
+        background: #E3F2FD;
+        border-radius: 10px;
+        font-size: 11px;
+        color: #0D47A1;
+    }
+    
+    .smart-label-accept-btn {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 24px;
+        height: 24px;
+        background: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        pointer-events: auto;
+        transition: transform 0.2s;
+        z-index: 101;
+    }
+    
+    .smart-label-accept-btn:hover {
+        transform: scale(1.2);
+        background: #45a049;
+    }
+    
+    .smart-label-toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        background: #f0f4f8;
+        border-radius: 6px;
+        margin-bottom: 15px;
+    }
+    
+    .smart-label-toggle input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+    }
+    
+    .smart-label-toggle label {
+        cursor: pointer;
+        font-weight: 500;
+        color: #333;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .smart-label-status {
+        display: inline-block;
+        padding: 3px 8px;
+        background: #E8F5E9;
+        color: #2E7D32;
+        border-radius: 12px;
+        font-size: 11px;
+        margin-left: 10px;
+    }
+    
+    .smart-label-status.inactive {
+        background: #FFEBEE;
+        color: #C62828;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="labeling-editor">
+    <h2>라벨링 데이터 편집</h2>
+    
+    <div id="labelingContent" style="margin-top: 20px;">
+        <p>라벨링 데이터를 불러오려면 버튼을 클릭하세요.</p>
+        <button class="btn btn-primary" onclick="loadLabelingData()">
+            <span>📂</span> 라벨링 데이터 불러오기
+        </button>
+    </div>
+    
+    <!-- 라벨링 편집 인터페이스 -->
+    <div id="labelingInterface" style="display: none;">
+        <div class="labeling-main-layout">
+            <!-- 왼쪽: 컨트롤 버튼 섹션 -->
+            <div class="labeling-controls-section">
+                <h3>데이터 관리</h3>
+                <button class="btn btn-primary" onclick="loadLabelingData()">
+                    <span>📂</span> 라벨링 데이터 불러오기
+                </button>
+                <button class="btn btn-success" onclick="saveLabelingData()">
+                    <span>💾</span> 변경사항 저장
+                </button>
+                <button class="btn btn-success" onclick="saveCurrentLabelData()" id="saveCurrentBtn" style="display: none;">
+                    <span>💾</span> 현재 라벨 저장
+                </button>
+                
+                <h3 style="margin-top: 20px;">모델 관리</h3>
+                <button class="btn btn-primary" onclick="trainModel()">
+                    <span>🎯</span> 모델 학습
+                </button>
+                <button class="btn btn-info" onclick="showModelStats()">
+                    <span>📊</span> 모델 통계
+                </button>
+                <button class="btn btn-warning" onclick="labelingSystem.showOCRLearningStatus()">
+                    <span>📈</span> OCR 학습 상태
+                </button>
+                <button class="btn btn-danger" onclick="resetModel()">
+                    <span>🔄</span> 모델 초기화
+                </button>
+                <button class="btn btn-success" onclick="labelingSystem.getAutoLabels()" id="autoLabelBtn">
+                    <span>🤖</span> 자동 라벨 제안
+                </button>
+                
+                <!-- 스마트 라벨 토글 -->
+                <h3 style="margin-top: 20px;">스마트 라벨</h3>
+                <div class="smart-label-toggle">
+                    <input type="checkbox" id="smartLabelToggle" checked onchange="toggleSmartLabels()">
+                    <label for="smartLabelToggle">
+                        <span>💡</span> AI 라벨 추천 활성화
+                    </label>
+                    <span class="smart-label-status" id="smartLabelStatus">활성</span>
+                </div>
+                <button class="btn btn-info" onclick="refreshSmartLabels()">
+                    <span>🔄</span> 추천 새로고침
+                </button>
+                
+                <h3 style="margin-top: 20px;">편집 도구</h3>
+                <button class="btn btn-primary" onclick="startDrawing()" id="drawBtn">
+                    <span>✏️</span> Bounding Box 그리기
+                </button>
+                <button class="btn btn-warning" onclick="clearSelection()">
+                    <span>🗞️</span> 선택 해제
+                </button>
+                <button class="btn btn-warning" onclick="deleteSelectedBox()">
+                    <span>🗑️</span> 선택한 Box 삭제
+                </button>
+                <button class="btn btn-primary" onclick="addBoundingBox()">
+                    <span>➕</span> 새 Bounding Box 추가
+                </button>
+                <button class="btn btn-danger" onclick="clearAllLabels()">
+                    <span>🗑️</span> 모든 라벨 초기화
+                </button>
+                
+                <h3 style="margin-top: 20px;">그룹 관리</h3>
+                <button class="btn btn-info" onclick="toggleGroupMode()" id="groupModeBtn">
+                    <span>🔗</span> 그룹 모드 OFF
+                </button>
+                <button class="btn btn-success" onclick="autoGroupByRows()">
+                    <span>🎯</span> 자동 행 그룹핑
+                </button>
+                <button class="btn btn-primary" onclick="highlightGroups()">
+                    <span>🎨</span> 그룹 하이라이트
+                </button>
+                
+                <!-- 그룹 선택 및 관리 UI -->
+                <div id="groupManagementPanel" style="display: none;">
+                    <h4>그룹 관리 패널</h4>
+                    <div style="margin-bottom: 10px;">
+                        <label>현재 그룹:</label>
+                        <select id="currentGroupSelect" class="form-control" onchange="selectGroup(this.value)">
+                            <option value="">그룹 선택...</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-sm btn-primary" onclick="createNewGroup()">
+                        <span>➕</span> 새 그룹 생성
+                    </button>
+                    <button class="btn btn-sm btn-success" onclick="addToCurrentGroup()" id="addToGroupBtn" disabled>
+                        <span>📎</span> 선택된 항목을 그룹에 추가
+                    </button>
+                    <button class="btn btn-sm btn-warning" onclick="removeFromGroup()">
+                        <span>➖</span> 그룹에서 제거
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 중앙: 이미지 섹션 -->
+            <div class="labeling-image-section">
+                <h3>문서 이미지</h3>
+                
+                <!-- PDF 페이지 네비게이션 -->
+                <div class="pdf-navigation" id="pdfNavigation" style="display: none;">
+                    <div class="page-controls">
+                        <button class="btn btn-primary" onclick="previousPage()" id="prevPageBtn">
+                            <span>◀</span> 이전 페이지
+                        </button>
+                        <span class="page-info" id="pageInfo">1 / 1</span>
+                        <button class="btn btn-primary" onclick="nextPage()" id="nextPageBtn">
+                            다음 페이지 <span>▶</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="image-preview">
+                    <div class="image-container" id="imageContainer">
+                        <img id="labelingImage" src="" alt="문서 이미지" style="display: none;">
+                        <div id="bboxOverlays"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 오른쪽: 라벨 정보 섹션 -->
+            <div class="labeling-form-section">
+                <h3>라벨 정보</h3>
+                <div class="form-group">
+                    <label for="labelingFilename">파일명</label>
+                    <input type="text" id="labelingFilename" name="labelingFilename" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="documentClass">문서 클래스</label>
+                    <select id="documentClass" name="documentClass">
+                        <option value="purchase_order">Purchase Order</option>
+                        <option value="invoice">Invoice</option>
+                        <option value="receipt">Receipt</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <h4 style="margin-top: 20px;">빠른 라벨 선택</h4>
+                <div class="label-buttons">
+                    <button class="btn-label" onclick="setQuickLabel('Order number')">
+                        📋 Order number
+                    </button>
+                    <button class="btn-label" onclick="setQuickLabel('Shipping line')">
+                        🚢 Shipping line
+                    </button>
+                    <button class="btn-label" onclick="setQuickLabel('Case mark')">
+                        📦 Case mark
+                    </button>
+                    <button class="btn-label" onclick="setQuickLabel('Item number')">
+                        🔢 Item number
+                    </button>
+                    <button class="btn-label" onclick="setQuickLabel('Part number')">
+                        🔧 Part number
+                    </button>
+                    <button class="btn-label" onclick="setQuickLabel('Delivery date')">
+                        📅 Delivery date
+                    </button>
+                    <button class="btn-label" onclick="setQuickLabel('Quantity')">
+                        📊 Quantity
+                    </button>
+                    <button class="btn-label" onclick="setQuickLabel('Unit price')">
+                        💲 Unit price
+                    </button>
+                    <button class="btn-label" onclick="setQuickLabel('Net amount (total)')">
+                        💰 Net amount (total)
+                    </button>
+                    <button class="btn-label" onclick="setQuickLabel('WUKERAN')">
+                        🏷️ WUKERAN
+                    </button>
+                </div>
+                
+                <h4 style="margin-top: 20px;">Bounding Box 목록</h4>
+                <div class="bbox-list-toolbar" style="margin-bottom: 10px;">
+                    <button class="btn btn-sm btn-primary" onclick="addNewGroup()">
+                        <i class="fas fa-plus"></i> 새 그룹 추가
+                    </button>
+                    <button class="btn btn-sm btn-secondary" onclick="autoGroupByRow()">
+                        <i class="fas fa-magic"></i> 자동 그룹화
+                    </button>
+                    <button class="btn btn-sm btn-danger" onclick="clearAllGroups()">
+                        <i class="fas fa-unlink"></i> 그룹 초기화
+                    </button>
+                    <button class="btn btn-sm btn-success" onclick="saveAndRefreshBboxList()">
+                        <i class="fas fa-save"></i> 저장
+                    </button>
+                </div>
+                <div id="bboxList">
+                    <p>그려진 Bounding Box가 여기에 표시됩니다.</p>
+                </div>
+                
+                <h4 style="margin-top: 20px;">OCR 데이터 결과 목록</h4>
+                <div class="ocr-list-toolbar" style="margin-bottom: 10px;">
+                    <button class="btn btn-sm btn-primary" onclick="labelingSystem.executeOCROnAll()">
+                        <i class="fas fa-sync"></i> 전체 OCR 실행
+                    </button>
+                    <button class="btn btn-sm btn-info" onclick="labelingSystem.applyOCRToBbox()">
+                        <i class="fas fa-copy"></i> OCR 결과 적용
+                    </button>
+                </div>
+                <div id="ocrResultList" style="margin-top: 10px; max-height: 400px; min-height: 200px; overflow-y: auto; border: 1px solid #e0e0e0; border-radius: 4px; padding: 10px; background: #f0f8ff; position: relative;">
+                    <div id="ocrProcessingSpinner" style="display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(240, 248, 255, 0.9); z-index: 1000; justify-content: center; align-items: center;">
+                        <div style="text-align: center;">
+                            <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+                                <span class="sr-only">처리 중...</span>
+                            </div>
+                            <div style="margin-top: 10px; font-weight: bold; color: #007bff;">OCR 처리 중...</div>
+                        </div>
+                    </div>
+                    <div id="ocrResultContent">
+                        <p>OCR 결과가 여기에 표시됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 모델 학습 진행률 모달 -->
+<div id="trainingProgressModal" class="training-progress-modal" style="display: none;">
+    <div class="modal-backdrop" onclick="closeTrainingProgress()"></div>
+    <div class="modal-content">
+        <h3>🎯 모델 학습 진행 중...</h3>
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="trainingProgressBar" style="width: 0%"></div>
+            </div>
+            <div class="progress-text" id="trainingProgressText">0%</div>
+        </div>
+        <div class="progress-message" id="trainingProgressMessage">학습 데이터 준비 중...</div>
+        <div class="progress-details" id="trainingProgressDetails"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/labeling.js"></script>
+<script>
+// 화면 배율에 따른 패널 크기 및 글씨 크기 조정
+function adjustPanelSizeByZoom() {
+    // 브라우저 배율 감지 (더 정확한 방법)
+    const zoomLevel = Math.round(window.devicePixelRatio * 100) / 100;
+    
+    // 기본 크기
+    const baseLeftWidth = 250;
+    const baseRightWidth = 350;
+    
+    // 배율에 반비례하는 크기 계산
+    // 25% 배율 (0.25) -> 크기 증가
+    // 100% 배율 (1.0) -> 기본 크기
+    const scaleFactor = 1 / zoomLevel;
+    const leftWidth = Math.round(baseLeftWidth * scaleFactor);
+    const rightWidth = Math.round(baseRightWidth * scaleFactor);
+    
+    // 최소/최대 크기 제한
+    const minWidth = 180;
+    const maxWidth = 500;
+    
+    const finalLeftWidth = Math.max(minWidth, Math.min(maxWidth, leftWidth));
+    const finalRightWidth = Math.max(minWidth + 50, Math.min(maxWidth + 100, rightWidth));
+    
+    // CSS 변수 설정
+    document.documentElement.style.setProperty('--left-panel-width', `${finalLeftWidth}px`);
+    document.documentElement.style.setProperty('--right-panel-width', `${finalRightWidth}px`);
+    
+    // 글씨 크기 조정
+    // 25% 배율에서도 읽기 쉽도록 글씨 크기를 배율에 반비례하여 조정
+    // 기본 폰트 크기
+    const baseFontSize = 14;
+    const baseSmallFontSize = 12;
+    const baseLabelFontSize = 16;
+    
+    // 배율이 낮을수록 글씨를 크게 (최대 2배까지)
+    const fontScaleFactor = Math.min(2, Math.max(1, 1 / zoomLevel));
+    
+    // 좌측 패널 글씨 크기
+    const leftPanelFontSize = Math.round(baseFontSize * fontScaleFactor);
+    const leftPanelButtonFontSize = Math.round(baseSmallFontSize * fontScaleFactor);
+    
+    // 우측 패널 글씨 크기
+    const rightPanelFontSize = Math.round(baseLabelFontSize * fontScaleFactor);
+    const rightPanelInputFontSize = Math.round(baseFontSize * fontScaleFactor);
+    
+    // 스타일 적용
+    const style = document.createElement('style');
+    style.id = 'zoom-adjusted-styles';
+    style.innerHTML = `
+        /* 좌측 패널 글씨 크기 */
+        .labeling-controls-section {
+            font-size: ${leftPanelFontSize}px !important;
+        }
+        .labeling-controls-section h3 {
+            font-size: ${leftPanelFontSize + 2}px !important;
+        }
+        .labeling-controls-section button {
+            font-size: ${leftPanelButtonFontSize}px !important;
+        }
+        
+        /* 우측 패널 글씨 크기 */
+        .labeling-form-section {
+            font-size: ${rightPanelFontSize}px !important;
+        }
+        .labeling-form-section h3,
+        .labeling-form-section h4 {
+            font-size: ${rightPanelFontSize + 2}px !important;
+        }
+        .labeling-form-section label {
+            font-size: ${rightPanelFontSize}px !important;
+        }
+        .labeling-form-section input,
+        .labeling-form-section select,
+        .labeling-form-section textarea {
+            font-size: ${rightPanelInputFontSize}px !important;
+        }
+        
+        /* Bounding Box 목록 글씨 크기 */
+        .bbox-item {
+            font-size: ${rightPanelFontSize}px !important;
+        }
+        .bbox-item input,
+        .bbox-item textarea,
+        .bbox-item select {
+            font-size: ${rightPanelInputFontSize}px !important;
+        }
+        .bbox-item-title {
+            font-size: ${rightPanelFontSize}px !important;
+        }
+        
+        /* 빠른 라벨 버튼 */
+        .btn-label {
+            font-size: ${leftPanelButtonFontSize}px !important;
+        }
+        
+        /* 툴바 버튼 */
+        .bbox-list-toolbar .btn,
+        .ocr-list-toolbar .btn {
+            font-size: ${leftPanelButtonFontSize}px !important;
+        }
+    `;
+    
+    // 기존 스타일 제거 후 새로 추가
+    const existingStyle = document.getElementById('zoom-adjusted-styles');
+    if (existingStyle) {
+        existingStyle.remove();
+    }
+    document.head.appendChild(style);
+    
+    console.log(`Zoom: ${zoomLevel * 100}%, Font Scale: ${fontScaleFactor}x`);
+    console.log(`Left Panel: ${finalLeftWidth}px, Font: ${leftPanelFontSize}px`);
+    console.log(`Right Panel: ${finalRightWidth}px, Font: ${rightPanelFontSize}px`);
+}
+
+// 페이지 로드 시 초기화
+document.addEventListener('DOMContentLoaded', () => {
+    // 화면 배율 조정
+    adjustPanelSizeByZoom();
+    
+    // 화면 크기 변경 감지
+    window.addEventListener('resize', adjustPanelSizeByZoom);
+    
+    // 배율 변경 감지를 위한 추가 모니터링
+    let lastDevicePixelRatio = window.devicePixelRatio;
+    
+    // 100ms마다 배율 변경 체크
+    setInterval(() => {
+        if (window.devicePixelRatio !== lastDevicePixelRatio) {
+            lastDevicePixelRatio = window.devicePixelRatio;
+            adjustPanelSizeByZoom();
+        }
+    }, 100);
+    
+    // URL 파라미터에서 파일명 가져오기
+    const urlParams = new URLSearchParams(window.location.search);
+    const filename = urlParams.get('file');
+    
+    if (filename) {
+        // 파일이 지정된 경우 자동으로 로드
+        loadSpecificFile(filename);
+    }
+});
+
+// 특정 파일 로드
+async function loadSpecificFile(filename) {
+    try {
+        showLoading('labelingContent');
+        
+        // 라벨링 인터페이스 표시
+        document.getElementById('labelingContent').style.display = 'none';
+        document.getElementById('labelingInterface').style.display = 'block';
+        document.getElementById('saveCurrentBtn').style.display = 'inline-flex';
+        
+        // labeling.js의 함수 호출
+        if (window.loadLabelingDataForFile) {
+            await window.loadLabelingDataForFile(filename);
+        } else {
+            console.error('loadLabelingDataForFile function not found');
+        }
+        
+        hideLoading('labelingContent');
+        showAlert('파일을 성공적으로 불러왔습니다.', 'success');
+        
+    } catch (error) {
+        hideLoading('labelingContent');
+        console.error('Failed to load file:', error);
+        showAlert(`파일을 불러오는데 실패했습니다: ${error.message}`, 'error');
+    }
+}
+
+// 중복된 함수 제거 - labeling.js에 이미 구현되어 있음
+
+// 스마트 라벨 기능
+let smartLabelsEnabled = true;
+let smartLabelPredictions = [];
+
+// 스마트 라벨 토글
+function toggleSmartLabels() {
+    const toggle = document.getElementById('smartLabelToggle');
+    const status = document.getElementById('smartLabelStatus');
+    smartLabelsEnabled = toggle.checked;
+    
+    status.textContent = smartLabelsEnabled ? '활성' : '비활성';
+    status.className = smartLabelsEnabled ? 'smart-label-status' : 'smart-label-status inactive';
+    
+    if (smartLabelsEnabled) {
+        refreshSmartLabels();
+    } else {
+        clearSmartLabelOverlays();
+    }
+}
+
+// 스마트 라벨 새로고침
+async function refreshSmartLabels() {
+    if (!smartLabelsEnabled) return;
+    
+    const image = document.getElementById('labelingImage');
+    if (!image || !image.src) {
+        showAlert('이미지를 먼저 로드해주세요.', 'warning');
+        return;
+    }
+    
+    try {
+        showLoading('bboxOverlays');
+        
+        // 현재 파일명과 문서 타입 가져오기
+        const filename = document.getElementById('labelingFilename').value;
+        const documentType = document.getElementById('documentClass').value;
+        
+        // API 호출하여 예측 받기
+        const response = await fetch('/api/predict_smart_labels', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                filename: filename,
+                document_type: documentType
+            })
+        });
+        
+        if (!response.ok) {
+            throw new Error('Failed to get smart label predictions');
+        }
+        
+        const data = await response.json();
+        smartLabelPredictions = data.predictions || [];
+        
+        // 오버레이 표시
+        displaySmartLabelOverlays();
+        
+        hideLoading('bboxOverlays');
+        
+        if (smartLabelPredictions.length > 0) {
+            showAlert(`${smartLabelPredictions.length}개의 라벨 추천을 받았습니다.`, 'success');
+        } else {
+            showAlert('추천할 라벨이 없습니다.', 'info');
+        }
+        
+    } catch (error) {
+        hideLoading('bboxOverlays');
+        console.error('Failed to refresh smart labels:', error);
+        showAlert('스마트 라벨 추천을 가져오는데 실패했습니다.', 'error');
+    }
+}
+
+// 스마트 라벨 오버레이 표시
+function displaySmartLabelOverlays() {
+    clearSmartLabelOverlays();
+    
+    const overlaysContainer = document.getElementById('bboxOverlays');
+    const image = document.getElementById('labelingImage');
+    
+    if (!overlaysContainer || !image) return;
+    
+    const imageRect = image.getBoundingClientRect();
+    const containerRect = overlaysContainer.getBoundingClientRect();
+    
+    smartLabelPredictions.forEach((prediction, index) => {
+        // 이미지 좌표를 화면 좌표로 변환
+        const scaleX = image.naturalWidth / image.width;
+        const scaleY = image.naturalHeight / image.height;
+        
+        const x = prediction.x / scaleX;
+        const y = prediction.y / scaleY;
+        const width = prediction.width / scaleX;
+        const height = prediction.height / scaleY;
+        
+        // 오버레이 생성
+        const overlay = document.createElement('div');
+        overlay.className = 'smart-label-overlay';
+        overlay.id = `smart-label-${index}`;
+        overlay.style.left = `${x}px`;
+        overlay.style.top = `${y}px`;
+        overlay.style.width = `${width}px`;
+        overlay.style.height = `${height}px`;
+        
+        // 라벨 정보 표시
+        const suggestion = document.createElement('div');
+        suggestion.className = 'smart-label-suggestion';
+        suggestion.innerHTML = `
+            ${prediction.label_type}
+            <span class="smart-label-confidence">${Math.round(prediction.confidence * 100)}%</span>
+        `;
+        overlay.appendChild(suggestion);
+        
+        // 수락 버튼
+        const acceptBtn = document.createElement('button');
+        acceptBtn.className = 'smart-label-accept-btn';
+        acceptBtn.innerHTML = '✓';
+        acceptBtn.title = '이 라벨 추천 수락';
+        acceptBtn.onclick = () => acceptSmartLabel(prediction, index);
+        overlay.appendChild(acceptBtn);
+        
+        overlaysContainer.appendChild(overlay);
+    });
+}
+
+// 스마트 라벨 오버레이 제거
+function clearSmartLabelOverlays() {
+    const overlaysContainer = document.getElementById('bboxOverlays');
+    if (!overlaysContainer) return;
+    
+    // smart-label-overlay 클래스를 가진 요소만 제거
+    const smartOverlays = overlaysContainer.querySelectorAll('.smart-label-overlay');
+    smartOverlays.forEach(overlay => overlay.remove());
+}
+
+// 모델 학습 함수
+async function trainModel() {
+    if (!confirm('현재까지 라벨링된 모든 데이터로 모델을 학습하시겠습니까?')) {
+        return;
+    }
+    
+    // 진행률 모달 표시
+    showTrainingProgress();
+    const startTime = Date.now();  // 시작 시간 기록
+    
+    try {
+        // EventSource를 사용하여 SSE 스트림 연결
+        const eventSource = new EventSource('/api/train_model');
+        let finalResult = null;
+        let hasReceivedData = false;  // 데이터 수신 여부 추적
+        
+        eventSource.onmessage = function(event) {
+            hasReceivedData = true;  // 데이터 수신 확인
+            try {
+                const data = JSON.parse(event.data);
+                console.log('Received training data:', data);
+                
+                if (data.progress !== undefined) {
+                    // 에러 처리 (-1 진행률)
+                    if (data.progress === -1) {
+                        console.error('Training error:', data.error);
+                        eventSource.close();
+                        updateTrainingProgress(0, data.error || '학습 중 오류 발생', 'error');
+                        setTimeout(() => {
+                            closeTrainingProgress();
+                            showAlert(`모델 학습 중 오류: ${data.error || '알 수 없는 오류'}`, 'error');
+                        }, 2000);
+                        return;
+                    }
+                    
+                    // 정상 진행률 업데이트
+                    let stage = 'data';
+                    if (data.progress < 25) stage = 'data';
+                    else if (data.progress < 70) stage = 'training';
+                    else if (data.progress < 95) stage = 'validation';
+                    else stage = 'complete';
+                    
+                    updateTrainingProgress(
+                        data.progress,
+                        data.message || '학습 진행 중...',
+                        stage
+                    );
+                    
+                    // 상세 정보 업데이트
+                    if (data.message && data.message.includes('파일 처리')) {
+                        updateTrainingDetails(`진행 상황: ${data.message}`);
+                    }
+                } else if (data.status) {
+                    // 최종 결과
+                    finalResult = data;
+                }
+            } catch (e) {
+                console.error('데이터 파싱 오류:', e);
+            }
+        };
+        
+        eventSource.onerror = function(error) {
+            console.log('EventSource error, readyState:', eventSource.readyState);
+            
+            // EventSource 상태 확인
+            // 0 = CONNECTING, 1 = OPEN, 2 = CLOSED
+            if (eventSource.readyState === EventSource.CLOSED) {
+                console.log('EventSource connection closed');
+                eventSource.close();
+                
+                // 최소 실행 시간 확인 (3초)
+                const elapsedTime = Date.now() - startTime;
+                const minDuration = 3000;
+                
+                // 데이터를 받지 못하고 너무 빨리 종료된 경우
+                if (!hasReceivedData && elapsedTime < minDuration) {
+                    console.log('Connection closed too quickly without data - keeping modal open');
+                    // 모달을 유지하고 재시도 메시지 표시
+                    updateTrainingProgress(0, '서버 연결 중... 잠시 후 다시 시도해주세요.', 'error');
+                    setTimeout(() => {
+                        closeTrainingProgress();
+                        showAlert('서버 연결에 실패했습니다. 잠시 후 다시 시도해주세요.', 'warning');
+                    }, 2000);
+                    return;
+                }
+                
+                if (finalResult && finalResult.status === 'success') {
+                    updateTrainingProgress(100, '학습 완료!', 'complete');
+                    
+                    // OCR 학습 결과 표시
+                    if (finalResult.ocr_learning && finalResult.ocr_learning.summary) {
+                        const details = `
+                            총 샘플: ${finalResult.total_samples || 0}개<br>
+                            라벨 클래스: ${finalResult.unique_labels || 0}개<br>
+                            OCR 보정: ${finalResult.ocr_learning.summary.total_corrections || 0}개<br>
+                            정확도: ${((finalResult.ocr_learning.current_accuracy || 0) * 100).toFixed(1)}%
+                        `;
+                        updateTrainingDetails(details);
+                    }
+                    
+                    setTimeout(() => {
+                        closeTrainingProgress();
+                        showAlert(`모델 학습 완료! 총 ${finalResult.total_samples || 0}개 샘플, ${finalResult.unique_labels || 0}개 라벨 클래스`, 'success');
+                    }, 2000);
+                } else if (eventSource.readyState === EventSource.CLOSED && !finalResult) {
+                    // 정상 종료가 아닌 경우 - 학습이 진행되었을 수 있음
+                    console.log('No final result received but connection closed - assuming completion');
+                    updateTrainingProgress(100, '학습 프로세스 완료', 'complete');
+                    setTimeout(() => {
+                        closeTrainingProgress();
+                        showAlert('모델 학습 프로세스가 완료되었습니다.', 'info');
+                    }, 2000);
+                }
+            } else if (eventSource.readyState === EventSource.CONNECTING) {
+                // 재연결 시도 중 - 무시
+                console.log('EventSource is reconnecting...');
+            }
+        };
+        
+    } catch (error) {
+        console.error('모델 학습 중 오류:', error);
+        closeTrainingProgress();
+        showAlert(`모델 학습 중 오류: ${error.message}`, 'error');
+    }
+}
+
+// 학습 진행률 모달 표시
+function showTrainingProgress() {
+    const modal = document.getElementById('trainingProgressModal');
+    modal.style.display = 'block';
+    updateTrainingProgress(0, '학습 준비 중...');
+}
+
+// 학습 진행률 모달 닫기
+function closeTrainingProgress() {
+    const modal = document.getElementById('trainingProgressModal');
+    modal.style.display = 'none';
+}
+
+// 진행률 업데이트
+function updateTrainingProgress(percent, message, stage = 'data') {
+    const progressBar = document.getElementById('trainingProgressBar');
+    const progressText = document.getElementById('trainingProgressText');
+    const progressMessage = document.getElementById('trainingProgressMessage');
+    
+    progressBar.style.width = `${percent}%`;
+    progressText.textContent = `${Math.round(percent)}%`;
+    progressMessage.textContent = message;
+    
+    // 단계별 색상 변경
+    progressBar.className = `progress-fill stage-${stage}`;
+}
+
+// 진행률 상세 정보 업데이트
+function updateTrainingDetails(details) {
+    const detailsDiv = document.getElementById('trainingProgressDetails');
+    if (typeof details === 'object') {
+        let html = '';
+        for (const [key, value] of Object.entries(details)) {
+            html += `<div><strong>${key}:</strong> ${value}</div>`;
+        }
+        detailsDiv.innerHTML = html;
+    } else if (details.includes('<br>')) {
+        // HTML 형식인 경우
+        detailsDiv.innerHTML = details;
+    } else {
+        detailsDiv.textContent = details;
+    }
+}
+
+// 모델 통계 표시
+async function showModelStats() {
+    try {
+        const response = await fetch('/api/model_stats');
+        const stats = await response.json();
+        
+        if (response.ok) {
+            let message = `
+                <h3>모델 통계</h3>
+                <p>총 샘플 수: ${stats.total_samples || 0}</p>
+                <p>라벨 클래스 수: ${stats.unique_labels || 0}</p>
+                <p>마지막 학습: ${stats.last_training || 'N/A'}</p>
+                <p>모델 정확도: ${stats.accuracy ? (stats.accuracy * 100).toFixed(2) + '%' : 'N/A'}</p>
+            `;
+            showAlert(message, 'info');
+        } else {
+            showAlert('통계 조회 실패', 'error');
+        }
+    } catch (error) {
+        console.error('통계 조회 중 오류:', error);
+        showAlert('통계 조회 중 오류가 발생했습니다.', 'error');
+    }
+}
+
+// 모델 초기화 - labeling.js의 resetModel 함수를 사용하도록 제거됨
+// resetModel 함수는 labeling.js에 정의되어 있음
+
+// 스마트 라벨 수락
+async function acceptSmartLabel(prediction, index) {
+    try {
+        // 새 bounding box 생성
+        const newBox = {
+            x: prediction.x,
+            y: prediction.y,
+            width: prediction.width,
+            height: prediction.height,
+            label: prediction.label_type,
+            text: prediction.predicted_text || '',
+            confidence: prediction.confidence,
+            group_id: prediction.group_id || null
+        };
+        
+        // labelingSystem에 추가 (labeling.js의 함수 사용)
+        if (window.labelingSystem && window.labelingSystem.addBoundingBoxFromData) {
+            window.labelingSystem.addBoundingBoxFromData(newBox);
+        } else {
+            // 직접 추가
+            addBoundingBoxAt(newBox.x, newBox.y, newBox.width, newBox.height, newBox.label, newBox.text);
+        }
+        
+        // 해당 오버레이 제거
+        const overlay = document.getElementById(`smart-label-${index}`);
+        if (overlay) {
+            overlay.style.opacity = '0';
+            setTimeout(() => overlay.remove(), 300);
+        }
+        
+        // 배열에서 제거
+        smartLabelPredictions.splice(index, 1);
+        
+        // 학습 데이터로 저장
+        await fetch('/api/accept_smart_label', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                filename: document.getElementById('labelingFilename').value,
+                prediction: prediction,
+                accepted: true
+            })
+        });
+        
+        showAlert('라벨이 추가되었습니다.', 'success');
+        
+    } catch (error) {
+        console.error('Failed to accept smart label:', error);
+        showAlert('라벨 추가에 실패했습니다.', 'error');
+    }
+}
+
+// Bounding box 직접 추가 (labeling.js에 없을 경우 대비)
+function addBoundingBoxAt(x, y, width, height, label, text) {
+    const overlaysContainer = document.getElementById('bboxOverlays');
+    if (!overlaysContainer) return;
+    
+    const bbox = document.createElement('div');
+    bbox.className = 'bbox-overlay';
+    bbox.style.left = `${x}px`;
+    bbox.style.top = `${y}px`;
+    bbox.style.width = `${width}px`;
+    bbox.style.height = `${height}px`;
+    
+    // 라벨 표시
+    const labelDiv = document.createElement('div');
+    labelDiv.className = 'bbox-label';
+    labelDiv.textContent = label || 'Unknown';
+    bbox.appendChild(labelDiv);
+    
+    // 리사이즈 핸들
+    ['nw', 'ne', 'sw', 'se'].forEach(pos => {
+        const handle = document.createElement('div');
+        handle.className = `resize-handle ${pos}`;
+        bbox.appendChild(handle);
+    });
+    
+    overlaysContainer.appendChild(bbox);
+    
+    // 목록에 추가
+    updateBboxList();
+}
+</script>
+{% endblock %}

@@ -1,0 +1,273 @@
+{
+  "annotation_version": "2.0",
+  "document_metadata": {
+    "filename": "20250811_174451_20241129171650-0001.pdf",
+    "filepath": "20250811_174451_20241129171650-0001.pdf",
+    "pageNumber": 1,
+    "document_type": "purchase_order",
+    "document_class": "purchase_order",
+    "template_id": "yokogawa_po_template_v1",
+    "language": "en",
+    "ocr_engine": "easyocr",
+    "ocr_confidence": 0.95
+  },
+  
+  "page_info": {
+    "width": 2480,
+    "height": 3508,
+    "dpi": 300,
+    "orientation": "portrait",
+    "background_color": "white",
+    "has_watermark": false
+  },
+  
+  "layout_analysis": {
+    "layout_pattern": "pattern_B_variant_1",
+    "layout_confidence": 0.92,
+    "regions": [
+      {
+        "region_id": "header",
+        "bbox": [0, 0, 2480, 400],
+        "type": "header",
+        "contains": ["company_logo", "document_title", "document_info"]
+      },
+      {
+        "region_id": "vendor_info",
+        "bbox": [0, 400, 1240, 800],
+        "type": "address_block",
+        "contains": ["vendor_name", "vendor_address"]
+      },
+      {
+        "region_id": "buyer_info",
+        "bbox": [1240, 400, 2480, 800],
+        "type": "address_block",
+        "contains": ["buyer_name", "buyer_contact"]
+      },
+      {
+        "region_id": "item_table",
+        "bbox": [0, 1600, 2480, 2400],
+        "type": "table",
+        "contains": ["item_rows"]
+      }
+    ],
+    "columns": [
+      {"start_x": 122, "end_x": 232, "column_type": "item_number"},
+      {"start_x": 273, "end_x": 507, "column_type": "part_number"},
+      {"start_x": 595, "end_x": 791, "column_type": "date"},
+      {"start_x": 1029, "end_x": 1241, "column_type": "quantity"},
+      {"start_x": 1694, "end_x": 1836, "column_type": "price"}
+    ]
+  },
+  
+  "entities": [
+    {
+      "entity_id": "ent_001",
+      "bbox": {
+        "x": 2175,
+        "y": 71,
+        "width": 208,
+        "height": 42
+      },
+      "text": {
+        "value": "4512418981",
+        "confidence": 0.98,
+        "alternatives": []
+      },
+      "label": {
+        "primary": "Order number",
+        "confidence": 0.95,
+        "alternatives": [
+          {"label": "Document number", "confidence": 0.03}
+        ]
+      },
+      "features": {
+        "position": {
+          "x_normalized": 0.876,
+          "y_normalized": 0.020,
+          "region": "header",
+          "quadrant": "top_right",
+          "relative_position": "absolute_top_right"
+        },
+        "text_properties": {
+          "is_numeric": true,
+          "numeric_type": "integer",
+          "length": 10,
+          "pattern": "\\d{10}",
+          "matches_regex": ["order_number_pattern"],
+          "character_types": {"digits": 10}
+        },
+        "visual_properties": {
+          "font_size_estimated": 14,
+          "is_bold": true,
+          "text_color": "black",
+          "background_color": "white",
+          "alignment": "right"
+        },
+        "semantic_properties": {
+          "is_identifier": true,
+          "is_unique": true,
+          "expected_format": "10_digit_number",
+          "business_meaning": "purchase_order_identifier"
+        }
+      },
+      "relationships": [
+        {
+          "target_id": "ent_002",
+          "relation_type": "document_header_group",
+          "spatial_relation": "same_region",
+          "confidence": 0.9
+        }
+      ],
+      "context": {
+        "nearby_entities": {
+          "left": {
+            "entity_id": "ent_doc_type",
+            "text": "Purchase Order",
+            "distance": 523
+          },
+          "below": {
+            "entity_id": "ent_002",
+            "text": "Revision Number",
+            "distance": 28
+          }
+        },
+        "line_neighbors": [],
+        "structural_context": {
+          "is_in_table": false,
+          "is_in_header": true,
+          "is_form_field": true,
+          "field_label": "Document Number"
+        }
+      },
+      "validation": {
+        "is_valid": true,
+        "validation_rules": [
+          {"rule": "exactly_10_digits", "passed": true},
+          {"rule": "starts_with_451", "passed": true}
+        ]
+      }
+    },
+    
+    {
+      "entity_id": "ent_010",
+      "bbox": {
+        "x": 126,
+        "y": 1688,
+        "width": 110,
+        "height": 52
+      },
+      "text": {
+        "value": "00010",
+        "confidence": 0.99,
+        "alternatives": []
+      },
+      "label": {
+        "primary": "Item number",
+        "confidence": 0.93,
+        "alternatives": []
+      },
+      "features": {
+        "position": {
+          "x_normalized": 0.051,
+          "y_normalized": 0.481,
+          "region": "item_table",
+          "quadrant": "center_left",
+          "column_position": 1,
+          "row_position": 1
+        },
+        "text_properties": {
+          "is_numeric": true,
+          "numeric_type": "padded_integer",
+          "length": 5,
+          "pattern": "\\d{5}",
+          "has_leading_zeros": true
+        }
+      },
+      "relationships": [
+        {
+          "target_id": "ent_011",
+          "relation_type": "same_row",
+          "spatial_relation": "right_of",
+          "distance": 147,
+          "confidence": 0.98
+        },
+        {
+          "target_id": "ent_011",
+          "relation_type": "item_group",
+          "group_id": "ITEM_00010",
+          "role": "group_identifier"
+        }
+      ],
+      "context": {
+        "table_context": {
+          "table_id": "main_item_table",
+          "row_index": 0,
+          "column_index": 0,
+          "column_header": "Item"
+        },
+        "pattern_context": {
+          "follows_pattern": "incremental_item_numbers",
+          "expected_next": "00020",
+          "pattern_confidence": 0.95
+        }
+      }
+    }
+  ],
+  
+  "groups": [
+    {
+      "group_id": "ITEM_00010",
+      "group_type": "item_line",
+      "y_position": 1688,
+      "bbox": [126, 1686, 1836, 1795],
+      "entities": ["ent_010", "ent_011", "ent_012", "ent_013", "ent_014"],
+      "properties": {
+        "is_complete": true,
+        "has_all_required_fields": true,
+        "item_total": 20.00
+      },
+      "validation": {
+        "quantity_price_check": {
+          "expected": 20.00,
+          "calculated": 20.00,
+          "is_valid": true
+        }
+      }
+    }
+  ],
+  
+  "templates": {
+    "detected_template": "yokogawa_po_standard",
+    "template_confidence": 0.88,
+    "expected_fields": [
+      {"field": "Order number", "found": true, "required": true},
+      {"field": "Shipping line", "found": true, "required": true},
+      {"field": "Case mark", "found": true, "required": false},
+      {"field": "Item table", "found": true, "required": true}
+    ],
+    "template_variations": {
+      "shipping_line_position": "right_side",
+      "has_multiple_items": false,
+      "has_tax_section": false
+    }
+  },
+  
+  "quality_metrics": {
+    "overall_confidence": 0.92,
+    "completeness": 0.95,
+    "consistency": 0.89,
+    "ocr_quality": {
+      "average_confidence": 0.94,
+      "low_confidence_entities": [],
+      "failed_regions": []
+    }
+  },
+  
+  "processing_info": {
+    "processed_at": "2025-01-15T10:30:00Z",
+    "processing_time_ms": 1250,
+    "annotator": "human",
+    "review_status": "completed",
+    "version": 1
+  }
+}

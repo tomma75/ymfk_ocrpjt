@@ -1,0 +1,248 @@
+{
+  "filename": "20250808_110609_20241011174204-0001.pdf",
+  "filepath": "20250808_110609_20241011174204-0001.pdf",
+  "pageNumber": 1,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "-",
+      "y_position": 60,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512300232",
+          "bbox": [
+            2168,
+            60,
+            210,
+            52
+          ],
+          "ocr_original": "4512300232",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        },
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            1998,
+            1070,
+            280,
+            134
+          ],
+          "ocr_original": "C5800002",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
+        },
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU-SHI K5",
+          "bbox": [
+            1682,
+            1344,
+            770,
+            108
+          ],
+          "ocr_original": "YMG KOFU-SHI K5",
+          "ocr_confidence": 0.92,
+          "was_corrected": false
+        },
+        {
+          "label": "Net amount (total)",
+          "text": "Total 1,143.40",
+          "bbox": [
+            1296,
+            2102,
+            1086,
+            56
+          ],
+          "ocr_original": "Total 1,143.40",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        }
+      ]
+    },
+    {
+      "group_id": "ITEM_00010",
+      "y_position": 1688,
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            102,
+            1688,
+            110,
+            42
+          ],
+          "ocr_original": "00010",
+          "ocr_confidence": 0.94,
+          "was_corrected": false
+        },
+        {
+          "label": "Part number",
+          "text": "F9140DA-C",
+          "bbox": [
+            260,
+            1682,
+            240,
+            48
+          ],
+          "ocr_original": "F9140DA-C REGULATOR ASSY",
+          "ocr_confidence": 0.93,
+          "was_corrected": true
+        },
+        {
+          "label": "Delivery date",
+          "text": "11-15-2024",
+          "bbox": [
+            580,
+            1794,
+            206,
+            52
+          ],
+          "ocr_original": "11-15-2024",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        },
+        {
+          "label": "Quantity",
+          "text": "10.000 ST",
+          "bbox": [
+            1030,
+            1788,
+            186,
+            60
+          ],
+          "ocr_original": "10.000 ST",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
+        },
+        {
+          "label": "Unit price",
+          "text": "114.3400",
+          "bbox": [
+            1632,
+            1786,
+            226,
+            70
+          ],
+          "ocr_original": "114.3400",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        }
+      ]
+    }
+  ],
+  "total_groups": 2,
+  "bboxes": [
+    {
+      "x": 2168,
+      "y": 60,
+      "width": 210,
+      "height": 52,
+      "label": "Order number",
+      "text": "4512300232",
+      "group_id": "-",
+      "ocr_original": "4512300232",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1998,
+      "y": 1070,
+      "width": 280,
+      "height": 134,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "-",
+      "ocr_original": "C5800002",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
+    },
+    {
+      "x": 1682,
+      "y": 1344,
+      "width": 770,
+      "height": 108,
+      "label": "Case mark",
+      "text": "YMG KOFU-SHI K5",
+      "group_id": "-",
+      "ocr_original": "YMG KOFU-SHI K5",
+      "ocr_confidence": 0.92,
+      "was_corrected": false
+    },
+    {
+      "x": 102,
+      "y": 1688,
+      "width": 110,
+      "height": 42,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "ITEM_00010",
+      "ocr_original": "00010",
+      "ocr_confidence": 0.94,
+      "was_corrected": false
+    },
+    {
+      "x": 260,
+      "y": 1682,
+      "width": 240,
+      "height": 48,
+      "label": "Part number",
+      "text": "F9140DA-C",
+      "group_id": "ITEM_00010",
+      "ocr_original": "F9140DA-C REGULATOR ASSY",
+      "ocr_confidence": 0.93,
+      "was_corrected": true
+    },
+    {
+      "x": 580,
+      "y": 1794,
+      "width": 206,
+      "height": 52,
+      "label": "Delivery date",
+      "text": "11-15-2024",
+      "group_id": "ITEM_00010",
+      "ocr_original": "11-15-2024",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1030,
+      "y": 1788,
+      "width": 186,
+      "height": 60,
+      "label": "Quantity",
+      "text": "10.000 ST",
+      "group_id": "ITEM_00010",
+      "ocr_original": "10.000 ST",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
+    },
+    {
+      "x": 1632,
+      "y": 1786,
+      "width": 226,
+      "height": 70,
+      "label": "Unit price",
+      "text": "114.3400",
+      "group_id": "ITEM_00010",
+      "ocr_original": "114.3400",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1296,
+      "y": 2102,
+      "width": 1086,
+      "height": 56,
+      "label": "Net amount (total)",
+      "text": "Total 1,143.40",
+      "group_id": "-",
+      "ocr_original": "Total 1,143.40",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    }
+  ]
+}

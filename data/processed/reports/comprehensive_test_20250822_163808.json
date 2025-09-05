@@ -1,0 +1,62 @@
+{
+  "data_stats": {
+    "total_labels": 54,
+    "total_images": 359,
+    "training_samples": 43,
+    "validation_samples": 11,
+    "document_types": {
+      "purchase_order": 43
+    },
+    "total_entities": 368
+  },
+  "training_results": {
+    "hybrid_model": {
+      "training_time": 4.716539621353149,
+      "training_stats": {
+        "total_samples": 368,
+        "label_distribution": {
+          "Shipping date": 26,
+          "Case mark": 43,
+          "Order number": 43,
+          "Production instruction receipt section": 3,
+          "Item number": 43,
+          "Unit price": 32,
+          "Part number": 43,
+          "Quantity": 43,
+          "Net amount (total)": 32,
+          "Delivery date": 17,
+          "Shipping line": 43
+        },
+        "model_performances": {
+          "rf": 0.9728108756497401,
+          "xgb": 0.9511084455106845,
+          "lgbm": 0.9836954107245991
+        },
+        "last_training": "2025-08-22T16:37:41.218394",
+        "training_history": []
+      },
+      "validation_accuracy": 0.7372881355932204
+    },
+    "relational_learning": {
+      "label_sequences": 5,
+      "group_templates": 11
+    },
+    "template_learning": {
+      "total_templates": 2,
+      "document_types": {
+        "purchase_order": 2
+      }
+    },
+    "integrated_service": {
+      "initialization": true,
+      "training_time": 24.683616638183594,
+      "models_trained": [
+        "basic_model",
+        "advanced_model",
+        "hybrid_model"
+      ]
+    }
+  },
+  "evaluation_results": {},
+  "errors": []
+}

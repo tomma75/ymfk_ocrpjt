@@ -5,7 +5,7 @@
   "class": "purchase_order",
   "items": [
     {
-      "group_id": "item_00001",
+      "group_id": "-",
       "y_position": 92,
       "labels": [
         {
@@ -16,24 +16,10 @@
             92,
             225,
             48
-          ]
-        }
-      ],
-      "item_number": "4512224402"
-    },
-    {
-      "group_id": "item_00002",
-      "y_position": 1497,
-      "labels": [
-        {
-          "label": "Shipping line",
-          "text": "C5800002",
-          "bbox": [
-            124,
-            1507,
-            174,
-            48
-          ]
+          ],
+          "ocr_original": "4512224402",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
         },
         {
           "label": "Case mark",
@@ -43,12 +29,28 @@
             1497,
             592,
             47
-          ]
+          ],
+          "ocr_original": "ISHIKAWA EXT:731-48177LOC:K70-4",
+          "ocr_confidence": 0.815,
+          "was_corrected": false
+        },
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            124,
+            1507,
+            174,
+            48
+          ],
+          "ocr_original": "C5800002",
+          "ocr_confidence": 0.62,
+          "was_corrected": false
         }
       ]
     },
     {
-      "group_id": "item_00003",
+      "group_id": "ITEM_00010",
       "y_position": 1873,
       "labels": [
         {
@@ -59,7 +61,10 @@
             1873,
             117,
             57
-          ]
+          ],
+          "ocr_original": "00010",
+          "ocr_confidence": 0.955,
+          "was_corrected": false
         },
         {
           "label": "Part number",
@@ -69,15 +74,11 @@
             1877,
             150,
             35
-          ]
-        }
-      ],
-      "item_number": "00010"
-    },
-    {
-      "group_id": "item_00004",
-      "y_position": 1952,
-      "labels": [
+          ],
+          "ocr_original": "",
+          "ocr_confidence": 0,
+          "was_corrected": false
+        },
         {
           "label": "Delivery date",
           "text": "10-22-2024",
@@ -86,7 +87,10 @@
             1954,
             183,
             38
-          ]
+          ],
+          "ocr_original": "10-22-2024",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
         },
         {
           "label": "Quantity",
@@ -96,12 +100,15 @@
             1952,
             234,
             46
-          ]
+          ],
+          "ocr_original": "1.000 ST",
+          "ocr_confidence": 0.82,
+          "was_corrected": false
         }
       ]
     }
   ],
-  "total_groups": 4,
+  "total_groups": 2,
   "bboxes": [
     {
       "x": 2154,
@@ -110,7 +117,10 @@
       "height": 48,
       "label": "Order number",
       "text": "4512224402",
-      "group_id": "item_00001"
+      "group_id": "-",
+      "ocr_original": "4512224402",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
     },
     {
       "x": 298,
@@ -119,7 +129,10 @@
       "height": 47,
       "label": "Case mark",
       "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
-      "group_id": "item_00002"
+      "group_id": "-",
+      "ocr_original": "ISHIKAWA EXT:731-48177LOC:K70-4",
+      "ocr_confidence": 0.815,
+      "was_corrected": false
     },
     {
       "x": 124,
@@ -128,7 +141,10 @@
       "height": 48,
       "label": "Shipping line",
       "text": "C5800002",
-      "group_id": "item_00002"
+      "group_id": "-",
+      "ocr_original": "C5800002",
+      "ocr_confidence": 0.62,
+      "was_corrected": false
     },
     {
       "x": 103,
@@ -137,7 +153,10 @@
       "height": 57,
       "label": "Item number",
       "text": "00010",
-      "group_id": "item_00003"
+      "group_id": "ITEM_00010",
+      "ocr_original": "00010",
+      "ocr_confidence": 0.955,
+      "was_corrected": false
     },
     {
       "x": 261,
@@ -146,7 +165,10 @@
       "height": 35,
       "label": "Part number",
       "text": "B8211DT",
-      "group_id": "item_00003"
+      "group_id": "ITEM_00010",
+      "ocr_original": "",
+      "ocr_confidence": 0,
+      "was_corrected": false
     },
     {
       "x": 1285,
@@ -155,7 +177,10 @@
       "height": 38,
       "label": "Delivery date",
       "text": "10-22-2024",
-      "group_id": "item_00004"
+      "group_id": "ITEM_00010",
+      "ocr_original": "10-22-2024",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
     },
     {
       "x": 1712,
@@ -164,7 +189,10 @@
       "height": 46,
       "label": "Quantity",
       "text": "1.000 ST",
-      "group_id": "item_00004"
+      "group_id": "ITEM_00010",
+      "ocr_original": "1.000 ST",
+      "ocr_confidence": 0.82,
+      "was_corrected": false
     }
   ]
 }

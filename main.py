@@ -400,20 +400,21 @@ def _create_argument_parser() -> argparse.ArgumentParser:
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 실행 예시:
+  %(prog)s                                # 웹 인터페이스 실행 (기본)
+  %(prog)s --mode web                     # 웹 인터페이스 실행
   %(prog)s --mode full                    # 전체 파이프라인 실행
   %(prog)s --mode collection              # 데이터 수집만 실행
   %(prog)s --mode labeling                # 라벨링만 실행
   %(prog)s --mode augmentation            # 데이터 증강만 실행
   %(prog)s --mode validation              # 검증만 실행
-  %(prog)s --mode web                     # 웹 인터페이스 실행
         """,
     )
 
     parser.add_argument(
         "--mode",
         choices=["collection", "labeling", "augmentation", "validation", "full", "web"],
-        default="full",
-        help="실행 모드 선택 (기본값: full)",
+        default="web",
+        help="실행 모드 선택 (기본값: web)",
     )
 
     parser.add_argument(
@@ -508,23 +509,32 @@ def main() -> Optional[int]:
             _application_logger.info("[WEB] 웹 인터페이스 모드")
             _application_logger.info("웹 인터페이스를 시작합니다...")
             
-            # 웹 인터페이스 실행
+            # 웹 인터페이스를 subprocess로 실행
             try:
                 import subprocess
                 web_script = os.path.join(os.path.dirname(__file__), 'web_interface.py')
-                result = subprocess.run([sys.executable, web_script], 
-                                      capture_output=True, 
-                                      text=True, 
-                                      check=True)
-                return 0
-            except subprocess.CalledProcessError as e:
-                _application_logger.error(f"웹 인터페이스 실행 실패: {str(e)}")
-                _application_logger.error(f"표준 출력: {e.stdout}")
-                _application_logger.error(f"표준 에러: {e.stderr}")
-                return 1
+                
+                _application_logger.info("브라우저에서 http://localhost:5000 으로 접속하세요.")
+                _application_logger.info("종료하려면 Ctrl+C를 누르세요.")
+                
+                # 가상환경의 Python 실행 파일 사용
+                python_executable = sys.executable
+                
+                # web_interface.py를 실행
+                result = subprocess.run([python_executable, web_script], check=False)
+                
+                if result.returncode != 0:
+                    _application_logger.error(f"웹 인터페이스 실행 실패 (종료 코드: {result.returncode})")
+                    execution_success = False
+                else:
+                    execution_success = True
+                    
+            except KeyboardInterrupt:
+                _application_logger.info("사용자가 웹 인터페이스를 종료했습니다.")
+                execution_success = True
             except Exception as e:
                 _application_logger.error(f"웹 인터페이스 실행 실패: {str(e)}")
-                return 1
+                execution_success = False
 
         # 7. 실행 결과 출력
         execution_end_time = time.time()

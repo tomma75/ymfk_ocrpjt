@@ -1,0 +1,165 @@
+{
+  "ocr_correction_learning": {
+    "description": "Tesseract OCR 오류를 사용자 피드백으로 학습하는 시스템",
+    
+    "annotation_structure_v3": {
+      "entities": [
+        {
+          "entity_id": "ent_001",
+          "bbox": {
+            "x": 2175,
+            "y": 71,
+            "width": 208,
+            "height": 42
+          },
+          "ocr_results": {
+            "tesseract_raw": "45I24I898I",
+            "tesseract_confidence": 0.72,
+            "corrected_value": "4512418981",
+            "correction_history": [
+              {
+                "timestamp": "2025-01-15T10:00:00Z",
+                "original": "45I24I898I",
+                "corrected": "4512418981",
+                "user_id": "user_001"
+              }
+            ]
+          },
+          "label": {
+            "primary": "Order number",
+            "confidence": 1.0,
+            "learning_data": {
+              "position_pattern": {
+                "always_top_right": true,
+                "x_range": [2100, 2400],
+                "y_range": [50, 100],
+                "confidence": 0.98
+              },
+              "text_pattern": {
+                "regex": "^451\\d{7}$",
+                "length": 10,
+                "common_ocr_errors": {
+                  "1": ["I", "l", "|"],
+                  "8": ["B", "3"],
+                  "0": ["O", "o"]
+                }
+              }
+            }
+          },
+          "learning_metrics": {
+            "correction_count": 15,
+            "accuracy_trend": [0.73, 0.81, 0.89, 0.94, 0.96],
+            "current_accuracy": 0.96,
+            "learning_status": "active"
+          }
+        }
+      ]
+    },
+    
+    "learning_pipeline": {
+      "1_ocr_execution": {
+        "engine": "tesseract",
+        "preprocessing": ["deskew", "denoise", "contrast_enhance"],
+        "output": "raw_ocr_results"
+      },
+      
+      "2_initial_prediction": {
+        "use_position_hints": true,
+        "use_pattern_matching": true,
+        "use_historical_corrections": true,
+        "confidence_threshold": 0.8
+      },
+      
+      "3_user_correction": {
+        "interface": "labeling_page",
+        "actions": ["edit_text", "adjust_bbox", "change_label"],
+        "save_format": "current_json_structure"
+      },
+      
+      "4_learning_update": {
+        "update_patterns": true,
+        "update_position_ranges": true,
+        "update_ocr_error_mappings": true,
+        "store_correction_history": true
+      },
+      
+      "5_accuracy_check": {
+        "calculation_method": "rolling_average_last_100",
+        "target_accuracy": 0.95,
+        "stop_learning_at": 0.95
+      }
+    },
+    
+    "correction_tracking": {
+      "per_label_statistics": {
+        "Order number": {
+          "total_corrections": 234,
+          "unique_patterns": 15,
+          "current_accuracy": 0.96,
+          "common_corrections": {
+            "I→1": 145,
+            "l→1": 89,
+            "O→0": 45
+          }
+        },
+        "Shipping line": {
+          "total_corrections": 189,
+          "unique_patterns": 8,
+          "current_accuracy": 0.94,
+          "position_stability": 0.99
+        }
+      }
+    },
+    
+    "adaptive_features": {
+      "position_learning": {
+        "description": "각 라벨의 위치 범위를 학습",
+        "update_method": "gaussian_distribution",
+        "outlier_detection": true
+      },
+      
+      "pattern_learning": {
+        "description": "텍스트 패턴과 OCR 오류 패턴 학습",
+        "methods": ["regex_generation", "error_mapping", "fuzzy_matching"]
+      },
+      
+      "confidence_adjustment": {
+        "description": "학습 진행에 따라 신뢰도 조정",
+        "initial_weight": {"ocr": 0.3, "position": 0.4, "pattern": 0.3},
+        "learned_weight": {"ocr": 0.5, "position": 0.3, "pattern": 0.2}
+      }
+    },
+    
+    "storage_format": {
+      "training_data_path": "data/models/ocr_corrections/",
+      "model_update_frequency": "every_10_corrections",
+      "backup_strategy": "incremental",
+      
+      "per_document_learning": {
+        "document_type": "purchase_order",
+        "layout_pattern": "pattern_B",
+        "specific_corrections": {}
+      }
+    },
+    
+    "integration_points": {
+      "web_interface": {
+        "save_endpoint": "/api/save_with_learning",
+        "tracks": ["text_changes", "bbox_adjustments", "label_changes"]
+      },
+      
+      "model_service": {
+        "use_corrections": true,
+        "apply_learned_patterns": true,
+        "confidence_boost": "based_on_accuracy"
+      }
+    },
+    
+    "stop_conditions": {
+      "global_accuracy": 0.95,
+      "per_label_accuracy": 0.95,
+      "minimum_samples": 100,
+      "no_improvement_threshold": 50
+    }
+  }
+}

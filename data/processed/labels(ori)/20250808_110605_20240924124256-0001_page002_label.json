@@ -5,7 +5,7 @@
   "class": "purchase_order",
   "items": [
     {
-      "group_id": "item_00001",
+      "group_id": "-",
       "y_position": 105,
       "labels": [
         {
@@ -16,39 +16,41 @@
             105,
             208,
             42
-          ]
-        }
-      ],
-      "item_number": "4512252862"
-    },
-    {
-      "group_id": "item_00002",
-      "y_position": 1503,
-      "labels": [
-        {
-          "label": "Shipping line",
-          "text": "C5800002 ISHIKAWA EXT:731-48177LOC:K70-4",
-          "bbox": [
-            158,
-            1503,
-            170,
-            54
-          ]
+          ],
+          "ocr_original": "4512252862",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
         },
         {
           "label": "Case mark",
-          "text": "YMG KOFU-SHI K5",
+          "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
           "bbox": [
             319,
             1504,
             604,
             55
-          ]
+          ],
+          "ocr_original": "ISHIKAWA EXT:731-48177LOC:K70-4",
+          "ocr_confidence": 0.83,
+          "was_corrected": false
+        },
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            158,
+            1503,
+            170,
+            54
+          ],
+          "ocr_original": "C5800002",
+          "ocr_confidence": 0.81,
+          "was_corrected": false
         }
       ]
     },
     {
-      "group_id": "item_00003",
+      "group_id": "ITEM_00010",
       "y_position": 1878,
       "labels": [
         {
@@ -59,7 +61,10 @@
             1878,
             110,
             52
-          ]
+          ],
+          "ocr_original": "00010",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
         },
         {
           "label": "Part number",
@@ -69,15 +74,11 @@
             1879,
             256,
             45
-          ]
-        }
-      ],
-      "item_number": "00010"
-    },
-    {
-      "group_id": "item_00004",
-      "y_position": 1951,
-      "labels": [
+          ],
+          "ocr_original": "B8211PM",
+          "ocr_confidence": 0.85,
+          "was_corrected": false
+        },
         {
           "label": "Delivery date",
           "text": "10-28-2024",
@@ -86,7 +87,10 @@
             1955,
             196,
             52
-          ]
+          ],
+          "ocr_original": "10-28-2024",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
         },
         {
           "label": "Quantity",
@@ -96,12 +100,15 @@
             1951,
             290,
             58
-          ]
+          ],
+          "ocr_original": "2.000 ST",
+          "ocr_confidence": 0.91,
+          "was_corrected": false
         }
       ]
     }
   ],
-  "total_groups": 4,
+  "total_groups": 2,
   "bboxes": [
     {
       "x": 2183,
@@ -110,7 +117,10 @@
       "height": 42,
       "label": "Order number",
       "text": "4512252862",
-      "group_id": "item_00001"
+      "group_id": "-",
+      "ocr_original": "4512252862",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
     },
     {
       "x": 319,
@@ -118,8 +128,11 @@
       "width": 604,
       "height": 55,
       "label": "Case mark",
-      "text": "YMG KOFU-SHI K5",
-      "group_id": "item_00002"
+      "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
+      "group_id": "-",
+      "ocr_original": "ISHIKAWA EXT:731-48177LOC:K70-4",
+      "ocr_confidence": 0.83,
+      "was_corrected": false
     },
     {
       "x": 158,
@@ -127,8 +140,11 @@
       "width": 170,
       "height": 54,
       "label": "Shipping line",
-      "text": "C5800002 ISHIKAWA EXT:731-48177LOC:K70-4",
-      "group_id": "item_00002"
+      "text": "C5800002",
+      "group_id": "-",
+      "ocr_original": "C5800002",
+      "ocr_confidence": 0.81,
+      "was_corrected": false
     },
     {
       "x": 133,
@@ -137,7 +153,10 @@
       "height": 52,
       "label": "Item number",
       "text": "00010",
-      "group_id": "item_00003"
+      "group_id": "ITEM_00010",
+      "ocr_original": "00010",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
     },
     {
       "x": 271,
@@ -146,7 +165,10 @@
       "height": 45,
       "label": "Part number",
       "text": "B8211PM",
-      "group_id": "item_00003"
+      "group_id": "ITEM_00010",
+      "ocr_original": "B8211PM",
+      "ocr_confidence": 0.85,
+      "was_corrected": false
     },
     {
       "x": 1295,
@@ -155,7 +177,10 @@
       "height": 52,
       "label": "Delivery date",
       "text": "10-28-2024",
-      "group_id": "item_00004"
+      "group_id": "ITEM_00010",
+      "ocr_original": "10-28-2024",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
     },
     {
       "x": 1721,
@@ -164,7 +189,10 @@
       "height": 58,
       "label": "Quantity",
       "text": "2.000 ST",
-      "group_id": "item_00004"
+      "group_id": "ITEM_00010",
+      "ocr_original": "2.000 ST",
+      "ocr_confidence": 0.91,
+      "was_corrected": false
     }
   ]
 }

@@ -5,216 +5,244 @@
   "class": "purchase_order",
   "items": [
     {
-      "group_id": "item_00001",
-      "y_position": 75,
+      "group_id": "-",
+      "y_position": 66.6875,
       "labels": [
         {
           "label": "Order number",
           "text": "4512234270",
           "bbox": [
-            2169,
-            75,
+            2174,
+            66.6875,
             208,
-            42
-          ]
-        }
-      ],
-      "item_number": "4512234270"
-    },
-    {
-      "group_id": "item_00002",
-      "y_position": 1189,
-      "labels": [
+            54
+          ],
+          "ocr_original": "4§12234270",
+          "ocr_confidence": 0.73,
+          "was_corrected": true
+        },
         {
           "label": "Case mark",
           "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
           "bbox": [
-            137,
-            1189,
-            798,
-            130
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "item_00003",
-      "y_position": 1274,
-      "labels": [
+            124,
+            1156.6875,
+            738,
+            114
+          ],
+          "ocr_original": "YUS KOFU P/C KB-2 KOSUGE 731~48176",
+          "ocr_confidence": 0.76,
+          "was_corrected": true
+        },
         {
           "label": "Shipping line",
           "text": "C5800002",
           "bbox": [
-            693,
-            1274,
-            274,
-            116
-          ]
+            694,
+            1274.6875,
+            272,
+            90
+          ],
+          "ocr_original": "",
+          "ocr_confidence": 0,
+          "was_corrected": false
+        },
+        {
+          "label": "Net amount (total)",
+          "text": "Total 1,402.50",
+          "bbox": [
+            1304,
+            2106.6875,
+            1090,
+            50
+          ],
+          "ocr_original": "Total 1,402.50",
+          "ocr_confidence": 0.955,
+          "was_corrected": false
         }
       ]
     },
     {
-      "group_id": "item_00004",
-      "y_position": 1687,
+      "group_id": "ITEM_00010",
+      "y_position": 1688.6875,
       "labels": [
         {
           "label": "Item number",
           "text": "00010",
           "bbox": [
-            109,
-            1700,
+            108,
+            1688.6875,
             110,
-            52
-          ]
+            60
+          ],
+          "ocr_original": "00010",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
         },
         {
           "label": "Part number",
           "text": "F9138YA",
           "bbox": [
-            260,
-            1687,
             256,
-            45
-          ]
-        }
-      ],
-      "item_number": "00010"
-    },
-    {
-      "group_id": "item_00005",
-      "y_position": 1797,
-      "labels": [
+            1686.6875,
+            166,
+            50
+          ],
+          "ocr_original": "FS138YA",
+          "ocr_confidence": 0.43,
+          "was_corrected": true
+        },
         {
-          "label": "Shipping date",
+          "label": "Delivery date",
           "text": "10-22-2024",
           "bbox": [
-            587,
-            1797,
-            196,
-            52
-          ]
+            580,
+            1794.6875,
+            206,
+            58
+          ],
+          "ocr_original": "10-22-2024",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
         },
         {
           "label": "Quantity",
           "text": "30.000 ST",
           "bbox": [
-            1025,
-            1803,
-            206,
-            58
-          ]
+            1028,
+            1790.6875,
+            212,
+            68
+          ],
+          "ocr_original": "30.000 ST",
+          "ocr_confidence": 0.92,
+          "was_corrected": false
         },
         {
           "label": "Unit price",
           "text": "46.7500",
           "bbox": [
-            1676,
-            1809,
-            142,
-            56
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "item_00006",
-      "y_position": 2106,
-      "labels": [
-        {
-          "label": "Net amount (total)",
-          "text": "Total 1,402.50",
-          "bbox": [
-            1284,
-            2106,
-            1090,
-            46
-          ]
+            1662,
+            1784.6875,
+            170,
+            86
+          ],
+          "ocr_original": "46.7500",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
         }
       ]
     }
   ],
-  "total_groups": 6,
+  "total_groups": 2,
   "bboxes": [
     {
-      "x": 2169,
-      "y": 75,
+      "x": 2174,
+      "y": 66.6875,
       "width": 208,
-      "height": 42,
+      "height": 54,
       "label": "Order number",
       "text": "4512234270",
-      "group_id": "item_00001"
+      "group_id": "-",
+      "ocr_original": "4§12234270",
+      "ocr_confidence": 0.73,
+      "was_corrected": true
     },
     {
-      "x": 137,
-      "y": 1189,
-      "width": 798,
-      "height": 130,
+      "x": 124,
+      "y": 1156.6875,
+      "width": 738,
+      "height": 114,
       "label": "Case mark",
       "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
-      "group_id": "item_00002"
+      "group_id": "-",
+      "ocr_original": "YUS KOFU P/C KB-2 KOSUGE 731~48176",
+      "ocr_confidence": 0.76,
+      "was_corrected": true
     },
     {
-      "x": 693,
-      "y": 1274,
-      "width": 274,
-      "height": 116,
+      "x": 694,
+      "y": 1274.6875,
+      "width": 272,
+      "height": 90,
       "label": "Shipping line",
       "text": "C5800002",
-      "group_id": "item_00003"
+      "group_id": "-",
+      "ocr_original": "",
+      "ocr_confidence": 0,
+      "was_corrected": false
     },
     {
-      "x": 109,
-      "y": 1700,
+      "x": 108,
+      "y": 1688.6875,
       "width": 110,
-      "height": 52,
+      "height": 60,
       "label": "Item number",
       "text": "00010",
-      "group_id": "item_00004"
+      "group_id": "ITEM_00010",
+      "ocr_original": "00010",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
     },
     {
-      "x": 260,
-      "y": 1687,
-      "width": 256,
-      "height": 45,
+      "x": 256,
+      "y": 1686.6875,
+      "width": 166,
+      "height": 50,
       "label": "Part number",
       "text": "F9138YA",
-      "group_id": "item_00004"
+      "group_id": "ITEM_00010",
+      "ocr_original": "FS138YA",
+      "ocr_confidence": 0.43,
+      "was_corrected": true
     },
     {
-      "x": 587,
-      "y": 1797,
-      "width": 196,
-      "height": 52,
-      "label": "Shipping date",
-      "text": "10-22-2024",
-      "group_id": "item_00005"
-    },
-    {
-      "x": 1025,
-      "y": 1803,
+      "x": 580,
+      "y": 1794.6875,
       "width": 206,
       "height": 58,
+      "label": "Delivery date",
+      "text": "10-22-2024",
+      "group_id": "ITEM_00010",
+      "ocr_original": "10-22-2024",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1028,
+      "y": 1790.6875,
+      "width": 212,
+      "height": 68,
       "label": "Quantity",
       "text": "30.000 ST",
-      "group_id": "item_00005"
+      "group_id": "ITEM_00010",
+      "ocr_original": "30.000 ST",
+      "ocr_confidence": 0.92,
+      "was_corrected": false
     },
     {
-      "x": 1676,
-      "y": 1809,
-      "width": 142,
-      "height": 56,
+      "x": 1662,
+      "y": 1784.6875,
+      "width": 170,
+      "height": 86,
       "label": "Unit price",
       "text": "46.7500",
-      "group_id": "item_00005"
+      "group_id": "ITEM_00010",
+      "ocr_original": "46.7500",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
     },
     {
-      "x": 1284,
-      "y": 2106,
+      "x": 1304,
+      "y": 2106.6875,
       "width": 1090,
-      "height": 46,
+      "height": 50,
       "label": "Net amount (total)",
       "text": "Total 1,402.50",
-      "group_id": "item_00006"
+      "group_id": "-",
+      "ocr_original": "Total 1,402.50",
+      "ocr_confidence": 0.955,
+      "was_corrected": false
     }
   ]
 }

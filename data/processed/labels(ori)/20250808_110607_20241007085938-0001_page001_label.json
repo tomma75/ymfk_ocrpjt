@@ -1,0 +1,248 @@
+{
+  "filename": "20250808_110607_20241007085938-0001.pdf",
+  "filepath": "20250808_110607_20241007085938-0001.pdf",
+  "pageNumber": 1,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "-",
+      "y_position": 44.6875,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512282575",
+          "bbox": [
+            2148,
+            44.6875,
+            228,
+            62
+          ],
+          "ocr_original": "4512282575",
+          "ocr_confidence": 0.91,
+          "was_corrected": false
+        },
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+          "bbox": [
+            152,
+            1174.6875,
+            750,
+            102
+          ],
+          "ocr_original": "YG ROFU P/C 62 KOSUGE 731-48176",
+          "ocr_confidence": 0.5516666666666666,
+          "was_corrected": true
+        },
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            632,
+            1284.6875,
+            270,
+            124
+          ],
+          "ocr_original": "(5800002",
+          "ocr_confidence": 0.45,
+          "was_corrected": true
+        },
+        {
+          "label": "Net amount (total)",
+          "text": "Total 4.56",
+          "bbox": [
+            1302,
+            2096.6875,
+            1066,
+            52
+          ],
+          "ocr_original": "Total 4.56",
+          "ocr_confidence": 0.92,
+          "was_corrected": false
+        }
+      ]
+    },
+    {
+      "group_id": "ITEM_00010",
+      "y_position": 1680.6875,
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            98,
+            1680.6875,
+            106,
+            58
+          ],
+          "ocr_original": "00010",
+          "ocr_confidence": 0.9,
+          "was_corrected": false
+        },
+        {
+          "label": "Part number",
+          "text": "UO113AY",
+          "bbox": [
+            248,
+            1680.6875,
+            172,
+            40
+          ],
+          "ocr_original": "UO113AY",
+          "ocr_confidence": 0.74,
+          "was_corrected": false
+        },
+        {
+          "label": "Delivery date",
+          "text": "10-21-2024",
+          "bbox": [
+            578,
+            1778.6875,
+            200,
+            60
+          ],
+          "ocr_original": "10-21-2024",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        },
+        {
+          "label": "Quantity",
+          "text": "8.000 ST",
+          "bbox": [
+            1028,
+            1782.6875,
+            200,
+            56
+          ],
+          "ocr_original": "8.000 ST",
+          "ocr_confidence": 0.94,
+          "was_corrected": false
+        },
+        {
+          "label": "Unit price",
+          "text": "0.5700",
+          "bbox": [
+            1678,
+            1778.6875,
+            138,
+            58
+          ],
+          "ocr_original": "0.5700",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        }
+      ]
+    }
+  ],
+  "total_groups": 2,
+  "bboxes": [
+    {
+      "x": 2148,
+      "y": 44.6875,
+      "width": 228,
+      "height": 62,
+      "label": "Order number",
+      "text": "4512282575",
+      "group_id": "-",
+      "ocr_original": "4512282575",
+      "ocr_confidence": 0.91,
+      "was_corrected": false
+    },
+    {
+      "x": 152,
+      "y": 1174.6875,
+      "width": 750,
+      "height": 102,
+      "label": "Case mark",
+      "text": "YMG KOFU P/C K8-2 KOSUGE 731-48176",
+      "group_id": "-",
+      "ocr_original": "YG ROFU P/C 62 KOSUGE 731-48176",
+      "ocr_confidence": 0.5516666666666666,
+      "was_corrected": true
+    },
+    {
+      "x": 632,
+      "y": 1284.6875,
+      "width": 270,
+      "height": 124,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "-",
+      "ocr_original": "(5800002",
+      "ocr_confidence": 0.45,
+      "was_corrected": true
+    },
+    {
+      "x": 98,
+      "y": 1680.6875,
+      "width": 106,
+      "height": 58,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "ITEM_00010",
+      "ocr_original": "00010",
+      "ocr_confidence": 0.9,
+      "was_corrected": false
+    },
+    {
+      "x": 248,
+      "y": 1680.6875,
+      "width": 172,
+      "height": 40,
+      "label": "Part number",
+      "text": "UO113AY",
+      "group_id": "ITEM_00010",
+      "ocr_original": "UO113AY",
+      "ocr_confidence": 0.74,
+      "was_corrected": false
+    },
+    {
+      "x": 578,
+      "y": 1778.6875,
+      "width": 200,
+      "height": 60,
+      "label": "Delivery date",
+      "text": "10-21-2024",
+      "group_id": "ITEM_00010",
+      "ocr_original": "10-21-2024",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1028,
+      "y": 1782.6875,
+      "width": 200,
+      "height": 56,
+      "label": "Quantity",
+      "text": "8.000 ST",
+      "group_id": "ITEM_00010",
+      "ocr_original": "8.000 ST",
+      "ocr_confidence": 0.94,
+      "was_corrected": false
+    },
+    {
+      "x": 1678,
+      "y": 1778.6875,
+      "width": 138,
+      "height": 58,
+      "label": "Unit price",
+      "text": "0.5700",
+      "group_id": "ITEM_00010",
+      "ocr_original": "0.5700",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1302,
+      "y": 2096.6875,
+      "width": 1066,
+      "height": 52,
+      "label": "Net amount (total)",
+      "text": "Total 4.56",
+      "group_id": "-",
+      "ocr_original": "Total 4.56",
+      "ocr_confidence": 0.92,
+      "was_corrected": false
+    }
+  ]
+}

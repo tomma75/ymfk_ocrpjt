@@ -1,0 +1,29 @@
+{
+  "accuracy": 0.0,
+  "training_samples": 0,
+  "label_count": 0,
+  "label_distribution": {
+    "Order number": 13,
+    "Case mark": 13,
+    "Item number": 12,
+    "Part number": 17,
+    "Delivery date": 13,
+    "Quantity": 13,
+    "Unit price": 11,
+    "Net amount (total)": 12,
+    "Shipping line": 9,
+    "WUKERAN": 1
+  },
+  "last_trained": null,
+  "total_samples": 114,
+  "last_training_time": "2025-09-03T13:47:08.786139",
+  "layout_patterns": [
+    "pattern_C",
+    "unknown",
+    "pattern_A",
+    "pattern_B"
+  ],
+  "document_types": [
+    "purchase_order"
+  ]
+}

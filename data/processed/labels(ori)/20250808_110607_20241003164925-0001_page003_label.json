@@ -1,0 +1,248 @@
+{
+  "filename": "20250808_110607_20241003164925-0001.pdf",
+  "filepath": "20250808_110607_20241003164925-0001.pdf",
+  "pageNumber": 3,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "-",
+      "y_position": 66,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512278606",
+          "bbox": [
+            2160,
+            66,
+            210,
+            52
+          ],
+          "ocr_original": "4512278606",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        },
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            2070,
+            1032,
+            290,
+            150
+          ],
+          "ocr_original": "C5800002",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
+        },
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU K5-1 AOKI 731-48229",
+          "bbox": [
+            1682,
+            1316,
+            728,
+            146
+          ],
+          "ocr_original": "YMG KOFU K5-1 AOKI 731-48229",
+          "ocr_confidence": 0.92,
+          "was_corrected": false
+        },
+        {
+          "label": "Net amount (total)",
+          "text": "Total 0.36",
+          "bbox": [
+            1292,
+            2108,
+            1086,
+            56
+          ],
+          "ocr_original": "Total 0.36",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        }
+      ]
+    },
+    {
+      "group_id": "ITEM_00010",
+      "y_position": 1688,
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            100,
+            1688,
+            110,
+            42
+          ],
+          "ocr_original": "00010",
+          "ocr_confidence": 0.94,
+          "was_corrected": false
+        },
+        {
+          "label": "Part number",
+          "text": "A76385-11",
+          "bbox": [
+            454,
+            1724,
+            218,
+            52
+          ],
+          "ocr_original": "SHISAKU-1_A76385-11",
+          "ocr_confidence": 0.93,
+          "was_corrected": true
+        },
+        {
+          "label": "Delivery date",
+          "text": "10-30-2024",
+          "bbox": [
+            576,
+            1794,
+            206,
+            52
+          ],
+          "ocr_original": "10-30-2024",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        },
+        {
+          "label": "Quantity",
+          "text": "18.000 ST",
+          "bbox": [
+            1016,
+            1790,
+            202,
+            60
+          ],
+          "ocr_original": "18.000 ST",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
+        },
+        {
+          "label": "Unit price",
+          "text": "0.0200",
+          "bbox": [
+            1666,
+            1784,
+            156,
+            70
+          ],
+          "ocr_original": "0.0200",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        }
+      ]
+    }
+  ],
+  "total_groups": 2,
+  "bboxes": [
+    {
+      "x": 2160,
+      "y": 66,
+      "width": 210,
+      "height": 52,
+      "label": "Order number",
+      "text": "4512278606",
+      "group_id": "-",
+      "ocr_original": "4512278606",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 2070,
+      "y": 1032,
+      "width": 290,
+      "height": 150,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "-",
+      "ocr_original": "C5800002",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
+    },
+    {
+      "x": 1682,
+      "y": 1316,
+      "width": 728,
+      "height": 146,
+      "label": "Case mark",
+      "text": "YMG KOFU K5-1 AOKI 731-48229",
+      "group_id": "-",
+      "ocr_original": "YMG KOFU K5-1 AOKI 731-48229",
+      "ocr_confidence": 0.92,
+      "was_corrected": false
+    },
+    {
+      "x": 100,
+      "y": 1688,
+      "width": 110,
+      "height": 42,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "ITEM_00010",
+      "ocr_original": "00010",
+      "ocr_confidence": 0.94,
+      "was_corrected": false
+    },
+    {
+      "x": 454,
+      "y": 1724,
+      "width": 218,
+      "height": 52,
+      "label": "Part number",
+      "text": "A76385-11",
+      "group_id": "ITEM_00010",
+      "ocr_original": "SHISAKU-1_A76385-11",
+      "ocr_confidence": 0.93,
+      "was_corrected": true
+    },
+    {
+      "x": 576,
+      "y": 1794,
+      "width": 206,
+      "height": 52,
+      "label": "Delivery date",
+      "text": "10-30-2024",
+      "group_id": "ITEM_00010",
+      "ocr_original": "10-30-2024",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1016,
+      "y": 1790,
+      "width": 202,
+      "height": 60,
+      "label": "Quantity",
+      "text": "18.000 ST",
+      "group_id": "ITEM_00010",
+      "ocr_original": "18.000 ST",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
+    },
+    {
+      "x": 1666,
+      "y": 1784,
+      "width": 156,
+      "height": 70,
+      "label": "Unit price",
+      "text": "0.0200",
+      "group_id": "ITEM_00010",
+      "ocr_original": "0.0200",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1292,
+      "y": 2108,
+      "width": 1086,
+      "height": 56,
+      "label": "Net amount (total)",
+      "text": "Total 0.36",
+      "group_id": "-",
+      "ocr_original": "Total 0.36",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    }
+  ]
+}

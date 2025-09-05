@@ -1,0 +1,40 @@
+{
+  "summary": {
+    "total_files_processed": 21,
+    "total_corrections_found": 108,
+    "total_samples_trained": 108,
+    "successfully_processed": 0,
+    "failed": 108
+  },
+  "corrections_by_label": {
+    "Case mark": 16,
+    "Item number": 3,
+    "Part number": 16,
+    "Shipping line": 6,
+    "Order number": 2,
+    "Net amount (total)": 7,
+    "Delivery date": 2,
+    "WUKERAN": 2
+  },
+  "common_ocr_errors": {
+    "missing_chars": 18,
+    "char_substitution_7_to_1": 3,
+    "char_substitution_(_to_C": 10,
+    "extra_chars": 11,
+    "char_substitution_0_to_C": 1,
+    "char_substitution_O_to_9": 3,
+    "char_substitution_,_to_.": 1,
+    "char_substitution_4_to_1": 2,
+    "char_substitution_§_to_5": 1,
+    "char_substitution_U_to_M": 1,
+    "char_substitution_S_to_9": 1,
+    "char_substitution_G_to_M": 1,
+    "char_substitution_H_to_M": 1
+  },
+  "improvements": {},
+  "training_time": {
+    "start": "2025-09-03T14:58:33.955003",
+    "end": "2025-09-03T14:58:35.778795"
+  },
+  "current_accuracy": {}
+}

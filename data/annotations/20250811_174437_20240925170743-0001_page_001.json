@@ -1,18 +1,22 @@
 {
-  "file_name": "20250811_174437_20240925170743-0001_page_001.png",
+  "file_name": "20250808_110606_20240925170743-0001_page_001.png",
   "class": "purchase_order",
+  "page_info": {
+    "width": 2481,
+    "height": 3510
+  },
   "items": [
     {
       "group_id": "item_00001",
       "labels": [
         {
           "label": "Order number",
-          "text": "4512221369",
+          "text": "4512256761",
           "bbox": [
-            2163,
-            85,
-            220,
-            42
+            2170,
+            62,
+            215,
+            40
           ]
         }
       ]
@@ -22,22 +26,12 @@
       "labels": [
         {
           "label": "Case mark",
-          "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
+          "text": "YMG KOFU-SHI K5",
           "bbox": [
-            693,
-            1308,
-            731,
-            58
-          ]
-        },
-        {
-          "label": "Shipping line",
-          "text": "D4700001",
-          "bbox": [
-            158,
-            1311,
-            169,
-            50
+            564,
+            369,
+            278,
+            25
           ]
         }
       ]
@@ -47,22 +41,32 @@
       "labels": [
         {
           "label": "Item number",
-          "text": "00050",
+          "text": "00010",
           "bbox": [
-            139,
-            1700,
-            108,
-            42
+            49,
+            656,
+            71,
+            25
           ]
         },
         {
           "label": "Part number",
-          "text": "A6128HD-01",
+          "text": "B9318FN",
           "bbox": [
-            447,
-            1700,
-            256,
-            42
+            108,
+            656,
+            140,
+            25
+          ]
+        },
+        {
+          "label": "Material code",
+          "text": "SPRING",
+          "bbox": [
+            108,
+            670,
+            107,
+            25
           ]
         }
       ]
@@ -72,32 +76,52 @@
       "labels": [
         {
           "label": "Delivery date",
-          "text": "12-01-2024",
+          "text": "10-23-2024",
           "bbox": [
-            823,
-            1800,
-            217,
-            42
+            228,
+            695,
+            150,
+            25
           ]
         },
         {
           "label": "Quantity",
-          "text": "8.000 ST",
+          "text": "1.000",
           "bbox": [
-            1244,
-            1800,
-            170,
-            42
+            402,
+            695,
+            60,
+            25
+          ]
+        },
+        {
+          "label": "Unit",
+          "text": "ST",
+          "bbox": [
+            467,
+            695,
+            25,
+            25
           ]
         },
         {
           "label": "Unit price",
-          "text": "3.9700",
+          "text": "0.4000",
           "bbox": [
-            1723,
-            1800,
-            115,
-            42
+            640,
+            695,
+            80,
+            25
+          ]
+        },
+        {
+          "label": "Net value",
+          "text": "0.40",
+          "bbox": [
+            837,
+            695,
+            45,
+            25
           ]
         }
       ]
@@ -106,13 +130,143 @@
       "group_id": "item_00005",
       "labels": [
         {
-          "label": "Net amount (total)",
-          "text": "31.76",
+          "label": "Sub total",
+          "text": "0.40",
           "bbox": [
-            2171,
-            2110,
-            83,
-            58
+            839,
+            780,
+            43,
+            25
+          ]
+        },
+        {
+          "label": "Total",
+          "text": "0.40",
+          "bbox": [
+            839,
+            809,
+            43,
+            25
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00006",
+      "labels": [
+        {
+          "label": "Vendor name",
+          "text": "Yokogawa Electronics Manufacturing Korea Co., Ltd.",
+          "bbox": [
+            53,
+            187,
+            348,
+            25
+          ]
+        },
+        {
+          "label": "Vendor address",
+          "text": "(Cheongcheon-dong) 82, Bupyeong-daero 297beon-gil, Bupyeong-gu",
+          "bbox": [
+            53,
+            201,
+            356,
+            30
+          ]
+        },
+        {
+          "label": "Vendor city",
+          "text": "21315",
+          "bbox": [
+            53,
+            229,
+            59,
+            25
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00007",
+      "labels": [
+        {
+          "label": "Ship to",
+          "text": "Yokogawa Manufacturing Corporation 修繕校正センター(K70-4)",
+          "bbox": [
+            53,
+            368,
+            405,
+            25
+          ]
+        },
+        {
+          "label": "Ship to address",
+          "text": "155 Takamurocho 1W Kofu-shi, Yamanashi 400-8558 Japan",
+          "bbox": [
+            53,
+            382,
+            168,
+            42
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00008",
+      "labels": [
+        {
+          "label": "Payment terms",
+          "text": "31Out-off, 15pay after 2M(E)",
+          "bbox": [
+            563,
+            301,
+            221,
+            25
+          ]
+        },
+        {
+          "label": "Incoterms",
+          "text": "FOB KOREA",
+          "bbox": [
+            563,
+            329,
+            123,
+            30
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00009",
+      "labels": [
+        {
+          "label": "Document number",
+          "text": "4512256761",
+          "bbox": [
+            789,
+            53,
+            110,
+            25
+          ]
+        },
+        {
+          "label": "Date",
+          "text": "09-25-2024",
+          "bbox": [
+            789,
+            82,
+            110,
+            25
+          ]
+        },
+        {
+          "label": "Page number",
+          "text": "1 / 1",
+          "bbox": [
+            851,
+            97,
+            48,
+            25
           ]
         }
       ]

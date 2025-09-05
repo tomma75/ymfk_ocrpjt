@@ -1,0 +1,198 @@
+{
+  "filename": "20250808_110606_20241001164201-0001.pdf",
+  "filepath": "20250808_110606_20241001164201-0001.pdf",
+  "pageNumber": 4,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "-",
+      "y_position": 100,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512271545",
+          "bbox": [
+            2158,
+            100,
+            210,
+            42
+          ],
+          "ocr_original": "4512271545",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        },
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            123,
+            1508,
+            174,
+            44
+          ],
+          "ocr_original": "Cocvuulse",
+          "ocr_confidence": 0,
+          "was_corrected": true
+        },
+        {
+          "label": "Case mark",
+          "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
+          "bbox": [
+            293,
+            1504,
+            587,
+            43
+          ],
+          "ocr_original": "IORIKAWA EAI Sf O1-461 # FLOCKS 0-4",
+          "ocr_confidence": 0.25,
+          "was_corrected": true
+        }
+      ]
+    },
+    {
+      "group_id": "ITEM_00010",
+      "y_position": 1876,
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            91,
+            1876,
+            110,
+            52
+          ],
+          "ocr_original": "",
+          "ocr_confidence": 0,
+          "was_corrected": false
+        },
+        {
+          "label": "Part number",
+          "text": "B8212PH\n\nmieeums atusms",
+          "bbox": [
+            244,
+            1880,
+            200,
+            45
+          ],
+          "ocr_original": "B8212PH\n\nmieeums atusms",
+          "ocr_confidence": 0.61,
+          "was_corrected": false
+        },
+        {
+          "label": "Delivery date",
+          "text": "11-08-2024",
+          "bbox": [
+            1264,
+            1959,
+            240,
+            52
+          ],
+          "ocr_original": "11-08-2024",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        },
+        {
+          "label": "Quantity",
+          "text": "1.000 ST",
+          "bbox": [
+            1717,
+            1957,
+            214,
+            50
+          ],
+          "ocr_original": "1.000 ST",
+          "ocr_confidence": 0.81,
+          "was_corrected": false
+        }
+      ]
+    }
+  ],
+  "total_groups": 2,
+  "bboxes": [
+    {
+      "x": 2158,
+      "y": 100,
+      "width": 210,
+      "height": 42,
+      "label": "Order number",
+      "text": "4512271545",
+      "group_id": "-",
+      "ocr_original": "4512271545",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 123,
+      "y": 1508,
+      "width": 174,
+      "height": 44,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "-",
+      "ocr_original": "Cocvuulse",
+      "ocr_confidence": 0,
+      "was_corrected": true
+    },
+    {
+      "x": 293,
+      "y": 1504,
+      "width": 587,
+      "height": 43,
+      "label": "Case mark",
+      "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
+      "group_id": "-",
+      "ocr_original": "IORIKAWA EAI Sf O1-461 # FLOCKS 0-4",
+      "ocr_confidence": 0.25,
+      "was_corrected": true
+    },
+    {
+      "x": 91,
+      "y": 1876,
+      "width": 110,
+      "height": 52,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "ITEM_00010",
+      "ocr_original": "",
+      "ocr_confidence": 0,
+      "was_corrected": false
+    },
+    {
+      "x": 244,
+      "y": 1880,
+      "width": 200,
+      "height": 45,
+      "label": "Part number",
+      "text": "B8212PH\n\nmieeums atusms",
+      "group_id": "ITEM_00010",
+      "ocr_original": "B8212PH\n\nmieeums atusms",
+      "ocr_confidence": 0.61,
+      "was_corrected": false
+    },
+    {
+      "x": 1264,
+      "y": 1959,
+      "width": 240,
+      "height": 52,
+      "label": "Delivery date",
+      "text": "11-08-2024",
+      "group_id": "ITEM_00010",
+      "ocr_original": "11-08-2024",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1717,
+      "y": 1957,
+      "width": 214,
+      "height": 50,
+      "label": "Quantity",
+      "text": "1.000 ST",
+      "group_id": "ITEM_00010",
+      "ocr_original": "1.000 ST",
+      "ocr_confidence": 0.81,
+      "was_corrected": false
+    }
+  ]
+}

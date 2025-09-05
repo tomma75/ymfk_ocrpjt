@@ -1,0 +1,803 @@
+WARNING:root:Missing environment variables set to default values: ['YOKOGAWA_OCR_DATA_PATH', 'YOKOGAWA_OCR_LOG_PATH', 'YOKOGAWA_OCR_TEMP_PATH']
+[OK] YOKOGAWA OCR Config Package v1.0.0 initialized successfully
+   - Environment: development
+   - Configuration Classes: 4
+   - Constants Loaded: 5
+   - Global Config Manager: [OK] Ready
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - Logger 'yokogawa_ocr_main' initialized with config
+INFO:yokogawa_ocr_main:Logger 'yokogawa_ocr_main' initialized with config
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - ============================================================
+INFO:yokogawa_ocr_main:============================================================
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - YOKOGAWA OCR 데이터 준비 시스템 시작
+INFO:yokogawa_ocr_main:YOKOGAWA OCR 데이터 준비 시스템 시작
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - ============================================================
+INFO:yokogawa_ocr_main:============================================================
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - 애플리케이션 버전: 1.0.0
+INFO:yokogawa_ocr_main:애플리케이션 버전: 1.0.0
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - 실행 환경: development
+INFO:yokogawa_ocr_main:실행 환경: development
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - 로깅 시스템 초기화 완료
+INFO:yokogawa_ocr_main:로깅 시스템 초기화 완료
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - 애플리케이션 초기화 시작
+INFO:yokogawa_ocr_main:애플리케이션 초기화 시작
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - 설정 파일 로드 중...
+INFO:yokogawa_ocr_main:설정 파일 로드 중...
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - 설정 로드 완료: YOKOGAWA OCR Data Preparation
+INFO:yokogawa_ocr_main:설정 로드 완료: YOKOGAWA OCR Data Preparation
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - 디렉토리 구조 생성 중...
+INFO:yokogawa_ocr_main:디렉토리 구조 생성 중...
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - 서비스 초기화 중...
+INFO:yokogawa_ocr_main:서비스 초기화 중...
+2025-08-16 03:14:31 - data_collection_service - INFO - Logger 'data_collection_service' initialized with config
+INFO:data_collection_service:Logger 'data_collection_service' initialized with config
+2025-08-16 03:14:31 - data_collection_service - INFO - Service DataCollectionService created with ID: DataCollectionService_148bfa9d
+INFO:data_collection_service:Service DataCollectionService created with ID: DataCollectionService_148bfa9d
+2025-08-16 03:14:31 - file_handler - INFO - Logger 'file_handler' initialized with config
+{"message": "Logger 'file_handler' initialized with config", "timestamp": "2025-08-16T03:14:31.046416", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "file_handler", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - file_handler - INFO - FileHandler initialized successfully
+{"message": "FileHandler initialized successfully", "timestamp": "2025-08-16T03:14:31.046736", "level": "INFO", "level_no": 20, "module": "file_handler", "name": "file_handler", "function": "__init__", "line": 83, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/file_handler.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - file_collector - INFO - Logger 'file_collector' initialized with config
+{"message": "Logger 'file_collector' initialized with config", "timestamp": "2025-08-16T03:14:31.046995", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "file_collector", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - metadata_extractor - INFO - Logger 'metadata_extractor' initialized with config
+{"message": "Logger 'metadata_extractor' initialized with config", "timestamp": "2025-08-16T03:14:31.047210", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "metadata_extractor", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - duplicate_detector - INFO - Logger 'duplicate_detector' initialized with config
+{"message": "Logger 'duplicate_detector' initialized with config", "timestamp": "2025-08-16T03:14:31.047467", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "duplicate_detector", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - data_collection_service - INFO - Starting service DataCollectionService_148bfa9d
+{"message": "Starting service DataCollectionService_148bfa9d", "timestamp": "2025-08-16T03:14:31.047654", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "data_collection_service", "function": "start", "line": 199, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - data_collection_service - INFO - Initializing DataCollectionService
+{"message": "Initializing DataCollectionService", "timestamp": "2025-08-16T03:14:31.047850", "level": "INFO", "level_no": 20, "module": "data_collection_service", "name": "data_collection_service", "function": "initialize", "line": 332, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/data_collection_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - data_collection_service - INFO - DataCollectionService initialized successfully
+{"message": "DataCollectionService initialized successfully", "timestamp": "2025-08-16T03:14:31.048075", "level": "INFO", "level_no": 20, "module": "data_collection_service", "name": "data_collection_service", "function": "initialize", "line": 348, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/data_collection_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - data_collection_service - INFO - Service DataCollectionService_148bfa9d started successfully
+{"message": "Service DataCollectionService_148bfa9d started successfully", "timestamp": "2025-08-16T03:14:31.048249", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "data_collection_service", "function": "start", "line": 215, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - [OK] 데이터 수집 서비스 초기화 완료
+{"message": "[OK] 데이터 수집 서비스 초기화 완료", "timestamp": "2025-08-16T03:14:31.048398", "level": "INFO", "level_no": 20, "module": "main", "name": "yokogawa_ocr_main", "function": "initialize_application", "line": 125, "pathname": "/home/alsdl757/ymfk_ocrpjt/main.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_service - INFO - Logger 'labeling_service' initialized with config
+{"message": "Logger 'labeling_service' initialized with config", "timestamp": "2025-08-16T03:14:31.048626", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "labeling_service", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_service - INFO - Service LabelingService created with ID: LabelingService_5d4ee2a5
+{"message": "Service LabelingService created with ID: LabelingService_5d4ee2a5", "timestamp": "2025-08-16T03:14:31.048831", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "labeling_service", "function": "__init__", "line": 119, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - file_handler - INFO - FileHandler initialized successfully
+{"message": "FileHandler initialized successfully", "timestamp": "2025-08-16T03:14:31.048985", "level": "INFO", "level_no": 20, "module": "file_handler", "name": "file_handler", "function": "__init__", "line": 83, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/file_handler.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - annotation_manager - INFO - Logger 'annotation_manager' initialized with config
+{"message": "Logger 'annotation_manager' initialized with config", "timestamp": "2025-08-16T03:14:31.049201", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "annotation_manager", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - annotation_manager - INFO - AnnotationManager initialized
+{"message": "AnnotationManager initialized", "timestamp": "2025-08-16T03:14:31.049380", "level": "INFO", "level_no": 20, "module": "labeling_service", "name": "annotation_manager", "function": "__init__", "line": 85, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/labeling_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - quality_controller - INFO - Logger 'quality_controller' initialized with config
+{"message": "Logger 'quality_controller' initialized with config", "timestamp": "2025-08-16T03:14:31.049588", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "quality_controller", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - quality_controller - INFO - QualityController initialized
+{"message": "QualityController initialized", "timestamp": "2025-08-16T03:14:31.049726", "level": "INFO", "level_no": 20, "module": "labeling_service", "name": "quality_controller", "function": "__init__", "line": 327, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/labeling_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_session_manager - INFO - Logger 'labeling_session_manager' initialized with config
+{"message": "Logger 'labeling_session_manager' initialized with config", "timestamp": "2025-08-16T03:14:31.049942", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "labeling_session_manager", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_session_manager - INFO - LabelingSessionManager initialized
+{"message": "LabelingSessionManager initialized", "timestamp": "2025-08-16T03:14:31.050315", "level": "INFO", "level_no": 20, "module": "labeling_service", "name": "labeling_session_manager", "function": "__init__", "line": 581, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/labeling_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_service - INFO - Starting service LabelingService_5d4ee2a5
+{"message": "Starting service LabelingService_5d4ee2a5", "timestamp": "2025-08-16T03:14:31.050516", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "labeling_service", "function": "start", "line": 199, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_service - INFO - Initializing LabelingService
+{"message": "Initializing LabelingService", "timestamp": "2025-08-16T03:14:31.050664", "level": "INFO", "level_no": 20, "module": "labeling_service", "name": "labeling_service", "function": "initialize", "line": 811, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/labeling_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_service - INFO - Loaded 2 annotation templates
+{"message": "Loaded 2 annotation templates", "timestamp": "2025-08-16T03:14:31.051044", "level": "INFO", "level_no": 20, "module": "labeling_service", "name": "labeling_service", "function": "_load_annotation_templates", "line": 1204, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/labeling_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_service - INFO - Validation schemas loaded successfully
+{"message": "Validation schemas loaded successfully", "timestamp": "2025-08-16T03:14:31.051232", "level": "INFO", "level_no": 20, "module": "labeling_service", "name": "labeling_service", "function": "_load_validation_schemas", "line": 1227, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/labeling_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_service - INFO - LabelingService initialized successfully
+{"message": "LabelingService initialized successfully", "timestamp": "2025-08-16T03:14:31.051412", "level": "INFO", "level_no": 20, "module": "labeling_service", "name": "labeling_service", "function": "initialize", "line": 830, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/labeling_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_service - INFO - Service LabelingService_5d4ee2a5 started successfully
+{"message": "Service LabelingService_5d4ee2a5 started successfully", "timestamp": "2025-08-16T03:14:31.051542", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "labeling_service", "function": "start", "line": 215, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - [OK] 라벨링 서비스 초기화 완료
+{"message": "[OK] 라벨링 서비스 초기화 완료", "timestamp": "2025-08-16T03:14:31.051682", "level": "INFO", "level_no": 20, "module": "main", "name": "yokogawa_ocr_main", "function": "initialize_application", "line": 132, "pathname": "/home/alsdl757/ymfk_ocrpjt/main.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - augmentation_service - INFO - Logger 'augmentation_service' initialized with config
+{"message": "Logger 'augmentation_service' initialized with config", "timestamp": "2025-08-16T03:14:31.051906", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "augmentation_service", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - augmentation_service - INFO - Service AugmentationService created with ID: AugmentationService_d6369035
+{"message": "Service AugmentationService created with ID: AugmentationService_d6369035", "timestamp": "2025-08-16T03:14:31.052090", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "augmentation_service", "function": "__init__", "line": 119, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - file_handler - INFO - FileHandler initialized successfully
+{"message": "FileHandler initialized successfully", "timestamp": "2025-08-16T03:14:31.052201", "level": "INFO", "level_no": 20, "module": "file_handler", "name": "file_handler", "function": "__init__", "line": 83, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/file_handler.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - image_augmenter - INFO - Logger 'image_augmenter' initialized with config
+{"message": "Logger 'image_augmenter' initialized with config", "timestamp": "2025-08-16T03:14:31.052534", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "image_augmenter", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - image_augmenter - INFO - ImageAugmenter initialized
+{"message": "ImageAugmenter initialized", "timestamp": "2025-08-16T03:14:31.052714", "level": "INFO", "level_no": 20, "module": "augmentation_service", "name": "image_augmenter", "function": "__init__", "line": 102, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/augmentation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - geometric_transformer - INFO - Logger 'geometric_transformer' initialized with config
+{"message": "Logger 'geometric_transformer' initialized with config", "timestamp": "2025-08-16T03:14:31.052925", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "geometric_transformer", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - geometric_transformer - INFO - GeometricTransformer initialized
+{"message": "GeometricTransformer initialized", "timestamp": "2025-08-16T03:14:31.053100", "level": "INFO", "level_no": 20, "module": "augmentation_service", "name": "geometric_transformer", "function": "__init__", "line": 376, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/augmentation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - color_adjuster - INFO - Logger 'color_adjuster' initialized with config
+{"message": "Logger 'color_adjuster' initialized with config", "timestamp": "2025-08-16T03:14:31.053324", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "color_adjuster", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - color_adjuster - INFO - ColorAdjuster initialized
+{"message": "ColorAdjuster initialized", "timestamp": "2025-08-16T03:14:31.053497", "level": "INFO", "level_no": 20, "module": "augmentation_service", "name": "color_adjuster", "function": "__init__", "line": 520, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/augmentation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - noise_generator - INFO - Logger 'noise_generator' initialized with config
+{"message": "Logger 'noise_generator' initialized with config", "timestamp": "2025-08-16T03:14:31.053691", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "noise_generator", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - noise_generator - INFO - NoiseGenerator initialized
+{"message": "NoiseGenerator initialized", "timestamp": "2025-08-16T03:14:31.053862", "level": "INFO", "level_no": 20, "module": "augmentation_service", "name": "noise_generator", "function": "__init__", "line": 660, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/augmentation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - augmentation_service - INFO - Starting service AugmentationService_d6369035
+{"message": "Starting service AugmentationService_d6369035", "timestamp": "2025-08-16T03:14:31.054012", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "augmentation_service", "function": "start", "line": 199, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - augmentation_service - INFO - Initializing AugmentationService
+{"message": "Initializing AugmentationService", "timestamp": "2025-08-16T03:14:31.054141", "level": "INFO", "level_no": 20, "module": "augmentation_service", "name": "augmentation_service", "function": "initialize", "line": 800, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/augmentation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - augmentation_service - INFO - AugmentationService initialized successfully
+{"message": "AugmentationService initialized successfully", "timestamp": "2025-08-16T03:14:31.054304", "level": "INFO", "level_no": 20, "module": "augmentation_service", "name": "augmentation_service", "function": "initialize", "line": 815, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/augmentation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - augmentation_service - INFO - Service AugmentationService_d6369035 started successfully
+{"message": "Service AugmentationService_d6369035 started successfully", "timestamp": "2025-08-16T03:14:31.054467", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "augmentation_service", "function": "start", "line": 215, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - [OK] 데이터 증강 서비스 초기화 완료
+{"message": "[OK] 데이터 증강 서비스 초기화 완료", "timestamp": "2025-08-16T03:14:31.054609", "level": "INFO", "level_no": 20, "module": "main", "name": "yokogawa_ocr_main", "function": "initialize_application", "line": 139, "pathname": "/home/alsdl757/ymfk_ocrpjt/main.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - validation_service - INFO - Logger 'validation_service' initialized with config
+{"message": "Logger 'validation_service' initialized with config", "timestamp": "2025-08-16T03:14:31.054834", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "validation_service", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - validation_service - INFO - Service ValidationService created with ID: ValidationService_7132a118
+{"message": "Service ValidationService created with ID: ValidationService_7132a118", "timestamp": "2025-08-16T03:14:31.055020", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "validation_service", "function": "__init__", "line": 119, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - file_handler - INFO - FileHandler initialized successfully
+{"message": "FileHandler initialized successfully", "timestamp": "2025-08-16T03:14:31.055181", "level": "INFO", "level_no": 20, "module": "file_handler", "name": "file_handler", "function": "__init__", "line": 83, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/file_handler.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - data_quality_validator - INFO - Logger 'data_quality_validator' initialized with config
+{"message": "Logger 'data_quality_validator' initialized with config", "timestamp": "2025-08-16T03:14:31.055395", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "data_quality_validator", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - data_quality_validator - INFO - DataQualityValidator initialized
+{"message": "DataQualityValidator initialized", "timestamp": "2025-08-16T03:14:31.055583", "level": "INFO", "level_no": 20, "module": "validation_service", "name": "data_quality_validator", "function": "__init__", "line": 106, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/validation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - consistency_checker - INFO - Logger 'consistency_checker' initialized with config
+{"message": "Logger 'consistency_checker' initialized with config", "timestamp": "2025-08-16T03:14:31.055865", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "consistency_checker", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - consistency_checker - INFO - ConsistencyChecker initialized
+{"message": "ConsistencyChecker initialized", "timestamp": "2025-08-16T03:14:31.056048", "level": "INFO", "level_no": 20, "module": "validation_service", "name": "consistency_checker", "function": "__init__", "line": 477, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/validation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - statistics_generator - INFO - Logger 'statistics_generator' initialized with config
+{"message": "Logger 'statistics_generator' initialized with config", "timestamp": "2025-08-16T03:14:31.056270", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "statistics_generator", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - statistics_generator - INFO - StatisticsGenerator initialized
+{"message": "StatisticsGenerator initialized", "timestamp": "2025-08-16T03:14:31.056455", "level": "INFO", "level_no": 20, "module": "validation_service", "name": "statistics_generator", "function": "__init__", "line": 655, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/validation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - validation_service - INFO - Starting service ValidationService_7132a118
+{"message": "Starting service ValidationService_7132a118", "timestamp": "2025-08-16T03:14:31.056603", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "validation_service", "function": "start", "line": 199, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - validation_service - INFO - Initializing ValidationService
+{"message": "Initializing ValidationService", "timestamp": "2025-08-16T03:14:31.056758", "level": "INFO", "level_no": 20, "module": "validation_service", "name": "validation_service", "function": "initialize", "line": 977, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/validation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - validation_service - INFO - ValidationService initialized successfully
+{"message": "ValidationService initialized successfully", "timestamp": "2025-08-16T03:14:31.056920", "level": "INFO", "level_no": 20, "module": "validation_service", "name": "validation_service", "function": "initialize", "line": 991, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/validation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - validation_service - INFO - Service ValidationService_7132a118 started successfully
+{"message": "Service ValidationService_7132a118 started successfully", "timestamp": "2025-08-16T03:14:31.057063", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "validation_service", "function": "start", "line": 215, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - [OK] 검증 서비스 초기화 완료
+{"message": "[OK] 검증 서비스 초기화 완료", "timestamp": "2025-08-16T03:14:31.057203", "level": "INFO", "level_no": 20, "module": "main", "name": "yokogawa_ocr_main", "function": "initialize_application", "line": 146, "pathname": "/home/alsdl757/ymfk_ocrpjt/main.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - [OK] 모든 서비스 초기화 완료
+{"message": "[OK] 모든 서비스 초기화 완료", "timestamp": "2025-08-16T03:14:31.057356", "level": "INFO", "level_no": 20, "module": "main", "name": "yokogawa_ocr_main", "function": "initialize_application", "line": 160, "pathname": "/home/alsdl757/ymfk_ocrpjt/main.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - 실행 모드: web
+{"message": "실행 모드: web", "timestamp": "2025-08-16T03:14:31.057520", "level": "INFO", "level_no": 20, "module": "main", "name": "yokogawa_ocr_main", "function": "main", "line": 466, "pathname": "/home/alsdl757/ymfk_ocrpjt/main.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - 로그 레벨: INFO
+{"message": "로그 레벨: INFO", "timestamp": "2025-08-16T03:14:31.057666", "level": "INFO", "level_no": 20, "module": "main", "name": "yokogawa_ocr_main", "function": "main", "line": 467, "pathname": "/home/alsdl757/ymfk_ocrpjt/main.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - [WEB] 웹 인터페이스 모드
+{"message": "[WEB] 웹 인터페이스 모드", "timestamp": "2025-08-16T03:14:31.057819", "level": "INFO", "level_no": 20, "module": "main", "name": "yokogawa_ocr_main", "function": "main", "line": 508, "pathname": "/home/alsdl757/ymfk_ocrpjt/main.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - 웹 인터페이스를 시작합니다...
+{"message": "웹 인터페이스를 시작합니다...", "timestamp": "2025-08-16T03:14:31.057962", "level": "INFO", "level_no": 20, "module": "main", "name": "yokogawa_ocr_main", "function": "main", "line": 509, "pathname": "/home/alsdl757/ymfk_ocrpjt/main.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - 웹 인터페이스가 시작되었습니다.
+{"message": "웹 인터페이스가 시작되었습니다.", "timestamp": "2025-08-16T03:14:31.058387", "level": "INFO", "level_no": 20, "module": "main", "name": "yokogawa_ocr_main", "function": "main", "line": 518, "pathname": "/home/alsdl757/ymfk_ocrpjt/main.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - 브라우저에서 http://localhost:5000 으로 접속하세요.
+{"message": "브라우저에서 http://localhost:5000 으로 접속하세요.", "timestamp": "2025-08-16T03:14:31.058577", "level": "INFO", "level_no": 20, "module": "main", "name": "yokogawa_ocr_main", "function": "main", "line": 519, "pathname": "/home/alsdl757/ymfk_ocrpjt/main.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - yokogawa_ocr_main - INFO - 종료하려면 Ctrl+C를 누르세요.
+{"message": "종료하려면 Ctrl+C를 누르세요.", "timestamp": "2025-08-16T03:14:31.058720", "level": "INFO", "level_no": 20, "module": "main", "name": "yokogawa_ocr_main", "function": "main", "line": 520, "pathname": "/home/alsdl757/ymfk_ocrpjt/main.py", "asctime": "2025-08-16 03:14:31"}
+[OK] YOKOGAWA OCR Config Package v1.0.0 initialized successfully
+   - Environment: development
+   - Configuration Classes: 4
+   - Constants Loaded: 5
+   - Global Config Manager: [OK] Ready
+2025-08-16 03:14:31 - data_collection_web - INFO - Logger 'data_collection_web' initialized with config
+INFO:data_collection_web:Logger 'data_collection_web' initialized with config
+2025-08-16 03:14:31 - data_collection_web - INFO - Service DataCollectionService created with ID: DataCollectionService_0c94957f
+INFO:data_collection_web:Service DataCollectionService created with ID: DataCollectionService_0c94957f
+2025-08-16 03:14:31 - file_handler - INFO - Logger 'file_handler' initialized with config
+{"message": "Logger 'file_handler' initialized with config", "timestamp": "2025-08-16T03:14:31.745398", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "file_handler", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - file_handler - INFO - FileHandler initialized successfully
+{"message": "FileHandler initialized successfully", "timestamp": "2025-08-16T03:14:31.745732", "level": "INFO", "level_no": 20, "module": "file_handler", "name": "file_handler", "function": "__init__", "line": 83, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/file_handler.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - file_collector - INFO - Logger 'file_collector' initialized with config
+{"message": "Logger 'file_collector' initialized with config", "timestamp": "2025-08-16T03:14:31.746169", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "file_collector", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - metadata_extractor - INFO - Logger 'metadata_extractor' initialized with config
+{"message": "Logger 'metadata_extractor' initialized with config", "timestamp": "2025-08-16T03:14:31.746429", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "metadata_extractor", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - duplicate_detector - INFO - Logger 'duplicate_detector' initialized with config
+{"message": "Logger 'duplicate_detector' initialized with config", "timestamp": "2025-08-16T03:14:31.746658", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "duplicate_detector", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_web - INFO - Logger 'labeling_web' initialized with config
+{"message": "Logger 'labeling_web' initialized with config", "timestamp": "2025-08-16T03:14:31.746895", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "labeling_web", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_web - INFO - Service LabelingService created with ID: LabelingService_6c1176b9
+{"message": "Service LabelingService created with ID: LabelingService_6c1176b9", "timestamp": "2025-08-16T03:14:31.747090", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "labeling_web", "function": "__init__", "line": 119, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - file_handler - INFO - FileHandler initialized successfully
+{"message": "FileHandler initialized successfully", "timestamp": "2025-08-16T03:14:31.747282", "level": "INFO", "level_no": 20, "module": "file_handler", "name": "file_handler", "function": "__init__", "line": 83, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/file_handler.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - annotation_manager - INFO - Logger 'annotation_manager' initialized with config
+{"message": "Logger 'annotation_manager' initialized with config", "timestamp": "2025-08-16T03:14:31.747503", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "annotation_manager", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - annotation_manager - INFO - AnnotationManager initialized
+{"message": "AnnotationManager initialized", "timestamp": "2025-08-16T03:14:31.747672", "level": "INFO", "level_no": 20, "module": "labeling_service", "name": "annotation_manager", "function": "__init__", "line": 85, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/labeling_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - quality_controller - INFO - Logger 'quality_controller' initialized with config
+{"message": "Logger 'quality_controller' initialized with config", "timestamp": "2025-08-16T03:14:31.747893", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "quality_controller", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - quality_controller - INFO - QualityController initialized
+{"message": "QualityController initialized", "timestamp": "2025-08-16T03:14:31.748078", "level": "INFO", "level_no": 20, "module": "labeling_service", "name": "quality_controller", "function": "__init__", "line": 327, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/labeling_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_session_manager - INFO - Logger 'labeling_session_manager' initialized with config
+{"message": "Logger 'labeling_session_manager' initialized with config", "timestamp": "2025-08-16T03:14:31.748361", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "labeling_session_manager", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_session_manager - INFO - LabelingSessionManager initialized
+{"message": "LabelingSessionManager initialized", "timestamp": "2025-08-16T03:14:31.748749", "level": "INFO", "level_no": 20, "module": "labeling_service", "name": "labeling_session_manager", "function": "__init__", "line": 581, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/labeling_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - augmentation_web - INFO - Logger 'augmentation_web' initialized with config
+{"message": "Logger 'augmentation_web' initialized with config", "timestamp": "2025-08-16T03:14:31.749071", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "augmentation_web", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - augmentation_web - INFO - Service AugmentationService created with ID: AugmentationService_6276876f
+{"message": "Service AugmentationService created with ID: AugmentationService_6276876f", "timestamp": "2025-08-16T03:14:31.749277", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "augmentation_web", "function": "__init__", "line": 119, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - file_handler - INFO - FileHandler initialized successfully
+{"message": "FileHandler initialized successfully", "timestamp": "2025-08-16T03:14:31.749493", "level": "INFO", "level_no": 20, "module": "file_handler", "name": "file_handler", "function": "__init__", "line": 83, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/file_handler.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - image_augmenter - INFO - Logger 'image_augmenter' initialized with config
+{"message": "Logger 'image_augmenter' initialized with config", "timestamp": "2025-08-16T03:14:31.749709", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "image_augmenter", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - image_augmenter - INFO - ImageAugmenter initialized
+{"message": "ImageAugmenter initialized", "timestamp": "2025-08-16T03:14:31.749884", "level": "INFO", "level_no": 20, "module": "augmentation_service", "name": "image_augmenter", "function": "__init__", "line": 102, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/augmentation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - geometric_transformer - INFO - Logger 'geometric_transformer' initialized with config
+{"message": "Logger 'geometric_transformer' initialized with config", "timestamp": "2025-08-16T03:14:31.750092", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "geometric_transformer", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - geometric_transformer - INFO - GeometricTransformer initialized
+{"message": "GeometricTransformer initialized", "timestamp": "2025-08-16T03:14:31.750252", "level": "INFO", "level_no": 20, "module": "augmentation_service", "name": "geometric_transformer", "function": "__init__", "line": 376, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/augmentation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - color_adjuster - INFO - Logger 'color_adjuster' initialized with config
+{"message": "Logger 'color_adjuster' initialized with config", "timestamp": "2025-08-16T03:14:31.750456", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "color_adjuster", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - color_adjuster - INFO - ColorAdjuster initialized
+{"message": "ColorAdjuster initialized", "timestamp": "2025-08-16T03:14:31.750625", "level": "INFO", "level_no": 20, "module": "augmentation_service", "name": "color_adjuster", "function": "__init__", "line": 520, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/augmentation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - noise_generator - INFO - Logger 'noise_generator' initialized with config
+{"message": "Logger 'noise_generator' initialized with config", "timestamp": "2025-08-16T03:14:31.750829", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "noise_generator", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - noise_generator - INFO - NoiseGenerator initialized
+{"message": "NoiseGenerator initialized", "timestamp": "2025-08-16T03:14:31.751055", "level": "INFO", "level_no": 20, "module": "augmentation_service", "name": "noise_generator", "function": "__init__", "line": 660, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/augmentation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - validation_web - INFO - Logger 'validation_web' initialized with config
+{"message": "Logger 'validation_web' initialized with config", "timestamp": "2025-08-16T03:14:31.751272", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "validation_web", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - validation_web - INFO - Service ValidationService created with ID: ValidationService_744de15f
+{"message": "Service ValidationService created with ID: ValidationService_744de15f", "timestamp": "2025-08-16T03:14:31.751546", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "validation_web", "function": "__init__", "line": 119, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - file_handler - INFO - FileHandler initialized successfully
+{"message": "FileHandler initialized successfully", "timestamp": "2025-08-16T03:14:31.751711", "level": "INFO", "level_no": 20, "module": "file_handler", "name": "file_handler", "function": "__init__", "line": 83, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/file_handler.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - data_quality_validator - INFO - Logger 'data_quality_validator' initialized with config
+{"message": "Logger 'data_quality_validator' initialized with config", "timestamp": "2025-08-16T03:14:31.751920", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "data_quality_validator", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - data_quality_validator - INFO - DataQualityValidator initialized
+{"message": "DataQualityValidator initialized", "timestamp": "2025-08-16T03:14:31.752084", "level": "INFO", "level_no": 20, "module": "validation_service", "name": "data_quality_validator", "function": "__init__", "line": 106, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/validation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - consistency_checker - INFO - Logger 'consistency_checker' initialized with config
+{"message": "Logger 'consistency_checker' initialized with config", "timestamp": "2025-08-16T03:14:31.752397", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "consistency_checker", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - consistency_checker - INFO - ConsistencyChecker initialized
+{"message": "ConsistencyChecker initialized", "timestamp": "2025-08-16T03:14:31.752566", "level": "INFO", "level_no": 20, "module": "validation_service", "name": "consistency_checker", "function": "__init__", "line": 477, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/validation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - statistics_generator - INFO - Logger 'statistics_generator' initialized with config
+{"message": "Logger 'statistics_generator' initialized with config", "timestamp": "2025-08-16T03:14:31.752773", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "statistics_generator", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - statistics_generator - INFO - StatisticsGenerator initialized
+{"message": "StatisticsGenerator initialized", "timestamp": "2025-08-16T03:14:31.752939", "level": "INFO", "level_no": 20, "module": "validation_service", "name": "statistics_generator", "function": "__init__", "line": 655, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/validation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - model_web - INFO - Logger 'model_web' initialized with config
+{"message": "Logger 'model_web' initialized with config", "timestamp": "2025-08-16T03:14:31.753147", "level": "INFO", "level_no": 20, "module": "logger_util", "name": "model_web", "function": "setup_logger", "line": 675, "pathname": "/home/alsdl757/ymfk_ocrpjt/utils/logger_util.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - model_web - INFO - Service ModelService created with ID: ModelService_677b9d2a
+{"message": "Service ModelService created with ID: ModelService_677b9d2a", "timestamp": "2025-08-16T03:14:31.753321", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "model_web", "function": "__init__", "line": 119, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - data_collection_web - INFO - Initializing DataCollectionService
+{"message": "Initializing DataCollectionService", "timestamp": "2025-08-16T03:14:31.753558", "level": "INFO", "level_no": 20, "module": "data_collection_service", "name": "data_collection_web", "function": "initialize", "line": 332, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/data_collection_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - data_collection_web - INFO - DataCollectionService initialized successfully
+{"message": "DataCollectionService initialized successfully", "timestamp": "2025-08-16T03:14:31.753732", "level": "INFO", "level_no": 20, "module": "data_collection_service", "name": "data_collection_web", "function": "initialize", "line": 348, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/data_collection_service.py", "asctime": "2025-08-16 03:14:31"}
+[OK] data_collection service initialized
+2025-08-16 03:14:31 - data_collection_web - INFO - Starting service DataCollectionService_0c94957f
+{"message": "Starting service DataCollectionService_0c94957f", "timestamp": "2025-08-16T03:14:31.753873", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "data_collection_web", "function": "start", "line": 199, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - data_collection_web - INFO - Initializing DataCollectionService
+{"message": "Initializing DataCollectionService", "timestamp": "2025-08-16T03:14:31.754010", "level": "INFO", "level_no": 20, "module": "data_collection_service", "name": "data_collection_web", "function": "initialize", "line": 332, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/data_collection_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - data_collection_web - INFO - DataCollectionService initialized successfully
+{"message": "DataCollectionService initialized successfully", "timestamp": "2025-08-16T03:14:31.754148", "level": "INFO", "level_no": 20, "module": "data_collection_service", "name": "data_collection_web", "function": "initialize", "line": 348, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/data_collection_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - data_collection_web - INFO - Service DataCollectionService_0c94957f started successfully
+{"message": "Service DataCollectionService_0c94957f started successfully", "timestamp": "2025-08-16T03:14:31.754286", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "data_collection_web", "function": "start", "line": 215, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+[OK] data_collection service started
+2025-08-16 03:14:31 - labeling_web - INFO - Initializing LabelingService
+{"message": "Initializing LabelingService", "timestamp": "2025-08-16T03:14:31.754431", "level": "INFO", "level_no": 20, "module": "labeling_service", "name": "labeling_web", "function": "initialize", "line": 811, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/labeling_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_web - INFO - Loaded 2 annotation templates
+{"message": "Loaded 2 annotation templates", "timestamp": "2025-08-16T03:14:31.754823", "level": "INFO", "level_no": 20, "module": "labeling_service", "name": "labeling_web", "function": "_load_annotation_templates", "line": 1204, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/labeling_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_web - INFO - Validation schemas loaded successfully
+{"message": "Validation schemas loaded successfully", "timestamp": "2025-08-16T03:14:31.755039", "level": "INFO", "level_no": 20, "module": "labeling_service", "name": "labeling_web", "function": "_load_validation_schemas", "line": 1227, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/labeling_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_web - INFO - LabelingService initialized successfully
+{"message": "LabelingService initialized successfully", "timestamp": "2025-08-16T03:14:31.755196", "level": "INFO", "level_no": 20, "module": "labeling_service", "name": "labeling_web", "function": "initialize", "line": 830, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/labeling_service.py", "asctime": "2025-08-16 03:14:31"}
+[OK] labeling service initialized
+2025-08-16 03:14:31 - labeling_web - INFO - Starting service LabelingService_6c1176b9
+{"message": "Starting service LabelingService_6c1176b9", "timestamp": "2025-08-16T03:14:31.755332", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "labeling_web", "function": "start", "line": 199, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_web - INFO - Initializing LabelingService
+{"message": "Initializing LabelingService", "timestamp": "2025-08-16T03:14:31.755470", "level": "INFO", "level_no": 20, "module": "labeling_service", "name": "labeling_web", "function": "initialize", "line": 811, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/labeling_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_web - INFO - Loaded 2 annotation templates
+{"message": "Loaded 2 annotation templates", "timestamp": "2025-08-16T03:14:31.755733", "level": "INFO", "level_no": 20, "module": "labeling_service", "name": "labeling_web", "function": "_load_annotation_templates", "line": 1204, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/labeling_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_web - INFO - Validation schemas loaded successfully
+{"message": "Validation schemas loaded successfully", "timestamp": "2025-08-16T03:14:31.755951", "level": "INFO", "level_no": 20, "module": "labeling_service", "name": "labeling_web", "function": "_load_validation_schemas", "line": 1227, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/labeling_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_web - INFO - LabelingService initialized successfully
+{"message": "LabelingService initialized successfully", "timestamp": "2025-08-16T03:14:31.756108", "level": "INFO", "level_no": 20, "module": "labeling_service", "name": "labeling_web", "function": "initialize", "line": 830, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/labeling_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - labeling_web - INFO - Service LabelingService_6c1176b9 started successfully
+{"message": "Service LabelingService_6c1176b9 started successfully", "timestamp": "2025-08-16T03:14:31.756256", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "labeling_web", "function": "start", "line": 215, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+[OK] labeling service started
+2025-08-16 03:14:31 - augmentation_web - INFO - Initializing AugmentationService
+{"message": "Initializing AugmentationService", "timestamp": "2025-08-16T03:14:31.756416", "level": "INFO", "level_no": 20, "module": "augmentation_service", "name": "augmentation_web", "function": "initialize", "line": 800, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/augmentation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - augmentation_web - INFO - AugmentationService initialized successfully
+{"message": "AugmentationService initialized successfully", "timestamp": "2025-08-16T03:14:31.756576", "level": "INFO", "level_no": 20, "module": "augmentation_service", "name": "augmentation_web", "function": "initialize", "line": 815, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/augmentation_service.py", "asctime": "2025-08-16 03:14:31"}
+[OK] augmentation service initialized
+2025-08-16 03:14:31 - augmentation_web - INFO - Starting service AugmentationService_6276876f
+{"message": "Starting service AugmentationService_6276876f", "timestamp": "2025-08-16T03:14:31.756731", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "augmentation_web", "function": "start", "line": 199, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - augmentation_web - INFO - Initializing AugmentationService
+{"message": "Initializing AugmentationService", "timestamp": "2025-08-16T03:14:31.756885", "level": "INFO", "level_no": 20, "module": "augmentation_service", "name": "augmentation_web", "function": "initialize", "line": 800, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/augmentation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - augmentation_web - INFO - AugmentationService initialized successfully
+{"message": "AugmentationService initialized successfully", "timestamp": "2025-08-16T03:14:31.757041", "level": "INFO", "level_no": 20, "module": "augmentation_service", "name": "augmentation_web", "function": "initialize", "line": 815, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/augmentation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - augmentation_web - INFO - Service AugmentationService_6276876f started successfully
+{"message": "Service AugmentationService_6276876f started successfully", "timestamp": "2025-08-16T03:14:31.757195", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "augmentation_web", "function": "start", "line": 215, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+[OK] augmentation service started
+2025-08-16 03:14:31 - validation_web - INFO - Initializing ValidationService
+{"message": "Initializing ValidationService", "timestamp": "2025-08-16T03:14:31.757335", "level": "INFO", "level_no": 20, "module": "validation_service", "name": "validation_web", "function": "initialize", "line": 977, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/validation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - validation_web - INFO - ValidationService initialized successfully
+{"message": "ValidationService initialized successfully", "timestamp": "2025-08-16T03:14:31.757443", "level": "INFO", "level_no": 20, "module": "validation_service", "name": "validation_web", "function": "initialize", "line": 991, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/validation_service.py", "asctime": "2025-08-16 03:14:31"}
+[OK] validation service initialized
+2025-08-16 03:14:31 - validation_web - INFO - Starting service ValidationService_744de15f
+{"message": "Starting service ValidationService_744de15f", "timestamp": "2025-08-16T03:14:31.757576", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "validation_web", "function": "start", "line": 199, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - validation_web - INFO - Initializing ValidationService
+{"message": "Initializing ValidationService", "timestamp": "2025-08-16T03:14:31.757724", "level": "INFO", "level_no": 20, "module": "validation_service", "name": "validation_web", "function": "initialize", "line": 977, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/validation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - validation_web - INFO - ValidationService initialized successfully
+{"message": "ValidationService initialized successfully", "timestamp": "2025-08-16T03:14:31.757867", "level": "INFO", "level_no": 20, "module": "validation_service", "name": "validation_web", "function": "initialize", "line": 991, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/validation_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - validation_web - INFO - Service ValidationService_744de15f started successfully
+{"message": "Service ValidationService_744de15f started successfully", "timestamp": "2025-08-16T03:14:31.758010", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "validation_web", "function": "start", "line": 215, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+[OK] validation service started
+2025-08-16 03:14:31 - model_web - INFO - Initializing ModelService
+{"message": "Initializing ModelService", "timestamp": "2025-08-16T03:14:31.758145", "level": "INFO", "level_no": 20, "module": "model_service", "name": "model_web", "function": "initialize", "line": 108, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/model_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - model_web - INFO - Label classifier loaded
+{"message": "Label classifier loaded", "timestamp": "2025-08-16T03:14:31.765167", "level": "INFO", "level_no": 20, "module": "model_service", "name": "model_web", "function": "_load_models", "line": 132, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/model_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - model_web - INFO - Text vectorizer loaded
+{"message": "Text vectorizer loaded", "timestamp": "2025-08-16T03:14:31.765476", "level": "INFO", "level_no": 20, "module": "model_service", "name": "model_web", "function": "_load_models", "line": 137, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/model_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - model_web - INFO - Position scaler loaded
+{"message": "Position scaler loaded", "timestamp": "2025-08-16T03:14:31.765723", "level": "INFO", "level_no": 20, "module": "model_service", "name": "model_web", "function": "_load_models", "line": 144, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/model_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - model_web - INFO - Layout patterns loaded
+{"message": "Layout patterns loaded", "timestamp": "2025-08-16T03:14:31.765944", "level": "INFO", "level_no": 20, "module": "model_service", "name": "model_web", "function": "_load_models", "line": 151, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/model_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - model_web - INFO - ModelService initialized successfully
+{"message": "ModelService initialized successfully", "timestamp": "2025-08-16T03:14:31.766157", "level": "INFO", "level_no": 20, "module": "model_service", "name": "model_web", "function": "initialize", "line": 119, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/model_service.py", "asctime": "2025-08-16 03:14:31"}
+[OK] model service initialized
+2025-08-16 03:14:31 - model_web - INFO - Starting service ModelService_677b9d2a
+{"message": "Starting service ModelService_677b9d2a", "timestamp": "2025-08-16T03:14:31.766323", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "model_web", "function": "start", "line": 199, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - model_web - INFO - Initializing ModelService
+{"message": "Initializing ModelService", "timestamp": "2025-08-16T03:14:31.766468", "level": "INFO", "level_no": 20, "module": "model_service", "name": "model_web", "function": "initialize", "line": 108, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/model_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - model_web - INFO - Label classifier loaded
+{"message": "Label classifier loaded", "timestamp": "2025-08-16T03:14:31.771766", "level": "INFO", "level_no": 20, "module": "model_service", "name": "model_web", "function": "_load_models", "line": 132, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/model_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - model_web - INFO - Text vectorizer loaded
+{"message": "Text vectorizer loaded", "timestamp": "2025-08-16T03:14:31.772063", "level": "INFO", "level_no": 20, "module": "model_service", "name": "model_web", "function": "_load_models", "line": 137, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/model_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - model_web - INFO - Position scaler loaded
+{"message": "Position scaler loaded", "timestamp": "2025-08-16T03:14:31.772279", "level": "INFO", "level_no": 20, "module": "model_service", "name": "model_web", "function": "_load_models", "line": 144, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/model_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - model_web - INFO - Layout patterns loaded
+{"message": "Layout patterns loaded", "timestamp": "2025-08-16T03:14:31.772464", "level": "INFO", "level_no": 20, "module": "model_service", "name": "model_web", "function": "_load_models", "line": 151, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/model_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - model_web - INFO - ModelService initialized successfully
+{"message": "ModelService initialized successfully", "timestamp": "2025-08-16T03:14:31.772680", "level": "INFO", "level_no": 20, "module": "model_service", "name": "model_web", "function": "initialize", "line": 119, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/model_service.py", "asctime": "2025-08-16 03:14:31"}
+2025-08-16 03:14:31 - model_web - INFO - Service ModelService_677b9d2a started successfully
+{"message": "Service ModelService_677b9d2a started successfully", "timestamp": "2025-08-16T03:14:31.772846", "level": "INFO", "level_no": 20, "module": "base_classes", "name": "model_web", "function": "start", "line": 215, "pathname": "/home/alsdl757/ymfk_ocrpjt/core/base_classes.py", "asctime": "2025-08-16 03:14:31"}
+[OK] model service started
+All services initialized successfully
+[OK] All services initialized successfully
+[INFO] Starting web interface on http://localhost:5000
+[INFO] Upload directory: data/uploads
+[INFO] Raw data directory: data/raw
+[INFO] Processed data directory: data/processed
+ * Serving Flask app 'web_interface'
+ * Debug mode: off
+{"message": "\u001b[31m\u001b[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.\u001b[0m\n * Running on all addresses (0.0.0.0)\n * Running on http://127.0.0.1:5000\n * Running on http://172.27.128.173:5000", "timestamp": "2025-08-16T03:14:31.774462", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "\u001b[33mPress CTRL+C to quit\u001b[0m", "timestamp": "2025-08-16T03:14:31.774575", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+[DEBUG] save_labels: Received data keys: ['filename', 'filepath', 'pageNumber', 'class', 'bboxData']
+[DEBUG] Saved v2 label to data/processed/labels_v2/20250808_110605_20240919164237-0001_page002_label_v2.json
+[DEBUG] save_labels: Saved to data/processed/labels/20250808_110605_20240919164237-0001_page002_label.json
+[DEBUG] save_labels: Number of items: 2
+[DEBUG] save_labels: Number of bboxes: 9
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:05] \"POST /api/labels HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:05.294393", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+2025-08-16 03:18:06 - model_web - INFO - Starting training with 51 annotations
+{"message": "Starting training with 51 annotations", "timestamp": "2025-08-16T03:18:06.883738", "level": "INFO", "level_no": 20, "module": "model_service", "name": "model_web", "function": "train_from_annotations", "line": 287, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/model_service.py", "asctime": "2025-08-16 03:18:06"}
+2025-08-16 03:18:07 - model_web - INFO - Label classifier saved
+{"message": "Label classifier saved", "timestamp": "2025-08-16T03:18:07.105246", "level": "INFO", "level_no": 20, "module": "model_service", "name": "model_web", "function": "_save_models", "line": 168, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/model_service.py", "asctime": "2025-08-16 03:18:07"}
+2025-08-16 03:18:07 - model_web - INFO - Text vectorizer saved
+{"message": "Text vectorizer saved", "timestamp": "2025-08-16T03:18:07.105677", "level": "INFO", "level_no": 20, "module": "model_service", "name": "model_web", "function": "_save_models", "line": 173, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/model_service.py", "asctime": "2025-08-16 03:18:07"}
+2025-08-16 03:18:07 - model_web - INFO - Training completed successfully
+{"message": "Training completed successfully", "timestamp": "2025-08-16T03:18:07.106244", "level": "INFO", "level_no": 20, "module": "model_service", "name": "model_web", "function": "train_from_annotations", "line": 412, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/model_service.py", "asctime": "2025-08-16 03:18:07"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:07] \"POST /api/train_model HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:07.106963", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+[DEBUG] get_file_labels: requested file=20250811_174437_20240919164237-0001.pdf
+[DEBUG] Found file directly: data/raw/20250811_174437_20240919164237-0001.pdf
+[DEBUG] Found label file with core name: data/processed/labels/20250808_110605_20240919164237-0001_page002_label.json
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:07] \"GET /api/labels/20250811_174437_20240919164237-0001.pdf?page=2 HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:07.704688", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:09] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:09.601188", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:10] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:10.206844", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 2170, 'y': 69, 'width': 208, 'height': 42}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:10] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:10.209676", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:10] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:10.517550", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:11] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:11.073470", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 1639, 'y': 1325, 'width': 731, 'height': 144}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:11] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:11.076262", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:11] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:11.392692", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:11] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:11.927405", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 2039, 'y': 1078, 'width': 274, 'height': 116}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:11] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:11.930318", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:12] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:12.237961", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:12] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:12.766002", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 107, 'y': 1700, 'width': 110, 'height': 52}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:12] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:12.769040", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:13] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:13.072197", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:13] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:13.612738", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 452, 'y': 1725, 'width': 234, 'height': 57}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:13] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:13.615110", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:13] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:13.928032", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:14] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:14.463972", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 588, 'y': 1801, 'width': 196, 'height': 52}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:14] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:14.466419", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:14] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:14.779034", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:15] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:15.324416", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 1028, 'y': 1797, 'width': 192, 'height': 58}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:15] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:15.327048", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:15] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:15.633899", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:16] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:16.170705", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 1691, 'y': 1809, 'width': 115, 'height': 56}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:16] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:16.173773", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:16] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:16.490868", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:17] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:17.011948", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 1285, 'y': 2106, 'width': 1090, 'height': 46}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:17] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:17.014519", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+[DEBUG] get_file_labels: requested file=20250811_174437_20240919164237-0001.pdf
+[DEBUG] Found file directly: data/raw/20250811_174437_20240919164237-0001.pdf
+[DEBUG] Found label file with core name: data/processed/labels/20250808_110605_20240919164237-0001_page001_label.json
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:20] \"GET /api/labels/20250811_174437_20240919164237-0001.pdf?page=1 HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:20.841617", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:20] \"\u001b[36mGET /api/view/20250811_174437_20240919164237-0001_page_001.png HTTP/1.1\u001b[0m\" 304 -", "timestamp": "2025-08-16T03:18:20.844935", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:22] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:22.687064", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:23] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:23.281606", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 2172, 'y': 83, 'width': 208, 'height': 42}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:23] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:23.284075", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:23] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:23.589632", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:24] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:24.154464", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 1645, 'y': 1342, 'width': 731, 'height': 144}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:24] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:24.156935", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:24] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:24.473136", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:25] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:25.021000", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 1996, 'y': 1034, 'width': 274, 'height': 116}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:25] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:25.023477", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:25] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:25.341207", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:25] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:25.858701", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 98, 'y': 1690, 'width': 110, 'height': 52}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:25] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:25.861327", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:26] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:26.176830", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:26] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:26.721437", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 446, 'y': 1729, 'width': 227, 'height': 43}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:26] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:26.723900", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:27] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:27.036513", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:27] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:27.570713", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 588, 'y': 1804, 'width': 196, 'height': 52}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:27] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:27.573131", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:27] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:27.891162", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:28] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:28.414431", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 1030, 'y': 1804, 'width': 195, 'height': 58}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:28] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:28.417072", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:28] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:28.722982", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:29] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:29.260600", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 1692, 'y': 1810, 'width': 115, 'height': 56}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:29] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:29.263271", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:29] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:29.568265", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:30] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:30.113558", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 1285, 'y': 2108, 'width': 1090, 'height': 46}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:30] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:30.120498", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+[DEBUG] save_labels: Received data keys: ['filename', 'filepath', 'pageNumber', 'class', 'bboxData']
+[DEBUG] Saved v2 label to data/processed/labels_v2/20250808_110605_20240919164237-0001_page001_label_v2.json
+[DEBUG] save_labels: Saved to data/processed/labels/20250808_110605_20240919164237-0001_page001_label.json
+[DEBUG] save_labels: Number of items: 2
+[DEBUG] save_labels: Number of bboxes: 9
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:32] \"POST /api/labels HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:32.111420", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+2025-08-16 03:18:33 - model_web - INFO - Starting training with 51 annotations
+{"message": "Starting training with 51 annotations", "timestamp": "2025-08-16T03:18:33.034529", "level": "INFO", "level_no": 20, "module": "model_service", "name": "model_web", "function": "train_from_annotations", "line": 287, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/model_service.py", "asctime": "2025-08-16 03:18:33"}
+2025-08-16 03:18:33 - model_web - INFO - Label classifier saved
+{"message": "Label classifier saved", "timestamp": "2025-08-16T03:18:33.247620", "level": "INFO", "level_no": 20, "module": "model_service", "name": "model_web", "function": "_save_models", "line": 168, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/model_service.py", "asctime": "2025-08-16 03:18:33"}
+2025-08-16 03:18:33 - model_web - INFO - Text vectorizer saved
+{"message": "Text vectorizer saved", "timestamp": "2025-08-16T03:18:33.248056", "level": "INFO", "level_no": 20, "module": "model_service", "name": "model_web", "function": "_save_models", "line": 173, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/model_service.py", "asctime": "2025-08-16 03:18:33"}
+2025-08-16 03:18:33 - model_web - INFO - Training completed successfully
+{"message": "Training completed successfully", "timestamp": "2025-08-16T03:18:33.248667", "level": "INFO", "level_no": 20, "module": "model_service", "name": "model_web", "function": "train_from_annotations", "line": 412, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/model_service.py", "asctime": "2025-08-16 03:18:33"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:33] \"POST /api/train_model HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:33.249329", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+[DEBUG] get_file_labels: requested file=20250811_174437_20240919164237-0001.pdf
+[DEBUG] Found file directly: data/raw/20250811_174437_20240919164237-0001.pdf
+[DEBUG] Found label file with core name: data/processed/labels/20250808_110605_20240919164237-0001_page001_label.json
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:33] \"GET /api/labels/20250811_174437_20240919164237-0001.pdf?page=1 HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:33.844577", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:36] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:36.380926", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:36] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:36.974584", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 2172, 'y': 83, 'width': 208, 'height': 42}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:36] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:36.977224", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:37] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:37.297286", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:37] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:37.848858", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 1645, 'y': 1342, 'width': 731, 'height': 144}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:37] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:37.851479", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:38] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:38.160551", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:38] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:38.711004", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 1996, 'y': 1034, 'width': 274, 'height': 116}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:38] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:38.718340", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:39] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:39.035775", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:39] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:39.574939", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 98, 'y': 1690, 'width': 110, 'height': 52}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:39] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:39.577375", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:39] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:39.896985", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:40] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:40.418223", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 446, 'y': 1729, 'width': 227, 'height': 43}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:40] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:40.420877", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:40] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:40.733048", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:41] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:41.258294", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 588, 'y': 1804, 'width': 196, 'height': 52}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:41] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:41.260858", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:41] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:41.561195", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:42] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:42.096479", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 1030, 'y': 1804, 'width': 195, 'height': 58}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:42] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:42.098901", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:42] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:42.409431", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:42] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:42.941769", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 1692, 'y': 1810, 'width': 115, 'height': 56}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:42] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:42.944178", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:43] \"POST /api/should_ocr_bbox HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:43.258522", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:43] \"POST /api/execute_ocr HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:18:43.789911", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+Traceback (most recent call last):
+  File "/home/alsdl757/ymfk_ocrpjt/web_interface.py", line 836, in apply_ocr_learning
+    corrected = services['ocr_learning'].process_with_learning(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alsdl757/ymfk_ocrpjt/services/ocr_learning_service.py", line 65, in process_with_learning
+    ocr_result['text'],
+    ~~~~~~~~~~^^^^^^^^
+KeyError: 'text'
+[DEBUG] apply_ocr_learning - bbox: {'x': 1285, 'y': 2108, 'width': 1090, 'height': 46}
+[DEBUG] apply_ocr_learning - ocr_result keys: ['bbox', 'ocr_confidence', 'ocr_text']
+[ERROR] apply_ocr_learning exception: 'text'
+{"message": "127.0.0.1 - - [16/Aug/2025 03:18:43] \"\u001b[35m\u001b[1mPOST /api/apply_ocr_learning HTTP/1.1\u001b[0m\" 500 -", "timestamp": "2025-08-16T03:18:43.797013", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:19:03] \"GET / HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:19:03.147806", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+{"message": "127.0.0.1 - - [16/Aug/2025 03:19:03] \"GET /api/service_status HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:19:03.256920", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+[DEBUG] Listing files from: data/raw
+[DEBUG] Labels directory: data/processed/labels
+{"message": "127.0.0.1 - - [16/Aug/2025 03:19:03] \"GET /api/files HTTP/1.1\" 200 -", "timestamp": "2025-08-16T03:19:03.480386", "level": "INFO", "level_no": 20, "module": "_internal", "name": "werkzeug", "function": "_log", "line": 97, "pathname": "/home/alsdl757/ymfk_ocrpjt/venv/lib/python3.11/site-packages/werkzeug/_internal.py"}
+2025-08-16 03:23:36 - yokogawa_ocr_main - INFO - ============================================================
+{"message": "============================================================", "timestamp": "2025-08-16T03:23:36.945756", "level": "INFO", "level_no": 20, "module": "main", "name": "yokogawa_ocr_main", "function": "main", "line": 540, "pathname": "/home/alsdl757/ymfk_ocrpjt/main.py", "asctime": "2025-08-16 03:23:36"}
+2025-08-16 03:23:36 - yokogawa_ocr_main - INFO - [SUCCESS] 모든 파이프라인 실행 완료!
+{"message": "[SUCCESS] 모든 파이프라인 실행 완료!", "timestamp": "2025-08-16T03:23:36.946173", "level": "INFO", "level_no": 20, "module": "main", "name": "yokogawa_ocr_main", "function": "main", "line": 541, "pathname": "/home/alsdl757/ymfk_ocrpjt/main.py", "asctime": "2025-08-16 03:23:36"}
+2025-08-16 03:23:36 - yokogawa_ocr_main - INFO - 총 실행 시간: 545.89초
+{"message": "총 실행 시간: 545.89초", "timestamp": "2025-08-16T03:23:36.946343", "level": "INFO", "level_no": 20, "module": "main", "name": "yokogawa_ocr_main", "function": "main", "line": 542, "pathname": "/home/alsdl757/ymfk_ocrpjt/main.py", "asctime": "2025-08-16 03:23:36"}
+2025-08-16 03:23:36 - yokogawa_ocr_main - INFO - ============================================================
+{"message": "============================================================", "timestamp": "2025-08-16T03:23:36.946516", "level": "INFO", "level_no": 20, "module": "main", "name": "yokogawa_ocr_main", "function": "main", "line": 543, "pathname": "/home/alsdl757/ymfk_ocrpjt/main.py", "asctime": "2025-08-16 03:23:36"}
+2025-08-16 03:23:36 - yokogawa_ocr_main - INFO - 서비스 정리 중...
+{"message": "서비스 정리 중...", "timestamp": "2025-08-16T03:23:36.946662", "level": "INFO", "level_no": 20, "module": "main", "name": "yokogawa_ocr_main", "function": "_cleanup_services", "line": 366, "pathname": "/home/alsdl757/ymfk_ocrpjt/main.py", "asctime": "2025-08-16 03:23:36"}
+2025-08-16 03:23:36 - data_collection_service - INFO - Cleaning up DataCollectionService
+{"message": "Cleaning up DataCollectionService", "timestamp": "2025-08-16T03:23:36.946823", "level": "INFO", "level_no": 20, "module": "data_collection_service", "name": "data_collection_service", "function": "cleanup", "line": 361, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/data_collection_service.py", "asctime": "2025-08-16 03:23:36"}
+2025-08-16 03:23:36 - data_collection_service - INFO - DataCollectionService cleanup completed
+{"message": "DataCollectionService cleanup completed", "timestamp": "2025-08-16T03:23:36.947230", "level": "INFO", "level_no": 20, "module": "data_collection_service", "name": "data_collection_service", "function": "cleanup", "line": 374, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/data_collection_service.py", "asctime": "2025-08-16 03:23:36"}
+2025-08-16 03:23:36 - labeling_service - INFO - Cleaning up LabelingService
+{"message": "Cleaning up LabelingService", "timestamp": "2025-08-16T03:23:36.947424", "level": "INFO", "level_no": 20, "module": "labeling_service", "name": "labeling_service", "function": "cleanup", "line": 843, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/labeling_service.py", "asctime": "2025-08-16 03:23:36"}
+2025-08-16 03:23:36 - labeling_service - INFO - LabelingService cleanup completed
+{"message": "LabelingService cleanup completed", "timestamp": "2025-08-16T03:23:36.947587", "level": "INFO", "level_no": 20, "module": "labeling_service", "name": "labeling_service", "function": "cleanup", "line": 860, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/labeling_service.py", "asctime": "2025-08-16 03:23:36"}
+2025-08-16 03:23:36 - augmentation_service - INFO - Cleaning up AugmentationService
+{"message": "Cleaning up AugmentationService", "timestamp": "2025-08-16T03:23:36.947743", "level": "INFO", "level_no": 20, "module": "augmentation_service", "name": "augmentation_service", "function": "cleanup", "line": 828, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/augmentation_service.py", "asctime": "2025-08-16 03:23:36"}
+2025-08-16 03:23:36 - augmentation_service - INFO - AugmentationService cleanup completed
+{"message": "AugmentationService cleanup completed", "timestamp": "2025-08-16T03:23:36.947958", "level": "INFO", "level_no": 20, "module": "augmentation_service", "name": "augmentation_service", "function": "cleanup", "line": 840, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/augmentation_service.py", "asctime": "2025-08-16 03:23:36"}
+2025-08-16 03:23:36 - validation_service - INFO - Cleaning up ValidationService
+{"message": "Cleaning up ValidationService", "timestamp": "2025-08-16T03:23:36.948150", "level": "INFO", "level_no": 20, "module": "validation_service", "name": "validation_service", "function": "cleanup", "line": 1004, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/validation_service.py", "asctime": "2025-08-16 03:23:36"}
+2025-08-16 03:23:36 - validation_service - INFO - ValidationService cleanup completed
+{"message": "ValidationService cleanup completed", "timestamp": "2025-08-16T03:23:36.948391", "level": "INFO", "level_no": 20, "module": "validation_service", "name": "validation_service", "function": "cleanup", "line": 1016, "pathname": "/home/alsdl757/ymfk_ocrpjt/services/validation_service.py", "asctime": "2025-08-16 03:23:36"}
+2025-08-16 03:23:36 - yokogawa_ocr_main - INFO - [OK] 모든 서비스 정리 완료
+{"message": "[OK] 모든 서비스 정리 완료", "timestamp": "2025-08-16T03:23:36.948601", "level": "INFO", "level_no": 20, "module": "main", "name": "yokogawa_ocr_main", "function": "_cleanup_services", "line": 385, "pathname": "/home/alsdl757/ymfk_ocrpjt/main.py", "asctime": "2025-08-16 03:23:36"}
+2025-08-16 03:23:36 - yokogawa_ocr_main - INFO - YOKOGAWA OCR 시스템 종료
+{"message": "YOKOGAWA OCR 시스템 종료", "timestamp": "2025-08-16T03:23:36.948853", "level": "INFO", "level_no": 20, "module": "main", "name": "yokogawa_ocr_main", "function": "main", "line": 578, "pathname": "/home/alsdl757/ymfk_ocrpjt/main.py", "asctime": "2025-08-16 03:23:36"}

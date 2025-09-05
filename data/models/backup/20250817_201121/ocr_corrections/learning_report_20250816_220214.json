@@ -1,0 +1,34 @@
+{
+  "summary": {
+    "total_files_processed": 51,
+    "total_corrections_found": 2,
+    "total_samples_trained": 2,
+    "successfully_processed": 2,
+    "failed": 0
+  },
+  "corrections_by_label": {
+    "Shipping line": 1
+  },
+  "common_ocr_errors": {
+    "missing_chars": 1
+  },
+  "improvements": {
+    "Shipping line": [
+      {
+        "from": "5800002",
+        "to": "C5800002",
+        "confidence": 0
+      },
+      {
+        "from": "5800002",
+        "to": "C5800002",
+        "confidence": 0
+      }
+    ]
+  },
+  "training_time": {
+    "start": "2025-08-16T22:02:14.587774",
+    "end": "2025-08-16T22:02:14.590258"
+  },
+  "current_accuracy": {}
+}

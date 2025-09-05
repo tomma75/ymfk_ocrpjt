@@ -5,216 +5,244 @@
   "class": "purchase_order",
   "items": [
     {
-      "group_id": "item_00001",
-      "y_position": 54,
+      "group_id": "-",
+      "y_position": 44.6875,
       "labels": [
         {
           "label": "Order number",
           "text": "4512224161",
           "bbox": [
-            2167,
-            54,
-            208,
-            42
-          ]
-        }
-      ],
-      "item_number": "4512224161"
-    },
-    {
-      "group_id": "item_00002",
-      "y_position": 1091,
-      "labels": [
+            2176,
+            44.6875,
+            214,
+            56
+          ],
+          "ocr_original": "4512224161",
+          "ocr_confidence": 0.88,
+          "was_corrected": false
+        },
         {
           "label": "Shipping line",
           "text": "C5800002",
           "bbox": [
-            2051,
-            1091,
-            305,
-            125
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "item_00003",
-      "y_position": 1308,
-      "labels": [
+            2042,
+            1056.6875,
+            330,
+            188
+          ],
+          "ocr_original": "(9800002",
+          "ocr_confidence": 0.48,
+          "was_corrected": true
+        },
         {
           "label": "Case mark",
           "text": "YMG KOFU K5-1 AOKI 731-48229",
           "bbox": [
-            1606,
-            1308,
-            798,
-            128
-          ]
+            1612,
+            1332.6875,
+            764,
+            116
+          ],
+          "ocr_original": "VG KOFU K5-1 AQKI 731-48225",
+          "ocr_confidence": 0.532,
+          "was_corrected": true
+        },
+        {
+          "label": "Net amount (total)",
+          "text": "Total 100.00",
+          "bbox": [
+            1318,
+            2088.6875,
+            1066,
+            54
+          ],
+          "ocr_original": "Total 700.00",
+          "ocr_confidence": 0.77,
+          "was_corrected": true
         }
       ]
     },
     {
-      "group_id": "item_00004",
-      "y_position": 1657,
+      "group_id": "ITEM_00010",
+      "y_position": 1666.6875,
       "labels": [
         {
           "label": "Item number",
           "text": "00010",
           "bbox": [
-            112,
-            1672,
-            110,
-            52
-          ]
+            108,
+            1666.6875,
+            120,
+            62
+          ],
+          "ocr_original": "00010",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
         },
         {
           "label": "Part number",
-          "text": "L4025ME",
+          "text": "L4005ME",
           "bbox": [
-            258,
-            1657,
+            268,
+            1668.6875,
             172,
-            52
-          ]
-        }
-      ],
-      "item_number": "00010"
-    },
-    {
-      "group_id": "item_00005",
-      "y_position": 1775,
-      "labels": [
+            46
+          ],
+          "ocr_original": "L4005ME",
+          "ocr_confidence": 0.88,
+          "was_corrected": false
+        },
         {
-          "label": "Shipping date",
+          "label": "Delivery date",
           "text": "11-05-2024",
           "bbox": [
-            582,
-            1775,
-            200,
-            55
-          ]
+            586,
+            1762.6875,
+            206,
+            80
+          ],
+          "ocr_original": "11-05-2024",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
         },
         {
           "label": "Quantity",
           "text": "200.000 ST",
           "bbox": [
-            1011,
-            1775,
-            219,
-            60
-          ]
+            1004,
+            1770.6875,
+            242,
+            82
+          ],
+          "ocr_original": "200.000 ST",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
         },
         {
           "label": "Unit price",
           "text": "0.5000",
           "bbox": [
-            1674,
-            1781,
-            150,
-            60
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "item_00006",
-      "y_position": 2095,
-      "labels": [
-        {
-          "label": "Net amount (total)",
-          "text": "Total 100.00",
-          "bbox": [
-            1274,
-            2095,
-            1100,
-            50
-          ]
+            1688,
+            1766.6875,
+            158,
+            76
+          ],
+          "ocr_original": "0.5000",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
         }
       ]
     }
   ],
-  "total_groups": 6,
+  "total_groups": 2,
   "bboxes": [
     {
-      "x": 2167,
-      "y": 54,
-      "width": 208,
-      "height": 42,
+      "x": 2176,
+      "y": 44.6875,
+      "width": 214,
+      "height": 56,
       "label": "Order number",
       "text": "4512224161",
-      "group_id": "item_00001"
+      "group_id": "-",
+      "ocr_original": "4512224161",
+      "ocr_confidence": 0.88,
+      "was_corrected": false
     },
     {
-      "x": 2051,
-      "y": 1091,
-      "width": 305,
-      "height": 125,
+      "x": 2042,
+      "y": 1056.6875,
+      "width": 330,
+      "height": 188,
       "label": "Shipping line",
       "text": "C5800002",
-      "group_id": "item_00002"
+      "group_id": "-",
+      "ocr_original": "(9800002",
+      "ocr_confidence": 0.48,
+      "was_corrected": true
     },
     {
-      "x": 1606,
-      "y": 1308,
-      "width": 798,
-      "height": 128,
+      "x": 1612,
+      "y": 1332.6875,
+      "width": 764,
+      "height": 116,
       "label": "Case mark",
       "text": "YMG KOFU K5-1 AOKI 731-48229",
-      "group_id": "item_00003"
+      "group_id": "-",
+      "ocr_original": "VG KOFU K5-1 AQKI 731-48225",
+      "ocr_confidence": 0.532,
+      "was_corrected": true
     },
     {
-      "x": 112,
-      "y": 1672,
-      "width": 110,
-      "height": 52,
+      "x": 108,
+      "y": 1666.6875,
+      "width": 120,
+      "height": 62,
       "label": "Item number",
       "text": "00010",
-      "group_id": "item_00004"
+      "group_id": "ITEM_00010",
+      "ocr_original": "00010",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
     },
     {
-      "x": 258,
-      "y": 1657,
+      "x": 268,
+      "y": 1668.6875,
       "width": 172,
-      "height": 52,
+      "height": 46,
       "label": "Part number",
-      "text": "L4025ME",
-      "group_id": "item_00004"
+      "text": "L4005ME",
+      "group_id": "ITEM_00010",
+      "ocr_original": "L4005ME",
+      "ocr_confidence": 0.88,
+      "was_corrected": false
     },
     {
-      "x": 582,
-      "y": 1775,
-      "width": 200,
-      "height": 55,
-      "label": "Shipping date",
+      "x": 586,
+      "y": 1762.6875,
+      "width": 206,
+      "height": 80,
+      "label": "Delivery date",
       "text": "11-05-2024",
-      "group_id": "item_00005"
+      "group_id": "ITEM_00010",
+      "ocr_original": "11-05-2024",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
     },
     {
-      "x": 1011,
-      "y": 1775,
-      "width": 219,
-      "height": 60,
+      "x": 1004,
+      "y": 1770.6875,
+      "width": 242,
+      "height": 82,
       "label": "Quantity",
       "text": "200.000 ST",
-      "group_id": "item_00005"
+      "group_id": "ITEM_00010",
+      "ocr_original": "200.000 ST",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
     },
     {
-      "x": 1674,
-      "y": 1781,
-      "width": 150,
-      "height": 60,
+      "x": 1688,
+      "y": 1766.6875,
+      "width": 158,
+      "height": 76,
       "label": "Unit price",
       "text": "0.5000",
-      "group_id": "item_00005"
+      "group_id": "ITEM_00010",
+      "ocr_original": "0.5000",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
     },
     {
-      "x": 1274,
-      "y": 2095,
-      "width": 1100,
-      "height": 50,
+      "x": 1318,
+      "y": 2088.6875,
+      "width": 1066,
+      "height": 54,
       "label": "Net amount (total)",
       "text": "Total 100.00",
-      "group_id": "item_00006"
+      "group_id": "-",
+      "ocr_original": "Total 700.00",
+      "ocr_confidence": 0.77,
+      "was_corrected": true
     }
   ]
 }

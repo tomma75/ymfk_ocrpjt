@@ -1,0 +1,248 @@
+{
+  "filename": "20250808_110606_20240924163117-0001.pdf",
+  "filepath": "20250808_110606_20240924163117-0001.pdf",
+  "pageNumber": 11,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "-",
+      "y_position": 113,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512253878",
+          "bbox": [
+            2176,
+            113,
+            208,
+            42
+          ],
+          "ocr_original": "4512253878",
+          "ocr_confidence": 0,
+          "was_corrected": false
+        },
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            141,
+            1311,
+            169,
+            50
+          ],
+          "ocr_original": "c5800002",
+          "ocr_confidence": 0.25,
+          "was_corrected": true
+        },
+        {
+          "label": "Case mark",
+          "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
+          "bbox": [
+            309,
+            1314,
+            574,
+            43
+          ],
+          "ocr_original": "ISHIKAWA EXT:731-48177LOC:K70-4",
+          "ocr_confidence": 0.745,
+          "was_corrected": false
+        },
+        {
+          "label": "Net amount (total)",
+          "text": "Total 1.30",
+          "bbox": [
+            1315,
+            2130,
+            1079,
+            50
+          ],
+          "ocr_original": "oe TEAK ICL,\nTotal | emma \\ 1.30",
+          "ocr_confidence": 0.53375,
+          "was_corrected": true
+        }
+      ]
+    },
+    {
+      "group_id": "ITEM_00010",
+      "y_position": 1720,
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            122,
+            1720,
+            110,
+            52
+          ],
+          "ocr_original": "00010",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
+        },
+        {
+          "label": "Part number",
+          "text": "A1328WF",
+          "bbox": [
+            274,
+            1720,
+            256,
+            45
+          ],
+          "ocr_original": "A1328WE",
+          "ocr_confidence": 0.57,
+          "was_corrected": true
+        },
+        {
+          "label": "Delivery date",
+          "text": "11-01-2024",
+          "bbox": [
+            591,
+            1830,
+            196,
+            52
+          ],
+          "ocr_original": "11-01-2024",
+          "ocr_confidence": 0.9,
+          "was_corrected": false
+        },
+        {
+          "label": "Quantity",
+          "text": "1.000 ST",
+          "bbox": [
+            1054,
+            1828,
+            170,
+            58
+          ],
+          "ocr_original": "1.000 ST",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
+        },
+        {
+          "label": "Unit price",
+          "text": "1.3000",
+          "bbox": [
+            1687,
+            1828,
+            142,
+            56
+          ],
+          "ocr_original": "1.3000",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        }
+      ]
+    }
+  ],
+  "total_groups": 2,
+  "bboxes": [
+    {
+      "x": 2176,
+      "y": 113,
+      "width": 208,
+      "height": 42,
+      "label": "Order number",
+      "text": "4512253878",
+      "group_id": "-",
+      "ocr_original": "4512253878",
+      "ocr_confidence": 0,
+      "was_corrected": false
+    },
+    {
+      "x": 141,
+      "y": 1311,
+      "width": 169,
+      "height": 50,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "-",
+      "ocr_original": "c5800002",
+      "ocr_confidence": 0.25,
+      "was_corrected": true
+    },
+    {
+      "x": 309,
+      "y": 1314,
+      "width": 574,
+      "height": 43,
+      "label": "Case mark",
+      "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
+      "group_id": "-",
+      "ocr_original": "ISHIKAWA EXT:731-48177LOC:K70-4",
+      "ocr_confidence": 0.745,
+      "was_corrected": false
+    },
+    {
+      "x": 122,
+      "y": 1720,
+      "width": 110,
+      "height": 52,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "ITEM_00010",
+      "ocr_original": "00010",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
+    },
+    {
+      "x": 274,
+      "y": 1720,
+      "width": 256,
+      "height": 45,
+      "label": "Part number",
+      "text": "A1328WF",
+      "group_id": "ITEM_00010",
+      "ocr_original": "A1328WE",
+      "ocr_confidence": 0.57,
+      "was_corrected": true
+    },
+    {
+      "x": 591,
+      "y": 1830,
+      "width": 196,
+      "height": 52,
+      "label": "Delivery date",
+      "text": "11-01-2024",
+      "group_id": "ITEM_00010",
+      "ocr_original": "11-01-2024",
+      "ocr_confidence": 0.9,
+      "was_corrected": false
+    },
+    {
+      "x": 1054,
+      "y": 1828,
+      "width": 170,
+      "height": 58,
+      "label": "Quantity",
+      "text": "1.000 ST",
+      "group_id": "ITEM_00010",
+      "ocr_original": "1.000 ST",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
+    },
+    {
+      "x": 1687,
+      "y": 1828,
+      "width": 142,
+      "height": 56,
+      "label": "Unit price",
+      "text": "1.3000",
+      "group_id": "ITEM_00010",
+      "ocr_original": "1.3000",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1315,
+      "y": 2130,
+      "width": 1079,
+      "height": 50,
+      "label": "Net amount (total)",
+      "text": "Total 1.30",
+      "group_id": "-",
+      "ocr_original": "oe TEAK ICL,\nTotal | emma \\ 1.30",
+      "ocr_confidence": 0.53375,
+      "was_corrected": true
+    }
+  ]
+}

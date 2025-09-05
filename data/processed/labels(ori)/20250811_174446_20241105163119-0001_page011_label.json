@@ -1,0 +1,248 @@
+{
+  "filename": "20250811_174446_20241105163119-0001.pdf",
+  "filepath": "20250811_174446_20241105163119-0001.pdf",
+  "pageNumber": 11,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "-",
+      "y_position": 54,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512355942",
+          "bbox": [
+            2168,
+            54,
+            210,
+            52
+          ],
+          "ocr_original": "4512355942",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        },
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            2058,
+            1010,
+            280,
+            134
+          ],
+          "ocr_original": "C5800002",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
+        },
+        {
+          "label": "Case mark",
+          "text": "YMG KOFU K5-1 AOKI 731-48229",
+          "bbox": [
+            1664,
+            1330,
+            744,
+            96
+          ],
+          "ocr_original": "YMG KOFU K5-1 AOKI 731-48229",
+          "ocr_confidence": 0.92,
+          "was_corrected": false
+        },
+        {
+          "label": "Net amount (total)",
+          "text": "Total 168.00",
+          "bbox": [
+            1316,
+            2092,
+            1062,
+            52
+          ],
+          "ocr_original": "Total 168.00",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        }
+      ]
+    },
+    {
+      "group_id": "ITEM_00010",
+      "y_position": 1678,
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            118,
+            1678,
+            110,
+            42
+          ],
+          "ocr_original": "00010",
+          "ocr_confidence": 0.94,
+          "was_corrected": false
+        },
+        {
+          "label": "Part number",
+          "text": "L4005CF",
+          "bbox": [
+            270,
+            1668,
+            172,
+            48
+          ],
+          "ocr_original": "L4005CF",
+          "ocr_confidence": 0.93,
+          "was_corrected": false
+        },
+        {
+          "label": "Delivery date",
+          "text": "12-18-2024",
+          "bbox": [
+            592,
+            1778,
+            206,
+            52
+          ],
+          "ocr_original": "12-18-2024",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        },
+        {
+          "label": "Quantity",
+          "text": "300.000 ST",
+          "bbox": [
+            1024,
+            1780,
+            210,
+            60
+          ],
+          "ocr_original": "300.000 ST",
+          "ocr_confidence": 0.95,
+          "was_corrected": false
+        },
+        {
+          "label": "Unit price",
+          "text": "0.5600",
+          "bbox": [
+            1670,
+            1762,
+            172,
+            70
+          ],
+          "ocr_original": "0.5600",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        }
+      ]
+    }
+  ],
+  "total_groups": 2,
+  "bboxes": [
+    {
+      "x": 2168,
+      "y": 54,
+      "width": 210,
+      "height": 52,
+      "label": "Order number",
+      "text": "4512355942",
+      "group_id": "-",
+      "ocr_original": "4512355942",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 2058,
+      "y": 1010,
+      "width": 280,
+      "height": 134,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "-",
+      "ocr_original": "C5800002",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
+    },
+    {
+      "x": 1664,
+      "y": 1330,
+      "width": 744,
+      "height": 96,
+      "label": "Case mark",
+      "text": "YMG KOFU K5-1 AOKI 731-48229",
+      "group_id": "-",
+      "ocr_original": "YMG KOFU K5-1 AOKI 731-48229",
+      "ocr_confidence": 0.92,
+      "was_corrected": false
+    },
+    {
+      "x": 118,
+      "y": 1678,
+      "width": 110,
+      "height": 42,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "ITEM_00010",
+      "ocr_original": "00010",
+      "ocr_confidence": 0.94,
+      "was_corrected": false
+    },
+    {
+      "x": 270,
+      "y": 1668,
+      "width": 172,
+      "height": 48,
+      "label": "Part number",
+      "text": "L4005CF",
+      "group_id": "ITEM_00010",
+      "ocr_original": "L4005CF",
+      "ocr_confidence": 0.93,
+      "was_corrected": false
+    },
+    {
+      "x": 592,
+      "y": 1778,
+      "width": 206,
+      "height": 52,
+      "label": "Delivery date",
+      "text": "12-18-2024",
+      "group_id": "ITEM_00010",
+      "ocr_original": "12-18-2024",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1024,
+      "y": 1780,
+      "width": 210,
+      "height": 60,
+      "label": "Quantity",
+      "text": "300.000 ST",
+      "group_id": "ITEM_00010",
+      "ocr_original": "300.000 ST",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
+    },
+    {
+      "x": 1670,
+      "y": 1762,
+      "width": 172,
+      "height": 70,
+      "label": "Unit price",
+      "text": "0.5600",
+      "group_id": "ITEM_00010",
+      "ocr_original": "0.5600",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1316,
+      "y": 2092,
+      "width": 1062,
+      "height": 52,
+      "label": "Net amount (total)",
+      "text": "Total 168.00",
+      "group_id": "-",
+      "ocr_original": "Total 168.00",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    }
+  ]
+}

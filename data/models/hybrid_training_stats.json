@@ -1,0 +1,22 @@
+{
+  "total_samples": 233,
+  "label_distribution": {
+    "Item number": 25,
+    "Part number": 37,
+    "Quantity": 26,
+    "Case mark": 26,
+    "Order number": 26,
+    "Shipping line": 15,
+    "Unit price": 24,
+    "Net amount (total)": 25,
+    "WUKERAN": 3,
+    "Delivery date": 26
+  },
+  "model_performances": {
+    "rf": 0.9355644355644355,
+    "xgb": 0.9098679098679098,
+    "lgbm": 0.9442224442224442
+  },
+  "last_training": "2025-09-05T11:45:41.917202",
+  "training_history": []
+}

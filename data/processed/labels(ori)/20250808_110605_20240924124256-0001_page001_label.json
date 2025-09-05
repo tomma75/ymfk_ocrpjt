@@ -5,7 +5,7 @@
   "class": "purchase_order",
   "items": [
     {
-      "group_id": "item_00001",
+      "group_id": "-",
       "y_position": 100,
       "labels": [
         {
@@ -16,24 +16,10 @@
             100,
             208,
             42
-          ]
-        }
-      ],
-      "item_number": "4512252862"
-    },
-    {
-      "group_id": "item_00002",
-      "y_position": 1308,
-      "labels": [
-        {
-          "label": "Shipping line",
-          "text": "C5800002",
-          "bbox": [
-            158,
-            1311,
-            169,
-            50
-          ]
+          ],
+          "ocr_original": "4512252862",
+          "ocr_confidence": 0.9,
+          "was_corrected": false
         },
         {
           "label": "Case mark",
@@ -43,13 +29,42 @@
             1308,
             578,
             43
-          ]
+          ],
+          "ocr_original": "ISHIKAWA EXT:731-48177LOC:K70-4",
+          "ocr_confidence": 0.895,
+          "was_corrected": false
+        },
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            158,
+            1311,
+            169,
+            50
+          ],
+          "ocr_original": "C5800002",
+          "ocr_confidence": 0.82,
+          "was_corrected": false
+        },
+        {
+          "label": "Net amount (total)",
+          "text": "Total 283.80",
+          "bbox": [
+            1315,
+            2132,
+            1079,
+            50
+          ],
+          "ocr_original": "Total SERUE 283.80",
+          "ocr_confidence": 0.735,
+          "was_corrected": true
         }
       ]
     },
     {
-      "group_id": "item_00003",
-      "y_position": 1717,
+      "group_id": "ITEM_00010",
+      "y_position": 1725,
       "labels": [
         {
           "label": "Item number",
@@ -59,7 +74,10 @@
             1725,
             110,
             52
-          ]
+          ],
+          "ocr_original": "00010",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
         },
         {
           "label": "Part number",
@@ -69,24 +87,23 @@
             1717,
             256,
             45
-          ]
-        }
-      ],
-      "item_number": "00010"
-    },
-    {
-      "group_id": "item_00004",
-      "y_position": 1816,
-      "labels": [
+          ],
+          "ocr_original": "B8211PM",
+          "ocr_confidence": 0.9,
+          "was_corrected": false
+        },
         {
-          "label": "Shipping date",
+          "label": "Delivery date",
           "text": "10-28-2024",
           "bbox": [
             605,
             1822,
             196,
             52
-          ]
+          ],
+          "ocr_original": "10-28-2024",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
         },
         {
           "label": "Quantity",
@@ -96,7 +113,10 @@
             1816,
             170,
             58
-          ]
+          ],
+          "ocr_original": "2.000 ST",
+          "ocr_confidence": 0.955,
+          "was_corrected": false
         },
         {
           "label": "Unit price",
@@ -106,28 +126,15 @@
             1822,
             182,
             56
-          ]
-        }
-      ]
-    },
-    {
-      "group_id": "item_00005",
-      "y_position": 2132,
-      "labels": [
-        {
-          "label": "Net amount (total)",
-          "text": "Total 283.80",
-          "bbox": [
-            1315,
-            2132,
-            1079,
-            50
-          ]
+          ],
+          "ocr_original": "141.9000",
+          "ocr_confidence": 0.48,
+          "was_corrected": false
         }
       ]
     }
   ],
-  "total_groups": 5,
+  "total_groups": 2,
   "bboxes": [
     {
       "x": 2172,
@@ -136,7 +143,10 @@
       "height": 42,
       "label": "Order number",
       "text": "4512252862",
-      "group_id": "item_00001"
+      "group_id": "-",
+      "ocr_original": "4512252862",
+      "ocr_confidence": 0.9,
+      "was_corrected": false
     },
     {
       "x": 323,
@@ -145,7 +155,10 @@
       "height": 43,
       "label": "Case mark",
       "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
-      "group_id": "item_00002"
+      "group_id": "-",
+      "ocr_original": "ISHIKAWA EXT:731-48177LOC:K70-4",
+      "ocr_confidence": 0.895,
+      "was_corrected": false
     },
     {
       "x": 158,
@@ -154,7 +167,10 @@
       "height": 50,
       "label": "Shipping line",
       "text": "C5800002",
-      "group_id": "item_00002"
+      "group_id": "-",
+      "ocr_original": "C5800002",
+      "ocr_confidence": 0.82,
+      "was_corrected": false
     },
     {
       "x": 122,
@@ -163,7 +179,10 @@
       "height": 52,
       "label": "Item number",
       "text": "00010",
-      "group_id": "item_00003"
+      "group_id": "ITEM_00010",
+      "ocr_original": "00010",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
     },
     {
       "x": 276,
@@ -172,16 +191,22 @@
       "height": 45,
       "label": "Part number",
       "text": "B8211PM",
-      "group_id": "item_00003"
+      "group_id": "ITEM_00010",
+      "ocr_original": "B8211PM",
+      "ocr_confidence": 0.9,
+      "was_corrected": false
     },
     {
       "x": 605,
       "y": 1822,
       "width": 196,
       "height": 52,
-      "label": "Shipping date",
+      "label": "Delivery date",
       "text": "10-28-2024",
-      "group_id": "item_00004"
+      "group_id": "ITEM_00010",
+      "ocr_original": "10-28-2024",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
     },
     {
       "x": 1071,
@@ -190,7 +215,10 @@
       "height": 58,
       "label": "Quantity",
       "text": "2.000 ST",
-      "group_id": "item_00004"
+      "group_id": "ITEM_00010",
+      "ocr_original": "2.000 ST",
+      "ocr_confidence": 0.955,
+      "was_corrected": false
     },
     {
       "x": 1658,
@@ -199,7 +227,10 @@
       "height": 56,
       "label": "Unit price",
       "text": "141.9000",
-      "group_id": "item_00004"
+      "group_id": "ITEM_00010",
+      "ocr_original": "141.9000",
+      "ocr_confidence": 0.48,
+      "was_corrected": false
     },
     {
       "x": 1315,
@@ -208,7 +239,10 @@
       "height": 50,
       "label": "Net amount (total)",
       "text": "Total 283.80",
-      "group_id": "item_00005"
+      "group_id": "-",
+      "ocr_original": "Total SERUE 283.80",
+      "ocr_confidence": 0.735,
+      "was_corrected": true
     }
   ]
 }
