@@ -156,7 +156,7 @@
       "entity_id": "ent_004",
       "bbox": {
         "x": 744,
-        "y": 1330.6875,
+        "y": 1331,
         "width": 286,
         "height": 116
       },
@@ -166,14 +166,14 @@
         "alternatives": []
       },
       "label": {
-        "primary": "Part number",
+        "primary": "Shipping line",
         "confidence": 0.9,
         "alternatives": []
       },
       "features": {
         "position": {
           "x_normalized": 0.3,
-          "y_normalized": 0.37932938996579246,
+          "y_normalized": 0.37941847206385404,
           "region": "",
           "quadrant": ""
         },
@@ -437,7 +437,7 @@
     }
   },
   "processing_info": {
-    "processed_at": "2025-09-03T12:24:03.062939",
+    "processed_at": "2025-09-05T17:12:26.306104",
     "processing_time_ms": 0,
     "annotator": "human_with_ocr_assist",
     "review_status": "in_progress",

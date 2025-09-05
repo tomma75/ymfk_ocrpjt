@@ -3,8 +3,8 @@
 {% block title %}라벨링 편집 - YOKOGAWA OCR System{% endblock %}
 
 {% block extra_styles %}
-<link rel="stylesheet" href="/static/css/label-suggestions.css">
-<link rel="stylesheet" href="/static/css/training-progress.css">
+<link rel="stylesheet" href="/static/css/label-suggestions.css?v={{ range(1, 10000) | random }}">
+<link rel="stylesheet" href="/static/css/training-progress.css?v={{ range(1, 10000) | random }}">
 <style>
     /* 라벨링 편집 전용 스타일 */
     .labeling-editor {
@@ -19,7 +19,9 @@
         grid-template-columns: var(--left-panel-width, 250px) 1fr var(--right-panel-width, 350px);
         gap: 20px;
         margin-top: 20px;
-        height: calc(100vh - 280px);
+        height: calc(100vh - 180px);
+        /* 각 영역이 독립적으로 스크롤되도록 설정 */
+        position: relative;
     }
     
     /* 반응형 레이아웃 */
@@ -47,8 +49,12 @@
         background: #f8f9fa;
         border-radius: 8px;
         padding: 20px;
+        /* 독립적인 스크롤 영역 */
         overflow-y: auto;
-        max-height: calc(100vh - 300px);
+        overflow-x: hidden;
+        height: calc(100vh - 200px);
+        position: sticky;
+        top: 20px;
     }
 
     .labeling-controls-section h3 {
@@ -73,6 +79,9 @@
         box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         display: flex;
         flex-direction: column;
+        /* 독립적인 스크롤 영역 */
+        height: calc(100vh - 200px);
+        overflow: hidden;
     }
 
     .pdf-navigation {
@@ -101,7 +110,9 @@
         background: #f8f9fa;
         padding: 20px;
         border-radius: 8px;
+        /* 이미지 영역만 스크롤 */
         overflow: auto;
+        max-height: calc(100vh - 350px);
     }
 
     .image-container {
@@ -193,8 +204,12 @@
         background: #f8f9fa;
         border-radius: 8px;
         padding: 20px;
+        /* 독립적인 스크롤 영역 */
         overflow-y: auto;
-        max-height: calc(100vh - 300px);
+        overflow-x: hidden;
+        height: calc(100vh - 200px);
+        position: sticky;
+        top: 20px;
     }
 
     .form-group {
@@ -244,9 +259,9 @@
     /* Bounding Box 목록 */
     #bboxList {
         margin-top: 10px;
-        max-height: 600px;
-        min-height: 400px;
-        overflow-y: auto;
+        min-height: 200px;
+        /* 부모 영역에서 스크롤 처리 */
+        overflow: visible;
         border: 1px solid #e0e0e0;
         border-radius: 4px;
         padding: 10px;
@@ -428,7 +443,10 @@
 
         .labeling-controls-section,
         .labeling-form-section {
-            max-height: 400px;
+            /* 모바일에서는 높이 제한 */
+            height: auto;
+            max-height: 500px;
+            position: relative;
         }
     }
     
@@ -462,23 +480,30 @@
     }
     
     .smart-label-suggestion {
-        background: rgba(255, 255, 255, 0.95);
-        padding: 4px 8px;
-        border-radius: 4px;
-        font-size: 12px;
+        background: rgba(255, 255, 255, 0.98);
+        /* 화면 배율에 따라 크기 조정 */
+        padding: calc(8px / var(--zoom-scale, 1)) calc(12px / var(--zoom-scale, 1));
+        border-radius: calc(6px / var(--zoom-scale, 1));
+        font-size: calc(14px / var(--zoom-scale, 1));
         font-weight: 500;
         color: #1976D2;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        border: calc(1px / var(--zoom-scale, 1)) solid #2196F3;
+        /* 최소 크기 보장 */
+        min-width: calc(150px / var(--zoom-scale, 1));
+        min-height: calc(40px / var(--zoom-scale, 1));
+        line-height: 1.4;
     }
     
     .smart-label-confidence {
         display: inline-block;
-        margin-left: 5px;
-        padding: 2px 6px;
+        margin-left: calc(8px / var(--zoom-scale, 1));
+        padding: calc(3px / var(--zoom-scale, 1)) calc(8px / var(--zoom-scale, 1));
         background: #E3F2FD;
-        border-radius: 10px;
-        font-size: 11px;
+        border-radius: calc(12px / var(--zoom-scale, 1));
+        font-size: calc(13px / var(--zoom-scale, 1));
         color: #0D47A1;
+        font-weight: bold;
     }
     
     .smart-label-accept-btn {
@@ -758,7 +783,7 @@
                         <i class="fas fa-copy"></i> OCR 결과 적용
                     </button>
                 </div>
-                <div id="ocrResultList" style="margin-top: 10px; max-height: 400px; min-height: 200px; overflow-y: auto; border: 1px solid #e0e0e0; border-radius: 4px; padding: 10px; background: #f0f8ff; position: relative;">
+                <div id="ocrResultList" style="margin-top: 10px; min-height: 200px; border: 1px solid #e0e0e0; border-radius: 4px; padding: 10px; background: #f0f8ff; position: relative;">
                     <div id="ocrProcessingSpinner" style="display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(240, 248, 255, 0.9); z-index: 1000; justify-content: center; align-items: center;">
                         <div style="text-align: center;">
                             <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
@@ -794,12 +819,15 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="/static/js/labeling.js"></script>
+<script src="/static/js/labeling.js?v={{ range(1, 10000) | random }}"></script>
 <script>
 // 화면 배율에 따른 패널 크기 및 글씨 크기 조정
 function adjustPanelSizeByZoom() {
     // 브라우저 배율 감지 (더 정확한 방법)
     const zoomLevel = Math.round(window.devicePixelRatio * 100) / 100;
+    
+    // CSS 변수로 zoom scale 설정 (추천 라벨 박스 크기 조정용)
+    document.documentElement.style.setProperty('--zoom-scale', zoomLevel);
     
     // 기본 크기
     const baseLeftWidth = 250;
@@ -1076,9 +1104,20 @@ function displaySmartLabelOverlays() {
         // 라벨 정보 표시
         const suggestion = document.createElement('div');
         suggestion.className = 'smart-label-suggestion';
+        
+        // 추출된 텍스트 처리 (너무 길면 줄임)
+        const extractedText = prediction.predicted_text || prediction.text || '';
+        const displayText = extractedText.length > 30 ? 
+            extractedText.substring(0, 30) + '...' : extractedText;
+        
         suggestion.innerHTML = `
-            ${prediction.label_type}
-            <span class="smart-label-confidence">${Math.round(prediction.confidence * 100)}%</span>
+            <div style="font-weight: bold; margin-bottom: calc(4px / var(--zoom-scale, 1));">
+                ${prediction.label_type}
+                <span class="smart-label-confidence">${Math.round(prediction.confidence * 100)}%</span>
+            </div>
+            <div style="font-size: calc(12px / var(--zoom-scale, 1)); color: #666; margin-top: calc(4px / var(--zoom-scale, 1));">
+                ${displayText ? `"${displayText}"` : '(텍스트 없음)'}
+            </div>
         `;
         overlay.appendChild(suggestion);
         
@@ -1091,6 +1130,19 @@ function displaySmartLabelOverlays() {
         overlay.appendChild(acceptBtn);
         
         overlaysContainer.appendChild(overlay);
+        
+        // 30초 후 자동으로 오버레이 제거
+        setTimeout(() => {
+            if (overlay && overlay.parentNode) {
+                overlay.style.transition = 'opacity 0.5s';
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    if (overlay.parentNode) {
+                        overlay.remove();
+                    }
+                }, 500);
+            }
+        }, 30000); // 30초
     });
 }
 

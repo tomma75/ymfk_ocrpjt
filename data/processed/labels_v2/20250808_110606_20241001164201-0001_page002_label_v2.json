@@ -1,0 +1,361 @@
+{
+  "annotation_version": "2.0",
+  "document_metadata": {
+    "filename": "20250808_110606_20241001164201-0001.pdf",
+    "filepath": "20250808_110606_20241001164201-0001.pdf",
+    "pageNumber": 2,
+    "document_type": "purchase_order",
+    "document_class": "purchase_order",
+    "template_id": "yokogawa_po_template_v1",
+    "language": "en",
+    "ocr_engine": "tesseract_with_learning",
+    "ocr_confidence": 0.0
+  },
+  "page_info": {
+    "width": 2480,
+    "height": 3508,
+    "dpi": 300,
+    "orientation": "portrait",
+    "background_color": "white",
+    "has_watermark": false
+  },
+  "layout_analysis": {
+    "layout_pattern": "pattern_B",
+    "layout_confidence": 0.85,
+    "regions": [],
+    "columns": []
+  },
+  "entities": [
+    {
+      "entity_id": "ent_001",
+      "bbox": {
+        "x": 2152,
+        "y": 102.6875,
+        "width": 212,
+        "height": 46
+      },
+      "text": {
+        "value": "4512271546",
+        "confidence": 0.95,
+        "alternatives": []
+      },
+      "label": {
+        "primary": "Order number",
+        "confidence": 0.9,
+        "alternatives": []
+      },
+      "features": {
+        "position": {
+          "x_normalized": 0.867741935483871,
+          "y_normalized": 0.029272377423033066,
+          "region": "",
+          "quadrant": ""
+        },
+        "text_properties": {},
+        "visual_properties": {},
+        "semantic_properties": {}
+      },
+      "relationships": [],
+      "context": {},
+      "validation": {
+        "is_valid": true,
+        "validation_rules": []
+      },
+      "ocr_results": {
+        "tesseract_raw": "4512271546",
+        "tesseract_confidence": 0.95,
+        "corrected_value": "4512271546",
+        "was_corrected": false
+      }
+    },
+    {
+      "entity_id": "ent_002",
+      "bbox": {
+        "x": 296,
+        "y": 1508.6875,
+        "width": 584,
+        "height": 48
+      },
+      "text": {
+        "value": "ISHIKAWA EXT:731-48177LOC:K70-4",
+        "confidence": 0.735,
+        "alternatives": []
+      },
+      "label": {
+        "primary": "Case mark",
+        "confidence": 0.9,
+        "alternatives": []
+      },
+      "features": {
+        "position": {
+          "x_normalized": 0.11935483870967742,
+          "y_normalized": 0.43007055302166475,
+          "region": "",
+          "quadrant": ""
+        },
+        "text_properties": {},
+        "visual_properties": {},
+        "semantic_properties": {}
+      },
+      "relationships": [],
+      "context": {},
+      "validation": {
+        "is_valid": true,
+        "validation_rules": []
+      },
+      "ocr_results": {
+        "tesseract_raw": "ISHIKAWA EXT:731-48177LOC:K70-4",
+        "tesseract_confidence": 0.735,
+        "corrected_value": "ISHIKAWA EXT:731-48177LOC:K70-4",
+        "was_corrected": false
+      }
+    },
+    {
+      "entity_id": "ent_003",
+      "bbox": {
+        "x": 126,
+        "y": 1510.6875,
+        "width": 168,
+        "height": 48
+      },
+      "text": {
+        "value": "C5800002",
+        "confidence": 0.79,
+        "alternatives": []
+      },
+      "label": {
+        "primary": "Shipping line",
+        "confidence": 0.9,
+        "alternatives": []
+      },
+      "features": {
+        "position": {
+          "x_normalized": 0.050806451612903224,
+          "y_normalized": 0.43064067844925885,
+          "region": "",
+          "quadrant": ""
+        },
+        "text_properties": {},
+        "visual_properties": {},
+        "semantic_properties": {}
+      },
+      "relationships": [],
+      "context": {},
+      "validation": {
+        "is_valid": true,
+        "validation_rules": []
+      },
+      "ocr_results": {
+        "tesseract_raw": "C5800002",
+        "tesseract_confidence": 0.79,
+        "corrected_value": "C5800002",
+        "was_corrected": false
+      }
+    },
+    {
+      "entity_id": "ent_004",
+      "bbox": {
+        "x": 96,
+        "y": 1872.6875,
+        "width": 110,
+        "height": 56
+      },
+      "text": {
+        "value": "00010",
+        "confidence": 0.955,
+        "alternatives": []
+      },
+      "label": {
+        "primary": "Item number",
+        "confidence": 0.9,
+        "alternatives": []
+      },
+      "features": {
+        "position": {
+          "x_normalized": 0.03870967741935484,
+          "y_normalized": 0.5338333808437856,
+          "region": "",
+          "quadrant": ""
+        },
+        "text_properties": {},
+        "visual_properties": {},
+        "semantic_properties": {}
+      },
+      "relationships": [],
+      "context": {},
+      "validation": {
+        "is_valid": true,
+        "validation_rules": []
+      },
+      "ocr_results": {
+        "tesseract_raw": "00010",
+        "tesseract_confidence": 0.955,
+        "corrected_value": "00010",
+        "was_corrected": false
+      }
+    },
+    {
+      "entity_id": "ent_005",
+      "bbox": {
+        "x": 252,
+        "y": 1880.6875,
+        "width": 154,
+        "height": 42
+      },
+      "text": {
+        "value": "B8212JA",
+        "confidence": 0.83,
+        "alternatives": []
+      },
+      "label": {
+        "primary": "Part number",
+        "confidence": 0.9,
+        "alternatives": []
+      },
+      "features": {
+        "position": {
+          "x_normalized": 0.10161290322580645,
+          "y_normalized": 0.5361138825541619,
+          "region": "",
+          "quadrant": ""
+        },
+        "text_properties": {},
+        "visual_properties": {},
+        "semantic_properties": {}
+      },
+      "relationships": [],
+      "context": {},
+      "validation": {
+        "is_valid": true,
+        "validation_rules": []
+      },
+      "ocr_results": {
+        "tesseract_raw": "B8212JA",
+        "tesseract_confidence": 0.83,
+        "corrected_value": "B8212JA",
+        "was_corrected": false
+      }
+    },
+    {
+      "entity_id": "ent_006",
+      "bbox": {
+        "x": 1264,
+        "y": 1948.6875,
+        "width": 204,
+        "height": 56
+      },
+      "text": {
+        "value": "11-01-2024",
+        "confidence": 0.94,
+        "alternatives": []
+      },
+      "label": {
+        "primary": "Delivery date",
+        "confidence": 0.9,
+        "alternatives": []
+      },
+      "features": {
+        "position": {
+          "x_normalized": 0.5096774193548387,
+          "y_normalized": 0.5554981470923603,
+          "region": "",
+          "quadrant": ""
+        },
+        "text_properties": {},
+        "visual_properties": {},
+        "semantic_properties": {}
+      },
+      "relationships": [],
+      "context": {},
+      "validation": {
+        "is_valid": true,
+        "validation_rules": []
+      },
+      "ocr_results": {
+        "tesseract_raw": "11-01-2024",
+        "tesseract_confidence": 0.94,
+        "corrected_value": "11-01-2024",
+        "was_corrected": false
+      }
+    },
+    {
+      "entity_id": "ent_007",
+      "bbox": {
+        "x": 1714,
+        "y": 1952.6875,
+        "width": 220,
+        "height": 50
+      },
+      "text": {
+        "value": "1.000 ST",
+        "confidence": 0.935,
+        "alternatives": []
+      },
+      "label": {
+        "primary": "Quantity",
+        "confidence": 0.9,
+        "alternatives": []
+      },
+      "features": {
+        "position": {
+          "x_normalized": 0.6911290322580645,
+          "y_normalized": 0.5566383979475484,
+          "region": "",
+          "quadrant": ""
+        },
+        "text_properties": {},
+        "visual_properties": {},
+        "semantic_properties": {}
+      },
+      "relationships": [],
+      "context": {},
+      "validation": {
+        "is_valid": true,
+        "validation_rules": []
+      },
+      "ocr_results": {
+        "tesseract_raw": "1.000 ST",
+        "tesseract_confidence": 0.935,
+        "corrected_value": "1.000 ST",
+        "was_corrected": false
+      }
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "ITEM_00010",
+      "group_type": "item_line",
+      "y_position": 1872.6875,
+      "entities": [
+        "ent_004",
+        "ent_005",
+        "ent_006",
+        "ent_007"
+      ],
+      "properties": {},
+      "validation": {}
+    }
+  ],
+  "templates": {
+    "detected_template": "yokogawa_po_template",
+    "template_confidence": 0.85,
+    "expected_fields": []
+  },
+  "quality_metrics": {
+    "overall_confidence": 0.8764285714285714,
+    "completeness": 0.0,
+    "consistency": 0.0,
+    "ocr_quality": {
+      "average_confidence": 0.8764285714285714,
+      "low_confidence_entities": [],
+      "failed_regions": []
+    }
+  },
+  "processing_info": {
+    "processed_at": "2025-09-05T16:20:36.239469",
+    "processing_time_ms": 0,
+    "annotator": "human_with_ocr_assist",
+    "review_status": "in_progress",
+    "version": 1
+  }
+}

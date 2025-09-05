@@ -35,11 +35,11 @@
           "was_corrected": true
         },
         {
-          "label": "Part number",
+          "label": "Shipping line",
           "text": "C5800002",
           "bbox": [
             744,
-            1330.6875,
+            1331,
             286,
             116
           ],
@@ -174,10 +174,10 @@
     },
     {
       "x": 744,
-      "y": 1330.6875,
+      "y": 1331,
       "width": 286,
       "height": 116,
-      "label": "Part number",
+      "label": "Shipping line",
       "text": "C5800002",
       "group_id": "-",
       "ocr_original": "(5800002",

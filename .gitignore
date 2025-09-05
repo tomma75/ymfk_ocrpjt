@@ -12,3 +12,5 @@ __pycache__/
 logs/
 tesseract_windows/
 
+instantclient_21_7/
+instantclient-basic-linux.x64-21.7.0.0.0dbru.zip

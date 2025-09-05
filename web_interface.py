@@ -4,7 +4,7 @@ YOKOGAWA OCR 웹 인터페이스
 Flask를 사용한 간단한 웹 UI 제공
 """
 
-from flask import Flask, render_template, request, jsonify, redirect, url_for, send_file, after_this_request
+from flask import Flask, render_template, request, jsonify, redirect, url_for, send_file, after_this_request, session
 from flask_cors import CORS
 import os
 import sys
@@ -15,6 +15,7 @@ import threading
 import queue
 from werkzeug.utils import secure_filename
 import numpy as np
+from functools import wraps
 
 # NumPy 타입을 JSON 직렬화 가능하도록 변환하는 커스텀 인코더
 class NumpyEncoder(json.JSONEncoder):
@@ -82,6 +83,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from services.ocr_integration_service import OCRIntegrationService
 from services.ocr_learning_service import OCRLearningService
 from services.ocr_batch_learning_service import OCRBatchLearningService
+from utils.db_connection import DBConnection
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')
 app.config['SECRET_KEY'] = 'yokogawa-ocr-secret-key'
@@ -90,7 +92,18 @@ app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024  # 100MB
 # 캐싱 완전 비활성화
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.config['TEMPLATES_AUTO_RELOAD'] = True
+# 개발 모드 활성화 (캐시 무효화)
+app.config['DEBUG'] = True
 CORS(app)
+
+# 정적 파일 응답에 캐시 무효화 헤더 추가
+@app.after_request
+def add_no_cache_headers(response):
+    """모든 응답에 캐시 무효화 헤더 추가"""
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '-1'
+    return response
 
 # 전역 변수
 config = None
@@ -191,30 +204,162 @@ def initialize_services():
         traceback.print_exc()
         return False
 
+# DB 연결 인스턴스
+db_conn = DBConnection()
+
+# 로그인 필요 데코레이터
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'user_id' not in session:
+            return redirect(url_for('login'))
+        return f(*args, **kwargs)
+    return decorated_function
+
+# 관리자 권한 필요 데코레이터
+def admin_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'user_id' not in session:
+            return redirect(url_for('login'))
+        if not session.get('is_admin', False):
+            # 관리자가 아닌 경우 대시보드로 리다이렉트
+            return redirect(url_for('dashboard'))
+        return f(*args, **kwargs)
+    return decorated_function
+
+@app.route('/login')
+def login():
+    """로그인 페이지"""
+    if 'user_id' in session:
+        return redirect(url_for('dashboard'))
+    return render_template('login.html')
+
+@app.route('/api/login', methods=['POST'])
+def api_login():
+    """로그인 API"""
+    try:
+        data = request.get_json()
+        user_id = data.get('user_id', '')
+        user_password = data.get('user_password', '')
+        
+        # 입력값 검증
+        if not user_id.isdigit() or len(user_id) < 7 or len(user_id) > 8:
+            return jsonify({'success': False, 'message': '사번 형식이 올바르지 않습니다.'})
+        
+        if not user_password.isdigit():
+            return jsonify({'success': False, 'message': '비밀번호는 숫자만 입력 가능합니다.'})
+        
+        # DB에서 사용자 확인
+        user_info = db_conn.verify_user(user_id, user_password)
+        
+        if user_info and user_info['authenticated']:
+            # 세션에 사용자 정보 저장
+            session['user_id'] = user_info['user_id']
+            session['user_name'] = user_info['user_name']
+            session['is_admin'] = user_info.get('is_admin', False)
+            session['menu_group'] = user_info.get('menu_group', '')
+            return jsonify({
+                'success': True,
+                'user_name': user_info['user_name'],
+                'is_admin': user_info.get('is_admin', False)
+            })
+        elif user_info and not user_info['authenticated']:
+            return jsonify({'success': False, 'message': '비밀번호가 일치하지 않습니다.'})
+        else:
+            return jsonify({'success': False, 'message': '등록되지 않은 사번입니다.'})
+            
+    except Exception as e:
+        print(f"Login error: {e}")
+        return jsonify({'success': False, 'message': '서버 오류가 발생했습니다.'})
+
+@app.route('/api/get_user_name', methods=['POST'])
+def api_get_user_name():
+    """사용자 이름 가져오기 API"""
+    try:
+        data = request.get_json()
+        user_id = data.get('user_id', '')
+        
+        if not user_id.isdigit() or len(user_id) < 7 or len(user_id) > 8:
+            return jsonify({'success': False})
+        
+        user_name = db_conn.get_user_name(user_id)
+        
+        if user_name:
+            return jsonify({'success': True, 'user_name': user_name})
+        else:
+            return jsonify({'success': False})
+            
+    except Exception as e:
+        print(f"Get user name error: {e}")
+        return jsonify({'success': False})
+
+@app.route('/logout')
+def logout():
+    """로그아웃"""
+    session.clear()
+    return redirect(url_for('login'))
+
 @app.route('/')
+def index():
+    """인덱스 페이지 - 로그인 페이지로 리다이렉트"""
+    if 'user_id' in session:
+        return redirect(url_for('dashboard'))
+    return redirect(url_for('login'))
+
+@app.route('/dashboard')
+@login_required
 def dashboard():
     """대시보드 페이지"""
-    return render_template('dashboard.html', active_page='dashboard')
+    return render_template('dashboard.html', 
+                         active_page='dashboard',
+                         user_name=session.get('user_name'),
+                         is_admin=session.get('is_admin', False))
 
 @app.route('/upload')
+@login_required
 def upload():
     """파일 업로드 페이지"""
-    return render_template('upload.html', active_page='upload')
+    return render_template('upload.html', 
+                         active_page='upload', 
+                         user_name=session.get('user_name'),
+                         is_admin=session.get('is_admin', False))
 
 @app.route('/labeling')
+@login_required
 def labeling():
     """라벨링 편집 페이지"""
-    return render_template('labeling.html', active_page='labeling')
+    return render_template('labeling.html', 
+                         active_page='labeling', 
+                         user_name=session.get('user_name'),
+                         is_admin=session.get('is_admin', False))
 
 @app.route('/statistics')
+@admin_required  # MGR 권한 필요
 def statistics():
-    """통계 페이지"""
-    return render_template('statistics.html', active_page='statistics')
+    """통계 페이지 - 관리자 전용"""
+    return render_template('statistics.html', 
+                         active_page='statistics', 
+                         user_name=session.get('user_name'),
+                         is_admin=session.get('is_admin', False))
 
 @app.route('/ocr_learning')
+@login_required
 def ocr_learning_page():
     """OCR 학습 상태 페이지"""
-    return render_template('ocr_learning_status.html', active_page='ocr_learning')
+    return render_template('ocr_learning_status.html', 
+                         active_page='ocr_learning', 
+                         user_name=session.get('user_name'),
+                         is_admin=session.get('is_admin', False))
+
+@app.route('/pdf_viewer')
+@login_required
+def pdf_viewer():
+    """PDF 뷰어 페이지"""
+    return render_template('pdf_viewer.html',
+                         active_page='dashboard',
+                         user_name=session.get('user_name'),
+                         is_admin=session.get('is_admin', False))
 
 @app.route('/api/status')
 def get_status():
@@ -2163,6 +2308,85 @@ def delete_file(file_id):
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route('/api/pdf_info/<filename>')
+def get_pdf_info(filename):
+    """PDF 파일 정보 및 분할된 이미지 정보 반환"""
+    try:
+        # 이미지 디렉토리에서 해당 PDF의 PNG 파일들 찾기
+        images_dir = Path(config.processed_data_directory) / 'images'
+        labels_dir = Path(config.processed_data_directory) / 'labels_v2'
+        
+        # 파일명에서 확장자 제거 (PDF의 기본 이름)
+        base_name = filename.replace('.pdf', '')
+        
+        # 분할된 이미지 파일들 찾기 (page_001 형식)
+        image_files = sorted([f for f in images_dir.glob(f"{base_name}_page_*.png")])
+        
+        pages = []
+        labels = {}
+        
+        for img_file in image_files:
+            # 페이지 번호 추출 (page_001 형식에서)
+            page_match = re.search(r'page_(\d+)', img_file.name)
+            if page_match:
+                page_num = int(page_match.group(1))
+                pages.append({
+                    'page_number': page_num,
+                    'image_path': str(img_file.relative_to(Path(config.processed_data_directory)))
+                })
+                
+                # 해당 페이지의 라벨 파일 찾기 (page001 형식 - underscore 없음)
+                label_file = labels_dir / f"{base_name}_page{page_num:03d}_label_v2.json"
+                if label_file.exists():
+                    with open(label_file, 'r', encoding='utf-8') as f:
+                        label_data = json.load(f)
+                        # 라벨 데이터 변환 - v2 형식
+                        page_labels = {}
+                        
+                        # entities 배열에서 라벨 추출
+                        if 'entities' in label_data:
+                            for entity in label_data['entities']:
+                                if 'label' in entity and 'text' in entity:
+                                    # label.primary가 실제 라벨 이름
+                                    label_name = entity['label'].get('primary', '')
+                                    # text.value가 실제 값
+                                    value = entity['text'].get('value', '')
+                                    if label_name and value:
+                                        page_labels[label_name] = value
+                        
+                        labels[page_num] = page_labels
+        
+        print(f"[DEBUG] Found {len(pages)} pages for {filename}")
+        print(f"[DEBUG] Labels: {labels}")
+        
+        return jsonify({
+            'success': True,
+            'pages': pages,
+            'labels': labels
+        })
+        
+    except Exception as e:
+        print(f"Error getting PDF info: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({'success': False, 'error': str(e)})
+
+@app.route('/api/image/<path:image_path>')
+def serve_image(image_path):
+    """이미지 파일 제공"""
+    try:
+        # 전체 경로 구성
+        full_path = Path(config.processed_data_directory) / image_path
+        
+        if full_path.exists() and full_path.is_file():
+            return send_file(str(full_path), mimetype='image/png')
+        else:
+            return jsonify({'error': 'Image not found'}), 404
+            
+    except Exception as e:
+        print(f"Error serving image: {e}")
+        return jsonify({'error': str(e)}), 500
+
 @app.route('/api/delete/collected/<path:file_path>', methods=['DELETE'])
 def delete_collected_file(file_path):
     """수집된 파일 삭제"""
@@ -2967,9 +3191,41 @@ def predict_smart_labels():
             document_type
         )
         
+        # 클라이언트가 기대하는 형식으로 변환
+        formatted_predictions = []
+        for pred in predictions:
+            bbox = pred.get('bbox', {})
+            formatted_pred = {
+                'x': bbox.get('x', 0),
+                'y': bbox.get('y', 0),
+                'width': bbox.get('width', 100),
+                'height': bbox.get('height', 30),
+                'label_type': pred.get('label', 'Unknown'),
+                'confidence': pred.get('confidence', 0.0),
+                'predicted_text': pred.get('text', ''),  # OCR 텍스트 추가
+                'group_id': pred.get('group_id'),
+                'source': pred.get('source', 'pattern')
+            }
+            
+            # OCR 실행하여 텍스트 추출 시도
+            if not formatted_pred['predicted_text'] and image_path:
+                try:
+                    # OCR 서비스가 있으면 해당 영역 텍스트 추출
+                    if 'ocr_integration' in services:
+                        ocr_result = services['ocr_integration'].extract_text_from_region(
+                            image_path,
+                            bbox
+                        )
+                        if ocr_result:
+                            formatted_pred['predicted_text'] = ocr_result.get('text', '')
+                except Exception as e:
+                    logger.debug(f"OCR extraction failed: {e}")
+            
+            formatted_predictions.append(formatted_pred)
+        
         return jsonify({
-            'predictions': predictions,
-            'count': len(predictions)
+            'predictions': formatted_predictions,
+            'count': len(formatted_predictions)
         })
         
     except Exception as e:

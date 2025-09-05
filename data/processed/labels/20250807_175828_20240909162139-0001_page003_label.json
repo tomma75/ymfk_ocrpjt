@@ -46,6 +46,19 @@
           "ocr_original": "(5800002",
           "ocr_confidence": 0.64,
           "was_corrected": true
+        },
+        {
+          "label": "WUKERAN",
+          "text": "SPEC/MAKER/USE BY",
+          "bbox": [
+            1202,
+            1272.6875,
+            658,
+            122
+          ],
+          "ocr_original": "SPBC/MAKER/USE BY",
+          "ocr_confidence": 0.695,
+          "was_corrected": true
         }
       ]
     },
@@ -243,6 +256,18 @@
       "ocr_original": "Total 36.90",
       "ocr_confidence": 0.95,
       "was_corrected": false
+    },
+    {
+      "x": 1202,
+      "y": 1272.6875,
+      "width": 658,
+      "height": 122,
+      "label": "WUKERAN",
+      "text": "SPEC/MAKER/USE BY",
+      "group_id": "-",
+      "ocr_original": "SPBC/MAKER/USE BY",
+      "ocr_confidence": 0.695,
+      "was_corrected": true
     }
   ]
 }

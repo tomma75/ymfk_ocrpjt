@@ -1,0 +1,754 @@
+{% extends "base.html" %}
+
+{% block title %}PDF 뷰어 - YOKOGAWA OCR System{% endblock %}
+
+{% block extra_styles %}
+<style>
+    .viewer-container {
+        display: flex;
+        height: calc(100vh - var(--header-height) - var(--nav-height) - 40px);
+        gap: 20px;
+        padding: 20px;
+        background: #f8f9fa;
+    }
+    
+    /* 좌측 이미지 영역 */
+    .image-section {
+        flex: 0 0 45%;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .image-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #eee;
+    }
+    
+    .page-navigation {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .page-navigation button {
+        padding: 5px 15px;
+        border: 1px solid #ddd;
+        background: white;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    
+    .page-navigation button:hover:not(:disabled) {
+        background: #f0f0f0;
+        border-color: #999;
+    }
+    
+    .page-navigation button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    
+    .page-info {
+        font-weight: 500;
+        color: #666;
+    }
+    
+    .image-container {
+        flex: 1;
+        overflow: auto;
+        background: #f5f5f5;
+        border-radius: 4px;
+        position: relative;
+        cursor: zoom-in;
+    }
+    
+    .image-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+    }
+    
+    .image-container img {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        transform-origin: center center;
+        user-select: none;
+        -webkit-user-drag: none;
+        cursor: zoom-in;
+    }
+    
+    .image-container img.zoomed {
+        cursor: grab;
+    }
+    
+    .image-container img.zoomed:active {
+        cursor: grabbing;
+    }
+    
+    .image-container img.zoomed-max {
+        cursor: grab;
+    }
+    
+    /* 줌 레벨 표시 */
+    .zoom-indicator {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        z-index: 10;
+        pointer-events: none;
+    }
+    
+    /* 줌 컨트롤 버튼 */
+    .zoom-controls {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        display: flex;
+        gap: 5px;
+        z-index: 10;
+    }
+    
+    .zoom-controls button {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.2s;
+    }
+    
+    .zoom-controls button:hover {
+        background: #fff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .zoom-controls button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    
+    .loading-spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    /* 우측 데이터 영역 */
+    .data-section {
+        flex: 1;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding: 20px;
+        overflow-y: auto;
+    }
+    
+    .data-header {
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #eee;
+    }
+    
+    .data-header h2 {
+        color: #333;
+        font-size: 20px;
+        margin: 0;
+    }
+    
+    /* 테이블 스타일 */
+    .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    
+    .data-table th,
+    .data-table td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+    
+    .data-table th {
+        background: #f8f9fa;
+        font-weight: 600;
+        color: #555;
+    }
+    
+    .data-table td {
+        background: white;
+    }
+    
+    .data-table tr:hover td {
+        background: #f8f9fa;
+    }
+    
+    /* 섹션 제목 */
+    .section-title {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 8px 15px;
+        border-radius: 4px;
+        margin: 20px 0 10px 0;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    
+    /* 아이템 테이블 */
+    .item-section {
+        margin: 15px 0;
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+    
+    .item-header {
+        background: #f5f5f5;
+        padding: 10px 15px;
+        font-weight: 600;
+        color: #444;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .item-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .item-table th {
+        background: #fafafa;
+        padding: 8px 12px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #666;
+        border-bottom: 1px solid #e0e0e0;
+        text-align: left;
+    }
+    
+    .item-table td {
+        padding: 10px 12px;
+        font-size: 14px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .item-table tr:last-child td {
+        border-bottom: none;
+    }
+    
+    /* 총액 표시 */
+    .total-section {
+        margin-top: 20px;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 6px;
+        border-left: 4px solid #667eea;
+    }
+    
+    .total-label {
+        font-weight: 600;
+        color: #555;
+        margin-right: 10px;
+    }
+    
+    .total-value {
+        font-size: 18px;
+        font-weight: bold;
+        color: #667eea;
+    }
+    
+    /* 빈 데이터 표시 */
+    .empty-data {
+        text-align: center;
+        padding: 40px;
+        color: #999;
+        font-style: italic;
+    }
+    
+    /* 닫기 버튼 */
+    .close-button {
+        position: fixed;
+        top: calc(var(--header-height) + var(--nav-height) + 10px);
+        right: 20px;
+        background: #ff6b6b;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        z-index: 1000;
+        font-weight: 600;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        transition: all 0.3s;
+    }
+    
+    .close-button:hover {
+        background: #ff5252;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<button class="close-button" onclick="closePdfViewer()">✕ 닫기</button>
+
+<div class="viewer-container">
+    <!-- 좌측: 이미지 표시 영역 -->
+    <div class="image-section">
+        <div class="image-header">
+            <h3 id="fileName">파일명</h3>
+            <div class="page-navigation">
+                <button onclick="previousPage()" id="prevBtn">◀ 이전</button>
+                <span class="page-info">
+                    <span id="currentPage">1</span> / <span id="totalPages">1</span>
+                </span>
+                <button onclick="nextPage()" id="nextBtn">다음 ▶</button>
+            </div>
+        </div>
+        <div class="image-container" id="imageContainer">
+            <div class="zoom-indicator" id="zoomIndicator">100%</div>
+            <div class="zoom-controls">
+                <button onclick="zoomOut()">-</button>
+                <button onclick="resetZoom()">초기화</button>
+                <button onclick="zoomIn()">+</button>
+            </div>
+            <div class="image-wrapper" id="imageWrapper">
+                <div class="loading-spinner" id="imageLoader" style="display: none;">
+                    <div class="spinner"></div>
+                    로딩 중...
+                </div>
+                <img id="pageImage" src="" alt="PDF 페이지 이미지" />
+            </div>
+        </div>
+    </div>
+    
+    <!-- 우측: 라벨 데이터 표시 영역 -->
+    <div class="data-section">
+        <div class="data-header">
+            <h2>라벨 데이터</h2>
+        </div>
+        <div id="labelDataContainer">
+            <!-- 동적으로 생성될 라벨 데이터 -->
+        </div>
+    </div>
+</div>
+
+<script>
+let currentFile = null;
+let currentPageIndex = 0;
+let pdfPages = [];
+let labelData = {};
+
+// 줌 관련 변수
+let zoomLevel = 0; // 0: 100%, 1: 150%, 2: 200%, 3: 300%
+const zoomLevels = [1, 1.5, 2, 3];
+let isDragging = false;
+let dragStartX = 0;
+let dragStartY = 0;
+let scrollStartX = 0;
+let scrollStartY = 0;
+let clickStartTime = 0;
+let hasMoved = false;
+
+// URL 파라미터에서 파일명 가져오기
+window.addEventListener('DOMContentLoaded', async function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const fileName = urlParams.get('file');
+    
+    if (fileName) {
+        await loadPdfFile(fileName);
+    }
+});
+
+// PDF 파일 로드
+async function loadPdfFile(fileName) {
+    currentFile = fileName;
+    document.getElementById('fileName').textContent = fileName;
+    
+    try {
+        // 파일 정보 및 페이지 목록 가져오기
+        const response = await fetch(`/api/pdf_info/${encodeURIComponent(fileName)}`);
+        const data = await response.json();
+        
+        if (data.success) {
+            pdfPages = data.pages;
+            labelData = data.labels;
+            document.getElementById('totalPages').textContent = pdfPages.length;
+            
+            // 첫 페이지 표시
+            await displayPage(0);
+        } else {
+            showError('파일을 불러올 수 없습니다.');
+        }
+    } catch (error) {
+        console.error('Error loading PDF:', error);
+        showError('파일 로드 중 오류가 발생했습니다.');
+    }
+}
+
+// 페이지 표시
+async function displayPage(pageIndex) {
+    if (pageIndex < 0 || pageIndex >= pdfPages.length) return;
+    
+    currentPageIndex = pageIndex;
+    const pageInfo = pdfPages[pageIndex];
+    
+    // 페이지 번호 업데이트
+    document.getElementById('currentPage').textContent = pageIndex + 1;
+    
+    // 네비게이션 버튼 상태 업데이트
+    document.getElementById('prevBtn').disabled = pageIndex === 0;
+    document.getElementById('nextBtn').disabled = pageIndex === pdfPages.length - 1;
+    
+    // 페이지 변경 시 줌 초기화
+    resetZoom();
+    
+    // 이미지 로드
+    const imageLoader = document.getElementById('imageLoader');
+    const pageImage = document.getElementById('pageImage');
+    
+    imageLoader.style.display = 'block';
+    pageImage.style.display = 'none';
+    
+    // 이미지 URL 설정 (실제 경로에 맞게 수정 필요)
+    pageImage.src = `/api/image/${encodeURIComponent(pageInfo.image_path)}`;
+    
+    pageImage.onload = function() {
+        imageLoader.style.display = 'none';
+        pageImage.style.display = 'block';
+    };
+    
+    // 해당 페이지의 라벨 데이터 표시
+    displayLabelData(pageInfo.page_number);
+}
+
+// 라벨 데이터 표시
+function displayLabelData(pageNumber) {
+    const container = document.getElementById('labelDataContainer');
+    const pageLabels = labelData[pageNumber];
+    
+    if (!pageLabels || Object.keys(pageLabels).length === 0) {
+        container.innerHTML = '<div class="empty-data">라벨 데이터가 없습니다.</div>';
+        return;
+    }
+    
+    let html = '';
+    
+    // 1. 주문 정보 섹션
+    html += '<div class="section-title">주문 정보</div>';
+    html += '<table class="data-table">';
+    
+    // ORDER NUMBER
+    if (pageLabels['Order number']) {
+        html += `<tr><th>ORDER NUMBER</th><td>${pageLabels['Order number'] || '-'}</td></tr>`;
+    }
+    
+    // CASE MARK
+    if (pageLabels['Case mark']) {
+        html += `<tr><th>CASE MARK</th><td>${pageLabels['Case mark'] || '-'}</td></tr>`;
+    }
+    
+    // SHIPPING LINE
+    if (pageLabels['Shipping line']) {
+        html += `<tr><th>SHIPPING LINE</th><td>${pageLabels['Shipping line'] || '-'}</td></tr>`;
+    }
+    
+    // WUKERAN
+    if (pageLabels['WUKERAN']) {
+        html += `<tr><th>WUKERAN</th><td>${pageLabels['WUKERAN'] || '-'}</td></tr>`;
+    }
+    
+    html += '</table>';
+    
+    // 2. 아이템 정보 섹션
+    const items = extractItems(pageLabels);
+    if (items.length > 0) {
+        items.forEach((item, index) => {
+            html += `
+            <div class="item-section">
+                <div class="item-header">ITEM_${String(index + 1).padStart(5, '0')}</div>
+                <table class="item-table">
+                    <thead>
+                        <tr>
+                            <th>ITEM NUMBER</th>
+                            <th>PART NUMBER</th>
+                            <th>DELIVERY DATE</th>
+                            <th>QUANTITY</th>
+                            <th>UNIT PRICE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>${item['Item number'] || '-'}</td>
+                            <td>${item['Part number'] || '-'}</td>
+                            <td>${item['Delivery date'] || '-'}</td>
+                            <td>${item['Quantity'] || '-'}</td>
+                            <td>${item['Unit price'] || '-'}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>`;
+        });
+    }
+    
+    // 3. 총액 섹션
+    if (pageLabels['Net amount (total)'] || pageLabels['Net amount']) {
+        const netAmount = pageLabels['Net amount (total)'] || pageLabels['Net amount'];
+        html += `
+        <div class="total-section">
+            <span class="total-label">NET AMOUNT (TOTAL):</span>
+            <span class="total-value">${netAmount}</span>
+        </div>`;
+    }
+    
+    container.innerHTML = html;
+}
+
+// 아이템 정보 추출
+function extractItems(labels) {
+    const items = [];
+    
+    // 단일 아이템인 경우 (번호 없음)
+    if (labels['Item number']) {
+        items.push({
+            'Item number': labels['Item number'],
+            'Part number': labels['Part number'] || '-',
+            'Delivery date': labels['Delivery date'] || '-',
+            'Quantity': labels['Quantity'] || '-',
+            'Unit price': labels['Unit price'] || '-'
+        });
+    }
+    
+    // 여러 아이템인 경우 (번호 있음)
+    const itemNumbers = [];
+    Object.keys(labels).forEach(key => {
+        if (key.startsWith('Item number_')) {
+            const match = key.match(/Item number_(\d+)/);
+            if (match) {
+                itemNumbers.push(parseInt(match[1]));
+            }
+        }
+    });
+    
+    // 각 아이템 정보 수집
+    itemNumbers.sort((a, b) => a - b).forEach(num => {
+        const item = {
+            'Item number': labels[`Item number_${num}`],
+            'Part number': labels[`Part number_${num}`] || '-',
+            'Delivery date': labels[`Delivery date_${num}`] || '-',
+            'Quantity': labels[`Quantity_${num}`] || '-',
+            'Unit price': labels[`Unit price_${num}`] || '-'
+        };
+        items.push(item);
+    });
+    
+    return items;
+}
+
+// 이전 페이지
+function previousPage() {
+    if (currentPageIndex > 0) {
+        displayPage(currentPageIndex - 1);
+    }
+}
+
+// 다음 페이지
+function nextPage() {
+    if (currentPageIndex < pdfPages.length - 1) {
+        displayPage(currentPageIndex + 1);
+    }
+}
+
+// PDF 뷰어 닫기
+function closePdfViewer() {
+    window.history.back();
+}
+
+// 에러 표시
+function showError(message) {
+    const container = document.getElementById('labelDataContainer');
+    container.innerHTML = `<div class="empty-data" style="color: red;">${message}</div>`;
+}
+
+// 줌 기능
+function updateZoom() {
+    const img = document.getElementById('pageImage');
+    const container = document.getElementById('imageContainer');
+    const wrapper = document.getElementById('imageWrapper');
+    const indicator = document.getElementById('zoomIndicator');
+    
+    const scale = zoomLevels[zoomLevel];
+    indicator.textContent = `${Math.round(scale * 100)}%`;
+    
+    // transform으로 확대/축소
+    img.style.transform = `scale(${scale})`;
+    
+    // 줌 레벨에 따라 컨테이너 설정
+    if (zoomLevel === 0) {
+        img.style.cursor = 'zoom-in';
+        img.className = '';
+        container.style.overflow = 'hidden';
+        wrapper.style.width = '100%';
+        wrapper.style.height = '100%';
+    } else {
+        img.className = 'zoomed';
+        img.style.cursor = 'grab';
+        container.style.overflow = 'auto';
+        
+        // wrapper 크기를 확대된 이미지 크기에 맞춤
+        // 이미지의 실제 표시 크기 계산
+        const imgWidth = img.offsetWidth * scale;
+        const imgHeight = img.offsetHeight * scale;
+        
+        // wrapper를 확대된 크기로 설정
+        wrapper.style.width = `${imgWidth}px`;
+        wrapper.style.height = `${imgHeight}px`;
+        
+        // 중앙으로 스크롤
+        setTimeout(() => {
+            const scrollLeft = (container.scrollWidth - container.clientWidth) / 2;
+            const scrollTop = (container.scrollHeight - container.clientHeight) / 2;
+            container.scrollLeft = scrollLeft;
+            container.scrollTop = scrollTop;
+        }, 300);
+    }
+}
+
+function zoomIn() {
+    if (zoomLevel < zoomLevels.length - 1) {
+        zoomLevel++;
+        updateZoom();
+    }
+}
+
+function zoomOut() {
+    if (zoomLevel > 0) {
+        zoomLevel--;
+        updateZoom();
+    }
+}
+
+function resetZoom() {
+    zoomLevel = 0;
+    updateZoom();
+    // 스크롤 위치도 초기화
+    const container = document.getElementById('imageContainer');
+    container.scrollTop = 0;
+    container.scrollLeft = 0;
+}
+
+// 이미지 클릭으로 줌 토글
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('imageContainer');
+    const wrapper = document.getElementById('imageWrapper');
+    const img = document.getElementById('pageImage');
+    
+    // 이미지 클릭으로 줌 (드래그와 구분)
+    img.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // 드래그했으면 클릭 무시
+        if (hasMoved) {
+            hasMoved = false;
+            return;
+        }
+        
+        // 줌 레벨 순환
+        if (zoomLevel < zoomLevels.length - 1) {
+            zoomLevel++;
+        } else {
+            zoomLevel = 0;
+        }
+        updateZoom();
+    });
+    
+    // 마우스 드래그로 이미지 이동 (확대된 상태에서만)
+    img.addEventListener('mousedown', function(e) {
+        if (zoomLevel === 0) return;
+        
+        // 왼쪽 마우스 버튼으로 드래그
+        if (e.button === 0) { // 왼쪽 버튼
+            e.preventDefault();
+            e.stopPropagation();
+            isDragging = true;
+            hasMoved = false;
+            dragStartX = e.clientX;
+            dragStartY = e.clientY;
+            scrollStartX = container.scrollLeft;
+            scrollStartY = container.scrollTop;
+            img.style.cursor = 'grabbing';
+            clickStartTime = Date.now();
+        }
+    });
+    
+    document.addEventListener('mousemove', function(e) {
+        if (!isDragging) return;
+        
+        e.preventDefault();
+        const deltaX = dragStartX - e.clientX;
+        const deltaY = dragStartY - e.clientY;
+        
+        // 최소 이동 거리를 체크하여 드래그인지 클릭인지 구분
+        if (Math.abs(deltaX) > 5 || Math.abs(deltaY) > 5) {
+            hasMoved = true;
+        }
+        
+        if (hasMoved) {
+            container.scrollLeft = scrollStartX + deltaX;
+            container.scrollTop = scrollStartY + deltaY;
+        }
+    });
+    
+    document.addEventListener('mouseup', function(e) {
+        if (isDragging) {
+            isDragging = false;
+            if (zoomLevel > 0) {
+                img.style.cursor = 'grab';
+            }
+            
+            // 짧은 시간 내의 클릭인지 체크
+            const clickDuration = Date.now() - clickStartTime;
+            if (clickDuration < 200 && !hasMoved) {
+                // 클릭으로 처리
+                hasMoved = false;
+            }
+        }
+    });
+    
+    // 마우스가 뷰어를 벗어났을 때 드래그 중지
+    document.addEventListener('mouseleave', function(e) {
+        if (isDragging) {
+            isDragging = false;
+            if (zoomLevel > 0) {
+                img.style.cursor = 'grab';
+            }
+        }
+    });
+});
+</script>
+{% endblock %}

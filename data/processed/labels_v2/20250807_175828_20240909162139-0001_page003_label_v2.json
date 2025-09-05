@@ -403,6 +403,48 @@
         "corrected_value": "Total 36.90",
         "was_corrected": false
       }
+    },
+    {
+      "entity_id": "ent_010",
+      "bbox": {
+        "x": 1202,
+        "y": 1272.6875,
+        "width": 658,
+        "height": 122
+      },
+      "text": {
+        "value": "SPEC/MAKER/USE BY",
+        "confidence": 0.695,
+        "alternatives": []
+      },
+      "label": {
+        "primary": "WUKERAN",
+        "confidence": 0.9,
+        "alternatives": []
+      },
+      "features": {
+        "position": {
+          "x_normalized": 0.4846774193548387,
+          "y_normalized": 0.3627957525655644,
+          "region": "",
+          "quadrant": ""
+        },
+        "text_properties": {},
+        "visual_properties": {},
+        "semantic_properties": {}
+      },
+      "relationships": [],
+      "context": {},
+      "validation": {
+        "is_valid": true,
+        "validation_rules": []
+      },
+      "ocr_results": {
+        "tesseract_raw": "SPBC/MAKER/USE BY",
+        "tesseract_confidence": 0.695,
+        "corrected_value": "SPEC/MAKER/USE BY",
+        "was_corrected": true
+      }
     }
   ],
   "groups": [
@@ -428,17 +470,17 @@
     "expected_fields": []
   },
   "quality_metrics": {
-    "overall_confidence": 0.7864814814814814,
+    "overall_confidence": 0.7773333333333333,
     "completeness": 0.0,
     "consistency": 0.0,
     "ocr_quality": {
-      "average_confidence": 0.7864814814814814,
+      "average_confidence": 0.7773333333333333,
       "low_confidence_entities": [],
       "failed_regions": []
     }
   },
   "processing_info": {
-    "processed_at": "2025-09-03T12:26:35.596890",
+    "processed_at": "2025-09-05T17:12:52.310491",
     "processing_time_ms": 0,
     "annotator": "human_with_ocr_assist",
     "review_status": "in_progress",

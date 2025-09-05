@@ -1,0 +1,241 @@
+{
+  "filename": "20250808_110606_20240924163117-0001.pdf",
+  "filepath": "20250808_110606_20240924163117-0001.pdf",
+  "pageNumber": 11,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "item_00001",
+      "y_position": 106.6875,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512253878",
+          "bbox": [
+            2176,
+            106.6875,
+            198,
+            42
+          ]
+        }
+      ],
+      "item_number": "4512253878"
+    },
+    {
+      "group_id": "item_00002",
+      "y_position": 1312.6875,
+      "labels": [
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            144,
+            1318.6875,
+            174,
+            56
+          ]
+        },
+        {
+          "label": "Case mark",
+          "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
+          "bbox": [
+            316,
+            1312.6875,
+            582,
+            58
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00003",
+      "y_position": 1724.6875,
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            118,
+            1724.6875,
+            116,
+            48
+          ]
+        },
+        {
+          "label": "Part number",
+          "text": "A1328WF",
+          "bbox": [
+            264,
+            1726.6875,
+            180,
+            42
+          ]
+        }
+      ],
+      "item_number": "00010"
+    },
+    {
+      "group_id": "item_00004",
+      "y_position": 1820.6875,
+      "labels": [
+        {
+          "label": "Delivery date",
+          "text": "11-01-2024",
+          "bbox": [
+            590,
+            1822.6875,
+            202,
+            54
+          ]
+        },
+        {
+          "label": "Quantity",
+          "text": "1.000 ST",
+          "bbox": [
+            1052,
+            1820.6875,
+            194,
+            74
+          ]
+        },
+        {
+          "label": "Unit price",
+          "text": "1.3000",
+          "bbox": [
+            1698,
+            1826.6875,
+            128,
+            76
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "item_00005",
+      "y_position": 2134.6875,
+      "labels": [
+        {
+          "label": "Net amount (total)",
+          "text": "Total 1.30",
+          "bbox": [
+            1318,
+            2134.6875,
+            1076,
+            64
+          ]
+        }
+      ]
+    }
+  ],
+  "total_groups": 5,
+  "bboxes": [
+    {
+      "x": 2176,
+      "y": 106.6875,
+      "width": 198,
+      "height": 42,
+      "label": "Order number",
+      "text": "4512253878",
+      "group_id": "item_00001",
+      "ocr_original": "4512253878.",
+      "ocr_confidence": 0.94,
+      "was_corrected": true
+    },
+    {
+      "x": 316,
+      "y": 1312.6875,
+      "width": 582,
+      "height": 58,
+      "label": "Case mark",
+      "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
+      "group_id": "item_00002",
+      "ocr_original": "ISHIKAWA EXT:731-48177LOC:K70-4",
+      "ocr_confidence": 0.9,
+      "was_corrected": false
+    },
+    {
+      "x": 144,
+      "y": 1318.6875,
+      "width": 174,
+      "height": 56,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "item_00002",
+      "ocr_original": "C5800002",
+      "ocr_confidence": 0.86,
+      "was_corrected": false
+    },
+    {
+      "x": 118,
+      "y": 1724.6875,
+      "width": 116,
+      "height": 48,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "item_00003",
+      "ocr_original": "00010",
+      "ocr_confidence": 0.95,
+      "was_corrected": false
+    },
+    {
+      "x": 264,
+      "y": 1726.6875,
+      "width": 180,
+      "height": 42,
+      "label": "Part number",
+      "text": "A1328WF",
+      "group_id": "item_00003",
+      "ocr_original": "A1328WF",
+      "ocr_confidence": 0.88,
+      "was_corrected": false
+    },
+    {
+      "x": 590,
+      "y": 1822.6875,
+      "width": 202,
+      "height": 54,
+      "label": "Delivery date",
+      "text": "11-01-2024",
+      "group_id": "item_00004",
+      "ocr_original": "11-01-2024",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1052,
+      "y": 1820.6875,
+      "width": 194,
+      "height": 74,
+      "label": "Quantity",
+      "text": "1.000 ST",
+      "group_id": "item_00004",
+      "ocr_original": "1.000 ST",
+      "ocr_confidence": 0.945,
+      "was_corrected": false
+    },
+    {
+      "x": 1698,
+      "y": 1826.6875,
+      "width": 128,
+      "height": 76,
+      "label": "Unit price",
+      "text": "1.3000",
+      "group_id": "item_00004",
+      "ocr_original": "1.3000",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1318,
+      "y": 2134.6875,
+      "width": 1076,
+      "height": 64,
+      "label": "Net amount (total)",
+      "text": "Total 1.30",
+      "group_id": "item_00005",
+      "ocr_original": "lene ALP\n\nTotal\nora mt 0 04\n\n1.30",
+      "ocr_confidence": 0.48625,
+      "was_corrected": true
+    }
+  ]
+}

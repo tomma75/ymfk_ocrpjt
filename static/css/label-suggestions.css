@@ -6,9 +6,14 @@
     border-radius: 8px;
     padding: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    min-width: 200px;
-    max-width: 300px;
+    /* 화면 배율에 따라 크기 조정 */
+    min-width: calc(200px / var(--zoom-scale, 1));
+    max-width: calc(300px / var(--zoom-scale, 1));
+    /* 폰트 크기도 배율에 따라 조정 */
+    font-size: calc(14px / var(--zoom-scale, 1));
     z-index: 10000;
+    /* 변환 기준점 설정 */
+    transform-origin: top left;
 }
 
 .suggestions-header {
@@ -17,17 +22,22 @@
     color: #333;
     border-bottom: 1px solid #e0e0e0;
     padding-bottom: 5px;
+    /* 화면 배율에 따라 폰트 크기 조정 */
+    font-size: calc(16px / var(--zoom-scale, 1));
 }
 
 .suggestion-item {
     display: flex;
     justify-content: space-between;
-    padding: 8px;
-    margin: 4px 0;
+    /* 화면 배율에 따라 패딩 조정 */
+    padding: calc(8px / var(--zoom-scale, 1));
+    margin: calc(4px / var(--zoom-scale, 1)) 0;
     background: #f5f5f5;
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s;
+    /* 화면 배율에 따라 폰트 크기 조정 */
+    font-size: calc(14px / var(--zoom-scale, 1));
 }
 
 .suggestion-item:hover {
@@ -44,8 +54,9 @@
     font-size: 0.9em;
     color: #666;
     background: #fff;
-    padding: 2px 6px;
-    border-radius: 12px;
+    /* 화면 배율에 따라 패딩 조정 */
+    padding: calc(2px / var(--zoom-scale, 1)) calc(6px / var(--zoom-scale, 1));
+    border-radius: calc(12px / var(--zoom-scale, 1));
 }
 
 /* 높은 신뢰도 강조 */

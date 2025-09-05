@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %}대시보드 - YOKOGAWA OCR System{% endblock %}
+{% block title %}관리자페이지 - YOKOGAWA OCR System{% endblock %}
 
 {% block extra_styles %}
 <style>
-    /* 대시보드 전용 스타일 */
+    /* 관리자페이지 전용 스타일 */
     .status-section {
         margin-bottom: 30px;
     }
@@ -198,7 +198,8 @@
 
 <!-- 메인 컨텐츠 그리드 -->
 <div class="dashboard-grid">
-    <!-- 왼쪽: 파이프라인 실행 섹션 -->
+    {% if is_admin %}
+    <!-- 왼쪽: 파이프라인 실행 섹션 (관리자만 표시) -->
     <div class="pipeline-section">
         <h2>파이프라인 실행</h2>
         <div class="button-group">
@@ -219,7 +220,7 @@
             </button>
         </div>
         
-        <!-- PO 분류 모델 학습 섹션 -->
+        <!-- PO 분류 모델 학습 섹션 (관리자만 표시) -->
         <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd;">
             <h3 style="font-size: 16px; margin-bottom: 15px;">🧠 모델 학습</h3>
             <div class="button-group">
@@ -312,8 +313,25 @@
             <p id="progressText" style="margin-top: 10px;"></p>
         </div>
     </div>
+    {% else %}
+    <!-- 관리자가 아닌 경우 안내 메시지 -->
+    <div class="pipeline-section">
+        <div style="padding: 40px; text-align: center;">
+            <h3 style="color: #666; margin-bottom: 20px;">📋 일반 사용자 대시보드</h3>
+            <p style="color: #888; line-height: 1.6;">
+                파일 업로드 및 라벨링 기능을 사용하실 수 있습니다.<br>
+                관리자 기능(파이프라인 실행, 모델 학습)은 MGR 권한이 필요합니다.
+            </p>
+            <div style="margin-top: 30px;">
+                <a href="/upload" class="btn btn-primary" style="margin: 0 10px;">
+                    <span>📤</span> 파일 업로드
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
     
-    <!-- 오른쪽: 파일 목록 섹션 -->
+    <!-- 오른쪽: 파일 목록 섹션 (모든 사용자 표시) -->
     <div class="files-section">
         <h2>수집된 파일</h2>
         
@@ -460,6 +478,7 @@ async function refreshFiles() {
 // 파일 목록 표시
 function displayFiles(files) {
     const fileList = document.getElementById('fileList');
+    const isAdmin = {{ is_admin|tojson }};  // Python boolean을 JavaScript로 전달
     
     if (files.length === 0) {
         fileList.innerHTML = '<p>파일이 없습니다.</p>';
@@ -471,26 +490,34 @@ function displayFiles(files) {
         const progressPercent = file.split_count > 0 ? 
             Math.round((file.label_count / file.split_count) * 100) : 0;
         
+        // 삭제 버튼 HTML 생성
+        const deleteButton = isAdmin ? 
+            `<button class="btn btn-danger" onclick="deleteFile('${file.path}')">
+                삭제
+            </button>` : 
+            `<button class="btn btn-danger" disabled title="MGR 권한이 필요합니다" style="opacity: 0.5; cursor: not-allowed;">
+                삭제
+            </button>`;
+        
         return `
-        <div class="file-item" data-status="${file.status || 'pending'}">
+        <div class="file-item" data-status="${file.status || 'pending'}" ondblclick="openPdfViewer('${file.name}')" style="cursor: pointer;">
             <div style="flex: 1;">
                 <div class="file-name">${file.name}</div>
                 <div style="margin-top: 5px; font-size: 0.85rem; color: #666;">
                     <span>📄 페이지: ${file.split_count}</span> | 
                     <span>🏷️ 라벨: ${file.label_count}</span> | 
                     <span>진행률: ${progressPercent}%</span>
+                    <span style="margin-left: 10px; color: #999; font-style: italic;">더블클릭하여 보기</span>
                 </div>
             </div>
             <div class="file-actions">
                 <span class="file-status status-${file.status || 'pending'}">
                     ${getStatusText(file.status)}
                 </span>
-                <button class="btn btn-secondary" onclick="editFile('${file.name}')">
+                <button class="btn btn-secondary" onclick="event.stopPropagation(); editFile('${file.name}')">
                     편집
                 </button>
-                <button class="btn btn-danger" onclick="deleteFile('${file.path}')">
-                    삭제
-                </button>
+                ${deleteButton.replace('onclick="', 'onclick="event.stopPropagation(); ')}
             </div>
         </div>
     `}).join('');
@@ -512,8 +539,22 @@ function editFile(filename) {
     window.location.href = `/labeling?file=${encodeURIComponent(filename)}`;
 }
 
+// PDF 뷰어 열기 (더블클릭 시)
+function openPdfViewer(filename) {
+    // PDF 뷰어 페이지로 이동
+    window.location.href = `/pdf_viewer?file=${encodeURIComponent(filename)}`;
+}
+
 // 파일 삭제
 async function deleteFile(filepath) {
+    const isAdmin = {{ is_admin|tojson }};
+    
+    // 관리자 권한 확인
+    if (!isAdmin) {
+        showAlert('파일 삭제는 MGR 권한이 필요합니다.', 'error');
+        return;
+    }
+    
     const filename = filepath.split(/[\\\/]/).pop();
     if (!confirm(`정말 "${filename}" 파일을 삭제하시겠습니까?`)) {
         return;

@@ -536,6 +536,17 @@ function startDrawing() {
     document.getElementById('drawBtn').textContent = '🔴 그리기 중...';
     document.getElementById('imageContainer').style.cursor = 'crosshair';
     
+    // 스마트 라벨 추천 오버레이 제거
+    if (typeof clearSmartLabelOverlays === 'function') {
+        clearSmartLabelOverlays();
+    }
+    
+    // 라벨 추천 팝업 제거
+    const existingPopup = document.querySelector('.label-suggestions-popup');
+    if (existingPopup) {
+        existingPopup.remove();
+    }
+    
     const container = document.getElementById('imageContainer');
     container.onmousedown = handleMouseDown;
     container.onmousemove = handleMouseMove;
@@ -863,17 +874,57 @@ function showLabelSuggestions(suggestions, bboxId) {
         existingPopup.remove();
     }
     
+    // bbox 찾기
+    const bbox = bboxData.find(b => b.id === parseInt(bboxId));
+    const extractedText = bbox ? (bbox.text || bbox.ocr_original || '') : '';
+    const displayText = extractedText.length > 30 ? 
+        extractedText.substring(0, 30) + '...' : extractedText;
+    
+    // 현재 줌 레벨 가져오기 (CSS 변수에서 읽기)
+    const zoomScale = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--zoom-scale')) || 1;
+    
     // 새 추천 팝업 생성
     const popup = document.createElement('div');
     popup.className = 'label-suggestions-popup';
-    popup.innerHTML = `
-        <div class="suggestions-header">추천 라벨:</div>
-        ${suggestions.map(s => `
-            <div class="suggestion-item" onclick="applyLabelSuggestion('${bboxId}', '${s.label}')">
+    popup.style.setProperty('--zoom-scale', zoomScale);
+    
+    // HTML 생성
+    const suggestionsHtml = suggestions.map(s => {
+        const labelEscaped = s.label.replace(/'/g, "\\'");
+        return `
+            <div class="suggestion-item" onclick="applyLabelSuggestion('${bboxId}', '${labelEscaped}')">
                 <span class="label-name">${s.label}</span>
                 <span class="confidence">${Math.round(s.confidence * 100)}%</span>
             </div>
-        `).join('')}
+        `;
+    }).join('');
+    
+    // extractedText를 HTML 엔티티로 이스케이프
+    const extractedTextEscaped = extractedText
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    
+    popup.innerHTML = `
+        <div class="suggestions-header">추천 라벨:</div>
+        ${suggestionsHtml}
+        <div style="margin-top: calc(12px / var(--zoom-scale, 1)); padding-top: calc(8px / var(--zoom-scale, 1)); border-top: 1px solid #eee;">
+            <div style="font-size: calc(12px / var(--zoom-scale, 1)); color: #999; margin-bottom: calc(4px / var(--zoom-scale, 1));">추출된 텍스트 (편집 가능):</div>
+            <textarea id="ocr-text-edit-${bboxId}" 
+                style="
+                    width: 100%; 
+                    min-height: calc(60px / var(--zoom-scale, 1)); 
+                    font-size: calc(14px / var(--zoom-scale, 1)); 
+                    padding: calc(4px / var(--zoom-scale, 1));
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    resize: vertical;
+                    font-family: inherit;
+                ">${extractedTextEscaped}</textarea>
+            ${extractedText.length > 30 ? `<div style="font-size: calc(10px / var(--zoom-scale, 1)); color: #666; margin-top: calc(2px / var(--zoom-scale, 1));">전체: ${extractedText.length}자</div>` : ''}
+        </div>
     `;
     
     // bbox 요소 근처에 팝업 배치
@@ -886,12 +937,62 @@ function showLabelSuggestions(suggestions, bboxId) {
         popup.style.zIndex = '10000';
         document.body.appendChild(popup);
         
-        // 3초 후 자동 제거
+        // 텍스트 영역에 이벤트 리스너 추가
+        const textArea = document.getElementById(`ocr-text-edit-${bboxId}`);
+        if (textArea) {
+            // blur 이벤트 리스너 추가
+            textArea.addEventListener('blur', function() {
+                updateBboxText(bboxId, this.value);
+            });
+            
+            // Enter 키 핸들링
+            textArea.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter' && !event.shiftKey) {
+                    event.preventDefault();
+                    this.blur();
+                }
+            });
+            
+            textArea.focus();
+            textArea.select();
+        }
+        
+        // 30초 후 자동 제거
         setTimeout(() => {
             if (popup.parentNode) {
                 popup.remove();
             }
-        }, 3000);
+        }, 30000);
+    }
+}
+
+/**
+ * bbox의 텍스트 업데이트 (원본 OCR은 보존)
+ */
+function updateBboxText(bboxId, newText) {
+    const bbox = bboxData.find(b => b.id === parseInt(bboxId));
+    if (bbox) {
+        // ocr_original은 절대 수정하지 않음 (학습용 데이터)
+        // text 필드만 업데이트
+        bbox.text = newText.trim();
+        
+        // 수정 여부 표시
+        if (bbox.ocr_original && bbox.text !== bbox.ocr_original) {
+            bbox.was_corrected = true;
+        } else {
+            bbox.was_corrected = false;
+        }
+        
+        // UI 업데이트
+        updateBoundingBoxList();
+        
+        // 현재 선택된 bbox라면 입력 필드도 업데이트
+        if (selectedBboxId === parseInt(bboxId)) {
+            const textInput = document.getElementById('textInput');
+            if (textInput) {
+                textInput.value = newText.trim();
+            }
+        }
     }
 }
 

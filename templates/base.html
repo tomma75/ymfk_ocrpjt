@@ -44,6 +44,14 @@
             right: 0;
             z-index: 1000;
             height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-content {
+            flex: 1;
+            text-align: center;
         }
 
         .header h1 {
@@ -56,6 +64,43 @@
         .header p {
             font-size: 14px;
             opacity: 0.9;
+        }
+        
+        /* 사용자 정보 및 로그아웃 스타일 */
+        .user-info {
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .user-name {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .logout-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .logout-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
         /* 네비게이션 스타일 */
@@ -279,6 +324,286 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* 커서 세트 1 - 햄스터 */
+        body.cursor-set-1,
+        body.cursor-set-1 * {
+            cursor: url('/static/images/cursors1/햄스터_일반.cur'), auto !important;
+        }
+        body.cursor-set-1 a,
+        body.cursor-set-1 button,
+        body.cursor-set-1 .nav-tab,
+        body.cursor-set-1 .btn {
+            cursor: url('/static/images/cursors1/햄스터_연결.cur'), pointer !important;
+        }
+        body.cursor-set-1 a:hover,
+        body.cursor-set-1 button:hover {
+            cursor: url('/static/images/cursors1/햄스터_사용.cur'), pointer !important;
+        }
+        body.cursor-set-1 input[type="text"],
+        body.cursor-set-1 textarea {
+            cursor: url('/static/images/cursors1/햄스터_텍스트.cur'), text !important;
+        }
+        body.cursor-set-1 input[type="text"]:focus,
+        body.cursor-set-1 textarea:focus {
+            cursor: url('/static/images/cursors1/햄스터_필기.cur'), text !important;
+        }
+        body.cursor-set-1 .draggable {
+            cursor: url('/static/images/cursors1/햄스터_이동선택.cur'), move !important;
+        }
+        body.cursor-set-1 .loading {
+            cursor: url('/static/images/cursors1/햄스터_백그라운드.cur'), wait !important;
+        }
+        body.cursor-set-1 [disabled] {
+            cursor: url('/static/images/cursors1/햄스터_사용불가.cur'), not-allowed !important;
+        }
+        body.cursor-set-1 #imageContainer.drawing {
+            cursor: url('/static/images/cursors1/햄스터_정밀도.cur'), crosshair !important;
+        }
+
+        /* 커서 세트 2 - 고양이 */
+        body.cursor-set-2,
+        body.cursor-set-2 * {
+            cursor: url('/static/images/cursors2/고양이_사용자.cur'), auto !important;
+        }
+        body.cursor-set-2 a,
+        body.cursor-set-2 button,
+        body.cursor-set-2 .nav-tab,
+        body.cursor-set-2 .btn {
+            cursor: url('/static/images/cursors2/고양이_위치.cur'), pointer !important;
+        }
+        body.cursor-set-2 a:hover,
+        body.cursor-set-2 button:hover {
+            cursor: url('/static/images/cursors2/사용.cur'), pointer !important;
+        }
+        body.cursor-set-2 input[type="text"],
+        body.cursor-set-2 textarea {
+            cursor: url('/static/images/cursors2/고양이_텍스트수정.cur'), text !important;
+        }
+        body.cursor-set-2 .draggable {
+            cursor: url('/static/images/cursors2/고양이_이동선택.cur'), move !important;
+        }
+        body.cursor-set-2 .loading {
+            cursor: url('/static/images/cursors2/고양이_백그라운드.cur'), wait !important;
+        }
+        body.cursor-set-2 [disabled] {
+            cursor: url('/static/images/cursors2/사용불가.cur'), not-allowed !important;
+        }
+        body.cursor-set-2 #imageContainer.drawing {
+            cursor: url('/static/images/cursors2/고양이_정밀선택.cur'), crosshair !important;
+        }
+
+        /* 커서 세트 3 - 고등어 */
+        body.cursor-set-3,
+        body.cursor-set-3 * {
+            cursor: url('/static/images/cursors3/고등어_일반.cur'), auto !important;
+        }
+        body.cursor-set-3 a,
+        body.cursor-set-3 button,
+        body.cursor-set-3 .nav-tab,
+        body.cursor-set-3 .btn {
+            cursor: url('/static/images/cursors3/고등어_연결.cur'), pointer !important;
+        }
+        body.cursor-set-3 input[type="text"],
+        body.cursor-set-3 textarea,
+        body.cursor-set-3 input[type="text"]:focus,
+        body.cursor-set-3 textarea:focus {
+            cursor: url('/static/images/cursors3/고등어_필기.cur'), text !important;
+        }
+
+        /* 커서 세트 4 - 깜냥 */
+        body.cursor-set-4,
+        body.cursor-set-4 * {
+            cursor: url('/static/images/cursors4/깜냥_일반.cur'), auto !important;
+        }
+        body.cursor-set-4 a,
+        body.cursor-set-4 button,
+        body.cursor-set-4 .nav-tab,
+        body.cursor-set-4 .btn {
+            cursor: url('/static/images/cursors4/깜냥_연결.cur'), pointer !important;
+        }
+        body.cursor-set-4 a:hover,
+        body.cursor-set-4 button:hover {
+            cursor: url('/static/images/cursors4/깜냥_위치.cur'), pointer !important;
+        }
+        body.cursor-set-4 input[type="text"],
+        body.cursor-set-4 textarea,
+        body.cursor-set-4 input[type="text"]:focus,
+        body.cursor-set-4 textarea:focus {
+            cursor: url('/static/images/cursors4/깜냥_필기.cur'), text !important;
+        }
+        body.cursor-set-4 #imageContainer {
+            cursor: url('/static/images/cursors4/깜냥_사용자.cur'), default !important;
+        }
+
+        /* 고양이 발 폭죽 효과 */
+        @keyframes pawFirework {
+            0% {
+                transform: translate(-50%, -50%) scale(0) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.5) rotate(180deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(2.5) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .paw-firework {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            pointer-events: none;
+            z-index: 99999;
+            animation: pawFirework 0.6s ease-out forwards;
+        }
+
+        .paw-particle {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            pointer-events: none;
+            z-index: 99998;
+        }
+
+        @keyframes particleFly1 {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            100% { transform: translate(calc(-50% + 80px), calc(-50% - 100px)) scale(0.3); opacity: 0; }
+        }
+        @keyframes particleFly2 {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            100% { transform: translate(calc(-50% - 90px), calc(-50% - 90px)) scale(0.3); opacity: 0; }
+        }
+        @keyframes particleFly3 {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            100% { transform: translate(calc(-50% - 100px), calc(-50% + 70px)) scale(0.3); opacity: 0; }
+        }
+        @keyframes particleFly4 {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            100% { transform: translate(calc(-50% + 70px), calc(-50% + 100px)) scale(0.3); opacity: 0; }
+        }
+        @keyframes particleFly5 {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            100% { transform: translate(calc(-50% + 120px), calc(-50%)) scale(0.3); opacity: 0; }
+        }
+        @keyframes particleFly6 {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            100% { transform: translate(calc(-50% - 120px), calc(-50%)) scale(0.3); opacity: 0; }
+        }
+
+        /* 걷는 검은 고양이 스타일 */
+        .walking-cat {
+            position: fixed;
+            width: 60px;
+            height: 40px;
+            z-index: 99999;
+            pointer-events: none;
+            transition: none;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+
+        /* 고양이 걷기 애니메이션 */
+        @keyframes catWalk {
+            0%, 100% { transform: translateY(0px); }
+            25% { transform: translateY(-3px); }
+            50% { transform: translateY(0px); }
+            75% { transform: translateY(-3px); }
+        }
+
+        .walking-cat.walking {
+            animation: catWalk 0.5s infinite;
+        }
+
+        /* 화면 가장자리 이동 경로 */
+        @keyframes walkAroundScreen {
+            /* 시작: 왼쪽 벽 중간 */
+            0% { 
+                left: 10px; 
+                top: 50%;
+                transform: rotate(90deg);  /* 머리가 위를 향함 (양수로 변경) */
+            }
+            
+            /* 왼쪽 벽 (위로 이동) */
+            10% { 
+                left: 10px; 
+                top: 10px;
+                transform: rotate(90deg);  /* 머리가 위를 향함 유지 */
+            }
+            
+            /* 왼쪽 위 모서리 - 회전 완료 */
+            12.5% {
+                left: 10px;
+                top: 10px;
+                transform: rotate(-180deg);  /* 시계방향 90도 회전하여 머리가 오른쪽으로 */
+            }
+            
+            /* 상단 벽 (오른쪽으로 이동) */
+            25% { 
+                left: 50%; 
+                top: 10px;
+                transform: rotate(-180deg);  /* 머리가 오른쪽, 발이 위 */
+            }
+            37.5% { 
+                left: calc(100% - 70px); 
+                top: 10px;
+                transform: rotate(-180deg);
+            }
+            
+            /* 오른쪽 위 모서리 - 시계방향 회전 */
+            40% {
+                left: calc(100% - 70px);
+                top: 10px;
+                transform: rotate(270deg);  /* 머리가 아래로, 다리가 오른쪽 벽에 */
+            }
+            
+            /* 오른쪽 벽 (아래로 이동) */
+            50% { 
+                left: calc(100% - 70px); 
+                top: 50%;
+                transform: rotate(270deg);  /* 머리가 아래, 다리가 오른쪽 벽에 (양수로 변경) */
+            }
+            60% { 
+                left: calc(100% - 70px); 
+                top: calc(100% - 50px);
+                transform: rotate(270deg);
+            }
+            
+            /* 오른쪽 아래 모서리 - 시계방향 회전 */
+            62.5% {
+                left: calc(100% - 70px);
+                top: calc(100% - 50px);
+                transform: rotate(-360deg);  /* 시계방향 90도 회전하여 머리가 왼쪽으로 */
+            }
+            
+            /* 하단 벽 (왼쪽으로 이동) */
+            75% { 
+                left: 50%; 
+                top: calc(100% - 50px);
+                transform: rotate(-360deg);  /* 머리가 왼쪽 */
+            }
+            87.5% { 
+                left: 10px; 
+                top: calc(100% - 50px);
+                transform: rotate(-360deg);
+            }
+            
+            /* 왼쪽 아래 모서리 - 시계방향 회전 */
+            90% {
+                left: 10px;
+                top: calc(100% - 50px);
+                transform: rotate(-450deg);  /* 시계방향 90도 회전하여 머리가 위로 */
+            }
+            
+            /* 다시 왼쪽 벽 중간으로 */
+            100% { 
+                left: 10px; 
+                top: 50%;
+                transform: rotate(90deg);  /* 90 (같은 각도) */
+            }
+        }
+
         /* 반응형 디자인 */
         @media (max-width: 768px) {
             .nav-tabs {
@@ -307,24 +632,34 @@
     <div id="toastContainer"></div>
     
     <header class="header">
-        <h1>YOKOGAWA OCR Data Preparation System</h1>
-        <p>구매 발주서 데이터 추출 및 라벨링 시스템</p>
+        <div class="header-content">
+            <h1>YOKOGAWA OCR Data Preparation System</h1>
+            <p>구매 발주서 데이터 추출 및 라벨링 시스템</p>
+        </div>
+        {% if user_name %}
+        <div class="user-info">
+            <span class="user-name">{{ user_name }}님</span>
+            <a href="/logout" class="logout-btn">로그아웃</a>
+        </div>
+        {% endif %}
     </header>
 
     <nav class="nav-container">
         <div class="nav-tabs">
-            <a href="/" class="nav-tab {% if active_page == 'dashboard' %}active{% endif %}">
-                대시보드
+            <a href="/dashboard" class="nav-tab {% if active_page == 'dashboard' %}active{% endif %}">
+                {% if is_admin %}관리자페이지{% else %}대시보드{% endif %}
             </a>
             <a href="/upload" class="nav-tab {% if active_page == 'upload' %}active{% endif %}">
                 파일 업로드
             </a>
             <a href="/labeling" class="nav-tab {% if active_page == 'labeling' %}active{% endif %}">
-                라벨링 편집
+                라벨링
             </a>
+            {% if is_admin %}
             <a href="/statistics" class="nav-tab {% if active_page == 'statistics' %}active{% endif %}">
                 통계
             </a>
+            {% endif %}
         </div>
     </nav>
 
@@ -334,6 +669,355 @@
 
     <!-- 공통 JavaScript -->
     <script>
+        // 동물 커서 이스터 에그
+        (function() {
+            let zeroKeyPresses = [];
+            const CURSOR_MODE_KEY = 'animalCursorMode';
+            const CURSOR_SET_KEY = 'animalCursorSet';
+            const WALKING_CAT_KEY = 'walkingCatActive';
+            const WALKING_CAT_TIME_KEY = 'walkingCatStartTime';
+            const animalNames = ['🐹 햄스터', '🐱 고양이', '🐟 고등어', '🐾 깜냥'];
+            
+            // 페이지 로드 시 저장된 상태 확인
+            const savedMode = sessionStorage.getItem(CURSOR_MODE_KEY);
+            const savedSet = sessionStorage.getItem(CURSOR_SET_KEY);
+            const savedCat = sessionStorage.getItem(WALKING_CAT_KEY);
+            const savedCatTime = sessionStorage.getItem(WALKING_CAT_TIME_KEY);
+            
+            if (savedMode === 'true' && savedSet) {
+                document.body.classList.add('cursor-set-' + savedSet);
+            }
+            
+            // 저장된 걷는 고양이가 있으면 재생성
+            if (savedCat === 'true' && savedCatTime) {
+                const startTime = parseInt(savedCatTime);
+                const elapsedTime = Date.now() - startTime;
+                const remainingTime = 6000000 - elapsedTime; // 100분 - 경과시간
+                
+                if (remainingTime > 0) {
+                    // 남은 시간이 있으면 고양이 재생성
+                    setTimeout(() => {
+                        restoreWalkingCat(elapsedTime);
+                    }, 100); // 페이지 로드 직후 실행
+                } else {
+                    // 시간이 다 지났으면 상태 제거
+                    sessionStorage.removeItem(WALKING_CAT_KEY);
+                    sessionStorage.removeItem(WALKING_CAT_TIME_KEY);
+                }
+            }
+            
+            // 기존 커서 클래스 모두 제거
+            function removeAllCursorClasses() {
+                for (let i = 1; i <= 4; i++) {
+                    document.body.classList.remove('cursor-set-' + i);
+                }
+            }
+            
+            // 키 입력 감지
+            document.addEventListener('keydown', function(event) {
+                // 숫자 0 키 또는 넘패드 0 키 확인
+                if (event.key === '0' || event.code === 'Digit0' || event.code === 'Numpad0') {
+                    const now = Date.now();
+                    
+                    // 현재 시간 기록
+                    zeroKeyPresses.push(now);
+                    
+                    // 1초 이상 오래된 기록 제거
+                    zeroKeyPresses = zeroKeyPresses.filter(time => now - time < 1000);
+                    
+                    // 1초 내에 7번 이상 눌렸는지 확인
+                    if (zeroKeyPresses.length >= 7) {
+                        // 현재 활성화된 커서가 없을 때만 실행
+                        const isActive = sessionStorage.getItem(CURSOR_MODE_KEY) === 'true';
+                        
+                        if (!isActive) {
+                            // 1~4 중 랜덤 선택
+                            const randomSet = Math.floor(Math.random() * 4) + 1;
+                            const animalName = animalNames[randomSet - 1];
+                            
+                            // 기존 클래스 제거 후 새 클래스 추가
+                            removeAllCursorClasses();
+                            document.body.classList.add('cursor-set-' + randomSet);
+                            
+                            // sessionStorage에 저장
+                            sessionStorage.setItem(CURSOR_MODE_KEY, 'true');
+                            sessionStorage.setItem(CURSOR_SET_KEY, randomSet);
+                            
+                            // 귀여운 알림 표시
+                            showAlert(`${animalName} 모드가 활성화되었습니다!`, 'success', 5000);
+                            
+                            // 콘솔에 이스터 에그 메시지
+                            const colors = [
+                                'background: linear-gradient(90deg, #FFD700, #FFA500)',  // 햄스터 - 금색
+                                'background: linear-gradient(90deg, #FFB6C1, #FFA0C9)',  // 고양이 - 분홍
+                                'background: linear-gradient(90deg, #87CEEB, #4682B4)',  // 고등어 - 파랑
+                                'background: linear-gradient(90deg, #2F4F4F, #708090)'   // 깜냥 - 검정회색
+                            ];
+                            console.log(`%c${animalName} 모드 활성화! 🎉`, 
+                                colors[randomSet - 1] + '; color: white; padding: 10px 20px; font-size: 16px; border-radius: 10px; font-weight: bold;');
+                        }
+                        
+                        // 카운터 리셋
+                        zeroKeyPresses = [];
+                    }
+                }
+                
+                // ESC 키로 동물 모드 및 검은 고양이 해제
+                if (event.key === 'Escape') {
+                    const isActive = sessionStorage.getItem(CURSOR_MODE_KEY) === 'true';
+                    const catActive = sessionStorage.getItem(WALKING_CAT_KEY) === 'true';
+                    
+                    if (isActive || catActive) {
+                        // 커서 모드 해제
+                        if (isActive) {
+                            removeAllCursorClasses();
+                            sessionStorage.removeItem(CURSOR_MODE_KEY);
+                            sessionStorage.removeItem(CURSOR_SET_KEY);
+                        }
+                        
+                        // 검은 고양이 제거
+                        if (catActive) {
+                            const walkingCat = document.querySelector('.walking-cat');
+                            if (walkingCat) {
+                                walkingCat.style.opacity = '0';
+                                walkingCat.style.transition = 'opacity 0.5s';
+                                setTimeout(() => walkingCat.remove(), 500);
+                            }
+                            sessionStorage.removeItem(WALKING_CAT_KEY);
+                            sessionStorage.removeItem(WALKING_CAT_TIME_KEY);
+                        }
+                        
+                        // 메시지 표시
+                        if (isActive && catActive) {
+                            showAlert('동물 커서 모드와 검은 고양이가 해제되었습니다', 'info');
+                        } else if (isActive) {
+                            showAlert('동물 커서 모드가 해제되었습니다', 'info');
+                        } else {
+                            showAlert('검은 고양이가 사라졌습니다', 'info');
+                        }
+                    }
+                }
+            });
+            
+            // 클릭 시 5% 확률로 고양이 발 폭죽 효과
+            document.addEventListener('click', function(event) {
+                // 이스터에그가 활성화되어 있는지 확인
+                const isActive = sessionStorage.getItem(CURSOR_MODE_KEY) === 'true';
+                
+                if (isActive && Math.random() < 0.05) {  // 5% 확률
+                    // 메인 폭죽 이미지
+                    const mainPaw = document.createElement('img');
+                    mainPaw.src = '/static/images/gif/cat foot.png';
+                    mainPaw.className = 'paw-firework';
+                    mainPaw.style.left = event.clientX + 'px';
+                    mainPaw.style.top = event.clientY + 'px';
+                    document.body.appendChild(mainPaw);
+                    
+                    // 작은 파티클들 생성 (6개)
+                    for (let i = 1; i <= 6; i++) {
+                        setTimeout(() => {
+                            const particle = document.createElement('img');
+                            particle.src = '/static/images/gif/cat foot.png';
+                            particle.className = 'paw-particle';
+                            particle.style.left = event.clientX + 'px';
+                            particle.style.top = event.clientY + 'px';
+                            particle.style.animation = `particleFly${i} 0.8s ease-out forwards`;
+                            document.body.appendChild(particle);
+                            
+                            // 애니메이션 끝나면 제거
+                            setTimeout(() => particle.remove(), 800);
+                        }, i * 50);  // 순차적으로 나타나도록
+                    }
+                    
+                    // 메인 이미지 제거
+                    setTimeout(() => mainPaw.remove(), 600);
+                    
+                    // 귀여운 사운드 효과
+                    console.log('✨🐾 뿅! 🐾✨');
+                    
+                    // SVG 검은 고양이 생성
+                    createWalkingCat();
+                }
+            });
+        })();
+        
+        // SVG로 검은 고양이 생성
+        function createWalkingCat() {
+            // 이미 고양이가 있으면 생성하지 않음
+            if (document.querySelector('.walking-cat')) return;
+            
+            // sessionStorage에 고양이 상태 저장
+            const WALKING_CAT_KEY = 'walkingCatActive';
+            const WALKING_CAT_TIME_KEY = 'walkingCatStartTime';
+            sessionStorage.setItem(WALKING_CAT_KEY, 'true');
+            sessionStorage.setItem(WALKING_CAT_TIME_KEY, Date.now().toString());
+            
+            const catContainer = document.createElement('div');
+            catContainer.className = 'walking-cat walking';
+            catContainer.style.animation = 'walkAroundScreen 60s linear infinite';
+            
+            // SVG 고양이 생성
+            const svgCat = `
+                <svg width="60" height="40" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 몸통 -->
+                    <ellipse cx="30" cy="25" rx="18" ry="12" fill="#1a1a1a"/>
+                    
+                    <!-- 머리 -->
+                    <circle cx="15" cy="20" r="10" fill="#1a1a1a"/>
+                    
+                    <!-- 귀 -->
+                    <path d="M 8,15 L 10,10 L 13,13 Z" fill="#1a1a1a"/>
+                    <path d="M 17,13 L 20,10 L 22,15 Z" fill="#1a1a1a"/>
+                    
+                    <!-- 꼬리 -->
+                    <path d="M 45,25 Q 55,15 50,5" stroke="#1a1a1a" stroke-width="6" fill="none" stroke-linecap="round"/>
+                    
+                    <!-- 다리 (걷는 애니메이션용) -->
+                    <g class="cat-legs">
+                        <rect x="12" y="30" width="3" height="8" rx="1" fill="#1a1a1a">
+                            <animate attributeName="y" values="30;28;30;28;30" dur="0.5s" repeatCount="indefinite"/>
+                        </rect>
+                        <rect x="18" y="28" width="3" height="10" rx="1" fill="#1a1a1a">
+                            <animate attributeName="y" values="28;30;28;30;28" dur="0.5s" repeatCount="indefinite"/>
+                        </rect>
+                        <rect x="35" y="30" width="3" height="8" rx="1" fill="#1a1a1a">
+                            <animate attributeName="y" values="30;28;30;28;30" dur="0.5s" repeatCount="indefinite"/>
+                        </rect>
+                        <rect x="41" y="28" width="3" height="10" rx="1" fill="#1a1a1a">
+                            <animate attributeName="y" values="28;30;28;30;28" dur="0.5s" repeatCount="indefinite"/>
+                        </rect>
+                    </g>
+                    
+                    <!-- 눈 (노란색) -->
+                    <circle cx="11" cy="18" r="2" fill="#FFD700">
+                        <animate attributeName="r" values="2;1.5;2" dur="3s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="19" cy="18" r="2" fill="#FFD700">
+                        <animate attributeName="r" values="2;1.5;2" dur="3s" repeatCount="indefinite"/>
+                    </circle>
+                    
+                    <!-- 동공 -->
+                    <circle cx="11" cy="18" r="1" fill="#000"/>
+                    <circle cx="19" cy="18" r="1" fill="#000"/>
+                    
+                    <!-- 수염 -->
+                    <line x1="5" y1="20" x2="0" y2="19" stroke="#333" stroke-width="0.5"/>
+                    <line x1="5" y1="22" x2="0" y2="23" stroke="#333" stroke-width="0.5"/>
+                    <line x1="25" y1="20" x2="30" y2="19" stroke="#333" stroke-width="0.5"/>
+                    <line x1="25" y1="22" x2="30" y2="23" stroke="#333" stroke-width="0.5"/>
+                </svg>
+            `;
+            
+            catContainer.innerHTML = svgCat;
+            document.body.appendChild(catContainer);
+            
+            // 특별 메시지
+            showAlert('🐈‍⬛ 검은 고양이가 나타났습니다! 행운을 빕니다! 🍀', 'info', 5000);
+            console.log('%c🐈‍⬛ 신비로운 검은 고양이가 화면을 순찰하기 시작했습니다...', 
+                'background: linear-gradient(90deg, #1a1a1a, #333); color: #FFD700; padding: 10px 20px; font-size: 14px; border-radius: 10px;');
+            
+            // 100분 후 자동 제거
+            setTimeout(() => {
+                if (catContainer.parentNode) {
+                    catContainer.style.opacity = '0';
+                    catContainer.style.transition = 'opacity 1s';
+                    setTimeout(() => {
+                        catContainer.remove();
+                        // sessionStorage에서 고양이 상태 제거
+                        sessionStorage.removeItem(WALKING_CAT_KEY);
+                        sessionStorage.removeItem(WALKING_CAT_TIME_KEY);
+                    }, 1000);
+                }
+            }, 6000000);
+        }
+        
+        // 페이지 이동 후 고양이 복원
+        function restoreWalkingCat(elapsedTime) {
+            // 이미 고양이가 있으면 생성하지 않음
+            if (document.querySelector('.walking-cat')) return;
+            
+            const catContainer = document.createElement('div');
+            catContainer.className = 'walking-cat walking';
+            
+            // 경과 시간을 반영하여 애니메이션 시작 지점 조정
+            const animationDuration = 60; // 60초
+            const totalDuration = 6000000; // 100분
+            const animationProgress = (elapsedTime / 1000) % animationDuration;
+            
+            catContainer.style.animation = `walkAroundScreen ${animationDuration}s linear infinite`;
+            catContainer.style.animationDelay = `-${animationProgress}s`;
+            
+            // SVG 고양이 생성 (동일한 SVG 코드)
+            const svgCat = `
+                <svg width="60" height="40" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 몸통 -->
+                    <ellipse cx="30" cy="25" rx="18" ry="12" fill="#1a1a1a"/>
+                    
+                    <!-- 머리 -->
+                    <circle cx="15" cy="20" r="10" fill="#1a1a1a"/>
+                    
+                    <!-- 귀 -->
+                    <path d="M 8,15 L 10,10 L 13,13 Z" fill="#1a1a1a"/>
+                    <path d="M 17,13 L 20,10 L 22,15 Z" fill="#1a1a1a"/>
+                    
+                    <!-- 꼬리 -->
+                    <path d="M 45,25 Q 55,15 50,5" stroke="#1a1a1a" stroke-width="6" fill="none" stroke-linecap="round"/>
+                    
+                    <!-- 다리 (걷는 애니메이션용) -->
+                    <g class="cat-legs">
+                        <rect x="12" y="30" width="3" height="8" rx="1" fill="#1a1a1a">
+                            <animate attributeName="y" values="30;28;30;28;30" dur="0.5s" repeatCount="indefinite"/>
+                        </rect>
+                        <rect x="18" y="28" width="3" height="10" rx="1" fill="#1a1a1a">
+                            <animate attributeName="y" values="28;30;28;30;28" dur="0.5s" repeatCount="indefinite"/>
+                        </rect>
+                        <rect x="35" y="30" width="3" height="8" rx="1" fill="#1a1a1a">
+                            <animate attributeName="y" values="30;28;30;28;30" dur="0.5s" repeatCount="indefinite"/>
+                        </rect>
+                        <rect x="41" y="28" width="3" height="10" rx="1" fill="#1a1a1a">
+                            <animate attributeName="y" values="28;30;28;30;28" dur="0.5s" repeatCount="indefinite"/>
+                        </rect>
+                    </g>
+                    
+                    <!-- 눈 (노란색) -->
+                    <circle cx="11" cy="18" r="2" fill="#FFD700">
+                        <animate attributeName="r" values="2;1.5;2" dur="3s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="19" cy="18" r="2" fill="#FFD700">
+                        <animate attributeName="r" values="2;1.5;2" dur="3s" repeatCount="indefinite"/>
+                    </circle>
+                    
+                    <!-- 동공 -->
+                    <circle cx="11" cy="18" r="1" fill="#000"/>
+                    <circle cx="19" cy="18" r="1" fill="#000"/>
+                    
+                    <!-- 수염 -->
+                    <line x1="5" y1="20" x2="0" y2="19" stroke="#333" stroke-width="0.5"/>
+                    <line x1="5" y1="22" x2="0" y2="23" stroke="#333" stroke-width="0.5"/>
+                    <line x1="25" y1="20" x2="30" y2="19" stroke="#333" stroke-width="0.5"/>
+                    <line x1="25" y1="22" x2="30" y2="23" stroke="#333" stroke-width="0.5"/>
+                </svg>
+            `;
+            
+            catContainer.innerHTML = svgCat;
+            document.body.appendChild(catContainer);
+            
+            // 남은 시간 계산하여 제거 타이머 설정
+            const remainingTime = 6000000 - elapsedTime;
+            setTimeout(() => {
+                if (catContainer.parentNode) {
+                    catContainer.style.opacity = '0';
+                    catContainer.style.transition = 'opacity 1s';
+                    setTimeout(() => {
+                        catContainer.remove();
+                        // sessionStorage에서 고양이 상태 제거
+                        sessionStorage.removeItem(WALKING_CAT_KEY);
+                        sessionStorage.removeItem(WALKING_CAT_TIME_KEY);
+                    }, 1000);
+                }
+            }, remainingTime);
+        }
+        
         // 토스트 알림 표시 함수
         function showAlert(message, type = 'info', duration = 3000) {
             const toastContainer = document.getElementById('toastContainer');

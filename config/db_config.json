@@ -1,0 +1,7 @@
+{
+  "NEURON_USER": "sap",
+  "NEURON_PASSWORD": "schema",
+  "NEURON_HOST": "10.36.15.42",
+  "NEURON_PORT": 1521,
+  "NEURON_SERVICE_NAME": "neuron"
+}

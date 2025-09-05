@@ -1,0 +1,273 @@
+{
+  "filename": "20250808_110606_20240924163117-0001.pdf",
+  "filepath": "20250808_110606_20240924163117-0001.pdf",
+  "pageNumber": 3,
+  "class": "purchase_order",
+  "items": [
+    {
+      "group_id": "-",
+      "y_position": 103,
+      "labels": [
+        {
+          "label": "Order number",
+          "text": "4512253679",
+          "bbox": [
+            2170,
+            103,
+            198,
+            46
+          ],
+          "ocr_original": "4512253679",
+          "ocr_confidence": 0.94,
+          "was_corrected": false
+        },
+        {
+          "label": "Case mark",
+          "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
+          "bbox": [
+            310,
+            1314.6875,
+            600,
+            54
+          ],
+          "ocr_original": "ISHIKAWA EXT:731-48177LOC:K70-4",
+          "ocr_confidence": 0.875,
+          "was_corrected": false
+        },
+        {
+          "label": "Shipping line",
+          "text": "C5800002",
+          "bbox": [
+            140,
+            1314.6875,
+            172,
+            58
+          ],
+          "ocr_original": "C5800002",
+          "ocr_confidence": 0.75,
+          "was_corrected": false
+        },
+        {
+          "label": "Net amount (total)",
+          "text": "Total 10.40",
+          "bbox": [
+            1316,
+            2134.6875,
+            1060,
+            52
+          ],
+          "ocr_original": "Total SRE, 10.40",
+          "ocr_confidence": 0.7833333333333333,
+          "was_corrected": true
+        }
+      ]
+    },
+    {
+      "group_id": "ITEM_00010",
+      "y_position": 1724.6875,
+      "labels": [
+        {
+          "label": "Item number",
+          "text": "00010",
+          "bbox": [
+            106,
+            1724.6875,
+            124,
+            50
+          ],
+          "ocr_original": "00010",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        },
+        {
+          "label": "Part number",
+          "text": "B9319GC",
+          "bbox": [
+            274,
+            1726.6875,
+            168,
+            38
+          ],
+          "ocr_original": "B9319GC",
+          "ocr_confidence": 0.84,
+          "was_corrected": false
+        },
+        {
+          "label": "Delivery date",
+          "text": "11-01-2024",
+          "bbox": [
+            582,
+            1826.6875,
+            204,
+            50
+          ],
+          "ocr_original": "11-01-2024",
+          "ocr_confidence": 0.35,
+          "was_corrected": false
+        },
+        {
+          "label": "Quantity",
+          "text": "1.000 ST",
+          "bbox": [
+            1052,
+            1826.6875,
+            182,
+            58
+          ],
+          "ocr_original": "1.000 ST",
+          "ocr_confidence": 0.955,
+          "was_corrected": false
+        },
+        {
+          "label": "Unit price",
+          "text": "10.4000",
+          "bbox": [
+            1686,
+            1828.6875,
+            154,
+            54
+          ],
+          "ocr_original": "40.4000",
+          "ocr_confidence": 0.95,
+          "was_corrected": true
+        },
+        {
+          "label": "Net amount",
+          "text": "10.40",
+          "bbox": [
+            2208,
+            1826.6875,
+            102,
+            64
+          ],
+          "ocr_original": "10.40",
+          "ocr_confidence": 0.96,
+          "was_corrected": false
+        }
+      ]
+    }
+  ],
+  "total_groups": 2,
+  "bboxes": [
+    {
+      "x": 2170,
+      "y": 103,
+      "width": 198,
+      "height": 46,
+      "label": "Order number",
+      "text": "4512253679",
+      "group_id": "-",
+      "ocr_original": "4512253679",
+      "ocr_confidence": 0.94,
+      "was_corrected": false
+    },
+    {
+      "x": 310,
+      "y": 1314.6875,
+      "width": 600,
+      "height": 54,
+      "label": "Case mark",
+      "text": "ISHIKAWA EXT:731-48177LOC:K70-4",
+      "group_id": "-",
+      "ocr_original": "ISHIKAWA EXT:731-48177LOC:K70-4",
+      "ocr_confidence": 0.875,
+      "was_corrected": false
+    },
+    {
+      "x": 140,
+      "y": 1314.6875,
+      "width": 172,
+      "height": 58,
+      "label": "Shipping line",
+      "text": "C5800002",
+      "group_id": "-",
+      "ocr_original": "C5800002",
+      "ocr_confidence": 0.75,
+      "was_corrected": false
+    },
+    {
+      "x": 106,
+      "y": 1724.6875,
+      "width": 124,
+      "height": 50,
+      "label": "Item number",
+      "text": "00010",
+      "group_id": "ITEM_00010",
+      "ocr_original": "00010",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 274,
+      "y": 1726.6875,
+      "width": 168,
+      "height": 38,
+      "label": "Part number",
+      "text": "B9319GC",
+      "group_id": "ITEM_00010",
+      "ocr_original": "B9319GC",
+      "ocr_confidence": 0.84,
+      "was_corrected": false
+    },
+    {
+      "x": 582,
+      "y": 1826.6875,
+      "width": 204,
+      "height": 50,
+      "label": "Delivery date",
+      "text": "11-01-2024",
+      "group_id": "ITEM_00010",
+      "ocr_original": "11-01-2024",
+      "ocr_confidence": 0.35,
+      "was_corrected": false
+    },
+    {
+      "x": 1052,
+      "y": 1826.6875,
+      "width": 182,
+      "height": 58,
+      "label": "Quantity",
+      "text": "1.000 ST",
+      "group_id": "ITEM_00010",
+      "ocr_original": "1.000 ST",
+      "ocr_confidence": 0.955,
+      "was_corrected": false
+    },
+    {
+      "x": 1686,
+      "y": 1828.6875,
+      "width": 154,
+      "height": 54,
+      "label": "Unit price",
+      "text": "10.4000",
+      "group_id": "ITEM_00010",
+      "ocr_original": "40.4000",
+      "ocr_confidence": 0.95,
+      "was_corrected": true
+    },
+    {
+      "x": 2208,
+      "y": 1826.6875,
+      "width": 102,
+      "height": 64,
+      "label": "Net amount",
+      "text": "10.40",
+      "group_id": "ITEM_00010",
+      "ocr_original": "10.40",
+      "ocr_confidence": 0.96,
+      "was_corrected": false
+    },
+    {
+      "x": 1316,
+      "y": 2134.6875,
+      "width": 1060,
+      "height": 52,
+      "label": "Net amount (total)",
+      "text": "Total 10.40",
+      "group_id": "-",
+      "ocr_original": "Total SRE, 10.40",
+      "ocr_confidence": 0.7833333333333333,
+      "was_corrected": true
+    }
+  ]
+}
